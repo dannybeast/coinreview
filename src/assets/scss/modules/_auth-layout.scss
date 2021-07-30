@@ -1,0 +1,240 @@
+.auth-form {
+    max-width: 960px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    padding-top: 30px;
+
+    @include sm-block() {
+        margin-bottom: 30px;
+        margin-left: $fields_sm;
+        margin-right: $fields_sm;
+        flex-wrap: wrap;
+        padding-top: 0;
+        padding-bottom: 30px;
+    }
+    @include xs-block() {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    &:before {
+        z-index: 2;
+    }
+    &__title {
+        color: $primary-color;
+        font-size: rem(48px);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+        @include sm-block() {
+            margin-bottom: 25px;
+            font-size: rem(42px);
+        }
+    }
+
+    .field {
+        margin-bottom: 30px;
+        input {
+            font-weight: 700;
+        }
+        &_full-width {
+            flex-grow: 1;
+        }
+    }
+
+    &__content {
+        background: #fff;
+        border: solid 1px #cdcffd;
+        box-shadow: 0px 16px 29.12px 2.88px rgba(80, 97, 178, 0.22);
+        flex-grow: 1;
+        border-radius: rem(55px);
+        padding: rem(50px) rem(70px) rem(60px);
+        position: relative;
+
+        @include md-block() {
+            padding: rem(60px) rem(40px);
+        }
+        &_angle {
+            margin-bottom: 60px;
+            padding: rem(60px) rem(80px) 0;
+            @include sm-block() {
+                padding: rem(60px) rem(40px) 0;
+            }
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                height: 60px;
+                width: calc(100% - 60px);
+                background: #fff;
+                left: 0;
+                top: 100%;
+            }
+            &:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 60px 60px 0 0;
+                border-color: #fff transparent transparent transparent;
+                position: absolute;
+                right: 0;
+                top: 100%;
+            }
+        }
+    }
+
+    &__row {
+        @include row-flex();
+        & > .checkbox {
+            @include col();
+            @include size(12);
+        }
+        & > .field {
+            @include col();
+            @include size(4);
+            @include size-sm(12);
+        }
+    }
+
+    &__bottom {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        &-right {
+            line-height: 1.65;
+            text-align: right;
+            @include sm-block() {
+                text-align: center;
+            }
+        }
+        @include md-block() {
+            font-size: 16px;
+        }
+        @include sm-block() {
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 14px;
+        }
+        a {
+            font-size: 18px;
+        }
+    }
+    .button {
+        font-size: 21px;
+        padding: 0 35px;
+        margin-right: 15px;
+        @include sm-block() {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.auth-layout {
+    background: rgb(0, 53, 59);
+    background: linear-gradient(45deg, rgba(0, 53, 59, 1) 0%, rgba(0, 73, 84, 1) 80%, rgba(0, 87, 101, 1) 100%);
+    &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("../images/figures/polygon-auth1.png") bottom left no-repeat;
+        background-size: contain;
+        pointer-events: none;
+    }
+    &:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("../images/figures/polygon-auth2.png") bottom right no-repeat;
+        background-size: 554px;
+        pointer-events: none;
+    }
+
+    @include layoutBase();
+
+    &__content {
+        width: calc(100% - #{$main-line-width});
+        border-right: solid 30px #004650;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+        @include lg-block() {
+            width: 100%;
+            border: none;
+        }
+    }
+
+    &__header {
+        padding: rem(70px) 0;
+
+        @include sm-block() {
+            padding: rem(40px) 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    &__line {
+        background: #ffffff;
+        border: none;
+    }
+    &__logo {
+        width: 100%;
+        max-width: 180px;
+        margin-right: rem(30px);
+        margin-top: -13px;
+        @include xs-block {
+            max-width: 170px;
+        }
+    }
+    .link {
+        @include sm-block {
+            font-size: 14px;
+            svg {
+                width: 12px;
+                height: 12px;
+                margin-right: 8px;
+            }
+        }
+    }
+
+    .container {
+        padding-left: 5vw;
+        padding-right: 5vw;
+        width: 100%;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        @include md-block() {
+            align-items: flex-start;
+        }
+    }
+}

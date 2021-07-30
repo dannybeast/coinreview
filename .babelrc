@@ -1,0 +1,24 @@
+{
+ "plugins": [
+  "transform-object-assign",
+  "@babel/plugin-proposal-object-rest-spread",
+  "@babel/plugin-proposal-class-properties",
+  "@babel/plugin-transform-arrow-functions",
+  "@babel/plugin-transform-parameters"
+ ],
+ "presets": [
+  [
+   "@babel/preset-env",
+   {
+    "targets": {
+     "chrome": "58",
+     "firefox": "54",
+     "ie": "11",
+     "safari": "10",
+     "opera": "44",
+     "edge": "16"
+    }
+   }
+  ]
+ ]
+}

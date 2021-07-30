@@ -1,0 +1,32 @@
+include ../bemto-master/bemto.pug
+
+include ../utils/mixins
+
+block variables
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    title Asterium - #{title}
+    meta(name="description", content=description)
+    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
+    link(rel="stylesheet" href="assets/css/common.css")
+    link(rel="stylesheet" href="assets/css/app.css")
+    block head
+  body
+    include ../includes/partials/_loader
+    
+    // Main layout
+    +b.MAIN#app.main-layout(class="_profile")
+
+      include ../includes/_header
+      // Begin page
+      block content
+      // End page
+      include ../includes/_footer
+
+    include ../includes/partials/_mobile-menu
+
+    block script

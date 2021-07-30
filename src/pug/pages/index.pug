@@ -1,0 +1,35 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Главная';
+  - var description = '';
+  - var pageName = 'home';
+
+
+block content
+  +b.ARTICLE.page-index
+    
+    +b.SECTION.navigation
+      .container
+        ul
+          li.is-active
+            a(href="#") Home
+          li
+            a(href="#") Account
+          li
+            a(href="#") Add banner
+          li
+            a(href="#") Exchanges
+          li
+            a(href="#") Curencies
+          li
+            a(href="#") History
+
+    +b.SECTION.intro
+      .container
+        
+
+
+block script
+  script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

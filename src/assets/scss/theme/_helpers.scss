@@ -1,0 +1,44 @@
+.text-decoration {
+    text-decoration: underline;
+}
+
+.font-weight-normal {
+    font-weight: 400;
+}
+
+.color-gray {
+    color: $gray-color;
+}
+.color-primary {
+    color: $primary-color;
+}
+.color-accent {
+    color: $accent-color;
+}
+.color-light {
+    color: #beb8b1;
+}
+.hidden-sm {
+    @include sm-block() {
+        display: none;
+    }
+}
+
+.text-right {
+    text-align: right;
+}
+
+.overflow {
+    overflow: hidden;
+}
+
+.font-small {
+    font-size: 12px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+.max-width-1200 {
+    max-width: 1200px;
+}

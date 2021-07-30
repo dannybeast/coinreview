@@ -1,0 +1,64 @@
+@mixin paginateLink() {
+ height: 30px;
+ padding: 0 10px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: #cde3e9;
+ border-radius: 8px;
+ text-decoration: none;
+ font-weight: 700;
+ color: $primary-color;
+ font-size: 13px;
+ &:hover {
+  color: $accent-color;
+ }
+}
+@mixin paginateLinkActive() {
+ background: $accent-color;
+ color: #fff;
+ &:hover {
+  color: #fff;
+ }
+}
+
+.custom-pagination {
+ a {
+  font-weight: 700;
+  color: $primary-color;
+  font-size: 13px;
+  &:hover {
+   color: $accent-color;
+  }
+ }
+ & > a {
+  text-transform: uppercase;
+  vertical-align: middle;
+  &:hover {
+   text-decoration: none;
+  }
+ }
+ li {
+  display: inline-block;
+  vertical-align: middle;
+  &.is-active {
+   a {
+    @include paginateLinkActive();
+   }
+  }
+ }
+ ul {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 rem(60px);
+  &:first-child {
+   margin-left: 0;
+  }
+  &:last-child {
+   margin-right: 0;
+  }
+  a {
+   @include paginateLink();
+  }
+ }
+}

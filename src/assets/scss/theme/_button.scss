@@ -1,0 +1,107 @@
+.button {
+    font-weight: 700;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    line-height: 1;
+    font-family: $main-font;
+    padding: 0 rem(30px);
+    font-weight: 600;
+    background: $gray-color-light;
+    text-decoration: none;
+    color: #000;
+    height: 50px;
+    font-size: rem(22px);
+    border-radius: 30px;
+    white-space: nowrap;
+    position: relative;
+    transition: all 0.1s $animation;
+    $parent: &;
+    @include sm-block() {
+        height: 50px;
+    }
+    &:active {
+        transform: scale(0.95);
+    }
+    input[type="submit"] {
+        display: none;
+    }
+    svg {
+        width: 20px;
+        height: 20px;
+        &:first-child {
+            margin-right: rem(15px);
+        }
+        &:last-child {
+            margin-left: rem(15px);
+        }
+    }
+
+    &__count {
+        color: $primary-color;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    &__inner {
+        justify-content: center;
+    }
+
+    // colors
+
+    &_accent {
+        color: #fff;
+        box-shadow: 0px 3px 41.28px 1.72px rgba(236, 128, 54, 0.47);
+        background: #ed8450;
+        &:hover {
+            color: #fff;
+            background: #fa7e40;
+        }
+    }
+    &_primary {
+        color: #fff;
+        background-image: linear-gradient(0deg, rgb(70, 122, 234) 0%, rgb(117, 161, 255) 100%);
+        box-shadow: 0px 3px 24px 0px rgba(70, 122, 234, 0.47);
+
+        &:hover {
+            color: #fff;
+            background-image: linear-gradient(0deg, rgb(62, 114, 226) 0%, rgb(102, 146, 241) 100%);
+        }
+    }
+    // sizes
+    &_small {
+        font-size: 14px;
+        height: 40px;
+        padding: 0 rem(20px);
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+    &_large {
+        font-size: rem(27px);
+        height: 65px;
+        padding: 0 rem(30px);
+        @include sm-block() {
+            height: 50px;
+            font-size: 18px;
+        }
+        svg {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    // states
+    &:not([disabled]):active {
+        //transform: scale(0.95);
+    }
+    &[disabled] {
+        opacity: 0.3;
+        pointer-events: none;
+        color: #fff;
+    }
+}

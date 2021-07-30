@@ -1,0 +1,30 @@
+extends ../layout/auth
+
+block variables
+  - var title = 'Войти в личный кабинет';
+  - var description = 'Войти в личный кабинет';
+  - var pageName = 'login';
+
+
+block content
+
+  .container
+    +b.FORM.auth-form
+      +e.H1.title Войти в личный кабинет
+      +e.content
+
+        +b.field(class="_error")
+          label Номер телефона
+          input(type="text" value="" name="phone" class="js-phone-mask")
+        
+        +b.field
+          label Пароль
+          input(type="password" value="" name="password")
+
+        +e.bottom
+          +b.BUTTON(class="button _primary _shadow") Войти в кабинет
+          a(href="forgot.html") Восстановить пароль
+
+block script
+  script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

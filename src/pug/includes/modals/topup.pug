@@ -1,0 +1,30 @@
+// Top up modal
+#topup.modal
+  +b.modal-inner
+    +e.close.js-close-modal
+      +icon('cross')
+    +e.content
+      form
+        +b.modal-header
+          +b.H3.modal-title Пополнение
+
+        .modal-content
+          
+          +b.modal-form
+            +e.row
+              +e.col-6
+                +b.field(class="_currency _text-large")
+                  label Введите сумму пополнения:
+                  +e.wrapper
+                    +e.SPAN.currency WEC
+                    input(type="number" value="23.4242" min="0" step="0.001" name="amount")
+              +e.col-6
+                +b.field
+                  label Платежная система:
+                  +b.LABEL.select
+                    select(name="payment_system")
+                      option WEC
+
+        +b.modal-footer
+          +b.BUTTON.button(class="_primary-polygon") 
+            +e.inner Пополнить

@@ -1,0 +1,411 @@
+$time: 400ms;
+$ease: cubic-bezier(0.6, 0.2, 0.1, 1);
+
+@mixin animation($animate...) {
+ $max: length($animate);
+ $animations: "";
+
+ @for $i from 1 through $max {
+  $animations: #{$animations + nth($animate, $i)};
+
+  @if $i < $max {
+   $animations: #{$animations + ", "};
+  }
+ }
+
+ animation: $animations;
+}
+
+@mixin keyframes($animationName) {
+ @-webkit-keyframes #{$animationName} {
+  @content;
+ }
+
+ @-moz-keyframes #{$animationName} {
+  @content;
+ }
+
+ @-o-keyframes #{$animationName} {
+  @content;
+ }
+
+ @keyframes #{$animationName} {
+  @content;
+ }
+}
+
+@include keyframes(fadeIn) {
+ 0% {
+  opacity: 0;
+ }
+
+ 100% {
+  opacity: 1;
+ }
+}
+
+@include keyframes(fadeOut) {
+ 0% {
+  opacity: 1;
+ }
+
+ 100% {
+  opacity: 0;
+ }
+}
+
+@mixin transition($val...) {
+ -webkit-transition: $val;
+ -moz-transition: $val;
+ -ms-transition: $val;
+ -o-transition: $val;
+ transition: $val;
+}
+
+@mixin transform($val...) {
+ -webkit-transform: $val;
+ -moz-transform: $val;
+ -ms-transform: $val;
+ -o-transform: $val;
+ transform: $val;
+}
+
+.modal-body {
+ position: relative;
+ overflow: hidden;
+ main {
+  overflow: hidden;
+  overflow-y: scroll;
+ }
+ &:before {
+  position: fixed;
+  display: block;
+  content: "";
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 999999;
+  background: rgba(#edf5f6, 0.98);
+
+  @include animation(fadeIn $time $ease);
+  @include transition(opacity $ease $time);
+ }
+
+ &.modal-fadeOut {
+  &:before {
+   opacity: 0;
+  }
+ }
+}
+
+.modal {
+ --offset-x: 70px;
+ @include notebook-block() {
+  --offset-x: 40px;
+ }
+ @include sm-block() {
+  --offset-x: 30px;
+ }
+
+ &::-webkit-scrollbar {
+  display: none;
+ }
+
+ @include transition(all $ease 0.01s);
+ display: none;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+ flex-flow: row wrap;
+ opacity: 0;
+ height: 0;
+ position: fixed;
+
+ content: "";
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 999999;
+ overflow: hidden;
+ overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
+ min-height: 100vh;
+ visibility: hidden;
+ padding-top: 70px;
+ padding-bottom: 70px;
+ &.modals-is-loaded {
+  display: flex;
+ }
+ @include sm-block() {
+  padding: 15px 0;
+ }
+ &.modal-visible {
+  opacity: 1;
+  height: auto;
+  visibility: visible;
+  bottom: 0;
+ }
+}
+
+// custom
+.modal-title {
+ font-size: rem(45px);
+ font-weight: 500;
+ color: #1a535c;
+
+ @include sm-block() {
+  font-size: 30px;
+ }
+}
+
+.modal-inner {
+ @include transition(all ease-in 0.2s);
+ @include transform(scale(0.95));
+ position: relative;
+ display: inline-block;
+ width: 90%;
+ max-width: 830px;
+ opacity: 0;
+ background: #fff;
+ margin-bottom: 60px;
+ $parent: &;
+
+ &:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: calc(100% - 70px);
+  background: #fff;
+  left: 0;
+  top: 100%;
+  border-left: solid 10px #004049;
+  border-bottom: solid 10px #004049;
+  @include sm-block() {
+   border-left-width: 5px;
+   border-bottom-width: 5px;
+   height: 55px;
+   width: calc(100% - 65px);
+  }
+ }
+ &:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-color: #fff #0000 #0000;
+  border-style: solid;
+  border-width: 60px 60px 0 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+ }
+
+ &.modal-reveal {
+  @include transform(scale(1));
+  opacity: 1;
+ }
+
+ &__close {
+  transition: color 320ms ease;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 100%;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+  svg {
+   width: 30px;
+   height: 30px;
+   fill: #1a535c;
+  }
+
+  @include sm-block() {
+   right: 10px;
+   top: 10px;
+
+   svg {
+    width: 20px;
+    height: 20px;
+    fill: #000;
+   }
+  }
+
+  &:hover {
+   svg {
+    fill: $accent-color;
+   }
+  }
+ }
+
+ .typography {
+  max-width: 80%;
+  text-align: justify;
+  @include md-block() {
+   max-width: 100%;
+  }
+ }
+
+ &__content {
+  border: 2px solid #dceaec;
+  position: relative;
+  overflow: hidden;
+  border-left: solid 10px #004049;
+  border-bottom: none;
+  @include sm-block() {
+   border-left-width: 5px;
+  }
+ }
+
+ &_primary {
+  background: #004049;
+  color: #fff;
+  #{$parent}__close {
+   svg {
+    fill: $accent-color;
+    @include sm-block() {
+     fill: #fff;
+    }
+   }
+  }
+  #{$parent}__content {
+   border-color: #004049;
+   &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    background: svg-load(
+     "../icons/ok-radius.svg",
+     fill=#1a535c,
+     stroke=#1a535c
+    );
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(30%, -30%);
+    z-index: -1;
+   }
+  }
+
+  &:before {
+   background: #004049;
+  }
+  &:after {
+   border-color: #004049 #0000 #0000;
+  }
+
+  .modal-title {
+   color: #fff;
+  }
+ }
+ &_warning {
+  background: #ee4e00;
+  color: #fff;
+
+  #{$parent}__close {
+   svg {
+    fill: $accent-color;
+    @include sm-block() {
+     fill: #fff;
+    }
+   }
+  }
+  #{$parent}__content {
+   border-color: #ee4e00;
+   &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 250px;
+    background: svg-load(
+     "../icons/cross-radius.svg",
+     fill=#d64600,
+     stroke=#d64600
+    );
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(30%, -30%);
+    z-index: -1;
+   }
+  }
+  &:before {
+   background: #ee4e00;
+   border-color: #ee4e00;
+  }
+  &:after {
+   border-color: #ee4e00 #0000 #0000;
+  }
+
+  .modal-title {
+   color: #fff;
+  }
+ }
+}
+
+.modal-header {
+ padding: rem(50px) var(--offset-x) rem(30px);
+}
+
+.modal-content {
+ padding: rem(0px) var(--offset-x);
+}
+
+.modal-footer {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ padding: rem(40px) var(--offset-x) 0;
+ margin-right: -15px;
+ margin-bottom: -15px;
+ & > * {
+  margin: 0 15px 15px 0;
+ }
+ .button {
+  &__inner {
+   @include sm-block() {
+    padding: 0 10px;
+   }
+  }
+  @include sm-block() {
+   font-size: 16px;
+  }
+  @include xs-block() {
+   font-size: 14px;
+  }
+ }
+}
+
+.modal-form {
+ $space: 50px;
+ .field {
+  label {
+   font-size: 14px;
+  }
+ }
+ &__row {
+  @include u-row-flex($space);
+  margin-bottom: -30px;
+  & > * {
+   margin-bottom: 30px;
+  }
+ }
+ &__col-12 {
+  @include u-col($space);
+  @include u-size(12, 12, $space);
+ }
+ &__col-6 {
+  @include u-col($space);
+  @include u-size(6, 12, $space);
+  @include sm-block() {
+   @include u-size(12, 12, $space);
+  }
+ }
+}
+// -

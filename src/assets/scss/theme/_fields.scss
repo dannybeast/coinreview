@@ -1,0 +1,207 @@
+// Field
+$textarea-height: 210px;
+$field-font-size: 16px;
+$field-border-radius: 0;
+
+@mixin inputBase() {
+    border: solid 1px #e8e8e8;
+    height: $field-height;
+    width: 100%;
+    font-size: $field-font-size;
+    border-radius: $field-border-radius;
+    font-family: $main-font;
+    background: #e8e8e8;
+    font-weight: 500;
+    color: #000;
+    border-radius: 12px;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    padding-left: 20px;
+    font-size: 18px;
+
+    @include sm-block() {
+        height: 50px;
+        font-size: 16px;
+    }
+    &::placeholder {
+        color: $primary-color;
+    }
+    &:hover,
+    &:focus {
+        border-color: darken(#e8e8e8, 10%);
+    }
+}
+@keyframes errorInput {
+    0% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-6px);
+    }
+
+    100% {
+        transform: translateX(6px);
+    }
+}
+.field {
+    $parent: &;
+    & > label:not(.select):not(.button):not(.checkbox) {
+        display: flex;
+        align-items: center;
+        font-size: rem(18px);
+        margin-bottom: rem(20px);
+        font-weight: 700;
+    }
+    &.disabled {
+        input {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+    .answer {
+        margin-left: auto;
+    }
+    input,
+    textarea {
+        @include inputBase();
+    }
+
+    & > textarea {
+        min-height: $textarea-height;
+        padding-top: 10px;
+    }
+    &__error-message {
+        margin-top: 5px;
+        color: $accent-color;
+    }
+    &__warning-message {
+        margin-top: 5px;
+        font-size: 14px;
+        color: $accent-color;
+    }
+    &__wrapper {
+        position: relative;
+        margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &_error {
+        label {
+            color: $danger-color;
+        }
+        input,
+        textarea {
+            border-color: $danger-color !important;
+            will-change: transform;
+            background: #ffe8e8;
+            animation: errorInput 0.2s cubic-bezier(0.6, 0.2, 0.1, 1);
+        }
+    }
+    &_disabled {
+        label {
+            color: $gray-color;
+        }
+        #{$parent}__input,
+        #{$parent}__textarea,
+        #{$parent}__select {
+            border-color: $gray-color;
+            color: $gray-color;
+            cursor: not-allowed;
+        }
+    }
+    &_row {
+        display: flex;
+        align-items: center;
+        #{$parent}__label {
+            width: 150px;
+            flex-shrink: 0;
+            margin-bottom: 0;
+            padding-right: 15px;
+            @include sm-block() {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        @include sm-block() {
+            flex-wrap: wrap;
+        }
+    }
+    &_white {
+        input,
+        textarea {
+            background: #fff;
+        }
+    }
+    &_small {
+        #{$parent}__label {
+            font-size: 16px;
+        }
+        input,
+        textarea {
+            height: 40px;
+        }
+    }
+
+    &_date {
+        #{$parent}__wrapper {
+            position: relative;
+            input {
+                padding-right: 35px;
+            }
+            &:after {
+                content: "";
+                background: svg-load("../icons/calendar-date.svg", fill=#99bcc2);
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                right: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.select {
+    position: relative;
+    &:after {
+        content: "";
+        width: 17px;
+        height: 10px;
+        display: block;
+        background-image: svg-load("../icons/down-arrow.svg", fill=#a2a2a2);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+    select {
+        @include inputBase();
+        font-size: 21px;
+        font-weight: 700;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: ellipsis;
+        padding-right: 30px;
+        @include sm-block() {
+            font-size: 16px;
+        }
+        &:-ms-expand {
+            display: none;
+        }
+        option {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}
+//-

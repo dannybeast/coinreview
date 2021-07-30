@@ -1,0 +1,29 @@
+.hamburger {
+    cursor: pointer;
+    $speed: 0.15s;
+    .line {
+        width: 34px;
+        height: 2px;
+        border-radius: 3px;
+        background-color: #000;
+        display: block;
+        margin: 9px auto;
+        transition: all $speed ease-in-out;
+        &:nth-child(2) {
+            width: 20px;
+        }
+    }
+
+    &.is-active {
+        .line {
+            &:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                transform: translateY(-4px) rotate(-45deg);
+                width: 34px;
+            }
+        }
+    }
+}

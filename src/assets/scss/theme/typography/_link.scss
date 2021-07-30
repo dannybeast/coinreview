@@ -1,0 +1,15 @@
+.link,
+a {
+  color: $link-color;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    color: $link-hover-color;
+  }
+  &:disabled,
+  &[disabled] {
+    color: $gray-color;
+  }
+}

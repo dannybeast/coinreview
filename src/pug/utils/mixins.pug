@@ -1,0 +1,11 @@
+-
+  set_bemto_settings({
+    prefix: '',
+    element: '__',
+    modifier: '_'
+  })
+
+
+mixin icon(name,attributes)
+  svg.svg-icon&attributes(attributes)
+    use(href=`assets/icons/sprite.svg#icon-${name}`)

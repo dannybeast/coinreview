@@ -1,0 +1,27 @@
++b.mobile-menu 
+  +e.sign 
+    if pageType != 'profile'
+      +b.A.button(href="register.html" class="_primary") Регистрация
+
+    //- if pageType === 'profile'
+    //-   +b.user-module
+    //-     +b.A.link(href="profile-account.html" class="_has-icon")
+    //-       +icon('user')
+    //-       span Иванов В.В.
+    //-     +b.A.logout 
+    //-       +icon('logout')
+
+  +e.NAV.navigation
+    ul
+      li(class=( pageName === "home" ? " is-active" : undefined))
+        a(href="index.html") Главная
+      li(class=( pageName === "about" ? " is-active" : undefined))
+        a(href="about.html") О нас
+      li(class=( pageName === "road-map" ? " is-active" : undefined))
+        a(href="roadmap.html") Дорожная карта
+      li(class=( pageName === "investors" ? " is-active" : undefined))
+        a(href="investors.html") Инвесторам
+      li(class=( pageName === "partners" ? " is-active" : undefined))
+        a(href="new.html") Партнерам
+      li(class=( pageName === "bounty" ? " is-active" : undefined))
+        a(href="bounty.html") Баунти

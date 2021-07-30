@@ -1,0 +1,23 @@
+@import "smart-grid";
+@import "sass-em";
+@import "sass-rem";
+
+@mixin font($f-name, $f-style, $f-weight, $f-url) {
+    @font-face {
+        font-family: $f-name;
+        font-style: $f-style;
+        font-weight: $f-weight;
+        font-display: swap;
+        src: url($f-url) format("woff");
+    }
+}
+
+@mixin layoutBase() {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    &__row {
+        display: flex;
+        min-height: inherit;
+    }
+}

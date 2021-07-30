@@ -1,0 +1,37 @@
+// Fonts
+$main-font: "Manrope", sans-serif;
+$main-font-color: #000;
+$main-font-size: 16px;
+$main-font-weight: 400;
+$main-line-height: 1.25;
+
+// Colors
+$background-color: #f3f6fd;
+$gray-color: #e0e2f6;
+$gray-color-light: #ececec;
+$primary-color: #487ceb;
+$primary-color-dark: #00353b;
+
+$brown-light: #e9cea8;
+$accent-color: #e85803;
+$danger-color: #ff0000;
+
+// space
+$main-space: rem(120px);
+
+// transition
+$animation: cubic-bezier(0.58, 0.3, 0.005, 1);
+
+$field-height: 60px;
+
+// custom
+$container-large: 1670px;
+$offset-large: 50px;
+$page-line-width: rem(125px);
+
+// z-index
+$z-index-mega-menu: 4;
+$z-index-header: 5;
+$z-index-page-line: 0;
+
+$main-line-width: 115px;

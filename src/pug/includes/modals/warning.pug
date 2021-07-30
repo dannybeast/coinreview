@@ -1,0 +1,19 @@
+// Warning modal
+#warning.modal
+  +b.modal-inner(class="_warning")
+    +e.close.js-close-modal
+      +icon('cross')
+    +e.content
+      +b.modal-header
+        +b.H3.modal-title Modal window not ok
+
+      .modal-content
+        .typography
+          p Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab  Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
+          p Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+
+      +b.modal-footer
+        +b.BUTTON.button(class="_primary-polygon js-close-modal") 
+          +e.inner I'm agree
+        +b.BUTTON.button(class="_white-polygon js-close-modal") 
+          +e.inner Disagree

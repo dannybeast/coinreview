@@ -1,0 +1,104 @@
+@import "~normalize.css";
+@import "~reset-css";
+@import "libs";
+@import "theme/_mixins";
+@import "theme/_variables";
+@import "theme/_helpers";
+@import "theme/_fonts";
+@import "theme/_helpers";
+@import "theme/_loader";
+@import "theme/_button";
+@import "theme/_checkboxAndRadio";
+@import "theme/typography";
+@import "theme/modals";
+@import "theme/_fields";
+@import "theme/notifications";
+@import "modules/_hamburger";
+@import "modules/_lang";
+@import "modules/_footer";
+
+:root {
+    --header-height: 115px;
+    @include md-block() {
+        --header-height: 80px;
+    }
+}
+html {
+    font-size: $main-font-size;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-smooth: auto;
+    @include desktop-block() {
+        font-size: 14px;
+    }
+    @include lg-block() {
+        font-size: 13px;
+    }
+    @include sm-block() {
+        font-size: 12px;
+    }
+}
+html,
+body {
+    font-family: $main-font;
+    color: $main-font-color;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: $background-color;
+    min-height: 100vh;
+}
+body {
+    font-size: $main-font-size;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+button,
+input,
+textarea,
+select {
+    outline: none;
+}
+textarea {
+    resize: vertical;
+    font-family: $main-font;
+    font-size: $main-font-size;
+}
+button {
+    cursor: pointer;
+}
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+// Selection
+*::selection {
+    background: $accent-color;
+    color: #fff;
+}
+
+.nav-button {
+    height: 115px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    .hamburger {
+        &.is-active {
+            span {
+                background: $accent-color;
+            }
+        }
+    }
+}
