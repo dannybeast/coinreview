@@ -1093,6 +1093,8 @@ sup {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 10px;
+        margin-top: 10px;
     }
     &__block {
         background: #fff;
@@ -1136,6 +1138,19 @@ sup {
             td {
                 padding-top: 13px;
                 padding-bottom: 13px;
+            }
+            &.table-hover {
+                tbody tr {
+                    td {
+                        transition: all 0.1s $animation;
+                        cursor: pointer;
+                    }
+                    &:hover {
+                        td {
+                            background: #d8e5ff40;
+                        }
+                    }
+                }
             }
         }
     }
