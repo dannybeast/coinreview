@@ -723,16 +723,27 @@ sup {
 .news-item {
     display: flex;
     align-items: flex-start;
+    text-decoration: none;
+    color: #000;
     background: #d8e5ff;
     border-radius: 20px;
     padding: 25px 20px;
     font-size: 12px;
     line-height: 1.4;
     font-family: $accent-font;
+    transition: all 0.1s $animation;
+    &:hover {
+        color: #000;
+        background: darken(#d8e5ff, 2%);
+    }
     &_primary {
         background: rgb(109, 155, 252);
         background: linear-gradient(180deg, rgba(109, 155, 252, 1) 0%, rgba(78, 128, 237, 1) 100%);
         color: #fff;
+        &:hover {
+            color: #fff;
+            background: linear-gradient(180deg, rgb(101, 146, 241) 0%, rgba(78, 128, 237, 1) 100%);
+        }
     }
     &__label {
         font-weight: 500;
@@ -991,6 +1002,9 @@ sup {
 
 .search-module {
     font-family: $accent-font;
+    .labels {
+        margin-bottom: 10px;
+    }
     &__top {
         display: flex;
         align-items: center;
@@ -1058,13 +1072,13 @@ sup {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 10px;
     li {
         margin: 0 30px 15px 0;
     }
 }
 .currency {
     display: flex;
+    white-space: nowrap;
     align-items: center;
     font-weight: 700;
     &__name {
@@ -1088,6 +1102,64 @@ sup {
     }
 }
 
+.amount-module {
+    display: flex;
+    align-items: center;
+    .value-button {
+        font-weight: 500;
+        font-size: 16px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        font-family: $accent-color;
+        width: 20px;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.increase {
+            color: $success-color;
+        }
+        &.decrease {
+            color: $danger-color;
+        }
+    }
+    input {
+        border: solid 2px $success-color;
+        border-radius: 12px;
+        width: 60px;
+        height: 30px;
+        font-size: 12px;
+        text-align: center;
+        font-family: $accent-color;
+        &[type="number"]::-webkit-inner-spin-button,
+        &[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+}
+
+.dataTables_length {
+    font-size: 12px;
+    font-weight: 500;
+    select {
+        margin: 0 5px;
+        border: none;
+        background: #d8e5ff;
+        font-weight: 700;
+        height: 25px;
+        border-radius: 12px;
+        padding: 0 0 0 10px;
+        width: 60px;
+        cursor: pointer;
+    }
+}
+
 .table-wrapper {
     &__filter {
         display: flex;
@@ -1095,6 +1167,9 @@ sup {
         justify-content: space-between;
         margin-bottom: 10px;
         margin-top: 10px;
+        .dataTables_length {
+            margin-bottom: 10px;
+        }
     }
     &__block {
         background: #fff;
@@ -1124,6 +1199,8 @@ sup {
                 font-size: 14px;
                 vertical-align: middle !important;
                 border-color: #e9ecf3;
+                padding-left: 10px;
+                padding-right: 10px;
                 small {
                     font-size: 12px;
                     font-weight: 300;
@@ -1136,8 +1213,8 @@ sup {
                 }
             }
             td {
-                padding-top: 13px;
-                padding-bottom: 13px;
+                padding-top: 18px;
+                padding-bottom: 18px;
             }
             &.table-hover {
                 tbody tr {
@@ -1152,6 +1229,52 @@ sup {
                     }
                 }
             }
+        }
+    }
+    &__footer {
+        @include row-flex();
+        align-items: center;
+        overflow: hidden;
+        padding: 30px 0;
+        font-size: 12px;
+        margin-left: 0;
+        margin-right: 0;
+        font-family: $accent-font;
+        .dataTables_paginate {
+            & > * {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .paginate_button {
+            font-weight: 600;
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            margin: 0 2px;
+            &:hover {
+                color: $primary-color;
+            }
+            &.current {
+                color: #fff;
+                background-image: linear-gradient(0deg, #3e72e2, #6692f1);
+            }
+            &.next,
+            &.previous {
+                display: none;
+            }
+        }
+
+        & > * {
+            @include col();
+            @include size(4);
         }
     }
 }

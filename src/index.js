@@ -13,10 +13,11 @@ import "./assets/scss/main.scss";
 
 // Modules
 import hideLoader from "./js/modules/loader";
-import Accordion from "./js/modules/accordion";
+//-import Accordion from "./js/modules/accordion";
 //-import inputmasks from "./js/modules/inputmasks";
 import sliders from "./js/modules/sliders";
 import "./js/modules/sticky";
+import "./js/modules/inputNumber";
 import  "./js/modules/awesome-notifications";
 import dropdown from "./js/modules/dropdown";
 import { Fancybox } from "@fancyapps/ui";

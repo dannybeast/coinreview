@@ -22,7 +22,7 @@ block content
               .swiper-wrapper 
 
                 .swiper-slide 
-                  +b.news-item 
+                  +b.A(href="#").news-item 
                     +e.image
                       img(src="assets/images/news/1.png", alt="")
                     +e.content
@@ -30,7 +30,7 @@ block content
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
                 .swiper-slide 
-                  +b.news-item 
+                  +b.A(href="#").news-item 
                     +e.image
                       img(src="assets/images/news/2.png", alt="")
                     +e.content
@@ -38,7 +38,7 @@ block content
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
                 .swiper-slide 
-                  +b.news-item 
+                  +b.A(href="#").news-item 
                     +e.image
                       img(src="assets/images/news/3.png", alt="")
                     +e.content
@@ -46,7 +46,7 @@ block content
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
                 .swiper-slide 
-                  +b.news-item(class="_primary")
+                  +b.A.news-item(href="#" class="_primary")
                     +e.image
                       img(src="assets/images/news/4.png", alt="")
                     +e.content
@@ -173,7 +173,9 @@ block content
             .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
         td
           +b.amount-module 
-
+            .decrease.value-button(value='Decrease Value') -
+            input.number(type='number' value='0' name="amount")
+            .increase.value-button(value='Increase Value') +
     +b.SECTION
       .container
         +b.H3.title Promoted
@@ -236,7 +238,7 @@ block content
                     input(type="radio" name="table-label" value="7")
                     span 2 days
           +e.block
-            table.table-hover
+            table.table-hover.js-datatables
               thead 
                 tr 
                   th # 
@@ -287,82 +289,108 @@ block content
 block script
   script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
   script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
   script(type="text/javascript").
-
-    document.querySelectorAll('.chart').forEach(function(el){
-        var options = {
-        series: [{
-            name: "Desktops",
-            data: el.dataset.array.split(',')
-        }],
-        chart: {
-          height:90,
-          animations:{
-            enabled: false,
-          },
-          type: 'line',
-          toolbar:{
-            show: false
-          },
-          zoom: {
-            enabled: false
-          }
-        },
-        stroke: {
-            show: true,
-            curve: 'straight',
-            colors: [el.dataset.color],
-            width: 2,  
-        },
-        grid:{
-          show: false,
-          xaxis: {
-              lines: {
-                  show: false
-              }
-          },   
-          yaxis: {
-              lines: {
-                  show: false
-              }
-          }, 
-          padding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          },  
-        },
-
-        legend: {
-          show: false,
-        },
-        dataLabels: {
-          enabled: false
-        },
-        yaxis: {
-          show: false,
-        },
-        tooltip: {
-          enabled: false
-        },
-        xaxis: {  
-            axisBorder:{
-              show: false
-          },
-            axisTicks:{
-              show: false
-          },
-          labels:{
-            show: false
-          }
-        },
     
+    $(document).ready( function () {
+        // Datatables
+        $('.js-datatables').DataTable({
+          "searching": false
+        });
 
-      };
+        // Styles table
+        $('.js-datatables').each( function(){
+          var $wrapper = $(this).parents('.table-wrapper');
+          // filter
+          var $filter = $wrapper.find('.table-wrapper__filter');
+          $filter.append($wrapper.find('.dataTables_length'))
+          $filter.append($wrapper.find('.dataTables_filter'))
 
-      var chart = new ApexCharts(el, options);
-      chart.render();
-    })
+          // pagination
+          $wrapper.append('<div class="table-wrapper__footer"></div>')
+          var $footer = $wrapper.find('.table-wrapper__footer');
+          $footer.append($wrapper.find('.dataTables_info'))
+          $footer.append($wrapper.find('.dataTables_paginate'))
+        })
+
+
+        // Charts
+        document.querySelectorAll('.chart').forEach(function(el){
+            var options = {
+            series: [{
+                name: "Desktops",
+                data: el.dataset.array.split(',')
+            }],
+            chart: {
+              height:90,
+              animations:{
+                enabled: false,
+              },
+              type: 'line',
+              toolbar:{
+                show: false
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            stroke: {
+                show: true,
+                curve: 'straight',
+                colors: [el.dataset.color],
+                width: 2,  
+            },
+            grid:{
+              show: false,
+              xaxis: {
+                  lines: {
+                      show: false
+                  }
+              },   
+              yaxis: {
+                  lines: {
+                      show: false
+                  }
+              }, 
+              padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+              },  
+            },
+
+            legend: {
+              show: false,
+            },
+            dataLabels: {
+              enabled: false
+            },
+            yaxis: {
+              show: false,
+            },
+            tooltip: {
+              enabled: false
+            },
+            xaxis: {  
+                axisBorder:{
+                  show: false
+              },
+                axisTicks:{
+                  show: false
+              },
+              labels:{
+                show: false
+              }
+            },
+        
+
+          };
+
+          var chart = new ApexCharts(el, options);
+          chart.render();
+        })
+    });
     
