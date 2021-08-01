@@ -16,6 +16,9 @@
         border-radius: 20px;
         transition: all 0.1s $animation;
         padding: 0 18px 0 12px;
+        &:hover {
+            background: #f1f6ff;
+        }
         img {
             width: 22px;
             flex-shrink: 0;

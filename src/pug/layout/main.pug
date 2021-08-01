@@ -21,12 +21,39 @@ html(lang='en')
     
     // Main layout
     +b.MAIN#app.main-layout
-
-      include ../includes/_header
-      // Begin page
-      block content
-      // End page
-      include ../includes/_footer
+      +e.row
+        +e.bar
+          div.js-sticky-sidebar
+            +e.menu-button
+              include ../includes/partials/_hamburger
+            ul
+              li
+                a(href="account.html")
+                  +icon('004-account')
+                  span Account
+              li
+                a(href="add-banner.html")
+                  +icon('003-clicking')
+                  span Add banner
+              li
+                a(href="exchanges.html")
+                  +icon('005-atm')
+                  span Exchanges
+              li
+                a(href="currencies.html")
+                  +icon('001-wallet')
+                  span Currencies
+              li
+                a(href="history.html")
+                  +icon('006-history')
+                  span History
+        +e.content
+          include ../includes/_header
+          // Begin page
+          block content
+      +e.row
+        // End page
+        include ../includes/_footer
 
     include ../includes/partials/_mobile-menu
 

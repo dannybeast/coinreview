@@ -49,6 +49,12 @@
         a {
             width: 20px;
             height: 20px;
+            &:hover {
+                opacity: 0.5;
+                svg {
+                    fill: #fff;
+                }
+            }
         }
         &:last-child {
             margin-bottom: 0;
@@ -56,7 +62,7 @@
     }
     &__top {
         @include row-flex();
-        padding-top: rem(120px);
+        padding-top: rem(75px);
         padding-bottom: rem(70px);
         @include md-block() {
             padding-bottom: 0;

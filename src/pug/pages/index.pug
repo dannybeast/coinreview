@@ -7,29 +7,148 @@ block variables
 
 
 block content
-  +b.ARTICLE.page-index
+  +b.ARTICLE
     
-    +b.SECTION.navigation
+    include ../includes/partials/_nav
+
+    +b.SECTION
       .container
-        ul
-          li.is-active
-            a(href="#") Home
-          li
-            a(href="#") Account
-          li
-            a(href="#") Add banner
-          li
-            a(href="#") Exchanges
-          li
-            a(href="#") Curencies
-          li
-            a(href="#") History
+        +b.top-block
+          +e.col
+            +b.H1.title Top Cryptocurrency Today by Coin<span class="color-primary">Review</span>
+            +b.H4.subtitle Crypto market cap is <strong class="color-success">$1.43T</strong>, <strong>2.07</strong><sup>%</sup> increase today
+          +e.col
+            .swiper-container.swiper-no-swiping.js-swiper-news
+              .swiper-wrapper 
 
-    +b.SECTION.intro
+                .swiper-slide 
+                  +b.news-item 
+                    +e.image
+                      img(src="assets/images/news/1.png", alt="")
+                    +e.content
+                      +e.P.label News of day
+                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+                
+                .swiper-slide 
+                  +b.news-item 
+                    +e.image
+                      img(src="assets/images/news/2.png", alt="")
+                    +e.content
+                      +e.P.label News of day
+                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+                
+                .swiper-slide 
+                  +b.news-item 
+                    +e.image
+                      img(src="assets/images/news/3.png", alt="")
+                    +e.content
+                      +e.P.label News of day
+                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+                
+                .swiper-slide 
+                  +b.news-item(class="_primary")
+                    +e.image
+                      img(src="assets/images/news/4.png", alt="")
+                    +e.content
+                      +e.P.label News of day
+                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+
+    +b.SECTION.search-section
       .container
-        
+        +b.search-module 
+          form
+            +e.top
+              +e.P.title Search by name 
+              +e.UL.labels 
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="1" checked)
+                    span Time since launch
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="2")
+                    span Launching today
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="3")
+                    span Launched today
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="4")
+                    span Launch in 1 day
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="5")
+                    span 11 days
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="6")
+                    span 1 day
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="search-label" value="7")
+                    span 2 days
+            +e.field 
+              input(type="text" name="Enter currency name" placeholder="Enter currency name")
+              button 
+                +icon('search')
+    +b.SECTION.counters
+      .container
+
+        .swiper-container.swiper-no-swiping.js-swiper-counters
+          .swiper-wrapper 
+            .swiper-slide 
+              +b.counters-item
+                +e.top
+                  p Market Capitalization
+                  +b.label(class="_success") +1.2<sup>%</sup>
+                +e.P.value <span>$</span> 1,448,742,239,530
+            .swiper-slide 
+              +b.counters-item
+                +e.top
+                  p 24h Trading Volume
+                  +b.label(class="_danger") +0.3<sup>%</sup>
+                +e.P.value <span>$</span> 90,409,965,514
+            .swiper-slide 
+              +b.counters-item
+                +e.top
+                  p Bitcoin Market Cap Dominance
+                +e.P.value <span>44.63%</span>
+            .swiper-slide 
+              +b.counters-item
+                +e.top
+                  p # of Coins
+                +e.P.value <span>8,626</span>
 
 
+    +b.SECTION
+      .container
+        +b.H3.title Promoted
+
+    +b.SECTION
+      .container
+        +b.H3.title All Cryptocurrencyes
+
+
+    +b.SECTION.banners
+      .container
+        +e.row
+          +e.col
+              +b.banner-item(style="background-image:url(assets/images/banners/1.png)" class="_border")
+                +e.content
+                  +e.H3.title Your Coin Missing?
+                  +e.description
+                    p Can't find your coin? List your favorite coin now! Get your community to vote for your coin and gain exposure.
+                +e.buttons 
+                  +b.A(href="#" class="button _primary") Submit coin
+          +e.col
+              +b.banner-item(style="background-image:url(assets/images/banners/2.png)")
+                +e.content
+                  +e.H3.title View New Listings
+                  +e.description
+                    p Click the button below to view the New Listings! These coins were just submitted.
+                +e.buttons 
+                  +b.A(href="#" class="button _primary") View New Listings
 block script
   script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")

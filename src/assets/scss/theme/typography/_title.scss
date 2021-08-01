@@ -33,9 +33,9 @@
 
 // titles
 .title {
-    font-size: rem(60px);
-    line-height: 1.15;
-    font-weight: 700;
+    font-size: rem(31px);
+    line-height: 1.4;
+    font-weight: 900;
 
     @include notebook-block() {
         font-size: rem(55px);
@@ -46,15 +46,11 @@
     @include xs-block() {
         font-size: rem(35px);
     }
-    &_line-bottom {
-        border-bottom: 2px solid #e6ded3;
-        padding-bottom: 15px;
-    }
 }
 
 .subtitle {
-    font-size: rem(30px);
-    font-weight: 600;
+    font-size: rem(16px);
+    font-weight: 500;
 }
 
 //-
