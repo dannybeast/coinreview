@@ -33,24 +33,24 @@
 
 // titles
 .title {
-    font-size: rem(31px);
+    font-size: 31px;
     line-height: 1.4;
     font-weight: 900;
-
     @include notebook-block() {
-        font-size: rem(55px);
+        font-size: 29px;
     }
     @include sm-block() {
-        font-size: rem(42px);
-    }
-    @include xs-block() {
-        font-size: rem(35px);
+        font-size: 28px;
     }
 }
 
 .subtitle {
-    font-size: rem(16px);
+    font-size: 16px;
+    line-height: 1.4;
     font-weight: 500;
+    @include sm-block() {
+        font-size: 14px;
+    }
 }
 
 //-

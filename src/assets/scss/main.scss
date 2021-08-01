@@ -20,6 +20,9 @@ sup {
     .footer {
         width: 100%;
         padding-left: 115px;
+        @include lg-block() {
+            padding-left: 0;
+        }
     }
     &__row {
         display: flex;
@@ -27,7 +30,10 @@ sup {
     &__content {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
+        width: calc(100% - 115px);
+        @include lg-block() {
+            width: 100%;
+        }
     }
     &__menu-button {
         width: 115px;
@@ -44,6 +50,9 @@ sup {
     &__bar {
         width: 115px;
         background: $primary-color;
+        @include lg-block() {
+            display: none;
+        }
         ul {
             a {
                 text-align: center;
@@ -101,10 +110,10 @@ sup {
 .mobile-menu {
     overflow: hidden;
     overflow-y: auto;
-    padding: 0 0 15px 0;
-    background: #faf0ef;
+    background: #d8e5ff;
+    color: #fff;
     position: fixed;
-    top: 130px;
+    top: 115px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -113,73 +122,82 @@ sup {
     visibility: hidden;
     transform: scale(0.9);
     will-change: transform;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid #fff;
+
     @include sm-block() {
         top: 90px;
     }
-
-    &__sign {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 30px;
-        padding-top: 30px;
-        @include sm-block() {
-            display: flex;
-        }
+    &__row {
+        display: flex;
     }
 
     .link {
         font-weight: 700;
     }
 
-    &__buttons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 30px;
-        @include xs-block() {
-            flex-wrap: wrap;
+    &__navigation {
+        width: 115px;
+        border-right: 1px solid rgba(#fff, 0.3);
+        background: $primary-color;
+        ul {
+            a {
+                text-align: center;
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                padding: 20px 15px;
+                font-size: 11px;
+                border-bottom: 1px solid rgba(#fff, 0.3);
+                transition: all 0.15s $animation;
+                &:hover {
+                    background: rgba(#fff, 0.1);
+                }
+                span {
+                    width: 100%;
+                    display: block;
+                }
+            }
+        }
+        svg {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 20px;
+            fill: #fff;
+            opacity: 0.5;
+        }
+    }
+    .language-module {
+        color: #000;
+    }
+    .search-module {
+        position: relative;
+        &__button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input {
+            width: 100%;
+            height: 45px;
+            border-radius: 12px;
+            padding-left: 15px;
+            padding-right: 45px;
+            border: none;
+        }
+    }
+    &__content {
+        width: calc(100% - 115px);
+        padding: 30px;
+        .button {
+            width: 100%;
         }
         & > * {
-            margin: 5px;
-            @include xs-block() {
-                width: 100%;
-                margin: 8px 30px;
-            }
-        }
-        .button {
-            height: 50px;
-            font-size: 16px;
-        }
-    }
-    ul {
-        margin-top: 30px;
-    }
-
-    li {
-        width: 100%;
-        margin: 0 0 15px 0;
-        &:last-child {
-            margin-bottom: 0;
-            a {
-                border-color: transparent;
-            }
-        }
-        a {
-            text-decoration: none;
-            padding: 10px 30px;
-            display: block;
-            font-size: 17px;
-            font-weight: 700;
-            text-align: center;
-            color: #000;
-        }
-        &.is-active {
-            a {
-                color: $accent-color;
-            }
+            margin-bottom: 25px;
         }
     }
 
@@ -240,12 +258,19 @@ sup {
     display: flex;
     align-items: center;
     font-size: 13px;
+    line-height: 1.4;
     li {
         margin: 0 20px;
         display: flex;
         align-items: center;
+        @include to(1300px) {
+            margin: 0 10px;
+        }
         strong {
             color: $primary-color;
+            @include to(1400px) {
+                display: block;
+            }
         }
     }
     &__icon {
@@ -272,6 +297,12 @@ sup {
         }
     }
 
+    .counters {
+        @include lg-block() {
+            display: none;
+        }
+    }
+
     &__row {
         display: flex;
         align-items: center;
@@ -280,6 +311,7 @@ sup {
 
         @include sm-block() {
             height: 90px;
+            justify-content: flex-start;
         }
         & > * {
             margin: 0 15px;
@@ -295,26 +327,11 @@ sup {
     &__right {
         display: flex;
         align-items: center;
+        @include sm-block() {
+            display: none;
+        }
         & > * {
             margin: 0 0 0 20px;
-        }
-    }
-
-    .mega-menu-button {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 115px;
-        @include to(1540px) {
-            position: relative;
-            width: 36px;
-        }
-        @include to(1290px) {
-            display: none;
         }
     }
 
@@ -328,6 +345,7 @@ sup {
         }
         @include sm-block() {
             margin-left: -5px;
+            margin-right: 15px;
         }
     }
 
@@ -346,12 +364,11 @@ sup {
         width: 100%;
         max-width: 257px;
         margin-left: 0;
-        @include from-to(1100px, 1290px) {
-            margin-left: 0;
-        }
-        @include md-block() {
-            max-width: 180px;
-        }
+        margin-right: auto;
+
+        // @include md-block() {
+        //     max-width: 200px;
+        // }
         @include sm-block() {
             margin-left: 5px;
         }
@@ -418,13 +435,25 @@ sup {
 }
 
 .navigation {
+    @include lg-block() {
+        display: none;
+    }
     ul {
         display: flex;
         align-items: center;
         border-bottom: 1px solid #d8e5ff;
+        @include sm-block() {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
     }
     li {
         margin: 0 40px 0 0;
+        @include sm-block() {
+            &:first-child {
+                padding-left: 15px;
+            }
+        }
     }
     a {
         font-size: 12px;
@@ -434,8 +463,16 @@ sup {
         padding: 25px 0;
         border-bottom: 2px solid transparent;
         margin-bottom: -1px;
+        white-space: nowrap;
         &:hover {
             color: $primary-color;
+        }
+    }
+    .container {
+        @include sm-block() {
+            margin-right: -15px;
+            margin-left: -15px;
+            width: initial;
         }
     }
     .is-active {
@@ -715,9 +752,26 @@ sup {
     border-radius: 15px;
     font-size: 13px;
     font-weight: 700;
-    padding: 3px 6px;
+    padding: 5px 8px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    &:before {
+        content: "";
+        background-image: svg-load("../icons/play.svg", fill=#fff);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 4px;
+        height: 6px;
+        display: block;
+        transform: rotate(90deg);
+        margin-right: 5px;
+    }
     &_success {
         background: #03b15d;
+        &:before {
+            transform: rotate(-90deg);
+        }
     }
     &_danger {
         background: #c23442;
@@ -727,6 +781,20 @@ sup {
 .top-block {
     display: flex;
     align-items: center;
+    @include xl-block() {
+        flex-wrap: wrap;
+
+        .swiper-container {
+            overflow: visible;
+        }
+    }
+    @include lg-block() {
+        padding-top: 40px;
+        .title,
+        .subtitle {
+            text-align: center;
+        }
+    }
     .swiper-wrapper,
     .swiper-slide {
         height: initial;
@@ -734,13 +802,26 @@ sup {
     .news-item {
         height: 100%;
     }
+    .title {
+        @include xl-block() {
+            margin-bottom: 15px;
+        }
+    }
     &__col {
         &:first-child {
             padding-right: 60px;
             width: 33%;
+            @include xl-block() {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
         }
         &:last-child {
             width: 66%;
+            @include xl-block() {
+                width: 100%;
+            }
         }
     }
 }
@@ -750,8 +831,11 @@ sup {
     box-shadow: 0 5px 0px #d8e5ff;
     padding: 25px 30px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
     &__top {
         margin-bottom: 15px;
+        line-height: 1.5;
         display: flex;
         align-items: center;
         font-size: 14px;
@@ -761,8 +845,13 @@ sup {
     }
     &__value {
         font-size: 24px;
+        white-space: nowrap;
         font-weight: 900;
         color: #3f77f2;
+        margin-top: auto;
+        @include notebook-block() {
+            font-size: 20px;
+        }
         span {
             color: #000;
         }
@@ -780,10 +869,32 @@ sup {
     .counters-item {
         height: 100%;
     }
+    .swiper-slide {
+        @include from-to($break_lg, $break-xl) {
+            margin-bottom: 30px;
+            width: calc(50% - 40px) !important;
+        }
+    }
+    .swiper-wrapper {
+        @include xl-block() {
+            flex-wrap: wrap;
+            margin-bottom: -30px;
+            margin-right: -40px;
+            width: initial;
+        }
+        @include lg-block() {
+            margin-right: 0 !important;
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+    }
 }
 
 .banner-item {
-    background-size: cover;
+    background-color: #d8e5ff;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
     border-radius: 25px;
     overflow: hidden;
     padding: 55px 60px;
@@ -792,13 +903,21 @@ sup {
     line-height: 1.65;
     display: flex;
     flex-direction: column;
+    @include sm-block() {
+        padding: 30px 30px;
+        font-size: 15px;
+    }
     &_border {
-        border: solid 4px #d8e5ff;
+        background-color: #fff;
+        border: solid 5px #d8e5ff;
     }
     &__content {
         margin-bottom: 40px;
         max-width: 58%;
         flex-grow: 1;
+        @include sm-block() {
+            max-width: 85%;
+        }
         &:last-child {
             margin-bottom: 0;
         }
@@ -811,7 +930,12 @@ sup {
     &__title {
         font-weight: 900;
         margin-bottom: 27px;
+        line-height: 1.3;
         font-size: 31px;
+        @include sm-block() {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
     }
 }
 
@@ -825,7 +949,13 @@ sup {
     &__col {
         @include col();
         @include size(6);
-        @include size-sm(12);
+        @include size-lg(12);
+        @include lg-block() {
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 
@@ -849,20 +979,25 @@ sup {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 10px;
+        @include sm-block() {
+            flex-wrap: wrap;
+        }
     }
     &__title {
-        margin-bottom: 15px;
+        margin-bottom: 25px;
         font-size: 18px;
+        line-height: 1.4;
         font-weight: 700;
+        margin-right: 40px;
+        flex-shrink: 0;
     }
 
     &__field {
         position: relative;
         input {
             background: #fff;
-            border-radius: 65px;
-            height: 65px;
+            border-radius: 62px;
+            height: 62px;
             font-size: 16px;
             width: 100%;
             border: none;
@@ -870,6 +1005,10 @@ sup {
             box-shadow: 0px 3px 24px 0px rgba(198, 203, 214, 0.2);
             padding-right: 70px;
             font-weight: 600;
+            @include sm-block() {
+                height: 50px;
+                font-size: 14px;
+            }
         }
         button {
             position: absolute;
@@ -889,6 +1028,8 @@ sup {
     &__labels {
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
         li {
             margin: 0 30px 15px 0;
         }

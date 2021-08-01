@@ -6,26 +6,36 @@ export default function() {
     freeMode:true,
     spaceBetween: 20,  
     watchSlidesVisibility: true,
-    // navigation: {
-    //   nextEl: document.querySelector('.news .swiper-arrow-next'),
-    //   prevEl: document.querySelector('.news .swiper-arrow-prev'),
-    //  },
     breakpoints: {
-
       0: {
-        slidesPerView: 1.15,
+        slidesPerView: 1.3,
+        noSwiping: false,
+      },
+      321: {
+        slidesPerView: 1.5,
         noSwiping: false,
       },
       767: {
-        slidesPerView: 2.5,
+        slidesPerView: 3.2,
         noSwiping: false,
       },
-      1100: {
+      992: {
         slidesPerView: 4,
         freeMode:false,
         noSwiping: true
       },
 
+      1281: {
+        slidesPerView: 3,
+        freeMode:false,
+        noSwiping: true
+      },
+
+      1440: {
+        slidesPerView: 4,
+        freeMode:false,
+        noSwiping: true
+      },
     },
   });
   
@@ -37,16 +47,19 @@ export default function() {
  
     breakpoints: {
       0: {
-        slidesPerView: 1.15,
+        slidesPerView: 1.2,
         noSwiping: false,
+        spaceBetween: 10,  
       },
       767: {
         slidesPerView: 2.5,
+        spaceBetween: 35,
         noSwiping: false,
       },
       1100: {
         slidesPerView: 4,
-        freeMode:false,
+        freeMode:false,   
+        spaceBetween: 35,
         noSwiping: true
       },
 

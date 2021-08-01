@@ -1,5 +1,8 @@
 .language-module {
     position: relative;
+    display: inline-block;
+    vertical-align: top;
+    flex-shrink: 0;
     $parent: &;
 
     &__link {
