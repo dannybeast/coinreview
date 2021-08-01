@@ -20,7 +20,7 @@ import "./js/modules/sticky";
 import  "./js/modules/awesome-notifications";
 import dropdown from "./js/modules/dropdown";
 import { Fancybox } from "@fancyapps/ui";
-import "./js/modules/google-map";
+//-import "./js/modules/google-map";
 import tabs from "./js/modules/tabs";
 
 
@@ -48,21 +48,21 @@ $(document).ready(function(){
 
 
 
-  document
-    .querySelectorAll('.faq-row')
-    .forEach((el, ind) => {
+  // document
+  //   .querySelectorAll('.faq-row')
+  //   .forEach((el, ind) => {
     
-      el.querySelectorAll('[data-accordion="trigger"]').forEach((element,index)=>{
+  //     el.querySelectorAll('[data-accordion="trigger"]').forEach((element,index)=>{
       
-        const newAccordion = new Accordion(element);
+  //       const newAccordion = new Accordion(element);
     
-        if (index === 0) {
-        newAccordion._toggleContent(element);
-        }
-      })
+  //       if (index === 0) {
+  //       newAccordion._toggleContent(element);
+  //       }
+  //     })
     
     
-    });
+  //   });
 
 
   hideLoader();

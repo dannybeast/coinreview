@@ -981,6 +981,7 @@ sup {
         }
     }
     cursor: pointer;
+    font-family: $accent-font;
     font-weight: 500;
     font-size: 12px;
     &:hover {
@@ -1020,12 +1021,16 @@ sup {
             box-shadow: 0px 3px 24px 0px rgba(198, 203, 214, 0.2);
             padding-right: 70px;
             font-weight: 500;
+            transition: all 0.1s $animation;
             &::placeholder {
                 font-weight: 400;
             }
             @include sm-block() {
                 height: 50px;
                 font-size: 14px;
+            }
+            &:hover {
+                box-shadow: 0px 3px 10px 0px rgba(198, 203, 214, 0.35);
             }
         }
         button {
@@ -1048,17 +1053,16 @@ sup {
             }
         }
     }
-    &__labels {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-        li {
-            margin: 0 30px 15px 0;
-        }
+}
+.labels {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    li {
+        margin: 0 30px 15px 0;
     }
 }
-
 .currency {
     display: flex;
     align-items: center;
@@ -1085,6 +1089,11 @@ sup {
 }
 
 .table-wrapper {
+    &__filter {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     &__block {
         background: #fff;
         border-radius: 20px;
@@ -1092,6 +1101,15 @@ sup {
         font-family: $accent-font;
         &_border {
             border-color: $primary-color;
+        }
+        .chart {
+            width: 130px;
+            height: 38px !important;
+            min-height: 38px !important;
+            overflow: hidden;
+            .apexcharts-inner {
+                transform: none !important;
+            }
         }
         table {
             th {
@@ -1102,6 +1120,7 @@ sup {
             th,
             td {
                 font-size: 14px;
+                vertical-align: middle !important;
                 border-color: #e9ecf3;
                 small {
                     font-size: 12px;

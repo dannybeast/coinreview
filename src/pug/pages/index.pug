@@ -59,7 +59,7 @@ block content
           form
             +e.top
               +e.P.title Search by name 
-              +e.UL.labels 
+              +b.UL.labels 
                 +e.LI
                   +b.LABEL.search-label 
                     input(type="radio" name="search-label" value="1" checked)
@@ -120,6 +120,59 @@ block content
                   p # of Coins
                 +e.P.value <span>8,626</span>
 
+    mixin tr(index,currency, color)
+      tr 
+        td #{index}
+        td
+          if currency === 'btc'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/btc.svg", alt="")
+              +e.P.name Bitcoin <span>BTC</span>
+          else if currency === 'eth'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/eth.svg", alt="")
+              +e.P.name Etherium <span>ETH</span>
+          else if currency === 'dai'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/dai.svg", alt="")
+              +e.P.name Dai <span>DAI</span>
+          else if currency === 'tether'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/tether.svg", alt="")
+              +e.P.name Tether <span>Tether</span>
+      
+        td
+          p 
+            strong $34,394.55
+        td
+          if currency === 'eth'
+            p.color-success
+              strong 1.36%
+          else
+            p.color-danger
+              strong 0.23%
+        td
+          p.color-success
+            strong 7.86%
+        td
+          p $646,879,798,387
+        td
+          p $20,512,439,991
+          p 
+            small 595,070 BTC
+        td
+          p 18,766,106 BTC
+        td
+          if currency === 'eth'
+            .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
+          else 
+            .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
+        td
+          +b.amount-module 
 
     +b.SECTION
       .container
@@ -141,40 +194,47 @@ block content
                   th Last 7 Days
                   th Votes
               tbody 
-                tr 
-                  td 1
-                  td
-                    +b.currency
-                      +e.icon 
-                        img(src="assets/images/currency/btc.svg", alt="")
-                      +e.P.name Bitcoin <span>BTC</span>
-                  td
-                    p 
-                      strong $34,394.55
-                  td
-                    p.color-success
-                      strong 1.36%
-                  td
-                    p.color-success
-                      strong 7.86%
-                  td
-                    p $646,879,798,387
-                  td
-                    p $20,512,439,991
-                    p 
-                      small 595,070 BTC
-                  td
-                    p 18,766,106 BTC
-                  td
-                    #chart
-                  td
-                    +b.amount-module 
-
+                +tr('1','btc','#03b15d')
+                +tr('2','eth','#03b15d')
+                +tr('3','dai','#d22f49')
+                +tr('4','tether','#03b15d')
+                +tr('5','btc','#d22f49')
+    
     +b.SECTION
       .container
         +b.H3.title All Cryptocurrencyes
 
         +b.table-wrapper
+          +e.filter
+            +b.UL.labels 
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="1" checked)
+                    span Time since launch
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="2")
+                    span Launching today
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="3")
+                    span Launched today
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="4")
+                    span Launch in 1 day
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="5")
+                    span 11 days
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="6")
+                    span 1 day
+                +e.LI
+                  +b.LABEL.search-label 
+                    input(type="radio" name="table-label" value="7")
+                    span 2 days
           +e.block
             table 
               thead 
@@ -190,34 +250,18 @@ block content
                   th Last 7 Days
                   th Votes
               tbody 
-                tr 
-                  td 1
-                  td
-                    +b.currency
-                      +e.icon 
-                        img(src="assets/images/currency/btc.svg", alt="")
-                      +e.P.name Bitcoin <span>BTC</span>
-                  td
-                    p 
-                      strong $34,394.55
-                  td
-                    p.color-success
-                      strong 1.36%
-                  td
-                    p.color-success
-                      strong 7.86%
-                  td
-                    p $646,879,798,387
-                  td
-                    p $20,512,439,991
-                    p 
-                      small 595,070 BTC
-                  td
-                    p 18,766,106 BTC
-                  td
-                    #chart
-                  td
-                    +b.amount-module 
+                +tr('1','btc','#03b15d')
+                +tr('2','eth','#03b15d')
+                +tr('3','dai','#d22f49')
+                +tr('4','tether','#03b15d')
+                +tr('5','btc','#03b15d')
+                +tr('6','eth','#03b15d')
+                +tr('7','dai','#d22f49')
+                +tr('8','tether','#03b15d')
+                +tr('9','btc','#03b15d')
+                +tr('10','eth','#03b15d')
+                +tr('11','dai','#d22f49')
+                +tr('12','tether','#03b15d')
 
     +b.SECTION.banners
       .container
@@ -238,6 +282,87 @@ block content
                     p Click the button below to view the New Listings! These coins were just submitted.
                 +e.buttons 
                   +b.A(href="#" class="button _primary") View New Listings
+
+
 block script
   script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")
+  script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+  script(type="text/javascript").
+
+    document.querySelectorAll('.chart').forEach(function(el){
+        var options = {
+        series: [{
+            name: "Desktops",
+            data: el.dataset.array.split(',')
+        }],
+        chart: {
+          height:90,
+          animations:{
+            enabled: false,
+          },
+          type: 'line',
+          toolbar:{
+            show: false
+          },
+          zoom: {
+            enabled: false
+          }
+        },
+        stroke: {
+            show: true,
+            curve: 'straight',
+            colors: [el.dataset.color],
+            width: 2,  
+        },
+        grid:{
+          show: false,
+          xaxis: {
+              lines: {
+                  show: false
+              }
+          },   
+          yaxis: {
+              lines: {
+                  show: false
+              }
+          }, 
+          padding: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+          },  
+        },
+
+        legend: {
+          show: false,
+        },
+        dataLabels: {
+          enabled: false
+        },
+        yaxis: {
+          show: false,
+        },
+        tooltip: {
+          enabled: false
+        },
+        xaxis: {  
+            axisBorder:{
+              show: false
+          },
+            axisTicks:{
+              show: false
+          },
+          labels:{
+            show: false
+          }
+        },
+    
+
+      };
+
+      var chart = new ApexCharts(el, options);
+      chart.render();
+    })
+    
