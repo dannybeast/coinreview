@@ -1,316 +1,315 @@
 .table-filter-hidden {
- .dataTables_length {
-  display: none;
- }
+    .dataTables_length {
+        display: none;
+    }
 }
 
 .td-buttons {
- .btn {
-  float: right;
-  margin-left: 5px;
+    .btn {
+        float: right;
+        margin-left: 5px;
 
-  @include md-block() {
-   margin-left: 0;
-   float: left;
-   margin-right: 5px;
-  }
- }
+        @include md-block() {
+            margin-left: 0;
+            float: left;
+            margin-right: 5px;
+        }
+    }
 }
 .dataTables_info {
- display: none;
+    display: none;
 }
 .table-wrapper {
- margin-bottom: 30px;
- table {
-  tr {
-   td,
-   th {
-    border: none;
-    padding: 0 5px;
-    height: 60px;
-    font-size: 14px;
-    text-align: left;
-    border-bottom: 1px solid #ccdde0;
-    &:first-child {
-     padding-left: 0;
+    margin-bottom: 30px;
+    table {
+        tr {
+            td,
+            th {
+                border: none;
+                padding: 0 5px;
+                height: 60px;
+                font-size: 14px;
+                text-align: left;
+                border-bottom: 1px solid #ccdde0;
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+                @include sm-block() {
+                    height: 50px;
+                    font-size: 13px;
+                }
+            }
+
+            th {
+                color: rgba(#000, 1);
+                font-weight: 500;
+                cursor: pointer;
+                text-transform: uppercase;
+                white-space: nowrap;
+
+                @include sm-block() {
+                    padding-bottom: 12px;
+                }
+
+                span {
+                    position: relative;
+                    display: inline-flex;
+                    align-items: center;
+                    vertical-align: top;
+
+                    &:after {
+                        content: "";
+                        width: 17px;
+                        height: 14px;
+                        display: block;
+                        margin-left: 8px;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+
+                    &:hover {
+                        color: rgba($primary-color, 0.9);
+                    }
+                }
+
+                &.sorting {
+                    span {
+                        &:after {
+                            background-image: url("../images/datatables/sort_both.png");
+                        }
+                    }
+                }
+
+                &.sorting_asc {
+                    span {
+                        &:after {
+                            background-image: url("../images/datatables/sort_asc.png");
+                        }
+                    }
+                }
+
+                &.sorting_desc {
+                    span {
+                        &:after {
+                            background-image: url("../images/datatables/sort_desc.png");
+                        }
+                    }
+                }
+
+                &.no-sorting {
+                    span {
+                        &:after {
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+
+            &.shown {
+                td {
+                    border-color: transparent;
+                }
+                .table-arrow-button {
+                    transform: translateY(-50%) rotate(180deg);
+                    &:after {
+                        border-color: $accent-color transparent transparent transparent;
+                    }
+                }
+            }
+        }
+
+        a {
+            color: #1f6c79;
+        }
     }
-    &:last-child {
-     padding-right: 0;
+
+    .dataTables_info {
+        display: none;
     }
+
+    @include md-block() {
+        overflow: auto;
+        margin-right: -$fields;
+        margin-left: -$fields;
+        padding-left: $fields;
+        padding-right: $fields;
+    }
+
     @include sm-block() {
-     height: 50px;
-     font-size: 13px;
+        margin-right: -20px;
+        margin-left: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
-   }
-
-   th {
-    color: rgba(#000, 1);
-    font-weight: 500;
-    cursor: pointer;
-    text-transform: uppercase;
-    white-space: nowrap;
-    border-color: #99bcc2;
-
-    @include sm-block() {
-     padding-bottom: 12px;
-    }
-
-    span {
-     position: relative;
-     display: inline-flex;
-     align-items: center;
-     vertical-align: top;
-
-     &:after {
-      content: "";
-      width: 17px;
-      height: 14px;
-      display: block;
-      margin-left: 8px;
-      background-repeat: no-repeat;
-      background-size: contain;
-     }
-
-     &:hover {
-      color: rgba($primary-color, 0.9);
-     }
-    }
-
-    &.sorting {
-     span {
-      &:after {
-       background-image: url("../images/datatables/sort_both.png");
-      }
-     }
-    }
-
-    &.sorting_asc {
-     span {
-      &:after {
-       background-image: url("../images/datatables/sort_asc.png");
-      }
-     }
-    }
-
-    &.sorting_desc {
-     span {
-      &:after {
-       background-image: url("../images/datatables/sort_desc.png");
-      }
-     }
-    }
-
-    &.no-sorting {
-     span {
-      &:after {
-       display: none !important;
-      }
-     }
-    }
-   }
-
-   &.shown {
-    td {
-     border-color: transparent;
-    }
-    .table-arrow-button {
-     transform: translateY(-50%) rotate(180deg);
-     &:after {
-      border-color: $accent-color transparent transparent transparent;
-     }
-    }
-   }
-  }
-
-  a {
-   color: #1f6c79;
-  }
- }
-
- .dataTables_info {
-  display: none;
- }
-
- @include md-block() {
-  overflow: auto;
-  margin-right: -$fields;
-  margin-left: -$fields;
-  padding-left: $fields;
-  padding-right: $fields;
- }
-
- @include sm-block() {
-  margin-right: -20px;
-  margin-left: -20px;
-  padding-left: 20px;
-  padding-right: 20px;
- }
 }
 .dataTables_paginate {
- display: flex;
- flex-wrap: wrap;
- align-items: center;
- justify-content: space-between;
- margin-top: 25px;
- margin-left: -5px;
- margin-right: -5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-left: -5px;
+    margin-right: -5px;
 
- & > * {
-  margin: 5px;
- }
+    & > * {
+        margin: 5px;
+    }
 
- & > span {
-  order: 3;
-  border-radius: 2px;
-  overflow: hidden;
+    & > span {
+        order: 3;
+        border-radius: 2px;
+        overflow: hidden;
 
-  display: flex;
+        display: flex;
 
-  a {
-   @include paginateLink();
-   margin: 0 5px 0 0;
-   &.current {
-    @include paginateLinkActive();
-   }
-  }
- }
+        a {
+            @include paginateLink();
+            margin: 0 5px 0 0;
+            &.current {
+                @include paginateLinkActive();
+            }
+        }
+    }
 
- & > .paginate_button {
-  display: none;
+    & > .paginate_button {
+        display: none;
 
-  &:hover {
-   text-decoration: none;
-  }
+        &:hover {
+            text-decoration: none;
+        }
 
-  &.next {
-   margin-right: auto;
-   margin-left: 5px;
-  }
+        &.next {
+            margin-right: auto;
+            margin-left: 5px;
+        }
 
-  &.disabled {
-   color: rgba(#000, 0.3);
-   pointer-events: none;
-   cursor: default;
-   background: #ccc;
-  }
- }
+        &.disabled {
+            color: rgba(#000, 0.3);
+            pointer-events: none;
+            cursor: default;
+            background: #ccc;
+        }
+    }
 }
 
 .table-row-description-content {
- display: none;
+    display: none;
 }
 .table-row-description {
- padding: 20px 30px;
- background: #ebf4f6;
- border-radius: 10px;
- font-size: 14px;
- margin: 0 0 15px;
- white-space: normal;
+    padding: 20px 30px;
+    background: #ebf4f6;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 0 0 15px;
+    white-space: normal;
 }
 .td-status {
- width: 190px;
- .status {
-  width: 100%;
-  &__inner {
-   width: 100%;
-  }
- }
- @include sm-block() {
-  padding: 0 10px !important;
- }
+    width: 190px;
+    .status {
+        width: 100%;
+        &__inner {
+            width: 100%;
+        }
+    }
+    @include sm-block() {
+        padding: 0 10px !important;
+    }
 }
 
 .details-control {
- position: relative;
- padding-right: 30px !important;
- cursor: pointer;
+    position: relative;
+    padding-right: 30px !important;
+    cursor: pointer;
 
- .table-arrow-button {
-  position: absolute;
-  top: 50%;
-  right: 5px;
-  transform: translateY(-50%);
- }
- &:hover {
-  .table-arrow-button {
-   &:after {
-    border-color: $accent-color transparent transparent transparent;
-   }
-  }
- }
+    .table-arrow-button {
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+    }
+    &:hover {
+        .table-arrow-button {
+            &:after {
+                border-color: $accent-color transparent transparent transparent;
+            }
+        }
+    }
 }
 .table-arrow-button {
- cursor: pointer;
- &:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 8px 8px 0 8px;
-  border-color: #c2d7da transparent transparent transparent;
-  display: block;
- }
+    cursor: pointer;
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 8px 0 8px;
+        border-color: #c2d7da transparent transparent transparent;
+        display: block;
+    }
 }
 
 .filter-module {
- background: #edf5f6;
- padding: 25px 35px;
- margin-bottom: 15px;
- position: relative;
- &:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-color: #0000 #0000 #fff;
-  border-style: solid;
-  border-width: 0 0 20px 20px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
- }
- @include sm-block() {
-  padding: 25px;
- }
- &__row {
-  @include row-flex();
-  align-items: flex-end;
-  margin-bottom: -20px;
- }
- .button {
-  width: 100%;
-  font-size: 19px;
-  &__inner {
-   width: 100%;
-  }
-  @include xl-block() {
-   font-size: 17px;
-  }
- }
- .field {
-  & > label:not(.select):not(.button):not(.checkbox) {
-   font-weight: 500;
-   font-size: 18px;
-  }
-  input,
-  select {
-   font-size: 16px;
-   background: #fff;
-   color: #999;
-   @include desktop-block() {
-    font-size: 14px;
-   }
-  }
-  select {
-   color: #999;
-   font-weight: 500;
-   option {
-    color: #000;
-   }
-  }
-  @include col();
-  @include size(3);
-  @include size-sm(12);
-  margin-bottom: 20px;
- }
+    background: #edf5f6;
+    padding: 25px 35px;
+    margin-bottom: 15px;
+    position: relative;
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-color: #0000 #0000 #fff;
+        border-style: solid;
+        border-width: 0 0 20px 20px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+    }
+    @include sm-block() {
+        padding: 25px;
+    }
+    &__row {
+        @include row-flex();
+        align-items: flex-end;
+        margin-bottom: -20px;
+    }
+    .button {
+        width: 100%;
+        font-size: 19px;
+        &__inner {
+            width: 100%;
+        }
+        @include xl-block() {
+            font-size: 17px;
+        }
+    }
+    .field {
+        & > label:not(.select):not(.button):not(.checkbox) {
+            font-weight: 500;
+            font-size: 18px;
+        }
+        input,
+        select {
+            font-size: 16px;
+            background: #fff;
+            color: #999;
+            @include desktop-block() {
+                font-size: 14px;
+            }
+        }
+        select {
+            color: #999;
+            font-weight: 500;
+            option {
+                color: #000;
+            }
+        }
+        @include col();
+        @include size(3);
+        @include size-sm(12);
+        margin-bottom: 20px;
+    }
 }

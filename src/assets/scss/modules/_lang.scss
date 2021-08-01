@@ -83,6 +83,15 @@
                 color: $primary-color;
             }
         }
+        @include lg-block() {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 90vw;
+            transform: translate(-50%, -50%) !important;
+            margin: 0;
+            box-shadow: 0 0 0 999px #d8e5ffaf;
+        }
     }
     .active {
         a {

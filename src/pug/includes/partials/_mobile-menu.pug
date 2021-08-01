@@ -1,5 +1,13 @@
 +b.mobile-menu 
-  +e.row
+    +e.content
+
+      +b.search-module
+        form
+          input(type="text" name="search" placeholder="Search...")
+          +e.A(href="#" class="button")
+            +icon('search') 
+
+    
     +e.NAV.navigation
       ul
         li
@@ -22,14 +30,8 @@
           a(href="history.html")
             +icon('006-history')
             span History
-
+    
     +e.content
-
-      +b.search-module
-        form
-          input(type="text" name="search" placeholder="Search...")
-          +e.A(href="#" class="button")
-            +icon('search') 
 
       +b.A.button(href="register.html" class="_primary") Add a currency
 
