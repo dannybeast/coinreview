@@ -125,10 +125,99 @@ block content
       .container
         +b.H3.title Promoted
 
+        +b.table-wrapper
+          +e.block(class="_border")
+            table 
+              thead 
+                tr 
+                  th # 
+                  th Name
+                  th Price
+                  th 24h %
+                  th 7d %
+                  th Market Cap
+                  th Volume(24h)
+                  th Circulating Supply
+                  th Last 7 Days
+                  th Votes
+              tbody 
+                tr 
+                  td 1
+                  td
+                    +b.currency
+                      +e.icon 
+                        img(src="assets/images/currency/btc.svg", alt="")
+                      +e.P.name Bitcoin <span>BTC</span>
+                  td
+                    p 
+                      strong $34,394.55
+                  td
+                    p.color-success
+                      strong 1.36%
+                  td
+                    p.color-success
+                      strong 7.86%
+                  td
+                    p $646,879,798,387
+                  td
+                    p $20,512,439,991
+                    p 
+                      small 595,070 BTC
+                  td
+                    p 18,766,106 BTC
+                  td
+                    #chart
+                  td
+                    +b.amount-module 
+
     +b.SECTION
       .container
         +b.H3.title All Cryptocurrencyes
 
+        +b.table-wrapper
+          +e.block
+            table 
+              thead 
+                tr 
+                  th # 
+                  th Name
+                  th Price
+                  th 24h %
+                  th 7d %
+                  th Market Cap
+                  th Volume(24h)
+                  th Circulating Supply
+                  th Last 7 Days
+                  th Votes
+              tbody 
+                tr 
+                  td 1
+                  td
+                    +b.currency
+                      +e.icon 
+                        img(src="assets/images/currency/btc.svg", alt="")
+                      +e.P.name Bitcoin <span>BTC</span>
+                  td
+                    p 
+                      strong $34,394.55
+                  td
+                    p.color-success
+                      strong 1.36%
+                  td
+                    p.color-success
+                      strong 7.86%
+                  td
+                    p $646,879,798,387
+                  td
+                    p $20,512,439,991
+                    p 
+                      small 595,070 BTC
+                  td
+                    p 18,766,106 BTC
+                  td
+                    #chart
+                  td
+                    +b.amount-module 
 
     +b.SECTION.banners
       .container

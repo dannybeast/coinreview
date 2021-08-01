@@ -10,7 +10,7 @@ sup {
     display: inline-block;
     vertical-align: top;
     font-size: 0.6em;
-    margin: 0.5em 0 0 0;
+    margin: 0.65em 0 0 0;
 }
 
 .main-layout {
@@ -752,10 +752,14 @@ sup {
     border-radius: 15px;
     font-size: 13px;
     font-weight: 700;
-    padding: 5px 8px;
+    padding: 2px 8px;
     position: relative;
     display: inline-flex;
     align-items: center;
+    sup {
+        margin-left: 2px;
+        margin-top: 0.6em;
+    }
     &:before {
         content: "";
         background-image: svg-load("../icons/play.svg", fill=#fff);
@@ -1032,6 +1036,68 @@ sup {
         margin-bottom: 10px;
         li {
             margin: 0 30px 15px 0;
+        }
+    }
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    &__name {
+        span {
+            color: #9f9f9f;
+        }
+    }
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 20px;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 50%;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.table-wrapper {
+    &__block {
+        background: #fff;
+        border-radius: 20px;
+        border: solid 2px transparent;
+        &_border {
+            border-color: $primary-color;
+        }
+        table {
+            th {
+                color: #000;
+                opacity: 0.5;
+                padding: 20px;
+            }
+            th,
+            td {
+                font-size: 14px;
+                border-color: #e9ecf3;
+                small {
+                    font-size: 12px;
+                    font-weight: 300;
+                }
+                &:first-child {
+                    padding-left: 40px;
+                }
+                &:last-child {
+                    padding-right: 40px;
+                }
+            }
+            td {
+                padding-top: 13px;
+                padding-bottom: 13px;
+            }
         }
     }
 }
