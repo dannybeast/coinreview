@@ -58,6 +58,7 @@ sup {
                 text-align: center;
                 display: block;
                 color: #fff;
+                font-family: $accent-font;
                 text-decoration: none;
                 padding: 20px 15px;
                 font-size: 11px;
@@ -258,7 +259,9 @@ sup {
     display: flex;
     align-items: center;
     font-size: 13px;
+    font-family: $accent-font;
     line-height: 1.4;
+
     li {
         margin: 0 20px;
         display: flex;
@@ -268,6 +271,7 @@ sup {
         }
         strong {
             color: $primary-color;
+            font-weight: 500;
             @include to(1400px) {
                 display: block;
             }
@@ -460,6 +464,7 @@ sup {
         text-decoration: none;
         color: #000;
         display: block;
+        font-family: $accent-font;
         padding: 25px 0;
         border-bottom: 2px solid transparent;
         margin-bottom: -1px;
@@ -578,7 +583,7 @@ sup {
 .subtitle {
     margin-bottom: 20px;
     strong {
-        font-weight: 900;
+        font-weight: 700;
     }
     @include sm-block() {
         margin-bottom: 35px;
@@ -723,13 +728,14 @@ sup {
     padding: 25px 20px;
     font-size: 12px;
     line-height: 1.4;
+    font-family: $accent-font;
     &_primary {
         background: rgb(109, 155, 252);
         background: linear-gradient(180deg, rgba(109, 155, 252, 1) 0%, rgba(78, 128, 237, 1) 100%);
         color: #fff;
     }
     &__label {
-        font-weight: 700;
+        font-weight: 500;
         opacity: 0.5;
         margin-bottom: 5px;
     }
@@ -752,6 +758,7 @@ sup {
     border-radius: 15px;
     font-size: 13px;
     font-weight: 700;
+    font-family: $main-font;
     padding: 2px 8px;
     position: relative;
     display: inline-flex;
@@ -840,6 +847,7 @@ sup {
     &__top {
         margin-bottom: 15px;
         line-height: 1.5;
+        font-family: $accent-font;
         display: flex;
         align-items: center;
         font-size: 14px;
@@ -852,6 +860,7 @@ sup {
         white-space: nowrap;
         font-weight: 900;
         color: #3f77f2;
+        font-family: $main-font;
         margin-top: auto;
         @include notebook-block() {
             font-size: 20px;
@@ -903,6 +912,7 @@ sup {
     overflow: hidden;
     padding: 55px 60px;
     font-size: 18px;
+    font-family: $accent-font;
     font-weight: 300;
     line-height: 1.65;
     display: flex;
@@ -932,7 +942,7 @@ sup {
         margin-top: auto;
     }
     &__title {
-        font-weight: 900;
+        font-weight: 700;
         margin-bottom: 27px;
         line-height: 1.3;
         font-size: 31px;
@@ -971,7 +981,7 @@ sup {
         }
     }
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 12px;
     &:hover {
         color: $primary-color;
@@ -979,6 +989,7 @@ sup {
 }
 
 .search-module {
+    font-family: $accent-font;
     &__top {
         display: flex;
         align-items: center;
@@ -991,7 +1002,7 @@ sup {
         margin-bottom: 25px;
         font-size: 18px;
         line-height: 1.4;
-        font-weight: 700;
+        font-weight: 500;
         margin-right: 40px;
         flex-shrink: 0;
     }
@@ -1008,7 +1019,7 @@ sup {
             padding-left: 30px;
             box-shadow: 0px 3px 24px 0px rgba(198, 203, 214, 0.2);
             padding-right: 70px;
-            font-weight: 600;
+            font-weight: 400;
             @include sm-block() {
                 height: 50px;
                 font-size: 14px;
@@ -1026,6 +1037,11 @@ sup {
                 fill: $primary-color;
                 width: 24px;
                 height: 24px;
+            }
+            &:hover {
+                svg {
+                    fill: #000;
+                }
             }
         }
     }
@@ -1070,6 +1086,7 @@ sup {
         background: #fff;
         border-radius: 20px;
         border: solid 2px transparent;
+        font-family: $accent-font;
         &_border {
             border-color: $primary-color;
         }

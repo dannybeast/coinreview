@@ -2,8 +2,9 @@
     color: #fff;
     font-size: 20px;
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 30px;
+    font-family: $accent-font;
     @include sm-block() {
         font-size: 17px;
     }
@@ -101,9 +102,9 @@
     }
     &__copyright {
         font-size: 12px;
+        font-family: $main-font;
         line-height: 1.9;
         color: #fff;
-        font-weight: 300;
         margin: 0 auto 0 60px;
         @include md-block() {
             width: 100%;
@@ -145,6 +146,7 @@
             border-top: 2px solid #7fa4f1;
             justify-content: space-between;
             padding-top: 60px;
+            font-family: $main-font;
             padding-bottom: 60px;
             position: relative;
             @include md-block() {
