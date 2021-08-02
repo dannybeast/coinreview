@@ -1,0 +1,30 @@
+mixin time-labels(name)
+    +b.UL.time-labels 
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="1" checked)
+                span 1D
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="2")
+                span 7D
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="3")
+                span 1M
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="4")
+                span 3M
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="5")
+                span 1Y
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="6")
+                span YTD 
+        +e.LI
+            +b.LABEL.radio-label 
+                input(type="radio" name=name value="7")
+                span ALL

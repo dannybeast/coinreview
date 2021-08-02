@@ -92,7 +92,7 @@ block content
               input(type="text" name="Enter currency name" placeholder="Enter currency name")
               button 
                 +icon('search')
-    +b.SECTION.counters
+    +b.SECTION.counters-section
       .container
 
         .swiper-container.swiper-no-swiping.js-swiper-counters
@@ -182,25 +182,26 @@ block content
 
         +b.table-wrapper
           +e.block(class="_border")
-            table.table-hover 
-              thead 
-                tr 
-                  th # 
-                  th Name
-                  th Price
-                  th 24h %
-                  th 7d %
-                  th Market Cap
-                  th Volume(24h)
-                  th Circulating Supply
-                  th Last 7 Days
-                  th Votes
-              tbody 
-                +tr('1','btc','#03b15d')
-                +tr('2','eth','#03b15d')
-                +tr('3','dai','#d22f49')
-                +tr('4','tether','#03b15d')
-                +tr('5','btc','#d22f49')
+            +e.table
+              table.table-hover 
+                thead 
+                  tr 
+                    th # 
+                    th Name
+                    th Price
+                    th 24h %
+                    th 7d %
+                    th Market Cap
+                    th Volume(24h)
+                    th Circulating Supply
+                    th Last 7 Days
+                    th Votes
+                tbody 
+                  +tr('1','btc','#03b15d')
+                  +tr('2','eth','#03b15d')
+                  +tr('3','dai','#d22f49')
+                  +tr('4','tether','#03b15d')
+                  +tr('5','btc','#d22f49')
     
     +b.SECTION
       .container
@@ -238,32 +239,33 @@ block content
                     input(type="radio" name="table-label" value="7")
                     span 2 days
           +e.block
-            table.table-hover.js-datatables
-              thead 
-                tr 
-                  th # 
-                  th Name
-                  th Price
-                  th 24h %
-                  th 7d %
-                  th Market Cap
-                  th Volume(24h)
-                  th Circulating Supply
-                  th Last 7 Days
-                  th Votes
-              tbody 
-                +tr('1','btc','#03b15d')
-                +tr('2','eth','#03b15d')
-                +tr('3','dai','#d22f49')
-                +tr('4','tether','#03b15d')
-                +tr('5','btc','#03b15d')
-                +tr('6','eth','#03b15d')
-                +tr('7','dai','#d22f49')
-                +tr('8','tether','#03b15d')
-                +tr('9','btc','#03b15d')
-                +tr('10','eth','#03b15d')
-                +tr('11','dai','#d22f49')
-                +tr('12','tether','#03b15d')
+            +e.table
+              table.table-hover.js-datatables
+                thead 
+                  tr 
+                    th # 
+                    th Name
+                    th Price
+                    th 24h %
+                    th 7d %
+                    th Market Cap
+                    th Volume(24h)
+                    th Circulating Supply
+                    th Last 7 Days
+                    th Votes
+                tbody 
+                  +tr('1','btc','#03b15d')
+                  +tr('2','eth','#03b15d')
+                  +tr('3','dai','#d22f49')
+                  +tr('4','tether','#03b15d')
+                  +tr('5','btc','#03b15d')
+                  +tr('6','eth','#03b15d')
+                  +tr('7','dai','#d22f49')
+                  +tr('8','tether','#03b15d')
+                  +tr('9','btc','#03b15d')
+                  +tr('10','eth','#03b15d')
+                  +tr('11','dai','#d22f49')
+                  +tr('12','tether','#03b15d')
 
     +b.SECTION.banners
       .container
