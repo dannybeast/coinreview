@@ -861,6 +861,9 @@ sup {
         @include notebook-block() {
             font-size: 20px;
         }
+        @include sm-block() {
+            font-size: 17px;
+        }
         span {
             color: #000;
         }
@@ -1168,6 +1171,9 @@ sup {
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        @include sm-block() {
+            font-size: 12px;
+        }
         &:hover {
             color: $primary-color;
         }
@@ -1179,6 +1185,9 @@ sup {
     flex-wrap: wrap;
     li {
         margin: 0 0 0 5px;
+        &:first-child {
+            margin-left: 0;
+        }
     }
 }
 
@@ -1186,7 +1195,10 @@ sup {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    @include sm-block() {
+        flex-wrap: wrap;
+    }
     &:last-child {
         margin-bottom: 0;
     }
@@ -1194,13 +1206,29 @@ sup {
         width: 70%;
         font-family: $accent-font;
         font-size: 13px;
+        @include sm-block() {
+            width: 100%;
+            margin-bottom: 25px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
     .time-labels {
         width: 30%;
         justify-content: flex-end;
+        @include sm-block() {
+            width: 100%;
+            justify-content: flex-start;
+        }
     }
 }
-
+.js-tab-content {
+    @include sm-block() {
+        margin-left: -$fields_sm;
+        margin-right: -$fields_sm;
+    }
+}
 .news-block {
     background: #fff;
     display: flex;
@@ -1212,6 +1240,12 @@ sup {
     font-family: $accent-font;
     font-size: 13px;
     margin-bottom: 10px;
+
+    @include sm-block() {
+        flex-wrap: wrap;
+        padding: 30px;
+        border-radius: 0;
+    }
 
     &:hover {
         color: #000;
@@ -1226,6 +1260,12 @@ sup {
         flex-shrink: 0;
         width: 283px;
         margin-left: 60px;
+        @include sm-block() {
+            width: 100%;
+            order: -1;
+            margin-left: 0;
+            margin-bottom: 15px;
+        }
         img {
             width: 100%;
         }
@@ -1254,6 +1294,10 @@ sup {
 .news-section {
     &__bottom {
         margin-top: 30px;
+        @include sm-block() {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
         .button {
             font-size: 15px;
         }
@@ -1291,7 +1335,6 @@ sup {
     @include lg-block() {
         margin-left: -30px;
         margin-right: -30px;
-        padding-left: 30px;
     }
     @include sm-block() {
         margin-left: -15px;
@@ -1331,6 +1374,9 @@ sup {
 
     &__content {
         padding: 0 40px;
+        @include sm-block() {
+            padding: 0 15px;
+        }
     }
 
     &__filter {
@@ -1370,6 +1416,9 @@ sup {
         font-family: $accent-font;
         &-content {
             padding: 0 40px;
+            @include sm-block() {
+                padding: 0 15px;
+            }
             &:first-child {
                 padding-top: 30px;
             }
@@ -1382,8 +1431,18 @@ sup {
             align-items: center;
             justify-content: space-between;
             margin-bottom: 15px;
+            @include sm-block() {
+                flex-wrap: wrap;
+            }
             .title {
                 margin-bottom: 0 !important;
+                @include sm-block() {
+                    width: 100%;
+                    margin-bottom: 15px !important;
+                    &:last-child {
+                        margin-bottom: 0 !important;
+                    }
+                }
             }
         }
         .title {
@@ -1391,18 +1450,16 @@ sup {
             font-size: 22px;
             font-weight: 500;
             margin-bottom: 30px;
+            @include sm-block() {
+                margin-bottom: 15px;
+            }
         }
         @include lg-block() {
-            margin-left: -$fields;
-            margin-right: -$fields;
             border-left: 0;
             border-right: 0;
             border-radius: 0;
         }
-        @include sm-block() {
-            margin-left: -$fields-sm;
-            margin-right: -$fields-sm;
-        }
+
         &_border {
             border-color: $primary-color;
         }
@@ -1418,15 +1475,23 @@ sup {
         .table-bordered {
             border: solid 1px #d0d0d0;
             border-radius: 6px;
-
+            @include sm-block() {
+                border: none;
+            }
             th,
             td {
                 border-color: #d0d0d0;
                 &:first-child {
                     padding-left: 120px;
+                    @include lg-block() {
+                        padding-left: 30px;
+                    }
                 }
                 &:last-child {
                     padding-right: 120px;
+                    @include lg-block() {
+                        padding-right: 30px;
+                    }
                 }
             }
 
@@ -1561,7 +1626,11 @@ sup {
     }
     &__row {
         display: flex;
+        justify-content: flex-start;
         align-items: center;
+        strong {
+            display: inline;
+        }
     }
     li {
         margin-bottom: 30px;
@@ -1598,10 +1667,17 @@ sup {
     &__content {
         @include col();
         @include size(9);
+        @include size-notebook(8);
+        @include size-xl(12);
+        @include xl-block() {
+            margin-bottom: 20px;
+        }
     }
     &__sidebar {
         @include col();
         @include size(3);
+        @include size-notebook(4);
+        @include size-xl(12);
     }
     .statistics-block {
         height: 100%;
@@ -1618,7 +1694,7 @@ sup {
         height: 70px;
         overflow: hidden;
         position: relative;
-        padding: 15px 0;
+        padding: 0 0 15px 0;
         &:after {
             content: " ";
             width: 100%;
@@ -1661,12 +1737,25 @@ sup {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
         border-top-right-radius: 20px;
+        @include sm-block() {
+            padding: 30px 15px 30px;
+        }
         .title {
             font-size: 22px;
+            @include sm-block() {
+                margin-bottom: 15px;
+            }
         }
     }
     &__nav {
         display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        @include sm-block() {
+            margin-left: -$fields_sm;
+            margin-right: -$fields_sm;
+        }
         a {
             text-decoration: none;
             font-weight: 500;
@@ -1700,8 +1789,12 @@ sup {
     align-items: center;
     font-size: 18px;
     font-family: $accent-font;
+    @include sm-block() {
+        font-size: 15px;
+    }
     &__label {
         margin-right: 30px;
+        line-height: 1.4;
     }
     .amount-module {
         input {
@@ -1766,6 +1859,15 @@ sup {
         padding-left: 15px;
         padding-right: 15px;
         border-radius: 20px;
+        @include sm-block() {
+            font-size: 18px;
+        }
+        @include xs-block() {
+            font-size: 16px;
+            height: 28px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
         &:before {
             width: 8px;
             height: 8px;
@@ -1774,7 +1876,14 @@ sup {
     &__value {
         font-size: 44px;
         font-weight: 900;
+        white-space: nowrap;
         margin-right: 15px;
+        @include sm-block() {
+            font-size: 38px;
+        }
+        @include xs-block() {
+            font-size: 28px;
+        }
         span {
             color: $primary-color;
         }
@@ -1795,6 +1904,9 @@ sup {
         padding-left: 0;
         border-bottom: 2px solid #cfddfb;
         transition: all 0.2s $animation;
+        @include sm-block() {
+            font-size: 17px;
+        }
         &[type="number"]::-webkit-inner-spin-button,
         &[type="number"]::-webkit-outer-spin-button {
             -webkit-appearance: none;
@@ -1809,11 +1921,15 @@ sup {
         }
     }
     .field {
+        margin-top: auto;
         label {
             font-size: 12px !important;
             color: #9f9f9f;
             display: block !important;
             margin-bottom: 0 !important;
+            @include sm-block() {
+                font-size: 10px !important;
+            }
             span {
                 color: #000;
             }
@@ -1821,10 +1937,17 @@ sup {
     }
     &__separator {
         margin: 0 20px;
+        @include sm-block() {
+            margin: 0 10px;
+        }
         svg {
             width: 42px;
             height: 42px;
             fill: #cfddfb;
+            @include sm-block() {
+                width: 38px;
+                height: 38px;
+            }
         }
     }
 }
@@ -1882,15 +2005,24 @@ sup {
     &__col {
         @include col();
         @include size(4);
+        @include size-md(12);
         display: flex;
         flex-direction: column;
     }
     .convertation {
         margin-left: auto;
         margin-top: auto;
+        @include md-block() {
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: 30px;
+        }
     }
     .vote {
         margin-left: auto;
+        @include md-block() {
+            margin-left: 0;
+        }
     }
     .currency-course {
         margin-bottom: 45px;
@@ -1908,6 +2040,9 @@ sup {
     }
     .insurance {
         margin: 0 auto;
+        @include md-block() {
+            margin: 30px 0;
+        }
     }
 }
 

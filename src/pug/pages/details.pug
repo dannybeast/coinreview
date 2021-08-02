@@ -178,6 +178,9 @@ block content
                                         a.decrease
                                             +icon('play')
 
+                +e.row 
+
+
         +b.SECTION.counters-section
             .container
 
@@ -405,7 +408,7 @@ block content
                                             tbody 
                                                 mixin tr-history()
                                                     tr 
-                                                        td 2021-07-29
+                                                        td.nowrap 2021-07-29
                                                         td 
                                                             p
                                                                 strong $268,838,784,856
@@ -609,6 +612,14 @@ block script
                     stops: [0, 90, 100]
                 },
             },
+            responsive: [{
+                    breakpoint: 768,
+                    options: {
+                        chart:{
+                            height: 250
+                        }
+                    },
+                }],
 
             };
 
@@ -661,6 +672,7 @@ block script
                 type: 'candlestick',
                 height: 400,
                 id: 'candles',
+             
                 toolbar: {
                     autoSelected: 'pan',
                     show: false
@@ -679,7 +691,15 @@ block script
             },
             xaxis: {
                 type: 'datetime'
-            }
+            },
+               responsive: [{
+                    breakpoint: 768,
+                    options: {
+                        chart:{
+                            height: 250
+                        }
+                    },
+                }],
             };
 
             var chartCandle = new ApexCharts(document.querySelector(".chart-candlestick"), optionsCandle);
