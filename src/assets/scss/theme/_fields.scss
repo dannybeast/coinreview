@@ -169,29 +169,37 @@ $field-border-radius: 0;
 
 .select {
     position: relative;
+    font-weight: 600;
+
     &:after {
         content: "";
-        width: 17px;
-        height: 10px;
+        width: 8px;
+        height: 5px;
         display: block;
-        background-image: svg-load("../icons/down-arrow.svg", fill=#a2a2a2);
+        background-image: svg-load("../icons/001-down-arrow.svg", fill=#828999);
         background-size: contain;
         background-repeat: no-repeat;
         position: absolute;
-        right: 20px;
+        right: 10px;
         top: 50%;
         transform: translateY(-50%);
         pointer-events: none;
     }
     select {
         @include inputBase();
+        background: #d8e5ff;
         font-size: 21px;
         font-weight: 700;
         -webkit-appearance: none;
         -moz-appearance: none;
         text-indent: 1px;
         text-overflow: ellipsis;
+        font-family: $accent-font;
         padding-right: 30px;
+        cursor: pointer;
+        &:hover {
+            border-color: #d8e5ff;
+        }
         @include sm-block() {
             font-size: 16px;
         }
@@ -201,6 +209,17 @@ $field-border-radius: 0;
         option {
             font-size: 16px;
             font-weight: 400;
+        }
+    }
+    &_small {
+        select {
+            font-size: 12px;
+            width: 60px;
+            height: 25px;
+            padding: 0 20px 0 10px;
+            option {
+                font-size: 12px;
+            }
         }
     }
 }

@@ -1,169 +1,69 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Etherium';
-  - var description = '';
-  - var pageName = 'home';
+    - var title = 'Etherium';
+    - var description = '';
+    - var pageName = 'home';
 
 
 block content
-
-  +b.ARTICLE
-    include ../includes/partials/time-labels
-    
-    +b.SECTION
-        .container
-            +b.breadcrumbs 
-                a(href="#") Coins 
-                span / 
-                span Etherium
-
-    +b.SECTION.details-top
-      .container
-
-
-    +b.SECTION.counters-section
-      .container
-
-        .swiper-container.swiper-no-swiping.js-swiper-counters
-          .swiper-wrapper 
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p Market Cap
-                  +b.label(class="_success") 1.2<sup>%</sup>
-                +e.P.value 
-                    span $ 269,117,217,260
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p Fully Diluted Market Cap
-                  +b.label(class="_danger") 0.3<sup>%</sup>
-                +e.P.value 
-                    span $ 269,117,217,260
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p 24 Hour Trading Vol 
-                  +b.label(class="_danger") 0.3<sup>%</sup>
-                +e.P.value
-                    span $ 15,767,547,708
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p Total Supply
-                +e.P.value
-                    span 116,887,989.62 ETH
-
-
-    +b.SECTION.details
-      .container
-        +e.row
-            +e.content 
-            
-            +e.sidebar
-                +b.sidebar-block.statistics-block
-                    +e.H4.title ETH Price Statistics
-                    +b.UL.statistics-list 
-                        +e.LI 
-                            p Ethereum Price	
-                            +e.row
-                                strong $2,324.09
-                        +e.LI 
-                            p Price Change 24h
-                            +e.row
-                                strong $24.83 
-                                +b.label(class="_danger") 0.3<sup>%</sup>
-                        +e.LI 
-                            p 24h Low / 24h High	
-                            +e.row
-                                strong $2,258.06 / $2,331.49
-                        +e.LI 
-                            p Trading Volumen 24h
-                            +e.row
-                                strong $16,039,566,976.08  
-                                +b.label(class="_success") 1.2<sup>%</sup>
-                        +e.LI 
-                            p Volume / Market Cap	
-                            +e.row
-                                strong 0.05899
-                        +e.LI 
-                            p Market Dominance	
-                            +e.row
-                                strong 17,46%
-                        +e.LI 
-                            p Market Rank	
-                            +e.row
-                                strong #2
-                        +e.LI 
-                            p Market Cap	
-                            +e.row
-                                strong $271,916,193,634.42
-                                +b.label(class="_success") 1.2<sup>%</sup>
-                        +e.LI 
-                            p Fully Diluted Market Cap
-                            +e.row
-                                strong $271,916,193,634.42 
-                                +b.label(class="_success") 1.2<sup>%</sup>
-
-
     mixin tr(index,currency, color)
-      tr 
-        td #{index}
-        td
-          if currency === 'btc'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/btc.svg", alt="")
-              +e.P.name Bitcoin <span>BTC</span>
-          else if currency === 'eth'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/eth.svg", alt="")
-              +e.P.name Etherium <span>ETH</span>
-          else if currency === 'dai'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/dai.svg", alt="")
-              +e.P.name Dai <span>DAI</span>
-          else if currency === 'tether'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/tether.svg", alt="")
-              +e.P.name Tether <span>Tether</span>
-      
-        td.nowrap
-          p 
-            strong $34,394.55
-        td.nowrap
-          if currency === 'eth'
-            p.color-success
-              strong 1.36%
-          else
-            p.color-danger
-              strong 0.23%
-        td.nowrap
-          p.color-success
-            strong 7.86%
-        td.nowrap
-          p $646,879,798,387
-        td.nowrap
-          p $20,512,439,991
-          p 
-            small 595,070 BTC
-        td.nowrap
-          p 18,766,106 BTC
-        td
-          if currency === 'eth'
-            .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
-          else 
-            .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
-        td
-          +b.amount-module 
-            .decrease.value-button(value='Decrease Value') -
-            input.number(type='number' value='0' name="amount")
-            .increase.value-button(value='Increase Value') +
-    
+        tr 
+            td #{index}
+            td
+                if currency === 'btc'
+                    +b.currency
+                        +e.icon 
+                            img(src="assets/images/currency/btc.svg", alt="")
+                        +e.P.name Bitcoin <span>BTC</span>
+                else if currency === 'eth'
+                    +b.currency
+                        +e.icon 
+                            img(src="assets/images/currency/eth.svg", alt="")
+                        +e.P.name Etherium <span>ETH</span>
+                else if currency === 'dai'
+                    +b.currency
+                        +e.icon 
+                            img(src="assets/images/currency/dai.svg", alt="")
+                        +e.P.name Dai <span>DAI</span>
+                else if currency === 'tether'
+                    +b.currency
+                        +e.icon 
+                            img(src="assets/images/currency/tether.svg", alt="")
+                        +e.P.name Tether <span>Tether</span>
+
+            td.nowrap
+                p 
+                    strong $34,394.55
+            td.nowrap
+                if currency === 'eth'
+                    p.color-success
+                        strong 1.36%
+                else
+                    p.color-danger
+                        strong 0.23%
+            td.nowrap
+                p.color-success
+                    strong 7.86%
+            td.nowrap
+                p $646,879,798,387
+            td.nowrap
+                p $20,512,439,991
+                p 
+                    small 595,070 BTC
+            td.nowrap
+                p 18,766,106 BTC
+            td
+                if currency === 'eth'
+                    .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
+                else 
+                    .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
+            td
+                +b.amount-module 
+                    .decrease.value-button(value='Decrease Value') -
+                    input.number(type='number' value='0' name="amount")
+                    .increase.value-button(value='Increase Value') +
+
     mixin tr2(index)
         tr 
             td #{index}
@@ -198,328 +98,655 @@ block content
                     +b.status-label(class="_success") Hight
             td 867
             td Recently
-    
-    +b.SECTION
-      .container
 
-        +b.table-wrapper
-          +e.block(class="_border")
-            +e.block-content
-                +b.H3.title Promoted
-            +e.table
-                table.table-hover 
-                    thead 
-                        tr 
-                            th # 
-                            th Name
-                            th Price
-                            th 24h %
-                            th 7d %
-                            th Market Cap
-                            th Volume(24h)
-                            th Circulating Supply
-                            th Last 7 Days
-                            th Votes
-                    tbody 
-                        +tr('1','btc','#03b15d')
-                        +tr('2','eth','#03b15d')
-                        +tr('3','dai','#d22f49')
-                        +tr('4','tether','#03b15d')
-                        +tr('5','btc','#d22f49')
-    
-    +b.SECTION
-        .container
-            +b.table-wrapper
-                +e.block
-                    +e.block-content
-                        +b.H3.title Ethereum Markets
+    +b.ARTICLE
+        include ../includes/partials/time-labels
 
-                    +e.table
-                        table.table-hover 
-                            thead 
-                                tr 
-                                    th #
-                                    th Name
-                                    th Pairs
-                                    th Price
-                                    th +2% Depth 
-                                    th -2% Depth
-                                    th Volume
-                                    th Volume %
-                                    th Confidence
-                                    th Liquidity
-                                    th Liquidity scores
-                            tbody 
-                                +tr2('1')
-                                +tr2('2')
-                                +tr2('3')
-                                +tr2('4')
-                                +tr2('5')
-    
-    +b.SECTION
-        .container
-            +b.table-wrapper
-                +e.block
-                    +e.block-content
-                        +b.H3.title Ethereum to USD Chart
-                        +b.text-and-labels
-                            +b.typography
-                                p ETH to USD rate for today is $2,325.42. It has a current circulating supply of 117 Million coins and a total volume exchanged of $18,499,006,317.
-                            +time-labels('time-filter')
-                        
-                        +b.chart-module
-                            +e.chart
+        +b.SECTION
+            .container
+                +b.breadcrumbs 
+                    a(href="#") Coins 
+                    span / 
+                    span Etherium
 
-                        +e.table
-                            .table-bordered
-                                table
-                                    thead 
-                                        tr 
-                                            th 1h
-                                            th 24h
-                                            th 7d
-                                            th 14d
-                                            th 30d
-                                            th 1y
-                                    tbody 
-                                        tr 
-                                            td 
-                                                p.color-success 
-                                                    strong 0.3%
-                                            td 
-                                                p.color-success 
-                                                    strong 1.8%
-                                            td 
-                                                p.color-success 
-                                                    strong 16.1%
-                                            td 
-                                                p.color-success 
-                                                    strong 16.4%
-                                            td 
-                                                p.color-success 
-                                                    strong 11.4%
-                                            td 
-                                                p.color-success 
-                                                    strong 635.2%
-    
-    +b.SECTION
-        .container
-            +b.table-wrapper
-                +e.block
-                    +e.block-content
-                        +e.block-row
-                            +b.H3.title Ethereum USD (Historical Data)
+        +b.SECTION.details-top
+            .container
+                +e.row 
+                    +e.col 
+
+                        +b.currency
+                            +e.icon 
+                                img(src="assets/images/currency/eth.svg", alt="")
+                            +e.P.name Etherium <span>ETH</span>
+
+                        +b.currency-price 
+                            +e.P.value $ <span>2,305.49</span>
+                            +b.label(class="_success") 1.2<sup>%</sup>
+
+                        +b.currency-course 
+                            p 0.05776913 BTC
+                            +b.label(class="_success") 0.6%
+
+                        +b.indicator 
+                            +e.top
+                                p Low: <strong>$2,258.06</strong>
+                                p Hight: <strong>$2,258.06</strong>
+                            +e.bar-wrapper
+                                +e.bar 
+                                    span(style="width:30%")
+                                +b.LABEL.select(class="_small")
+                                    select
+                                        option(value="1") 24h
+
+                    +e.col
+                        +b.insurance
+                            +e.icon 
+                                img(src="assets/images/insurance.svg", alt="")
+                            +e.content 
+                                p <span class="color-gray">Etherium</span>
+                                p <span class="color-success">audited</span> coin
+                    
+                    +e.col
+
+                        +b.vote 
+                            +e.P.label Vote for <strong>ETC</strong>
+                            +b.amount-module 
+                                .decrease.value-button(value='Decrease Value') -
+                                input.number(type='number' value='0' name="amount")
+                                .increase.value-button(value='Increase Value') +
+
+                        +b.convertation 
+                            +b.field 
+                                label ETH <span>Etherium</span>
+                                +e.wrap.amount-module
+                                    input(type="number" value="233" name="eth").color-primary
+                                    +e.arrows 
+                                        a.increase
+                                            +icon('play') 
+                                        a.decrease
+                                            +icon('play') 
+                            +e.separator 
+                                +icon('arrows')
+                            +b.field 
+                                label USD <span>United States Dollar</span>
                             
-                            +time-labels('time')
-                        
-                    +e.table
-                        table 
-                            thead 
-                                tr 
-                                    th Date
-                                    th Market Cap
-                                    th Volume
-                                    th Open
-                                    th Close
-                            tbody 
-                                mixin tr-history()
-                                    tr 
-                                        td 2021-07-29
-                                        td 
-                                            p
-                                                strong $268,838,784,856
-                                        td 
-                                            p
-                                                strong $23,171,592,870
-                                        td $2,299.69
-                                        td $2,299.69
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-                                +tr-history()
-    +b.SECTION.news-section
-        .container
-            mixin news-block()
-                +b.A(href="#" class="news-block")
-                    +e.content
-                        +e.P.title Crypto Analyst Says Ethereum Following Cardano, Maps Potential Reversal Against Bitcoin
-                        +e.P.date about 19 hours ago
-                        +e.description
-                            p A top trader is mapping out Ethereum’s path ahead, predicting that the asset will follow in Cardano’s footsteps. In a series of tweets, pseudonymous crypto trader Capo notes that Cardano (ADA) recently retraced against Bitcoin (BTC), indicating that a similar move could be in store for Ethereum
-                        +e.link Read more
-                    +e.image
-                        img(src="assets/images/news/lg.png", alt="")
-            +news-block()
-            +news-block()
-            +news-block()
-            +e.bottom
-                +b.A(href="#" class="button _primary") Show all news
+                                +e.wrap.amount-module
+                                    input(type="number" value="536252" name="usd")
+                                    +e.arrows 
+                                        a.increase
+                                            +icon('play') 
+                                        a.decrease
+                                            +icon('play')
+
+        +b.SECTION.counters-section
+            .container
+
+                .swiper-container.swiper-no-swiping.js-swiper-counters
+                    .swiper-wrapper 
+                        .swiper-slide 
+                            +b.counters-item
+                                +e.top
+                                    p Market Cap
+                                    +b.label(class="_success") 1.2<sup>%</sup>
+                                +e.P.value 
+                                    span $ 269,117,217,260
+                        .swiper-slide 
+                            +b.counters-item
+                                +e.top
+                                    p Fully Diluted Market Cap
+                                    +b.label(class="_danger") 0.3<sup>%</sup>
+                                +e.P.value 
+                                    span $ 269,117,217,260
+                        .swiper-slide 
+                            +b.counters-item
+                                +e.top
+                                    p 24 Hour Trading Vol 
+                                    +b.label(class="_danger") 0.3<sup>%</sup>
+                                +e.P.value
+                                    span $ 15,767,547,708
+                        .swiper-slide 
+                            +b.counters-item
+                                +e.top
+                                    p Total Supply
+                                +e.P.value
+                                    span 116,887,989.62 ETH
+
+
+        +b.SECTION
+            .container
+                mixin tab(index)
+                    if index === 1
+                        div.js-tab-content
+
+                            +b.details
+                                +e.row
+                                    +e.content
+                                        .tabs__content
+                                            .table-wrapper__block-row
+                                                +b.H3.title Ethereum (ETH) Price Chart 
+                                                +time-labels('price-time-filter')
+
+                                            .chart-candlestick
+                                            .chart-bar
+
+                                            +b.details-text
+                                                +b.H3.title What Is Ethereum (ETH)?
+                                                +b.typography
+                                                    p Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether. ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of decentralized smart contracts.
+                                                    p Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014 and officially launched the blockchain on July 30, 2015
+                                                +e.bottom
+                                                    +b.A(class="button _primary _small js-show-more") Read more
+                                    +e.sidebar
+                                        +b.sidebar-block.statistics-block
+                                            +e.H4.title ETH Price Statistics
+                                            +b.UL.statistics-list 
+                                                +e.LI 
+                                                    p Ethereum Price	
+                                                    +e.row
+                                                        strong $2,324.09
+                                                +e.LI 
+                                                    p Price Change 24h
+                                                    +e.row
+                                                        strong $24.83 
+                                                        +b.label(class="_danger") 0.3<sup>%</sup>
+                                                +e.LI 
+                                                    p 24h Low / 24h High	
+                                                    +e.row
+                                                        strong $2,258.06 / $2,331.49
+                                                +e.LI 
+                                                    p Trading Volumen 24h
+                                                    +e.row
+                                                        strong $16,039,566,976.08  
+                                                        +b.label(class="_success") 1.2<sup>%</sup>
+                                                +e.LI 
+                                                    p Volume / Market Cap	
+                                                    +e.row
+                                                        strong 0.05899
+                                                +e.LI 
+                                                    p Market Dominance	
+                                                    +e.row
+                                                        strong 17,46%
+                                                +e.LI 
+                                                    p Market Rank	
+                                                    +e.row
+                                                        strong #2
+                                                +e.LI 
+                                                    p Market Cap	
+                                                    +e.row
+                                                        strong $271,916,193,634.42
+                                                        +b.label(class="_success") 1.2<sup>%</sup>
+                                                +e.LI 
+                                                    p Fully Diluted Market Cap
+                                                    +e.row
+                                                        strong $271,916,193,634.42 
+                                                        +b.label(class="_success") 1.2<sup>%</sup>
+                    if index === 2 
+                        div.js-tab-content
+                            +b.table-wrapper
+                                +e.block(class="_border")
+                                    +e.block-content
+                                        +b.H3.title Promoted
+                                    +e.table
+                                        table.table-hover 
+                                            thead 
+                                                tr 
+                                                    th # 
+                                                    th Name
+                                                    th Price
+                                                    th 24h %
+                                                    th 7d %
+                                                    th Market Cap
+                                                    th Volume(24h)
+                                                    th Circulating Supply
+                                                    th Last 7 Days
+                                                    th Votes
+                                            tbody 
+                                                +tr('1','btc','#03b15d')
+                                                +tr('2','eth','#03b15d')
+                                                +tr('3','dai','#d22f49')
+                                                +tr('4','tether','#03b15d')
+                                                +tr('5','btc','#d22f49')
+                    if index === 3
+                        div.js-tab-content
+                            +b.table-wrapper
+                                +e.block
+                                    +e.block-content
+                                        +b.H3.title Ethereum Markets
+
+                                    +e.table
+                                        table.table-hover 
+                                            thead 
+                                                tr 
+                                                    th #
+                                                    th Name
+                                                    th Pairs
+                                                    th Price
+                                                    th +2% Depth 
+                                                    th -2% Depth
+                                                    th Volume
+                                                    th Volume %
+                                                    th Confidence
+                                                    th Liquidity
+                                                    th Liquidity scores
+                                            tbody 
+                                                +tr2('1')
+                                                +tr2('2')
+                                                +tr2('3')
+                                                +tr2('4')
+                                                +tr2('5')
+                                                +tr2('6')
+                            
+                    if index === 4
+                        div.js-tab-content
+                            +b.table-wrapper
+                                +e.block
+                                    +e.block-content
+                                        +b.H3.title Ethereum to USD Chart
+                                        +b.text-and-labels
+                                            +b.typography
+                                                p ETH to USD rate for today is $2,325.42. It has a current circulating supply of 117 Million coins and a total volume exchanged of $18,499,006,317.
+                                            +time-labels('time-filter')
+
+                                        +b.chart-module
+                                            +e.chart
+
+                                        +e.table
+                                            .table-bordered
+                                                table
+                                                    thead 
+                                                        tr 
+                                                            th 1h
+                                                            th 24h
+                                                            th 7d
+                                                            th 14d
+                                                            th 30d
+                                                            th 1y
+                                                    tbody 
+                                                        tr 
+                                                            td 
+                                                                p.color-success 
+                                                                    strong 0.3%
+                                                            td 
+                                                                p.color-success 
+                                                                    strong 1.8%
+                                                            td 
+                                                                p.color-success 
+                                                                    strong 16.1%
+                                                            td 
+                                                                p.color-success 
+                                                                    strong 16.4%
+                                                            td 
+                                                                p.color-success 
+                                                                    strong 11.4%
+                                                            td 
+                                                                p.color-success 
+                                                                    strong 635.2%
+                    if index === 5
+                        div.js-tab-content
+                            +b.table-wrapper
+                                +e.block
+                                    +e.block-content
+                                        +e.block-row
+                                            +b.H3.title Ethereum USD (Historical Data)
+
+                                            +time-labels('time')
+
+                                    +e.table
+                                        table 
+                                            thead 
+                                                tr 
+                                                    th Date
+                                                    th Market Cap
+                                                    th Volume
+                                                    th Open
+                                                    th Close
+                                            tbody 
+                                                mixin tr-history()
+                                                    tr 
+                                                        td 2021-07-29
+                                                        td 
+                                                            p
+                                                                strong $268,838,784,856
+                                                        td 
+                                                            p
+                                                                strong $23,171,592,870
+                                                        td $2,299.69
+                                                        td $2,299.69
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                                                +tr-history()
+                    if index === 6
+                        div.js-tab-content
+                            mixin news-block()
+                                +b.A(href="#" class="news-block")
+                                    +e.content
+                                        +e.P.title Crypto Analyst Says Ethereum Following Cardano, Maps Potential Reversal Against Bitcoin
+                                        +e.P.date about 19 hours ago
+                                        +e.description
+                                            p A top trader is mapping out Ethereum’s path ahead, predicting that the asset will follow in Cardano’s footsteps. In a series of tweets, pseudonymous crypto trader Capo notes that Cardano (ADA) recently retraced against Bitcoin (BTC), indicating that a similar move could be in store for Ethereum
+                                        +e.link Read more
+                                    +e.image
+                                        img(src="assets/images/news/lg.png", alt="")
+                            +news-block()
+                            +news-block()
+                            +news-block()
+                            .news-section__bottom
+                                +b.A(href="#" class="button _primary") Show all news
+                
+                +b.tabs.js-tabs
+                    +e.UL.nav 
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Overview
+                        +e.LI(class=" js-tab-link is-promo")
+                            +e.A() 
+                                span Promoted
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Markets
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Chart
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Historical Data
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span News
+
+                    +tab(1)
+                    +tab(2)
+                    +tab(3)
+                    +tab(4)
+                    +tab(5)
+                    +tab(6)
+
+
+
 block script
-  script(src="assets/js/vendors.js")
-  script(src="assets/js/app.js")
-  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
-  script(src="https://cdn.jsdelivr.net/npm/apexcharts")
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-  script(type="text/javascript").
-    
-    $(document).ready( function () {
-        // Datatables
-        $('.js-datatables').DataTable({
-          "searching": false
-        });
+    script(src="assets/js/vendors.js")
+    script(src="assets/js/app.js")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+    script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    script(type="text/javascript").
 
-        // Styles table
-        $('.js-datatables').each( function(){
-          var $wrapper = $(this).parents('.table-wrapper');
-          // filter
-          var $filter = $wrapper.find('.table-wrapper__filter');
-          $filter.append($wrapper.find('.dataTables_length'))
-          $filter.append($wrapper.find('.dataTables_filter'))
-
-          // pagination
-          $wrapper.append('<div class="table-wrapper__footer"></div>')
-          var $footer = $wrapper.find('.table-wrapper__footer');
-          $footer.append($wrapper.find('.dataTables_info'))
-          $footer.append($wrapper.find('.dataTables_paginate'))
-        })
+        $(document).ready( function () {
 
 
-        // Charts
-        document.querySelectorAll('.chart').forEach(function(el){
+            // Charts
+            document.querySelectorAll('.chart').forEach(function(el){
+                var options = {
+                series: [{
+                    name: "Desktops",
+                    data: el.dataset.array.split(',')
+                }],
+                chart: {
+                    height:90,
+                    animations:{
+                        enabled: false,
+                    },
+                    type: 'line',
+                    toolbar:{
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                stroke: {
+                    show: true,
+                    curve: 'straight',
+                    colors: [el.dataset.color],
+                    width: 2,  
+                },
+                grid:{
+                    show: false,
+                    xaxis: {
+                        lines: {
+                            show: false
+                        }
+                    },   
+                    yaxis: {
+                        lines: {
+                            show: false
+                        }
+                    }, 
+                    padding: {
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        left: 0
+                    },  
+                },
+
+                legend: {
+                    show: false,
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                yaxis: {
+                    show: false,
+                },
+                tooltip: {
+                    enabled: false
+                },
+                xaxis: {  
+                    axisBorder:{
+                        show: false
+                    },
+                        axisTicks:{
+                            show: false
+                    },
+                    labels:{
+                        show: false
+                    }
+                },
+
+
+                };
+
+                var chart = new ApexCharts(el, options);
+                chart.render();
+            })
+
+            // Chart 
             var options = {
-            series: [{
-                name: "Desktops",
-                data: el.dataset.array.split(',')
+                series: [{
+                name: 'Ethereum to USD Chart',
+                data: [10, 41, 35, 51, 49, 62, 69, 91, 148,10, 41, 35, 51, 49, 62, 69, 91, 148,10, 41, 35, 51, 49, 62, 69, 91, 148]
             }],
-            chart: {
-              height:90,
-              animations:{
-                enabled: false,
-              },
-              type: 'line',
-              toolbar:{
-                show: false
-              },
-              zoom: {
-                enabled: false
-              }
-            },
-            stroke: {
-                show: true,
-                curve: 'straight',
-                colors: [el.dataset.color],
-                width: 2,  
-            },
-            grid:{
-              show: false,
-              xaxis: {
-                  lines: {
-                      show: false
-                  }
-              },   
-              yaxis: {
-                  lines: {
-                      show: false
-                  }
-              }, 
-              padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-              },  
-            },
-
-            legend: {
-              show: false,
+                chart: {
+                type: 'area',
+                stacked: false,
+                height: 280,
+                toolbar:{
+                    show: false
+                    },
+                    zoom: {
+                    enabled: false
+                    }
             },
             dataLabels: {
-              enabled: false
+                enabled: false
+            },
+            markers: {
+                size: 0,
             },
             yaxis: {
-              show: false,
+                show: false,
+                    },
+                    xaxis: {  
+                        axisBorder:{
+                            show: false
+                },
+                    axisTicks:{
+                        show: false
+                },
+                labels:{
+                    show: false
+                }
+                    },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    inverseColors: false,
+                    opacityFrom: 0.5,
+                    opacityTo: 0,
+                    stops: [0, 90, 100]
+                },
             },
-            tooltip: {
-              enabled: false
-            },
-            xaxis: {  
-                axisBorder:{
-                  show: false
-              },
-                axisTicks:{
-                  show: false
-              },
-              labels:{
-                show: false
-              }
-            },
-        
 
-          };
+            };
 
-          var chart = new ApexCharts(el, options);
-          chart.render();
-        })
+            var chart = new ApexCharts(document.querySelector(".chart-module__chart"), options);
+            chart.render();
 
-        // Chart 
-        var options = {
-          series: [{
-          name: 'Ethereum to USD Chart',
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148,10, 41, 35, 51, 49, 62, 69, 91, 148,10, 41, 35, 51, 49, 62, 69, 91, 148]
-        }],
-          chart: {
-          type: 'area',
-          stacked: false,
-          height: 280,
-          toolbar:{
-            show: false
+
+            // Chart candle
+            let seriesData = [
+                {
+                    x: new Date(1538798400000),
+                    y: [6608.91, 6618.99, 6608.01, 6612]
+                },
+                {
+                    x: new Date(1538800200000),
+                    y: [6612, 6615.13, 6605.09, 6612]
+                },
+                {
+                    x: new Date(1538802000000),
+                    y: [6612, 6624.12, 6608.43, 6622.95]
+                },
+                {
+                    x: new Date(1538803800000),
+                    y: [6623.91, 6623.91, 6615, 6615.67]
+                },
+                {
+                    x: new Date(1538805600000),
+                    y: [6618.69, 6618.74, 6610, 6610.4]
+                },
+                {
+                    x: new Date(1538807400000),
+                    y: [6611, 6622.78, 6610.4, 6614.9]
+                },
+                {
+                    x: new Date(1538809200000),
+                    y: [6614.9, 6626.2, 6613.33, 6623.45]
+                },
+                {
+                    x: new Date(1538811000000),
+                    y: [6623.48, 6627, 6618.38, 6620.35]
+                },
+
+                ]
+
+            var optionsCandle = {
+                series: [{
+                data: seriesData
+            }],
+                chart: {
+                type: 'candlestick',
+                height: 400,
+                id: 'candles',
+                toolbar: {
+                    autoSelected: 'pan',
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                },
             },
-            zoom: {
-            enabled: false
+            plotOptions: {
+                candlestick: {
+                    colors: {
+                        upward: '#3C90EB',
+                        downward: '#DF7D46'
+                    }
+                }
+            },
+            xaxis: {
+                type: 'datetime'
             }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        markers: {
-          size: 0,
-        },
-        yaxis: {
-              show: false,
-            },
-            xaxis: {  
-                axisBorder:{
-                  show: false
-              },
-                axisTicks:{
-                  show: false
-              },
-              labels:{
-                show: false
-              }
-            },
-        fill: {
-          type: 'gradient',
-          gradient: {
-            shadeIntensity: 1,
-            inverseColors: false,
-            opacityFrom: 0.5,
-            opacityTo: 0,
-            stops: [0, 90, 100]
-          },
-        },
-  
-        };
+            };
 
-        var chart = new ApexCharts(document.querySelector(".chart-module__chart"), options);
-        chart.render();
-    });
-    
+            var chartCandle = new ApexCharts(document.querySelector(".chart-candlestick"), optionsCandle);
+            chartCandle.render();
+
+            var optionsBar = {
+                series: [{
+                name: 'volume',
+                data: seriesData
+            }],
+                chart: {
+                height: 130,
+                type: 'area',
+                brush: {
+                    enabled: true,
+                    target: 'candles'
+                },
+                selection: {
+                    enabled: true,
+                    xaxis: {
+                        min: new Date('19 Jun 2017').getTime(),
+                        max: new Date('14 Aug 2017').getTime()
+                    },
+                    fill: {
+                        color: '#ccc',
+                        opacity: 0.4
+                    },
+                    stroke: {
+                        color: '#0D47A1',
+                    }
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            plotOptions: {
+                bar: {
+                    columnWidth: '80%',
+                    colors: {
+                        ranges: [{
+                            from: -1000,
+                            to: 0,
+                            color: '#F15B46'
+                        }, {
+                            from: 1,
+                            to: 10000,
+                            color: '#FEB019'
+                        }],
+
+                    },
+                }
+            },
+            stroke: {
+                width: 0
+            },
+            xaxis: {
+                type: 'datetime',
+                axisBorder: {
+                    offsetX: 13
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false
+                }
+            }
+            };
+
+            var chartBar = new ApexCharts(document.querySelector(".chart-bar"), optionsBar);
+            chartBar.render();
+        });
+

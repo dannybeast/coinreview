@@ -48,6 +48,10 @@ $(document).ready(function(){
 
 
 
+  $('.js-show-more').click(function(){
+    $(this).parents('.details-text').addClass('is-more')
+  })
+
 
   // document
   //   .querySelectorAll('.faq-row')
