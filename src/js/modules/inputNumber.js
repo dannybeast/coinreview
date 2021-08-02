@@ -1,15 +1,35 @@
+
+
 function increaseValue(el) {
-    var value = parseInt(el.value, 10);
+    var value = +el.value;
+    let step = +el.dataset.step;
+
     value = isNaN(value) ? 0 : value;
-    value++;
+
+    if(isNaN(step)){
+      value++;
+    }else{
+      let sum = value + step;
+      value = +sum.toFixed(2);
+    }
+
     el.value = value;
+
   }
   
   function decreaseValue(el) {
-    var value = parseInt(el.value, 10);
+    var value = +el.value;
+    let step = +el.dataset.step;
     value = isNaN(value) ? 0 : value;
     value < 1 ? value = 1 : '';
-    value--;
+    
+    if(isNaN(step)){
+      value--;
+    }else{
+      let sum = value - step;
+
+      value = +sum.toFixed(2);
+    }
     el.value = value;
   }
 

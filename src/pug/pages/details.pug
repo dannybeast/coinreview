@@ -159,7 +159,7 @@ block content
                             +b.field 
                                 label ETH <span>Etherium</span>
                                 +e.wrap.amount-module
-                                    input(type="number" value="233" name="eth").color-primary
+                                    input(type="number" value="233.02" data-step="0.01" name="eth").color-primary
                                     +e.arrows 
                                         a.increase
                                             +icon('play') 
@@ -171,7 +171,7 @@ block content
                                 label USD <span>United States Dollar</span>
                             
                                 +e.wrap.amount-module
-                                    input(type="number" value="536252" name="usd")
+                                    input(type="number" value="536252.12" data-step="0.01" name="usd")
                                     +e.arrows 
                                         a.increase
                                             +icon('play') 
@@ -488,7 +488,7 @@ block script
         $(document).ready( function () {
 
 
-            // Charts
+            // Charts for table
             document.querySelectorAll('.chart').forEach(function(el){
                 var options = {
                 series: [{
@@ -628,144 +628,132 @@ block script
 
 
             // Chart candle
-            let seriesData = [
-                {
-                    x: new Date(1538798400000),
-                    y: [6608.91, 6618.99, 6608.01, 6612]
+            let seriesData = [{
+                x: new Date('10 Jan 2021'),
+                y: [6629.81, 6650.5, 6623.04, 6633.33]
                 },
                 {
-                    x: new Date(1538800200000),
-                    y: [6612, 6615.13, 6605.09, 6612]
+                x: new Date('11 Jan 2021'),
+                y: [6632.01, 6643.59, 6620, 6630.11]
                 },
                 {
-                    x: new Date(1538802000000),
-                    y: [6612, 6624.12, 6608.43, 6622.95]
+                x: new Date('12 Jan 2021'),
+                y: [6630.71, 6648.95, 6623.34, 6635.65]
                 },
                 {
-                    x: new Date(1538803800000),
-                    y: [6623.91, 6623.91, 6615, 6615.67]
+                x: new Date('13 Jan 2021'),
+                y: [6635.65, 6651, 6629.67, 6638.24]
                 },
                 {
-                    x: new Date(1538805600000),
-                    y: [6618.69, 6618.74, 6610, 6610.4]
+                x: new Date('14 Jan 2021'),
+                y: [6638.24, 6640, 6620, 6624.47]
                 },
                 {
-                    x: new Date(1538807400000),
-                    y: [6611, 6622.78, 6610.4, 6614.9]
+                x: new Date('15 Jan 2021'),
+                y: [6624.53, 6636.03, 6621.68, 6624.31]
                 },
                 {
-                    x: new Date(1538809200000),
-                    y: [6614.9, 6626.2, 6613.33, 6623.45]
+                x: new Date('16 Jan 2021'),
+                y: [6624.61, 6632.2, 6617, 6626.02]
                 },
                 {
-                    x: new Date(1538811000000),
-                    y: [6623.48, 6627, 6618.38, 6620.35]
+                x: new Date('17 Jan 2021'),
+                y: [6627, 6627.62, 6584.22, 6603.02]
                 },
                 {
-                    x: new Date(1538798400000),
-                    y: [6608.91, 6618.99, 6608.01, 6612]
+                x: new Date('18 Jan 2021'),
+                y: [6605, 6608.03, 6598.95, 6604.01]
                 },
                 {
-                    x: new Date(1538800200000),
-                    y: [6612, 6615.13, 6605.09, 6612]
+                x: new Date('19 Jan 2021'),
+                y: [6604.5, 6614.4, 6602.26, 6608.02]
                 },
                 {
-                    x: new Date(1538802000000),
-                    y: [6612, 6624.12, 6608.43, 6622.95]
+                x: new Date('20 Jan 2021'),
+                y: [6608.02, 6610.68, 6601.99, 6608.91]
                 },
                 {
-                    x: new Date(1538803800000),
-                    y: [6623.91, 6623.91, 6615, 6615.67]
+                x: new Date('21 Jan 2021'),
+                y: [6608.91, 6618.99, 6608.01, 6612]
                 },
                 {
-                    x: new Date(1538805600000),
-                    y: [6618.69, 6618.74, 6610, 6610.4]
+                x: new Date('22 Jan 2021'),
+                y: [6612, 6615.13, 6605.09, 6612]
                 },
                 {
-                    x: new Date(1538807400000),
-                    y: [6611, 6622.78, 6610.4, 6614.9]
+                x: new Date('23 Jan 2021'),
+                y: [6612, 6624.12, 6608.43, 6622.95]
                 },
                 {
-                    x: new Date(1538809200000),
-                    y: [6614.9, 6626.2, 6613.33, 6623.45]
+                x: new Date('24 Jan 2021'),
+                y: [6623.91, 6623.91, 6615, 6615.67]
                 },
                 {
-                    x: new Date(1538811000000),
-                    y: [6623.48, 6627, 6618.38, 6620.35]
+                x: new Date('25 Jan 2021'),
+                y: [6618.69, 6618.74, 6610, 6610.4]
                 },
                 {
-                    x: new Date(1538798400000),
-                    y: [6608.91, 6618.99, 6608.01, 6612]
+                x: new Date('26 Jan 2021'),
+                y: [6611, 6622.78, 6610.4, 6614.9]
                 },
                 {
-                    x: new Date(1538800200000),
-                    y: [6612, 6615.13, 6605.09, 6612]
+                x: new Date('27 Jan 2021'),
+                y: [6614.9, 6626.2, 6613.33, 6623.45]
                 },
                 {
-                    x: new Date(1538802000000),
-                    y: [6612, 6624.12, 6608.43, 6622.95]
+                x: new Date('28 Jan 2021'),
+                y: [6623.48, 6627, 6618.38, 6620.35]
                 },
                 {
-                    x: new Date(1538803800000),
-                    y: [6623.91, 6623.91, 6615, 6615.67]
+                x: new Date('29 Jan 2021'),
+                y: [6619.43, 6620.35, 6610.05, 6615.53]
                 },
                 {
-                    x: new Date(1538805600000),
-                    y: [6618.69, 6618.74, 6610, 6610.4]
+                x: new Date('30 Jan 2021'),
+                y: [6615.53, 6617.93, 6610, 6615.19]
                 },
                 {
-                    x: new Date(1538807400000),
-                    y: [6611, 6622.78, 6610.4, 6614.9]
+                x: new Date('31 Jan 2021'),
+                y: [6615.19, 6621.6, 6608.2, 6620]
                 },
                 {
-                    x: new Date(1538809200000),
-                    y: [6614.9, 6626.2, 6613.33, 6623.45]
+                x: new Date('1 Feb 2021'),
+                y: [6619.54, 6625.17, 6614.15, 6620]
                 },
                 {
-                    x: new Date(1538811000000),
-                    y: [6623.48, 6627, 6618.38, 6620.35]
+                x: new Date('2 Feb 2021'),
+                y: [6620.33, 6634.15, 6617.24, 6624.61]
                 },
                 {
-                    x: new Date(1538798400000),
-                    y: [6608.91, 6618.99, 6608.01, 6612]
+                x: new Date('3 Feb 2021'),
+                y: [6625.95, 6626, 6611.66, 6617.58]
                 },
                 {
-                    x: new Date(1538800200000),
-                    y: [6612, 6615.13, 6605.09, 6612]
+                x: new Date('4 Feb 2021'),
+                y: [6619, 6625.97, 6595.27, 6598.86]
                 },
                 {
-                    x: new Date(1538802000000),
-                    y: [6612, 6624.12, 6608.43, 6622.95]
+                x: new Date('5 Feb 2021'),
+                y: [6598.86, 6598.88, 6570, 6587.16]
                 },
                 {
-                    x: new Date(1538803800000),
-                    y: [6623.91, 6623.91, 6615, 6615.67]
+                x: new Date('6 Feb 2021'),
+                y: [6588.86, 6600, 6580, 6593.4]
                 },
                 {
-                    x: new Date(1538805600000),
-                    y: [6618.69, 6618.74, 6610, 6610.4]
+                x: new Date('7 Feb 2021'),
+                y: [6593.99, 6598.89, 6585, 6587.81]
                 },
-                {
-                    x: new Date(1538807400000),
-                    y: [6611, 6622.78, 6610.4, 6614.9]
-                },
-                {
-                    x: new Date(1538809200000),
-                    y: [6614.9, 6626.2, 6613.33, 6623.45]
-                },
-                {
-                    x: new Date(1538811000000),
-                    y: [6623.48, 6627, 6618.38, 6620.35]
-                },
-                ]
+               
+            ]
 
             var optionsCandle = {
                 series: [{
                 data: seriesData
-            }],
+                }],
                 chart: {
                 type: 'candlestick',
-                height: 400,
+                height: 360,
                 id: 'candles',
              
                 toolbar: {
@@ -776,6 +764,7 @@ block script
                     enabled: false
                 },
             },
+     
             plotOptions: {
                 candlestick: {
                     colors: {
@@ -784,9 +773,14 @@ block script
                     }
                 }
             },
+            
             xaxis: {
-                type: 'datetime'
+                type: 'datetime',
+                labels:{
+                    show: false
+                }
             },
+            
                responsive: [{
                     breakpoint: 768,
                     options: {
@@ -806,64 +800,73 @@ block script
                 data: seriesData
             }],
                 chart: {
-                height: 130,
-                type: 'area',
+                    height: 130,
+                    type: 'area',
+                    toolbar: {
+                        autoSelected: 'selection',
+                    },
                 brush: {
                     enabled: true,
-                    target: 'candles'
+                    target: 'candles',
+                     autoScaleYaxis: false
                 },
                 selection: {
                     enabled: true,
                     xaxis: {
-                        min: new Date('19 Jun 2017').getTime(),
-                        max: new Date('14 Aug 2017').getTime()
+                        min: new Date('13 Jan 2021').getTime(),
+                        max: new Date('20 Jan 2021').getTime()
                     },
                     fill: {
-                        color: '#ccc',
+                        color: '#d8e5ff',
                         opacity: 0.4
                     },
                     stroke: {
                         color: '#0D47A1',
                     }
                 },
-            },
-            dataLabels: {
-                enabled: false
-            },
-            plotOptions: {
-                bar: {
-                    columnWidth: '80%',
-                    colors: {
-                        ranges: [{
-                            from: -1000,
-                            to: 0,
-                            color: '#F15B46'
-                        }, {
-                            from: 1,
-                            to: 10000,
-                            color: '#FEB019'
-                        }],
-
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                grid:{
+                    show: false,
+                    xaxis: {
+                        lines: {
+                            show: false
+                        }
+                    },   
+                    yaxis: {
+                        lines: {
+                            show: false
+                        }
+                    }, 
+                    padding: {
+                        top: 0,
+                        right: 0,
+                        bottom: 0,
+                        left: 0
+                    },  
+                },
+                colors:['#cfd6e4'],
+                fill: {
+                type: 'gradient',
+                gradient: {
+                    opacityFrom: 1,
+                    opacityTo: 1,
+                }
+                },
+                xaxis: {
+                    type: 'datetime',
+                },
+                yaxis: {
+                    labels: {
+                        show: false
                     },
                 }
-            },
-            stroke: {
-                width: 0
-            },
-            xaxis: {
-                type: 'datetime',
-                axisBorder: {
-                    offsetX: 13
-                }
-            },
-            yaxis: {
-                labels: {
-                    show: false
-                }
-            }
             };
 
             var chartBar = new ApexCharts(document.querySelector(".chart-bar"), optionsBar);
             chartBar.render();
+            
         });
 
