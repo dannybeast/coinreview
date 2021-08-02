@@ -7,7 +7,8 @@ __svg__ = {
   filename: "/assets/icons/sprite.svg",
 };
 require("webpack-svgstore-plugin/src/helpers/svgxhr")(__svg__);
-
+import 'sticky-sidebar-v2';
+import './js/libs/resizeSensor';
 // SCSS
 import "./assets/scss/main.scss";
 
@@ -16,7 +17,7 @@ import hideLoader from "./js/modules/loader";
 //-import Accordion from "./js/modules/accordion";
 //-import inputmasks from "./js/modules/inputmasks";
 import sliders from "./js/modules/sliders";
-import "./js/modules/sticky";
+
 import "./js/modules/inputNumber";
 import  "./js/modules/awesome-notifications";
 import dropdown from "./js/modules/dropdown";
@@ -26,6 +27,20 @@ import tabs from "./js/modules/tabs";
 
 
 $(document).ready(function(){
+
+  function initSticky(){
+    if (document.querySelector('.js-sticky-sidebar')) {
+      window.sidebar = new StickySidebar('.js-sticky-sidebar', {
+          resizeSensor: true,
+          topSpacing:0,
+          bottomSpacing: 0,
+          innerWrapperSelector: '.sidebar__inner',
+          minWidth: 1100
+      });
+  }
+  }
+  initSticky();
+
   sliders();
   dropdown();
   tabs();
@@ -50,6 +65,22 @@ $(document).ready(function(){
 
   $('.js-show-more').click(function(){
     $(this).parents('.details-text').addClass('is-more')
+  })
+
+
+  $('.main-layout__menu-button').click(function(){
+  
+
+    if($( ".main-layout" ).hasClass( "is-hide-bar" )){
+      
+      initSticky();
+      $('.main-layout').removeClass('is-hide-bar')
+
+    }else{
+      $('.main-layout').addClass('is-hide-bar')
+      window.sidebar.destroy();
+    
+    }
   })
 
 
