@@ -1218,9 +1218,6 @@ sup {
         .news-block__link {
             text-decoration: none;
         }
-        .news-block__title {
-            color: $primary-color;
-        }
     }
     &:last-child {
         margin-bottom: 0;
@@ -1279,6 +1276,13 @@ sup {
     }
     &_danger {
         background: $danger-color;
+    }
+}
+
+.chart-module {
+    margin-bottom: 30px;
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
