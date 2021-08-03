@@ -3,7 +3,7 @@ extends ../layout/main
 block variables
   - var title = 'Главная';
   - var description = '';
-  - var pageName = 'home';
+  - var pageName = 'banners';
 
 
 block content
@@ -37,21 +37,18 @@ block content
                       +e.P.label News of day
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
-                .swiper-slide.slide-news-item
-                  +b.A(href="#").news-item 
-                    +e.image
-                      img(src="assets/images/news/3.png", alt="")
-                    +e.content
-                      +e.P.label News of day
-                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+                .swiper-slide.slide-banner
+                  +b.A(href="#" target="_blank").banner-news 
+                    img(src="assets/images/banners/banner.png", alt="")
+      
                 
-                .swiper-slide.slide-news-item
-                  +b.A.news-item(href="#" class="_primary")
-                    +e.image
-                      img(src="assets/images/news/4.png", alt="")
-                    +e.content
-                      +e.P.label News of day
-                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+                //- .swiper-slide 
+                //-   +b.A.news-item(href="#" class="_primary")
+                //-     +e.image
+                //-       img(src="assets/images/news/4.png", alt="")
+                //-     +e.content
+                //-       +e.P.label News of day
+                //-       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
 
     +b.SECTION.search-section
       .container
@@ -92,6 +89,14 @@ block content
               input(type="text" name="Enter currency name" placeholder="Enter currency name")
               button 
                 +icon('search')
+
+    +b.SECTION.banner-section
+      .container
+        +b.A(href="#" target="_blank" class="banner-element")
+            picture
+                source(srcset="assets/images/banners/banner-section-768.png" media="(max-width: 768px)")
+                source(srcset="assets/images/banners/banner-section.png")
+                img(src="assets/images/banners/banner-section.png", alt="")
     +b.SECTION.counters-section
       .container
 
@@ -287,8 +292,13 @@ block content
                 +e.buttons 
                   +b.A(href="#" class="button _primary") View New Listings
 
-
-    
+    +b.SECTION.banner-section
+      .container
+        +b.A(href="#" target="_blank" class="banner-element")
+            picture
+                source(srcset="assets/images/banners/banner-section-768.png" media="(max-width: 768px)")
+                source(srcset="assets/images/banners/banner-section.png")
+                img(src="assets/images/banners/banner-section.png", alt="")
 
 block script
   script(src="assets/js/vendors.js")

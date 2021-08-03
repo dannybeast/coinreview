@@ -13,10 +13,16 @@
       
       +e.right
 
-        +b.search-module
+        +b.search-block
           +e.A(href="#" class="button")
-            +icon('search') 
-
+                +icon('search') 
+          form
+            +e.field
+              button
+                +icon('search') 
+              input(type="text" name="search")
+              +e.A().close
+                +icon('cross') 
         +b.A.button(href="register.html" class="_primary") Add a currency
 
         include partials/_lang

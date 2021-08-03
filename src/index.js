@@ -63,6 +63,16 @@ $(document).ready(function(){
 
 
 
+  $('.search-block__button').click(function(){
+    $(this).parents('.search-block').toggleClass('is-open')
+    $(this).parents('.search-block').find('input').focus();
+  })
+
+  $('.search-block__close').click(function(){
+    $(this).parents('.search-block').toggleClass('is-open')
+  })
+
+
   $('.js-show-more').click(function(){
     $(this).parents('.details-text').addClass('is-more')
   })

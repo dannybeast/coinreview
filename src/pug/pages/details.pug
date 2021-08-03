@@ -49,7 +49,7 @@ block content
                 p $646,879,798,387
             td.nowrap
                 p $20,512,439,991
-                p 
+                p.color-gray
                     small 595,070 BTC
             td.nowrap
                 p 18,766,106 BTC
@@ -752,17 +752,19 @@ block script
                 data: seriesData
                 }],
                 chart: {
-                type: 'candlestick',
-                height: 360,
-                id: 'candles',
-             
-                toolbar: {
-                    autoSelected: 'pan',
-                    show: false
-                },
-                zoom: {
-                    enabled: false
-                },
+                    redrawOnParentResize: false,
+                     redrawOnWindowResize: false,
+                    type: 'candlestick',
+                    height: 360,
+                    id: 'candles',
+                
+                    toolbar: {
+                        autoSelected: 'pan',
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
             },
      
             plotOptions: {
