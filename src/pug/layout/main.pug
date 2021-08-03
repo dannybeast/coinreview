@@ -21,11 +21,12 @@ html(lang='en')
     
     // Main layout
     +b.MAIN#app.main-layout
-      +e.A(href="#" target="_blank").top-banner
-        picture
-          source(srcset="assets/images/banners/banner-top-768.png" media="(max-width: 768px)")
-          source(srcset="assets/images/banners/banner-top.png")
-          img(src="assets/images/banners/banner-top.png", alt="")
+      if pageName === 'banners'
+        +e.A(href="#" target="_blank").top-banner
+          picture
+            source(srcset="assets/images/banners/banner-top-768.png" media="(max-width: 768px)")
+            source(srcset="assets/images/banners/banner-top.png")
+            img(src="assets/images/banners/banner-top.png", alt="")
       +e.row
         +e.bar
           div.js-sticky-sidebar
