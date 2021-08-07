@@ -79,10 +79,7 @@ $(document).ready(function(){
 
 
   $('.main-layout__menu-button').click(function(){
-  
-
     if($( ".main-layout" ).hasClass( "is-hide-bar" )){
-      
       initSticky();
       $('.main-layout').removeClass('is-hide-bar')
 
@@ -91,6 +88,14 @@ $(document).ready(function(){
       window.sidebar.destroy();
     
     }
+  })
+
+
+  $('.file-button input[type=file]').change(function(){
+    var filename = $('input[type=file]').val().split('\\').pop();
+    var ext = filename.split('.').reverse()[0];
+    $(this).parents('label').find('.file-button__button').text(filename)
+
   })
 
 

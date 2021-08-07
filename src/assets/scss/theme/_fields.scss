@@ -4,16 +4,16 @@ $field-font-size: 16px;
 $field-border-radius: 0;
 
 @mixin inputBase() {
-    border: solid 1px #e8e8e8;
+    border: solid 1px #cad6f0;
     height: $field-height;
     width: 100%;
     font-size: $field-font-size;
     border-radius: $field-border-radius;
     font-family: $main-font;
-    background: #e8e8e8;
+    background: #eaf1ff;
     font-weight: 500;
     color: #000;
-    border-radius: 12px;
+    border-radius: 4px;
     text-overflow: ellipsis;
     font-weight: 600;
     padding-left: 20px;
@@ -49,10 +49,11 @@ $field-border-radius: 0;
     & > label:not(.select):not(.button):not(.checkbox) {
         display: flex;
         align-items: center;
-        font-size: rem(18px);
+        font-size: 14px;
+        font-family: $accent-font;
         line-height: 1.45;
-        margin-bottom: rem(20px);
-        font-weight: 700;
+        margin-bottom: rem(10px);
+        font-weight: 500;
     }
     &.disabled {
         input {

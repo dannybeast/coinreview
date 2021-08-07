@@ -723,6 +723,9 @@ sup {
     &:last-child {
         margin-bottom: 0;
     }
+    &_strong {
+        font-weight: 700;
+    }
 }
 
 .nowrap {
@@ -2270,5 +2273,266 @@ sup {
     display: block;
     img {
         width: 100%;
+    }
+}
+
+.total {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.block {
+    background: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    border: solid 2px $primary-color;
+    padding: 40px 60px;
+    @include sm-block() {
+        padding: 40px 30px;
+        margin-left: -$fields_sm;
+        margin-right: -$fields_sm;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+    @include xs-block() {
+        padding: 40px 20px;
+    }
+    .typography {
+        margin-bottom: 30px;
+        font-weight: 300;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .button {
+        font-size: 19px;
+        padding: 0 35px;
+    }
+    .field {
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.radio-button {
+    input {
+        display: none;
+        &:checked + span {
+            background-image: linear-gradient(0deg, #3e72e2, #6692f1);
+            box-shadow: 0px 3px 24px 0px rgba(70, 122, 234, 0.47);
+            color: #fff;
+        }
+    }
+    span {
+        min-width: 36px;
+        height: 36px;
+        padding: 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        cursor: pointer;
+        background: #eaf1ff;
+        border: solid 1px #cad6f0;
+        font-family: $accent-color;
+        font-weight: 700;
+        font-size: 14px;
+        &:hover {
+            color: $primary-color;
+        }
+    }
+    &_transparent {
+        span {
+            background: transparent;
+            border: none;
+        }
+    }
+}
+.radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    li {
+        margin: 0 20px 10px 0;
+    }
+    &_small-spaces {
+        li {
+            margin: 0 2px 2px 0;
+        }
+    }
+}
+
+.file-button {
+    display: inline-flex !important;
+    vertical-align: top;
+    input {
+        display: none;
+    }
+    &__button {
+        background: #eaf1ff;
+        border: solid 1px #cad6f0;
+        font-family: $accent-color;
+        line-height: 40px;
+        font-size: 14px;
+        padding: 0 30px 0 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        &::before {
+            content: "";
+            background-image: svg-load("../icons/paper-clip.svg", fill=$primary-color);
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
+        @include sm-block() {
+            padding: 0 25px;
+            line-height: 50px;
+        }
+        &:hover {
+            background: #cad6f0;
+        }
+    }
+}
+
+.add-banner-list {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+        margin: 15px 45px 15px 0;
+        font-size: 14px;
+        line-height: 1.25;
+        font-family: $accent-font;
+        @include sm-block() {
+            margin: 10px 20px 10px 0;
+        }
+        span {
+            color: #95969b;
+        }
+    }
+}
+
+.selected-banner {
+    $parent: &;
+    input {
+        display: none;
+        &:checked + span {
+            background: #fff;
+        }
+    }
+    &__block {
+        font-family: $accent-font;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: #eaf1ff;
+        text-align: center;
+        height: 115px;
+        cursor: pointer;
+        position: relative;
+        padding: 15px;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            left: 7px;
+            bottom: 7px;
+            border: dotted 2px $primary-color;
+            border-radius: 8px;
+        }
+    }
+    &__title {
+        font-size: 20px;
+        line-height: 1.4;
+        font-weight: 500;
+        display: block;
+        margin-bottom: 10px;
+        span {
+            font-weight: 400;
+        }
+        @include to(1440px) {
+            font-size: 17px;
+        }
+        @include sm-block() {
+            font-size: 15px;
+        }
+    }
+    &__bottom {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        @include from(1400px) {
+            margin: 0 auto;
+        }
+    }
+    &__description {
+        font-size: 12px;
+
+        color: rgba(#000, 0.5);
+        @include from(1400px) {
+            position: absolute;
+            left: 100%;
+            min-width: 120px;
+            width: -webkit-fill-available;
+            text-align: left;
+            line-height: 1.25;
+        }
+    }
+    &__button {
+        background-image: linear-gradient(0deg, #3e72e2, #6692f1);
+        box-shadow: 0px 3px 24px 0px rgba(70, 122, 234, 0.47);
+        color: #fff;
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 0 12px;
+        line-height: 30px;
+        margin: 0 15px;
+    }
+    &_disabled {
+        pointer-events: none;
+        #{$parent}__block {
+            background: #e9e9e9;
+            &::before {
+                border-color: #a2a4ab;
+            }
+        }
+        #{$parent}__button {
+            opacity: 0.5;
+        }
+    }
+}
+
+.select-banner-list {
+    @include row-flex();
+    margin-bottom: -40px;
+    @include sm-block() {
+        margin-bottom: -15px;
+    }
+    li {
+        @include col();
+        @include size(4);
+        @include size-lg(6);
+        @include size-sm(12);
+        margin-bottom: 40px;
+        @include sm-block() {
+            margin-bottom: 15px;
+        }
+        &.select-banner-list__full {
+            @include size(12);
+        }
     }
 }

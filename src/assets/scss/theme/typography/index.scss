@@ -10,8 +10,8 @@ $link-hover-color: lighten($accent-color, 10%);
 $link-visited-color: lighten($accent-color, 10%);
 
 // Font
-$base-font-family: $main-font;
-$base-font-size: 18px;
+$base-font-family: $accent-font;
+$base-font-size: 14px;
 $base-font-weight: $main-font-weight;
 $base-line-height: $main-line-height;
 $text-line-height: 1.7;
