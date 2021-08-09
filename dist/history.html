@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Coin Review - History</title>
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+<!-- Loader-->
+<div class="loader"><img src="assets/images/spinner.svg" alt=""></div>
+    <!-- Main layout-->
+    <main class="main-layout" id="app" role="main">
+      <div class="main-layout__row">
+        <div class="main-layout__bar">
+          <div class="js-sticky-sidebar">
+            <div class="main-layout__menu-button">
+<div class="hamburger"><span class="line"></span><span class="line"></span></div>
+            </div>
+            <ul>
+              <li><a href="index.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-004-account"></use>
+                  </svg><span>Account</span></a></li>
+              <li><a href="register.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-key"></use>
+                  </svg><span>Registration</span></a></li>
+              <li><a href="add-banner.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-003-clicking"></use>
+                  </svg><span>Add banner</span></a></li>
+              <li><a href="exchanges.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-005-atm"></use>
+                  </svg><span>Exchanges</span></a></li>
+              <li><a href="currencies.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-001-wallet"></use>
+                  </svg><span>Currencies</span></a></li>
+              <li class=" is-active"><a href="history.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-006-history"></use>
+                  </svg><span>History</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-layout__content">
+          <header class="header">
+            <div class="container">
+              <div class="header__row">
+                <div class="mobile-nav-button">
+<div class="hamburger"><span class="line"></span><span class="line"></span></div>
+                </div><a class="header__logo" href="index.html"><img src="assets/images/logo/logo.svg" alt="Asterium"></a>
+                <ul class="counters">
+                  <li>
+                    <div class="counters__icon">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-002-coins-stack"></use>
+                      </svg>
+                    </div>
+                    <p>Cryptos: <strong>11 050</strong></p>
+                  </li>
+                  <li>
+                    <div class="counters__icon">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-001-double-arrow"></use>
+                      </svg>
+                    </div>
+                    <p>Exchanges: <strong>390</strong></p>
+                  </li>
+                  <li>
+                    <div class="counters__icon">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-003-wallet"></use>
+                      </svg>
+                    </div>
+                    <p>Market Cap: <strong>$1,411,300,380,446</strong></p>
+                  </li>
+                </ul>
+                <div class="header__right">
+                  <div class="search-block"><a class="search-block__button" href="#">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-search"></use>
+                    </svg></a>
+                    <form>
+                      <div class="search-block__field">
+                        <button>
+                          <svg class="svg-icon">
+                            <use href="assets/icons/sprite.svg#icon-search"></use>
+                          </svg>
+                        </button>
+                        <input type="text" name="search"><a class="search-block__close">
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-cross"></use>
+                        </svg></a>
+                      </div>
+                    </form>
+                  </div><a class="button button_primary" href="add-currency.html">Add a currency</a>
+                  <div class="language-module js-dropdown">
+                    <div class="language-module__link"><img src="assets/images/country/united-kingdom.svg" alt=""><span>Eng</span>
+                    </div>
+                    <ul class="language-module__dropdown">
+                      <li><a href="#"> <img src="assets/images/country/poland.svg" alt=""><span>Poland</span></a>
+                      </li>
+                      <li><a href="#"> <img src="assets/images/country/russia.svg" alt=""><span>Russia</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <ul class="icons-links"> 
+                    <li><a href="register.html">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-key"></use>
+                      </svg></a>
+                    </li>
+                    <li><a href="login.html">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-user"></use>
+                      </svg></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+          <!-- Begin page-->
+          <article>
+            <section>
+              <div class="container">
+                <div class="breadcrumbs"> <a href="#">Home </a><span>/ </span><span>History</span>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="container">
+                <h3 class="title title_strong">History
+                </h3>
+                <div class="typography">
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+                </div>
+              </div>
+            </section>
+            <section class="search-section">
+              <div class="container">
+                <div class="search-module"> 
+                  <form>
+                    <div class="search-module__top">
+                      <p class="search-module__title">Search by name 
+                      </p>
+                    </div>
+                    <div class="search-module__field"> 
+                      <input type="text" name="Enter currency name" placeholder="Enter currency name">
+                      <button> 
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-search"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="container">
+                <div class="table-wrapper table-filter-hidden">
+                  <div class="table-wrapper__block">
+                    <div class="table-wrapper__block-content">
+                      <div class="table-wrapper__block-row">
+                        <label class="title-select select">
+                          <select class="js-select">
+                            <option>Ethereum USD</option>
+                          </select>
+                        </label>
+                        <ul class="time-labels"> 
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="1" checked><span>1D</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="2"><span>7D</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="3"><span>1M</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="4"><span>3M</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="5"><span>1Y</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="6"><span>YTD </span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time" value="7"><span>ALL</span>
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="table-wrapper__table">
+                      <table class="js-datatables">
+                        <thead> 
+                          <tr> 
+                            <th>Date</th>
+                            <th>Market Cap</th>
+                            <th>Volume</th>
+                            <th>Open</th>
+                            <th>Close</th>
+                          </tr>
+                        </thead>
+                        <tbody> 
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                              <tr> 
+                                <td class="nowrap">2021-07-29</td>
+                                <td> 
+                                  <p><strong>$268,838,784,856</strong></p>
+                                </td>
+                                <td> 
+                                  <p><strong>$23,171,592,870</strong></p>
+                                </td>
+                                <td>$2,299.69</td>
+                                <td>$2,299.69</td>
+                              </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="container">
+                <div class="table-wrapper">
+                  <div class="table-wrapper__block">
+                    <div class="table-wrapper__block-content">
+                      <h3 class="title">Ethereum to USD Chart
+                      </h3>
+                      <div class="text-and-labels">
+                        <div class="typography">
+                          <p>ETH to USD rate for today is $2,325.42. It has a current circulating supply of 117 Million coins and a total volume exchanged of $18,499,006,317.</p>
+                        </div>
+                        <ul class="time-labels"> 
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="1" checked><span>1D</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="2"><span>7D</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="3"><span>1M</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="4"><span>3M</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="5"><span>1Y</span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="6"><span>YTD </span>
+                            </label>
+                          </li>
+                          <li>
+                            <label class="radio-label"> 
+                              <input type="radio" name="time-filter" value="7"><span>ALL</span>
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="chart-module">
+                        <div class="chart-module__chart">
+                        </div>
+                      </div>
+                      <div class="table-wrapper__table">
+                        <div class="table-bordered">
+                          <table>
+                            <thead> 
+                              <tr> 
+                                <th>1h</th>
+                                <th>24h</th>
+                                <th>7d</th>
+                                <th>14d</th>
+                                <th>30d</th>
+                                <th>1y</th>
+                              </tr>
+                            </thead>
+                            <tbody> 
+                              <tr> 
+                                <td> 
+                                  <p class="color-success"> <strong>0.3%</strong></p>
+                                </td>
+                                <td> 
+                                  <p class="color-success"> <strong>1.8%</strong></p>
+                                </td>
+                                <td> 
+                                  <p class="color-success"> <strong>16.1%</strong></p>
+                                </td>
+                                <td> 
+                                  <p class="color-success"> <strong>16.4%</strong></p>
+                                </td>
+                                <td> 
+                                  <p class="color-success"> <strong>11.4%</strong></p>
+                                </td>
+                                <td> 
+                                  <p class="color-success"> <strong>635.2%</strong></p>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="container">
+                <div class="typography">
+                  <h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </h4>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rho</p>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+      <div class="main-layout__row">
+        <!-- End page-->
+        <footer class="footer"> 
+          <div class="container"> 
+            <div class="footer__top"> 
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Account
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Add banner 
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Exchanges 
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Curencies
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">History
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="social"> 
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-004-telegram"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-001-vk"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-003-facebook"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-005-youtube"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-002-twitter"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-006-instagram"></use>
+                    </svg></a>
+                  </li>
+                </ul>
+                <ul class="footer__links"> 
+                  <li><a href="terms.html">Privacy Policy</a>
+                  </li>
+                  <li><a href="terms.html">Terms of Service</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__bottom"> 
+              <div class="footer__bottom-top"><a class="footer__logo" href="index.html"><img src="assets/images/logo/logo-white.svg" alt=""></a>
+                <p class="footer__copyright">Copyright © <span class="js-current-year"></span> CounReview Expert, Inc.<br> Exodus was co-founded by Daniel Castagnoli and JP Richardson.
+                </p>
+              </div>
+              <div class="typography"> 
+                <p>Exodus is a software platform ONLY and does not conduct any independent diligence on or substantive review of any blockchain asset, digital currency, cryptocurrency or associated funds. You are fully and solely responsible for evaluating your investments, for determining whether you will exchange blockchain assets based on your own, and for all your decisions as to whether to exchange blockchain assets with Exodus. In many cases, blockchain assets you exchange on the basis of your research may not increase in value, and may decrease in value. Similarly, blockchain assets you exchange on the basis of your research may increase in value after your exchange. Past performance is not indicative of future results. Any investment in blockchain assets involves the risk of loss of part or all of your investment. The value of the blockchain assets you exchange is subject to market and other investment risks.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+    <div class="mobile-menu"> 
+      <div class="mobile-menu__content">
+        <div class="search-block">
+          <form>
+            <input type="text" name="search" placeholder="Search..."><a class="search-block__button" href="#">
+            <svg class="svg-icon">
+              <use href="assets/icons/sprite.svg#icon-search"></use>
+            </svg></a>
+          </form>
+        </div>
+      </div>
+      <nav class="mobile-menu__navigation">
+        <ul>
+          <li><a href="index.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-004-account"></use>
+              </svg><span>Account</span></a></li>
+          <li><a href="register.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-key"></use>
+              </svg><span>Registration</span></a></li>
+          <li><a href="add-banner.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-003-clicking"></use>
+              </svg><span>Add banner</span></a></li>
+          <li><a href="exchanges.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-005-atm"></use>
+              </svg><span>Exchanges</span></a></li>
+          <li><a href="currencies.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-001-wallet"></use>
+              </svg><span>Currencies</span></a></li>
+          <li class=" is-active"><a href="history.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-006-history"></use>
+              </svg><span>History</span></a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu__content">
+        <ul class="counters">
+          <li>
+            <div class="counters__icon">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-002-coins-stack"></use>
+              </svg>
+            </div>
+            <p>Cryptos: <strong>11 050</strong></p>
+          </li>
+          <li>
+            <div class="counters__icon">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-001-double-arrow"></use>
+              </svg>
+            </div>
+            <p>Exchanges: <strong>390</strong></p>
+          </li>
+          <li>
+            <div class="counters__icon">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-003-wallet"></use>
+              </svg>
+            </div>
+            <p>Market Cap: <strong>$1,411,300,380,446</strong></p>
+          </li>
+        </ul><a class="button button_primary" href="add-currency.html">Add a currency</a>
+        <div class="language-module js-dropdown">
+          <div class="language-module__link"><img src="assets/images/country/united-kingdom.svg" alt=""><span>Eng</span>
+          </div>
+          <ul class="language-module__dropdown">
+            <li><a href="#"> <img src="assets/images/country/poland.svg" alt=""><span>Poland</span></a>
+            </li>
+            <li><a href="#"> <img src="assets/images/country/russia.svg" alt=""><span>Russia</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/vendors.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script><script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+      $(document).ready( function () {
+          // Datatables
+          $('.js-datatables').DataTable({
+              "searching": false
+          });
+      
+          // Styles table
+          $('.js-datatables').each( function(){
+              var $wrapper = $(this).parents('.table-wrapper');
+              // filter
+              var $filter = $wrapper.find('.table-wrapper__filter');
+              $filter.append($wrapper.find('.dataTables_length'))
+              $filter.append($wrapper.find('.dataTables_filter'))
+      
+              // pagination
+              $wrapper.append('<div class="table-wrapper__footer"></div>')
+              var $footer = $wrapper.find('.table-wrapper__footer');
+              $footer.append($wrapper.find('.dataTables_info'))
+              $footer.append($wrapper.find('.dataTables_paginate'))
+      
+              let cloned = $('.dataTables_length').clone(true);
+              $wrapper.find('.table-wrapper__footer').append(cloned)
+      
+          })
+      
+      
+          // Chart 
+          var options = {
+              series: [{
+              name: 'Ethereum to USD',
+              data: [10, 41, 35, 51, 49, 62, 69, 70, 40,10, 41, 35, 51, 49, 62, 69, 91, 70,10, 41, 35, 51, 49, 62, 69, 91, 148]
+          }],
+              chart: {
+              type: 'area',
+              stacked: false,
+              height: 280,
+              toolbar:{
+                  show: false
+                  },
+                  zoom: {
+                  enabled: false
+                  }
+          },
+          dataLabels: {
+              enabled: false
+          },
+          markers: {
+              size: 0,
+          },
+          yaxis: {
+              show: false,
+                  },
+                  xaxis: {  
+                      axisBorder:{
+                          show: false
+              },
+                  axisTicks:{
+                      show: false
+              },
+              labels:{
+                  show: false
+              }
+                  },
+          fill: {
+              type: 'gradient',
+              gradient: {
+                  shadeIntensity: 1,
+                  inverseColors: false,
+                  opacityFrom: 0.5,
+                  opacityTo: 0,
+                  stops: [0, 90, 100]
+              },
+          },
+          responsive: [{
+              breakpoint: 768,
+              options: {
+                  chart:{
+                      height: 250
+                  }
+              },
+              }],
+      
+          };
+      
+          var chart = new ApexCharts(document.querySelector(".chart-module__chart"), options);
+          chart.render();
+      });
+    </script>
+  </body>
+</html>
