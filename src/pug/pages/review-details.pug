@@ -1,0 +1,27 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Главная';
+  - var description = '';
+  - var pageName = 'review';
+
+
+block content
+  +b.ARTICLE
+    
+    +b.SECTION
+        .container
+            +b.breadcrumbs 
+                a(href="#") Coins 
+                span / 
+                span Review title
+
+    +b.SECTION
+      .container
+        +b.H3.title(class="_strong") Review title
+        
+
+
+block script
+  script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

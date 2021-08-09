@@ -1,0 +1,54 @@
+extends ../layout/auth
+
+block variables
+  - var title = 'Login at Coin Review';
+  - var description = 'Login at Coin Review';
+  - var pageName = 'login';
+
+
+block content
+
+  .container
+    +b.FORM.auth-form(class="_register")
+      +e.row
+        +e.content
+          +e.H1.title Register at Coin<span class="color-primary">Review</span>
+          +e.description
+            p Create your account at CoinReview to unlock new features.
+          +b.A(href="login.html" class="button _white") Register with Telegram
+          
+          +e.form
+            form
+
+                +b.field
+                    label Name
+                    input(type="text" value="" name="name")
+                
+                +b.field
+                    label Email
+                    input(type="text" value="" name="email")
+
+                +b.field
+                    label Password
+                    input(type="password" value="" name="password")
+
+                +b.field
+                    label Confirm Password
+                    input(type="password" value="" name="confirm_password")
+                
+                +b.field
+                    +b.LABEL.checkbox 
+                        input(type="checkbox" name="agree")
+                        span Sign up for newsletter (no spam) 
+                +e.bottom
+                    +b.BUTTON(class="button _primary _shadow") Register now
+
+            //- +e.links
+            //-   a(href="forgot.html") Forgot your password?
+            //-   a(href="registration.html") Registration
+
+        +e.media
+          img(src="assets/images/register.png", alt="")
+block script
+  script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

@@ -4,9 +4,11 @@ $checkbox-border-radius: 4px;
 .checkbox {
   cursor: pointer;
   display: block;
-  font-weight: 600;
+  font-weight: 500;
+  font-family: $accent-font;
   position: relative;
   line-height: 1.25;
+  font-size: 16px;
   span {
     display: block;
     padding-left: 38px;
@@ -14,16 +16,18 @@ $checkbox-border-radius: 4px;
       content: "";
       width: $checkbox-size;
       height: $checkbox-size;
-      border: solid 2px #cdcffd;
+      border: solid 1px #cad6f0;
+      background: #eaf1ff;
       display: inline-flex;
       vertical-align: top;
       align-items: center;
       justify-content: center;
       margin-right: 15px;
-      border-radius: 8px;
+      border-radius: 6px;
       flex-shrink: 0;
       color: #fff;
-      margin-top: -4px;
+
+      margin-top: -2px;
       position: absolute;
       top: 0;
       left: 0;
@@ -38,11 +42,12 @@ $checkbox-border-radius: 4px;
     display: none;
     &:checked + span {
       &:before {
-        background: svg-load("../icons/tick.svg", fill=#000, stroke=#000);
-        background-size: 74%;
+        background: svg-load("../icons/check-bold.svg", fill=#fff);
+        background-size: 70%;
         background-position: center;
         background-repeat: no-repeat;
-        border-color: $accent-color;
+        border-color: $primary-color;
+        background-color: $primary-color;
       }
     }
   }

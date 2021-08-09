@@ -12,21 +12,23 @@ block content
     +b.FORM.auth-form
       +e.row
         +e.content
-          +e.H1.title Login at Coin<span class="color-primary">Review</span>
+          +e.H1.title Login with <span class="color-primary">Telegram</span>
           +e.description
             p Login your account at CoinReview to unlock new features.
-          +b.A(href="login-telegram.html" class="button _white") Login with Telegram
+          +b.A(href="login.html" class="button _white") Login with password
           
           +e.form
             form
 
               +b.field(class="_error")
-                label Email
-                input(type="text" value="" name="email")
-              
+                label Telegram name
+                +b.field-group
+                    input(type="text" value="" name="name")
+                    +b.A(class="button _primary _shadow") Send a code
+
               +b.field
-                label Password
-                input(type="password" value="" name="password")
+                label Confirmation code
+                input(type="text" value="" name="confirmation")
 
               +b.field
                 label Capcha
@@ -42,7 +44,7 @@ block content
               a(href="register.html") Registration
 
         +e.media
-          img(src="assets/images/login.svg", alt="")
+          img(src="assets/images/login-telegram.svg", alt="")
 block script
   script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")

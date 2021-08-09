@@ -24,7 +24,7 @@ import dropdown from "./js/modules/dropdown";
 import { Fancybox } from "@fancyapps/ui";
 //-import "./js/modules/google-map";
 import tabs from "./js/modules/tabs";
-
+import "./js/libs/datepicker";
 
 $(document).ready(function(){
 
@@ -39,7 +39,10 @@ $(document).ready(function(){
       });
   }
   }
+  
   initSticky();
+
+  $('.js-datepicker').datepicker();
 
   sliders();
   dropdown();
@@ -95,8 +98,39 @@ $(document).ready(function(){
     var filename = $('input[type=file]').val().split('\\').pop();
     var ext = filename.split('.').reverse()[0];
     $(this).parents('label').find('.file-button__button').text(filename)
-
   })
+
+
+
+  function readFile(el) {
+  
+    if (el.files && el.files[0]) {
+      
+      var FR= new FileReader();
+      
+      FR.addEventListener("load", function(e) {
+        document.querySelector(".your-logo__logo img").src = e.target.result;
+      }); 
+      
+      FR.readAsDataURL( el.files[0] );
+    }
+    
+  }
+
+  function fieldFile(el){
+    var filename = el.parents('.field-file').find('input').val().split('\\').pop();
+    var ext = filename.split('.').reverse()[0];
+    el.parents('.field-file').find('span').text(filename)
+  }
+
+  $('.field-file input[type=file]').change(function(){
+    fieldFile($(this))
+    readFile($(this)[0])
+    $('.your-logo__logo-text').hide()
+  })
+
+
+
 
 
   // document

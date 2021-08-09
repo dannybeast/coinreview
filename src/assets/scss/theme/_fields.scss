@@ -17,12 +17,8 @@ $field-border-radius: 0;
     text-overflow: ellipsis;
     font-weight: 600;
     padding-left: 20px;
-    font-size: 18px;
+    font-size: 16px;
 
-    @include sm-block() {
-        height: 50px;
-        font-size: 16px;
-    }
     &::placeholder {
         color: $primary-color;
     }
@@ -155,11 +151,11 @@ $field-border-radius: 0;
             }
             &:after {
                 content: "";
-                background: svg-load("../icons/calendar-date.svg", fill=#99bcc2);
+                background: svg-load("../icons/datepicker.svg", fill=#253390);
                 background-size: contain;
                 background-repeat: no-repeat;
-                width: 20px;
-                height: 20px;
+                width: 14px;
+                height: 14px;
                 position: absolute;
                 right: 15px;
                 top: 50%;
@@ -175,10 +171,10 @@ $field-border-radius: 0;
 
     &:after {
         content: "";
-        width: 8px;
-        height: 5px;
+        width: 12px;
+        height: 7px;
         display: block;
-        background-image: svg-load("../icons/001-down-arrow.svg", fill=#828999);
+        background-image: svg-load("../icons/arrow.svg", fill=#253390);
         background-size: contain;
         background-repeat: no-repeat;
         position: absolute;
@@ -189,9 +185,9 @@ $field-border-radius: 0;
     }
     select {
         @include inputBase();
-        background: #d8e5ff;
-        font-size: 21px;
-        font-weight: 700;
+        background: #eaf1ff;
+        font-size: 16px;
+        font-weight: 600;
         -webkit-appearance: none;
         -moz-appearance: none;
         text-indent: 1px;
@@ -199,9 +195,7 @@ $field-border-radius: 0;
         font-family: $accent-font;
         padding-right: 30px;
         cursor: pointer;
-        &:hover {
-            border-color: #d8e5ff;
-        }
+
         @include sm-block() {
             font-size: 16px;
         }

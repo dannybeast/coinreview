@@ -1,38 +1,38 @@
 .auth-form {
-    max-width: 960px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
     padding-bottom: 100px;
-    padding-top: 30px;
+    padding-top: 60px;
 
-    @include sm-block() {
-        margin-bottom: 30px;
-        margin-left: $fields_sm;
-        margin-right: $fields_sm;
-        flex-wrap: wrap;
-        padding-top: 0;
-        padding-bottom: 30px;
-    }
-    @include xs-block() {
-        margin-left: 0;
-        margin-right: 0;
-    }
-    &:before {
-        z-index: 2;
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        @include sm-block() {
+            flex-wrap: wrap;
+        }
     }
     &__title {
-        color: $primary-color;
-        font-size: rem(48px);
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 40px;
+        font-size: rem(42px);
+        line-height: 1.4;
+        font-weight: 900;
+        margin-bottom: 20px;
         @include sm-block() {
             margin-bottom: 25px;
-            font-size: rem(42px);
+            font-size: rem(40px);
         }
+    }
+    &__description {
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 1.4;
+        font-weight: 400;
+        font-family: $accent-font;
+    }
+    &__form {
+        padding-top: 30px;
     }
 
     .field {
@@ -46,73 +46,63 @@
     }
 
     &__content {
-        background: #fff;
-        border: solid 1px #cdcffd;
-        box-shadow: 0px 16px 29.12px 2.88px rgba(80, 97, 178, 0.22);
-        flex-grow: 1;
-        border-radius: rem(55px);
-        padding: rem(50px) rem(70px) rem(60px);
         position: relative;
-
+        width: 50%;
+        max-width: 590px;
+        @include sm-block() {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+    &__media {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        padding-left: 60px;
         @include md-block() {
-            padding: rem(60px) rem(40px);
+            padding-left: 0;
         }
-        &_angle {
-            margin-bottom: 60px;
-            padding: rem(60px) rem(80px) 0;
+        @include sm-block() {
+            width: 100%;
+            margin-top: 40px;
+        }
+        img {
+            width: 100%;
+            max-width: 550px;
+            margin-right: -60px;
+            margin-top: auto;
+            @include md-block() {
+                flex-wrap: wrap;
+            }
             @include sm-block() {
-                padding: rem(60px) rem(40px) 0;
-            }
-            &:before {
-                content: "";
-                display: block;
-                position: absolute;
-                height: 60px;
-                width: calc(100% - 60px);
-                background: #fff;
-                left: 0;
-                top: 100%;
-            }
-            &:after {
-                content: "";
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 60px 60px 0 0;
-                border-color: #fff transparent transparent transparent;
-                position: absolute;
-                right: 0;
-                top: 100%;
+                margin-right: -15px;
             }
         }
     }
 
-    &__row {
-        @include row-flex();
-        & > .checkbox {
-            @include col();
-            @include size(12);
-        }
-        & > .field {
-            @include col();
-            @include size(4);
-            @include size-sm(12);
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 50px;
+        a {
+            margin: 0 40px 15px 0;
+            font-weight: 500;
+            font-family: $accent-font;
+            font-size: 16px;
+            line-height: 1.35;
+            @include sm-block() {
+                margin-right: 30px;
+            }
         }
     }
-
     &__bottom {
-        margin-top: 40px;
+        margin-top: 30px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-size: 18px;
-        &-right {
-            line-height: 1.65;
-            text-align: right;
-            @include sm-block() {
-                text-align: center;
-            }
-        }
+
         @include md-block() {
             font-size: 16px;
         }
@@ -126,7 +116,8 @@
         }
     }
     .button {
-        font-size: 21px;
+        font-size: 19px;
+        height: 55px;
         padding: 0 35px;
         margin-right: 15px;
         @include sm-block() {
@@ -138,103 +129,43 @@
             }
         }
     }
-}
-
-.auth-layout {
-    background: rgb(0, 53, 59);
-    background: linear-gradient(45deg, rgba(0, 53, 59, 1) 0%, rgba(0, 73, 84, 1) 80%, rgba(0, 87, 101, 1) 100%);
-    &:before {
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("../images/figures/polygon-auth1.png") bottom left no-repeat;
-        background-size: contain;
-        pointer-events: none;
-    }
-    &:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url("../images/figures/polygon-auth2.png") bottom right no-repeat;
-        background-size: 554px;
-        pointer-events: none;
-    }
-
-    @include layoutBase();
-
-    &__content {
-        width: calc(100% - #{$main-line-width});
-        border-right: solid 30px #004650;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        z-index: 2;
-        @include lg-block() {
-            width: 100%;
-            border: none;
-        }
-    }
-
-    &__header {
-        padding: rem(70px) 0;
-
-        @include sm-block() {
-            padding: rem(40px) 0;
-        }
-
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-    }
-    &__line {
-        background: #ffffff;
-        border: none;
-    }
-    &__logo {
-        width: 100%;
-        max-width: 180px;
-        margin-right: rem(30px);
-        margin-top: -13px;
-        @include xs-block {
-            max-width: 170px;
-        }
-    }
-    .link {
-        @include sm-block {
-            font-size: 14px;
-            svg {
-                width: 12px;
-                height: 12px;
-                margin-right: 8px;
+    &_register {
+        .auth-form__media {
+            img {
+                max-width: 627px;
             }
         }
     }
+}
 
-    .container {
-        padding-left: 5vw;
-        padding-right: 5vw;
-        width: 100%;
-    }
-
-    &__inner {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+.field-group {
+    display: flex;
+    align-items: center;
+    input {
         flex-grow: 1;
+        padding-right: 15px;
+    }
+    .button {
+        height: 40px;
+        border-radius: 6px;
+        margin-left: -5px;
+        margin-right: -5px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+
+.captcha {
+    display: flex;
+    align-items: flex-start;
+    @include md-block() {
+        flex-wrap: wrap;
+    }
+    input {
+        margin-right: 60px;
         @include md-block() {
-            align-items: flex-start;
+            margin-right: 0;
+            margin-bottom: 20px;
         }
     }
 }
