@@ -1,54 +1,26 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Index';
+  - var title = 'Currencies';
   - var description = '';
-  - var pageName = 'banners';
+  - var pageName = 'currencies';
 
 
 block content
   +b.ARTICLE
-    
-    include ../includes/partials/_nav
 
     +b.SECTION
       .container
-        +b.top-block
-          +e.col
-            +b.H1.title Top Cryptocurrency Today by Coin<span class="color-primary">Review</span>
-            +b.H4.subtitle Crypto market cap is <strong class="color-success">$1.43T</strong>, <strong>2.07</strong><sup>%</sup> increase today
-          +e.col
-            .swiper-container.swiper-no-swiping.js-swiper-news
-              .swiper-wrapper 
+        +b.breadcrumbs 
+          a(href="#") Home 
+          span / 
+          span Currencies
 
-                .swiper-slide.slide-news-item
-                  +b.A(href="review-details.html").news-item 
-                    +e.image
-                      img(src="assets/images/news/1.png", alt="")
-                    +e.content
-                      +e.P.label News of day
-                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
-                
-                .swiper-slide.slide-news-item
-                  +b.A(href="review-details.html").news-item 
-                    +e.image
-                      img(src="assets/images/news/2.png", alt="")
-                    +e.content
-                      +e.P.label News of day
-                      +e.P.name July 23: Jack Dorsey Is Bullish on BTC
-                
-                .swiper-slide.slide-banner
-                  +b.A(href="review-details.html" target="_blank").banner-news 
-                    img(src="assets/images/banners/banner.png", alt="")
-      
-                
-                //- .swiper-slide 
-                //-   +b.A.news-item(href="#" class="_primary")
-                //-     +e.image
-                //-       img(src="assets/images/news/4.png", alt="")
-                //-     +e.content
-                //-       +e.P.label News of day
-                //-       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
+    +b.SECTION
+      .container
+        +b.H3.title(class="_strong") Currencies
+        +b.typography
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
 
     +b.SECTION.search-section
       .container
@@ -90,66 +62,36 @@ block content
               button 
                 +icon('search')
 
-    +b.SECTION.banner-section
-      .container
-        +b.A(href="#" target="_blank" class="banner-element")
-            picture
-                source(srcset="assets/images/banners/banner-section-768.png" media="(max-width: 768px)")
-                source(srcset="assets/images/banners/banner-section.png")
-                img(src="assets/images/banners/banner-section.png", alt="")
-    +b.SECTION.counters-section
-      .container
-
-        .swiper-container.swiper-no-swiping.js-swiper-counters
-          .swiper-wrapper 
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p Market Capitalization
-                  +b.label(class="_success") 1.2<sup>%</sup>
-                +e.P.value <span>$</span> 1,448,742,239,530
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p 24h Trading Volume
-                  +b.label(class="_danger") 0.3<sup>%</sup>
-                +e.P.value <span>$</span> 90,409,965,514
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p Bitcoin Market Cap Dominance
-                +e.P.value <span>44.63%</span>
-            .swiper-slide 
-              +b.counters-item
-                +e.top
-                  p # of Coins
-                +e.P.value <span>8,626</span>
-
     mixin tr(index,currency, color)
       tr 
         td #{index}
         td
-          if currency === 'btc'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/btc.svg", alt="")
-              +e.P.name Bitcoin <span>BTC</span>
-          else if currency === 'eth'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/eth.svg", alt="")
-              +e.P.name Etherium <span>ETH</span>
-          else if currency === 'dai'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/dai.svg", alt="")
-              +e.P.name Dai <span>DAI</span>
-          else if currency === 'tether'
-            +b.currency
-              +e.icon 
-                img(src="assets/images/currency/tether.svg", alt="")
-              +e.P.name Tether <span>Tether</span>
-      
+          +b.currency-and-heart
+            if currency === 'btc'
+              +b.currency
+                +e.icon 
+                  img(src="assets/images/currency/btc.svg", alt="")
+                +e.P.name Bitcoin <span>BTC</span>
+            else if currency === 'eth'
+              +b.currency
+                +e.icon 
+                  img(src="assets/images/currency/eth.svg", alt="")
+                +e.P.name Etherium <span>ETH</span>
+            else if currency === 'dai'
+              +b.currency
+                +e.icon 
+                  img(src="assets/images/currency/dai.svg", alt="")
+                +e.P.name Dai <span>DAI</span>
+            else if currency === 'tether'
+              +b.currency
+                +e.icon 
+                  img(src="assets/images/currency/tether.svg", alt="")
+                +e.P.name Tether <span>Tether</span>
+            
+            if currency === 'btc'
+              +b.heart
+            else 
+              +b.heart(class="_is-active")
         td.nowrap
           p 
             strong $34,394.55
@@ -183,35 +125,6 @@ block content
             .increase.value-button(value='Increase Value') +
     +b.SECTION
       .container
-        +b.H3.title Promoted
-
-        +b.table-wrapper
-          +e.block(class="_border")
-            +e.table
-              table.table-hover 
-                thead 
-                  tr 
-                    th # 
-                    th Name
-                    th Price
-                    th 24h %
-                    th 7d %
-                    th Market Cap
-                    th Volume(24h)
-                    th Circulating Supply
-                    th Last 7 Days
-                    th Votes
-                tbody 
-                  +tr('1','btc','#03b15d')
-                  +tr('2','eth','#03b15d')
-                  +tr('3','dai','#d22f49')
-                  +tr('4','tether','#03b15d')
-                  +tr('5','btc','#d22f49')
-    
-    +b.SECTION
-      .container
-        +b.H3.title All Cryptocurrencyes
-
         +b.table-wrapper
           +e.filter
             +b.UL.labels 
@@ -272,33 +185,14 @@ block content
                   +tr('11','dai','#d22f49')
                   +tr('12','tether','#03b15d')
 
-    +b.SECTION.banners
+    +b.SECTION
       .container
-        +e.row
-          +e.col
-              +b.banner-item(style="background-image:url(assets/images/banners/1.png)" class="_border")
-                +e.content
-                  +e.H3.title Your Coin Missing?
-                  +e.description
-                    p Can't find your coin? List your favorite coin now! Get your community to vote for your coin and gain exposure.
-                +e.buttons 
-                  +b.A(href="#" class="button _primary") Submit coin
-          +e.col
-              +b.banner-item(style="background-image:url(assets/images/banners/2.png)")
-                +e.content
-                  +e.H3.title View New Listings
-                  +e.description
-                    p Click the button below to view the New Listings! These coins were just submitted.
-                +e.buttons 
-                  +b.A(href="#" class="button _primary") View New Listings
-
-    +b.SECTION.banner-section
-      .container
-        +b.A(href="#" target="_blank" class="banner-element")
-            picture
-                source(srcset="assets/images/banners/banner-section-768.png" media="(max-width: 768px)")
-                source(srcset="assets/images/banners/banner-section.png")
-                img(src="assets/images/banners/banner-section.png", alt="")
+        +b.typography
+          h4 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+          p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rho
 
 block script
   script(src="assets/js/vendors.js")
@@ -309,26 +203,6 @@ block script
   script(type="text/javascript").
     
     $(document).ready( function () {
-        // Datatables
-        $('.js-datatables').DataTable({
-          "searching": false
-        });
-
-        // Styles table
-        $('.js-datatables').each( function(){
-          var $wrapper = $(this).parents('.table-wrapper');
-          // filter
-          var $filter = $wrapper.find('.table-wrapper__filter');
-          $filter.append($wrapper.find('.dataTables_length'))
-          $filter.append($wrapper.find('.dataTables_filter'))
-
-          // pagination
-          $wrapper.append('<div class="table-wrapper__footer"></div>')
-          var $footer = $wrapper.find('.table-wrapper__footer');
-          $footer.append($wrapper.find('.dataTables_info'))
-          $footer.append($wrapper.find('.dataTables_paginate'))
-        })
-
 
         // Charts for table
         document.querySelectorAll('.chart').forEach(function(el){
@@ -406,5 +280,27 @@ block script
           var chart = new ApexCharts(el, options);
           chart.render();
         })
+        
+        // Datatables
+        $('.js-datatables').DataTable({
+          "searching": false
+        });
+
+        // Styles table
+        $('.js-datatables').each( function(){
+          var $wrapper = $(this).parents('.table-wrapper');
+          // filter
+          var $filter = $wrapper.find('.table-wrapper__filter');
+          $filter.append($wrapper.find('.dataTables_length'))
+          $filter.append($wrapper.find('.dataTables_filter'))
+
+          // pagination
+          $wrapper.append('<div class="table-wrapper__footer"></div>')
+          var $footer = $wrapper.find('.table-wrapper__footer');
+          $footer.append($wrapper.find('.dataTables_info'))
+          $footer.append($wrapper.find('.dataTables_paginate'))
+        })
+
+
+        
     });
-    

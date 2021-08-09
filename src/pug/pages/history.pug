@@ -1,0 +1,243 @@
+extends ../layout/main
+
+block variables
+    - var title = 'History';
+    - var description = '';
+    - var pageName = 'history';
+
+
+block content
+    +b.ARTICLE
+
+        +b.SECTION
+            .container
+                +b.breadcrumbs 
+                    a(href="#") Home 
+                    span / 
+                    span History
+
+        +b.SECTION
+            .container
+                +b.H3.title(class="_strong") History
+                +b.typography
+                    p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+
+        +b.SECTION.search-section
+            .container
+                +b.search-module 
+                    form
+                        +e.top
+                            +e.P.title Search by name 
+
+                        +e.field 
+                            input(type="text" name="Enter currency name" placeholder="Enter currency name")
+                            button 
+                                +icon('search')
+
+        +b.SECTION
+            include ../includes/partials/time-labels
+            mixin tr-history()
+                tr 
+                    td.nowrap 2021-07-29
+                    td 
+                        p
+                            strong $268,838,784,856
+                    td 
+                        p
+                            strong $23,171,592,870
+                    td $2,299.69
+                    td $2,299.69
+            .container
+                +b.table-wrapper.table-filter-hidden
+                    +e.block
+                        +e.block-content
+                            +e.block-row
+                                +b.H3.title Ethereum USD
+
+                                +time-labels('time')
+
+                        +e.table
+                            table.js-datatables
+                                thead 
+                                    tr 
+                                        th Date
+                                        th Market Cap
+                                        th Volume
+                                        th Open
+                                        th Close
+                                tbody 
+                                    mixin tr-history()
+                                        tr 
+                                            td.nowrap 2021-07-29
+                                            td 
+                                                p
+                                                    strong $268,838,784,856
+                                            td 
+                                                p
+                                                    strong $23,171,592,870
+                                            td $2,299.69
+                                            td $2,299.69
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+                                    +tr-history()
+        
+        +b.SECTION
+            .container
+                +b.table-wrapper
+                    +e.block
+                        +e.block-content
+                            +b.H3.title Ethereum to USD Chart
+                            +b.text-and-labels
+                                +b.typography
+                                    p ETH to USD rate for today is $2,325.42. It has a current circulating supply of 117 Million coins and a total volume exchanged of $18,499,006,317.
+                                +time-labels('time-filter')
+
+                            +b.chart-module
+                                +e.chart
+
+                            +e.table
+                                .table-bordered
+                                    table
+                                        thead 
+                                            tr 
+                                                th 1h
+                                                th 24h
+                                                th 7d
+                                                th 14d
+                                                th 30d
+                                                th 1y
+                                        tbody 
+                                            tr 
+                                                td 
+                                                    p.color-success 
+                                                        strong 0.3%
+                                                td 
+                                                    p.color-success 
+                                                        strong 1.8%
+                                                td 
+                                                    p.color-success 
+                                                        strong 16.1%
+                                                td 
+                                                    p.color-success 
+                                                        strong 16.4%
+                                                td 
+                                                    p.color-success 
+                                                        strong 11.4%
+                                                td 
+                                                    p.color-success 
+                                                        strong 635.2%
+                    
+
+        +b.SECTION
+            .container
+                +b.typography
+                    h4 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+                    p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                    p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                    p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
+                    p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rho
+
+block script
+    script(src="assets/js/vendors.js")
+    script(src="assets/js/app.js")
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+    script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    script(type="text/javascript").
+
+        $(document).ready( function () {
+            // Datatables
+            $('.js-datatables').DataTable({
+                "searching": false
+            });
+
+            // Styles table
+            $('.js-datatables').each( function(){
+                var $wrapper = $(this).parents('.table-wrapper');
+                // filter
+                var $filter = $wrapper.find('.table-wrapper__filter');
+                $filter.append($wrapper.find('.dataTables_length'))
+                $filter.append($wrapper.find('.dataTables_filter'))
+
+                // pagination
+                $wrapper.append('<div class="table-wrapper__footer"></div>')
+                var $footer = $wrapper.find('.table-wrapper__footer');
+                $footer.append($wrapper.find('.dataTables_info'))
+                $footer.append($wrapper.find('.dataTables_paginate'))
+
+                let cloned = $('.dataTables_length').clone(true);
+                $wrapper.find('.table-wrapper__footer').append(cloned)
+
+            })
+
+
+            // Chart 
+            var options = {
+                series: [{
+                name: 'Ethereum to USD',
+                data: [10, 41, 35, 51, 49, 62, 69, 70, 40,10, 41, 35, 51, 49, 62, 69, 91, 70,10, 41, 35, 51, 49, 62, 69, 91, 148]
+            }],
+                chart: {
+                type: 'area',
+                stacked: false,
+                height: 280,
+                toolbar:{
+                    show: false
+                    },
+                    zoom: {
+                    enabled: false
+                    }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            markers: {
+                size: 0,
+            },
+            yaxis: {
+                show: false,
+                    },
+                    xaxis: {  
+                        axisBorder:{
+                            show: false
+                },
+                    axisTicks:{
+                        show: false
+                },
+                labels:{
+                    show: false
+                }
+                    },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    inverseColors: false,
+                    opacityFrom: 0.5,
+                    opacityTo: 0,
+                    stops: [0, 90, 100]
+                },
+            },
+            responsive: [{
+                breakpoint: 768,
+                options: {
+                    chart:{
+                        height: 250
+                    }
+                },
+                }],
+
+            };
+
+            var chart = new ApexCharts(document.querySelector(".chart-module__chart"), options);
+            chart.render();
+        });

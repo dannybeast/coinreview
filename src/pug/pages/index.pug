@@ -1,7 +1,7 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Главная';
+  - var title = 'Index';
   - var description = '';
   - var pageName = 'home';
 
@@ -22,7 +22,7 @@ block content
               .swiper-wrapper 
 
                 .swiper-slide.slide-news-item
-                  +b.A(href="#").news-item 
+                  +b.A(href="review-details.html").news-item 
                     +e.image
                       img(src="assets/images/news/1.png", alt="")
                     +e.content
@@ -30,7 +30,7 @@ block content
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
                 .swiper-slide.slide-news-item
-                  +b.A(href="#").news-item 
+                  +b.A(href="review-details.html").news-item 
                     +e.image
                       img(src="assets/images/news/2.png", alt="")
                     +e.content
@@ -38,7 +38,7 @@ block content
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
                 .swiper-slide.slide-news-item
-                  +b.A(href="#").news-item 
+                  +b.A(href="review-details.html").news-item 
                     +e.image
                       img(src="assets/images/news/3.png", alt="")
                     +e.content
@@ -46,7 +46,7 @@ block content
                       +e.P.name July 23: Jack Dorsey Is Bullish on BTC
                 
                 .swiper-slide.slide-news-item
-                  +b.A.news-item(href="#" class="_primary")
+                  +b.A.news-item(href="review.html" class="_primary")
                     +e.image
                       img(src="assets/images/news/4.png", alt="")
                     +e.content

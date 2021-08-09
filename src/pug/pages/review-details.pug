@@ -1,26 +1,93 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Главная';
+  - var title = 'Review';
   - var description = '';
   - var pageName = 'review';
 
 
 block content
   +b.ARTICLE
-    
-    +b.SECTION
-        .container
-            +b.breadcrumbs 
-                a(href="#") Coins 
-                span / 
-                span Review title
 
     +b.SECTION
       .container
-        +b.H3.title(class="_strong") Review title
-        
+        +b.breadcrumbs 
+          a(href="#") Coins 
+          span / 
+          a(href="#") Reviews 
+          span /
+          span Review title
 
+    +b.SECTION
+      .container
+        +b.details-page 
+          +e.row
+            +e.col
+              +e.H1.title <span class="color-primary">Coinreview</span> August 5: Ethereum Hard Forks
+              +e.P.subtitle By Leo Jakobson Published on: <strong>August 5, 2021</strong>
+          +e.row
+            
+            +e.col
+              +e.image 
+                img(src="https://dummyimage.com/685x420/487ceb/487ceb", alt="")
+            
+            +e.col
+              +e.description 
+                p Today, Ethereum's long-awaited London hard fork takes place, while the SEC and CFTC battle over who regulates crypto.
+
+    +b.SECTION
+      .container
+        +b.table-contents 
+          +e.H3.title Table of Contents
+          +b.typography
+            ul
+              li
+                a(href="#") Today’s Top Crypto News Stories FTC, SEC Commissioners Battle Over Control of Crypto 🥊
+              li
+                a(href="#") NFTs in Space ondon Hard Fork Takes Gas Out of Ethereum
+              li
+                a(href="#") Bipartisan Push to Cut Bitcoin Miners Tax
+
+    +b.SECTION
+      .container
+        +b.typography
+          p A CFTC commissioner says the Commodity Futures Trading Commission should oversee crypto, rather than the Securities and Exchange Commission. CFTC Commissioner Brian Quintenz likened Bitcoin to gold or oil, and said the SEC doesn’t have the authority to regulate it. That came a day after the SEC chairman called all cryptocurrencies securities and asked congress for more power to regulate them. Read more here.
+          
+          h3 NFTs in Space 🚀
+          p ‍Non-fungible tokens made it to the International Space Station twice in recent days. A copy of Debussey’s “Claire de Lune” was beamed there, traveled around the earth, and beamed down on to be minted onto an NFT. Then artist Micah Johnson sent an image of his Black child astronaut Aku up and back, for a charity auction on Notables. Raise your knowledge here.
+          
+          h3 London Hard Fork Takes Gas Out of Ethereum
+          p Ethereum took an important step on the road to the faster and more energy-efficient Ethereum 2.0 as the London hard fork went live today. Among other things, it makes transaction fees much more predictable — and hopefully cheaper — as well as burning the part of those gas fees that went to miners. Get the news here.
+          
+          h3 Bipartisan Push to Cut Bitcoin Miners Tax 📈
+          p Three U.S. Senators — a Democrat and two Republicans — have proposed an amendment that would exempt cryptocurrency miners, wallet makers, and protocol developers from new taxes. The proposal impacts provisions of the Biden administration’s $1 trillion infrastructure bill that seeks to raise $28 billion by taxing crypto. Check it out here.
+          img(src="https://dummyimage.com/685x420/487ceb/487ceb", alt="" class="image-right")
+          p A CFTC commissioner says the Commodity Futures Trading Commission should oversee crypto, rather than the Securities and Exchange Commission. CFTC Commissioner Brian Quintenz likened Bitcoin to gold or oil, and said the SEC doesn’t have the authority to regulate it. That came a day after the SEC chairman called all cryptocurrencies securities and asked congress for more power to regulate them. Read more here.
+          p NFTs in Space 🚀‍Non-fungible tokens made it to the International Space Station twice in recent days. A copy of Debussey’s “Claire de Lune” was beamed there, traveled around the earth, and beamed down on to be minted onto an NFT. Then artist Micah Johnson sent an image of his Black child astronaut Aku up and back, for a charity auction on Notables. Raise your knowledge here. London Hard Fork Takes Gas Out of Ethereum Ethereum took an important step on the road to the faster and more energy-efficient Ethereum 2.0 as the London hard fork went live today. Among other things, it makes transaction fees much more predictable — and hopefully cheaper — as well as burning the part of those gas fees that went to miners. Get the news here. ard fork went live today. Among other things, it makes transaction fees much more predictable — and hopefully cheaper — as well as burning the part of those gas fees that went to miners. Get the news here.
+          p Bipartisan Push to Cut Bitcoin Miners Tax Three U.S. Senators — a Democrat and two Republicans — have proposed an amendment that would exempt cryptocurrency miners, wallet makers, and protocol developers from new taxes. The proposal impacts provisions of the Biden administration’s $1 trillion infrastructure bill that seeks to raise $28 billion by taxing crypto. Check it out here. A CFTC commissioner says the Commodity Futures Trading Commission should oversee crypto, rather than the Securities and Exchange Commission. CFTC Commissioner Brian Quintenz likened Bitcoin to gold or oil, and said the SEC doesn’t have the authority to regulate it. That came a day after the SEC chairman called all cryptocurrencies securities and asked congress for more power to regulate them. Read more here.
+          p NFTs in Space 🚀‍Non-fungible tokens made it to the International Space Station twice in recent days. A copy of Debussey’s “Claire de Lune” was beamed there, traveled around the earth, and beamed down on to be minted onto an NFT. Then artist Micah Johnson sent an image of his Black child astronaut Aku up and back, for a charity auction on Notables. Raise your knowledge here. London Hard Fork Takes Gas Out of Ethereum Ethereum took an important step on the road to the faster and more energy-efficient Ethereum 2.0 as the London hard fork went live today. Among other things, it makes transaction fees much more predictable — and hopefully cheaper — as well as burning the part of those gas fees that went to miners. Get the news here. ard fork went live today. Among other things, it makes transaction fees much more predictable — and hopefully cheaper — as well as burning the part of those gas fees that went to miners. Get the news here.
+          p Bipartisan Push to Cut Bitcoin Miners Tax Three U.S. Senators — a Democrat and two Republicans — have proposed an amendment that would exempt cryptocurrency miners, wallet makers, and protocol developers from new taxes. The proposal impacts provisions of the Biden administration’s $1 trillion infrastructure bill that seeks to raise $28 billion by taxing crypto. Check it out here.
+    
+    +b.SECTION
+      .container
+
+        +b.review-details-bottom 
+
+          // prev
+          +b.A(href="#" class="review-item-prev")
+            +e.image
+              img(src="assets/images/news/2.png", alt="")
+            +e.content
+              +e.P.name Prev 
+              +e.P.title Coinreview August 5: Ethereum Hard Forks
+
+          // next
+          +b.A(href="#" class="review-item-prev")
+            +e.image
+              img(src="assets/images/news/3.png", alt="")
+            +e.content
+              +e.P.name Next 
+              +e.P.title Coinreview August 5: Ethereum Hard Forks
 
 block script
   script(src="assets/js/vendors.js")

@@ -145,7 +145,7 @@ block content
                             +e.content 
                                 p <span class="color-gray">Etherium</span>
                                 p <span class="color-success">audited</span> coin
-                    
+
                     +e.col
 
                         +b.vote 
@@ -169,7 +169,7 @@ block content
                                 +icon('arrows')
                             +b.field 
                                 label USD <span>United States Dollar</span>
-                            
+
                                 +e.wrap.amount-module
                                     input(type="number" value="536252.12" data-step="0.01" name="usd")
                                     +e.arrows 
@@ -340,7 +340,7 @@ block content
                                                 +tr2('4')
                                                 +tr2('5')
                                                 +tr2('6')
-                            
+
                     if index === 4
                         div.js-tab-content
                             +b.table-wrapper
@@ -386,6 +386,7 @@ block content
                                                             td 
                                                                 p.color-success 
                                                                     strong 635.2%
+                    
                     if index === 5
                         div.js-tab-content
                             +b.table-wrapper
@@ -446,7 +447,7 @@ block content
                             +news-block()
                             .news-section__bottom
                                 +b.A(href="#" class="button _primary") Show all news
-                
+
                 +b.tabs.js-tabs
                     +e.UL.nav 
                         +e.LI(class=" js-tab-link")
@@ -613,12 +614,12 @@ block script
                 },
             },
             responsive: [{
-                    breakpoint: 768,
-                    options: {
-                        chart:{
-                            height: 250
-                        }
-                    },
+                breakpoint: 768,
+                options: {
+                    chart:{
+                        height: 250
+                    }
+                },
                 }],
 
             };
@@ -744,7 +745,7 @@ block script
                 x: new Date('7 Feb 2021'),
                 y: [6593.99, 6598.89, 6585, 6587.81]
                 },
-               
+
             ]
 
             var optionsCandle = {
@@ -753,11 +754,11 @@ block script
                 }],
                 chart: {
                     redrawOnParentResize: false,
-                     redrawOnWindowResize: false,
+                        redrawOnWindowResize: false,
                     type: 'candlestick',
                     height: 360,
                     id: 'candles',
-                
+
                     toolbar: {
                         autoSelected: 'pan',
                         show: false
@@ -766,7 +767,7 @@ block script
                         enabled: false
                     },
             },
-     
+
             plotOptions: {
                 candlestick: {
                     colors: {
@@ -775,15 +776,15 @@ block script
                     }
                 }
             },
-            
+
             xaxis: {
                 type: 'datetime',
                 labels:{
                     show: false
                 }
             },
-            
-               responsive: [{
+
+                responsive: [{
                     breakpoint: 768,
                     options: {
                         chart:{
@@ -810,7 +811,7 @@ block script
                 brush: {
                     enabled: true,
                     target: 'candles',
-                     autoScaleYaxis: false
+                        autoScaleYaxis: false
                 },
                 selection: {
                     enabled: true,
@@ -869,6 +870,6 @@ block script
 
             var chartBar = new ApexCharts(document.querySelector(".chart-bar"), optionsBar);
             chartBar.render();
-            
+
         });
 

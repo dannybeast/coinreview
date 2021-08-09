@@ -130,7 +130,9 @@ $(document).ready(function(){
   })
 
 
-
+  $('.heart').click(function(){
+    $(this).toggleClass('heart_is-active')
+  })
 
 
   // document

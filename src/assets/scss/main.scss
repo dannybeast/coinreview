@@ -66,7 +66,7 @@ sup {
                 text-align: center;
                 display: block;
                 color: #fff;
-                font-family: $accent-font;
+
                 text-decoration: none;
                 padding: 20px 15px;
                 font-size: 11px;
@@ -87,6 +87,11 @@ sup {
             margin-bottom: 20px;
             fill: #fff;
             opacity: 0.5;
+        }
+        .is-active {
+            a {
+                background: rgba(#fff, 0.1);
+            }
         }
     }
     &__top-banner {
@@ -185,6 +190,15 @@ sup {
         li {
             width: 100%;
             margin-bottom: 10px;
+            p {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            strong {
+                display: inline;
+            }
         }
     }
     &__navigation {
@@ -377,7 +391,7 @@ sup {
     display: flex;
     align-items: center;
     font-size: 13px;
-    font-family: $accent-font;
+
     line-height: 1.4;
 
     li {
@@ -576,7 +590,7 @@ sup {
     height: 55px;
     font-weight: 400;
     font-size: 12px;
-    font-family: $accent-font;
+
     border-bottom: 1px solid #d8e5ff;
     a {
         color: $primary-color;
@@ -617,7 +631,7 @@ sup {
         text-decoration: none;
         color: #000;
         display: block;
-        font-family: $accent-font;
+
         padding: 25px 0;
         border-bottom: 2px solid transparent;
         margin-bottom: -1px;
@@ -725,7 +739,7 @@ sup {
         margin-bottom: 0;
     }
     &_strong {
-        font-weight: 700;
+        font-weight: 600;
     }
 }
 
@@ -821,7 +835,7 @@ sup {
     padding: 25px 20px;
     font-size: 12px;
     line-height: 1.4;
-    font-family: $accent-font;
+
     transition: all 0.1s $animation;
     &:hover {
         color: #000;
@@ -859,7 +873,7 @@ sup {
     color: #fff;
     border-radius: 15px;
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
     font-family: $main-font;
     padding: 2px 8px;
     position: relative;
@@ -1001,7 +1015,7 @@ sup {
     &__top {
         margin-bottom: 15px;
         line-height: 1.5;
-        font-family: $accent-font;
+
         display: flex;
         align-items: center;
         font-size: 14px;
@@ -1012,7 +1026,7 @@ sup {
     &__value {
         font-size: 24px;
         white-space: nowrap;
-        font-weight: 900;
+        font-weight: 600;
         color: #3f77f2;
         font-family: $main-font;
         margin-top: auto;
@@ -1068,7 +1082,7 @@ sup {
     overflow: hidden;
     padding: 55px 60px;
     font-size: 18px;
-    font-family: $accent-font;
+
     font-weight: 300;
     line-height: 1.65;
     display: flex;
@@ -1137,7 +1151,7 @@ sup {
         }
     }
     cursor: pointer;
-    font-family: $accent-font;
+
     font-weight: 500;
     font-size: 12px;
     &:hover {
@@ -1146,7 +1160,6 @@ sup {
 }
 
 .search-module {
-    font-family: $accent-font;
     .labels {
         margin-bottom: 10px;
     }
@@ -1222,10 +1235,12 @@ sup {
     }
 }
 .currency {
-    display: flex;
+    display: inline-flex;
     white-space: nowrap;
     align-items: center;
+    vertical-align: top;
     font-weight: 600;
+    height: 30px;
     &__name {
         span {
             color: #9f9f9f;
@@ -1362,7 +1377,7 @@ sup {
     }
     .typography {
         width: 70%;
-        font-family: $accent-font;
+
         font-size: 13px;
         @include sm-block() {
             width: 100%;
@@ -1390,7 +1405,7 @@ sup {
     border-radius: 20px;
     padding: 35px 45px;
     line-height: 1.5;
-    font-family: $accent-font;
+
     font-size: 13px;
     margin-bottom: 10px;
 
@@ -1482,6 +1497,13 @@ sup {
         margin-bottom: 0;
     }
 }
+.table-filter-hidden {
+    .dataTables_wrapper {
+        .dataTables_length {
+            display: none;
+        }
+    }
+}
 
 .table-wrapper {
     overflow: hidden;
@@ -1541,6 +1563,10 @@ sup {
         justify-content: space-between;
         margin-bottom: 10px;
         margin-top: 10px;
+        @include lg-block() {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
         @include sm-block() {
             flex-wrap: wrap;
             margin-top: 0;
@@ -1571,7 +1597,7 @@ sup {
         background: #fff;
         border-radius: 20px;
         border: solid 2px transparent;
-        font-family: $accent-font;
+
         &-content {
             padding: 0 40px;
             @include sm-block() {
@@ -1604,7 +1630,6 @@ sup {
             }
         }
         .title {
-            font-family: $accent-font;
             font-size: 22px;
             font-weight: 500;
             margin-bottom: 30px;
@@ -1633,24 +1658,15 @@ sup {
         .table-bordered {
             border: solid 1px #d0d0d0;
             border-radius: 6px;
+            table {
+                table-layout: fixed;
+            }
             @include sm-block() {
                 border: none;
             }
             th,
             td {
                 border-color: #d0d0d0;
-                &:first-child {
-                    padding-left: 120px;
-                    @include lg-block() {
-                        padding-left: 30px;
-                    }
-                }
-                &:last-child {
-                    padding-right: 120px;
-                    @include lg-block() {
-                        padding-right: 30px;
-                    }
-                }
             }
 
             th {
@@ -1722,7 +1738,15 @@ sup {
         font-size: 12px;
         margin-left: 0;
         margin-right: 0;
-        font-family: $accent-font;
+
+        .dataTables_length {
+            display: flex;
+            justify-content: flex-end;
+            @include sm-block() {
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+        }
 
         .dataTables_paginate {
             & > * {
@@ -1805,7 +1829,6 @@ sup {
 }
 
 .sidebar-block {
-    font-family: $accent-font;
     font-size: 14px;
     background: #d8e5ff;
     border-radius: 20px;
@@ -1851,7 +1874,7 @@ sup {
     }
     .typography {
         font-size: 13px;
-        font-family: $accent-font;
+
         height: 70px;
         overflow: hidden;
         position: relative;
@@ -1891,7 +1914,6 @@ sup {
 }
 
 .tabs {
-    font-family: $accent-font;
     &__content {
         background: #fff;
         padding: 30px 40px 40px;
@@ -1949,7 +1971,7 @@ sup {
     display: flex;
     align-items: center;
     font-size: 18px;
-    font-family: $accent-font;
+
     @include sm-block() {
         font-size: 15px;
     }
@@ -1975,7 +1997,7 @@ sup {
     display: flex;
     align-items: center;
     font-size: 16px;
-    font-family: $accent-font;
+
     p {
         margin-right: 5px;
     }
@@ -2036,7 +2058,7 @@ sup {
     }
     &__value {
         font-size: 44px;
-        font-weight: 900;
+        font-weight: 600;
         white-space: nowrap;
         margin-right: 15px;
         @include sm-block() {
@@ -2061,7 +2083,7 @@ sup {
         height: 55px;
         font-size: 22px;
         padding-right: 20px;
-        font-weight: 900;
+        font-weight: 600;
         padding-left: 0;
         border-bottom: 2px solid #cfddfb;
         transition: all 0.2s $animation;
@@ -2210,7 +2232,7 @@ sup {
 .insurance {
     display: inline-flex;
     align-items: center;
-    font-family: $accent-font;
+
     font-size: 15px;
     font-weight: 500;
     line-height: 1.5;
@@ -2416,7 +2438,7 @@ sup {
         margin: 15px 45px 15px 0;
         font-size: 14px;
         line-height: 1.25;
-        font-family: $accent-font;
+
         @include sm-block() {
             margin: 10px 20px 10px 0;
         }
@@ -2435,7 +2457,6 @@ sup {
         }
     }
     &__block {
-        font-family: $accent-font;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -2549,7 +2570,7 @@ sup {
     &__wrap {
         display: flex;
         align-items: center;
-        font-family: $accent-font;
+
         .dotts {
             margin: 0 2px;
             text-align: center;
@@ -2616,7 +2637,7 @@ sup {
         border-radius: 4px;
         padding-left: 15px;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 400;
         text-overflow: ellipsis;
         white-space: nowrap;
         flex-grow: 1;
@@ -2656,7 +2677,7 @@ sup {
             left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;
-            font-size: 145%;
+            font-size: 140%;
             text-align: center;
             line-height: 1.4;
             font-weight: 600;
@@ -2727,6 +2748,190 @@ sup {
         }
     }
 }
+
+.heart {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    &:before {
+        content: "";
+        background-image: svg-load("../icons/heart.svg", fill=#d8e5ff);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 14px;
+        display: block;
+    }
+    &:not(.heart_is-active) {
+        &:hover {
+            &:before {
+                background-image: svg-load("../icons/heart.svg", fill=#bccae5);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    &_is-active {
+        &:before {
+            background-image: svg-load("../icons/heart-line.svg", fill=#3f77f2);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.currency-and-heart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-contents {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    @include sm-block() {
+        padding: 40px 30px;
+    }
+    &__title {
+        margin-bottom: 40px;
+        font-weight: 600;
+        font-size: 31px;
+        line-height: 1.3;
+        @include sm-block() {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.details-page {
+    &__row {
+        @include u-row-flex(0);
+        align-items: center;
+    }
+    &__col {
+        @include u-col(0);
+        @include u-size(6, 12, 0);
+        @include sm-block() {
+            @include u-size(12, 12, 0);
+        }
+    }
+    &__title {
+        font-weight: 600;
+        font-size: rem(53px);
+        margin-bottom: 25px;
+        line-height: 1.3;
+        @include sm-block() {
+            font-size: rem(40px);
+        }
+    }
+    &__subtitle {
+        margin-bottom: 60px;
+        line-height: 1.5;
+        @include sm-block() {
+            margin-bottom: 30px;
+        }
+    }
+    &__image {
+        border-radius: 20px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    &__description {
+        font-size: 21px;
+        line-height: 1.6;
+        font-weight: 600;
+        margin-left: 160px;
+        border-left: solid 2px $primary-color;
+        padding-left: 50px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @include xl-block() {
+            margin-left: 50px;
+        }
+        @include sm-block() {
+            padding-left: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 16px;
+            margin-top: 30px;
+            margin-left: 0;
+        }
+    }
+}
+
+.review-details-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #dadce2;
+    padding-top: 40px;
+    margin-top: 40px;
+    @include sm-block() {
+        flex-wrap: wrap;
+    }
+}
+
+.review-item-prev {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 15px;
+    @include sm-block() {
+        margin-right: 0;
+        width: 100%;
+    }
+    &:last-child {
+        margin-left: 15px;
+        @include sm-block() {
+            margin-left: 0;
+            margin-top: 30px;
+        }
+        @include from($break_sm) {
+            .review-item-prev__content {
+                order: -1;
+                text-align: right;
+            }
+            .review-item-prev__image {
+                margin-right: 0;
+                margin-left: 25px;
+            }
+        }
+    }
+    &__name {
+        color: #000;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 5px;
+    }
+    &__title {
+        text-decoration: underline;
+        line-height: 1.5;
+        display: block;
+    }
+    &__content {
+        max-width: 240px;
+    }
+    &__image {
+        flex-shrink: 0;
+        overflow: hidden;
+        width: 59px;
+        border-radius: 12px;
+        margin-right: 25px;
+        img {
+            width: 100%;
+        }
+    }
+}
+
 // datepicker
 .datepicker--cell.-selected-,
 .datepicker--cell.-selected-.-current- {
