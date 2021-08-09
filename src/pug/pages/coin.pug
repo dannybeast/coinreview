@@ -8,7 +8,7 @@ block variables
 
 block content
     mixin tr(index,currency, color)
-        tr 
+        tr(data-href="coin.html")
             td #{index}
             td
                 if currency === 'btc'
@@ -58,14 +58,14 @@ block content
                     .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
                 else 
                     .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
-            td
+            td.not-clickable
                 +b.amount-module 
                     .decrease.value-button(value='Decrease Value') -
                     input.number(type='number' value='0' name="amount")
                     .increase.value-button(value='Increase Value') +
 
     mixin tr2(index)
-        tr 
+        tr(data-href="coin.html") 
             td #{index}
             td 
                 if index === '2'
@@ -433,7 +433,7 @@ block content
                     if index === 6
                         div.js-tab-content
                             mixin news-block()
-                                +b.A(href="#" class="news-block")
+                                +b.A(href="review-details.html" class="news-block")
                                     +e.content
                                         +e.P.title Crypto Analyst Says Ethereum Following Cardano, Maps Potential Reversal Against Bitcoin
                                         +e.P.date about 19 hours ago
@@ -446,7 +446,7 @@ block content
                             +news-block()
                             +news-block()
                             .news-section__bottom
-                                +b.A(href="#" class="button _primary") Show all news
+                                +b.A(href="reviews.html" class="button _primary") Show all news
 
                 +b.tabs.js-tabs
                     +e.UL.nav 
@@ -479,8 +479,8 @@ block content
 
 
 block script
-    script(src="assets/js/vendors.js")
-    script(src="assets/js/app.js")
+    script(src="assets/js/vendors.js" defer)
+    script(src="assets/js/app.js" defer)
     script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/apexcharts")
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>

@@ -1,0 +1,56 @@
+/* js Dropdown styles */
+
+.js-Dropdown {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+.js-Dropdown-title {
+    border: none;
+    cursor: pointer;
+    position: relative;
+    text-align: left;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background: transparent;
+    padding-right: 30px;
+}
+
+.js-Dropdown-list {
+    background: #fff;
+    display: none;
+    height: 0;
+    list-style: none;
+    margin: 0.5rem 0;
+    opacity: 0;
+    padding: 0.5rem;
+    position: absolute;
+    transition: 0.2s linear;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+}
+.js-Dropdown-list.is-open {
+    display: block;
+    height: auto;
+    opacity: 1;
+}
+.js-Dropdown-list li {
+    border-bottom: 1px solid #d8e5ff;
+    cursor: pointer;
+    line-height: 1.5;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0.8em 0.5em;
+}
+.js-Dropdown-list li:last-child {
+    border: none;
+}
+.js-Dropdown-list li:hover {
+    background-color: #d8e5ff;
+}
+.js-Dropdown-list li.is-selected {
+    font-weight: 700;
+}

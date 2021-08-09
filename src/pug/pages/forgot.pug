@@ -1,9 +1,9 @@
 extends ../layout/auth
 
 block variables
-  - var title = 'Login at Coin Review';
-  - var description = 'Login at Coin Review';
-  - var pageName = 'login';
+  - var title = 'Forgot at Coin Review';
+  - var description = 'Forgot at Coin Review';
+  - var pageName = 'forgot';
 
 
 block content
@@ -12,21 +12,16 @@ block content
     +b.FORM.auth-form
       +e.row
         +e.content
-          +e.H1.title Login at Coin<span class="color-primary">Review</span>
+          +e.H1.title Forgot <span class="color-primary">Password</span>
           +e.description
             p Login your account at CoinReview to unlock new features.
-          +b.A(href="login-telegram.html" class="button _white") Login with Telegram
-          
+    
           +e.form
             form
 
-              +b.field(class="_error")
+              +b.field
                 label Email
                 input(type="text" value="" name="email")
-              
-              +b.field
-                label Password
-                input(type="password" value="" name="password")
 
               +b.field
                 label Capcha
@@ -35,10 +30,10 @@ block content
                   img(src="assets/images/captcha.png", alt="")
 
               +e.bottom
-                +b.BUTTON(class="button _primary _shadow") Login now
+                +b.BUTTON(class="button _primary _shadow") Forgot password
 
             +e.links
-              a(href="forgot.html") Forgot your password?
+              a(href="login.html") Login
               a(href="register.html") Registration
 
         +e.media

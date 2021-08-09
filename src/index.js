@@ -8,7 +8,7 @@ __svg__ = {
 };
 require("webpack-svgstore-plugin/src/helpers/svgxhr")(__svg__);
 import 'sticky-sidebar-v2';
-import './js/libs/resizeSensor';
+import ResizeSensor from 'resize-sensor/ResizeSensor';
 // SCSS
 import "./assets/scss/main.scss";
 
@@ -25,6 +25,7 @@ import { Fancybox } from "@fancyapps/ui";
 //-import "./js/modules/google-map";
 import tabs from "./js/modules/tabs";
 import "./js/libs/datepicker";
+import "./js/modules/customSelect";
 
 $(document).ready(function(){
 
@@ -42,15 +43,21 @@ $(document).ready(function(){
   
   initSticky();
 
+  
+  new ResizeSensor($('body'), function(){ 
+    if (document.querySelector(".js-sticky-sidebar")) {
+      window.sidebar.updateSticky();
+    }
+  });
+
+
+
   $('.js-datepicker').datepicker();
 
   sliders();
   dropdown();
   tabs();
 
-  if (document.querySelector(".js-sticky-sidebar")) {
-    window.sidebar.updateSticky();
-  }
 
   //-inputmasks();
 
@@ -133,6 +140,11 @@ $(document).ready(function(){
   $('.heart').click(function(){
     $(this).toggleClass('heart_is-active')
   })
+
+
+  $(".table-hover td:not(.not-clickable)").click(function(e) {
+      window.location = $(this).parents('tr').data("href");
+  });
 
 
   // document

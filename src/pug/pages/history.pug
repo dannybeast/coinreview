@@ -52,7 +52,9 @@ block content
                     +e.block
                         +e.block-content
                             +e.block-row
-                                +b.H3.title Ethereum USD
+                                +b.LABEL.title-select.select
+                                    select.js-select
+                                        option Ethereum USD
 
                                 +time-labels('time')
 
@@ -147,8 +149,8 @@ block content
                     p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rho
 
 block script
-    script(src="assets/js/vendors.js")
-    script(src="assets/js/app.js")
+    script(src="assets/js/vendors.js" defer)
+    script(src="assets/js/app.js" defer)
     script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/apexcharts")
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>

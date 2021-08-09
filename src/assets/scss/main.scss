@@ -6,6 +6,7 @@
 @import "modules/_pagination";
 @import "~awesome-notifications/dist/style.css";
 @import "libs/datepicker";
+@import "theme/customSelect";
 
 sup {
     display: inline-block;
@@ -426,6 +427,16 @@ sup {
     margin-bottom: 0;
     background: #d8e5ff;
     transition: padding 1s $animation;
+
+    .icons-links {
+        @include from(1750px) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 30px;
+        }
+    }
+
     .container {
         position: initial;
         @include notebook-block() {
@@ -436,8 +447,11 @@ sup {
     .counters {
         @include notebook-block() {
             flex-grow: 1;
+            flex-wrap: wrap;
+            margin-bottom: -10px;
             li {
                 flex-grow: 1;
+                margin-bottom: 10px;
             }
         }
         @include lg-block() {
@@ -2928,6 +2942,51 @@ sup {
         margin-right: 25px;
         img {
             width: 100%;
+        }
+    }
+}
+
+.icons-links {
+    display: flex;
+    align-items: center;
+    li {
+        margin: 0 0 0 30px;
+
+        @include notebook-block() {
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: #8fb4ff;
+        }
+        &:hover {
+            svg {
+                fill: $primary-color;
+            }
+        }
+    }
+}
+
+.title-select {
+    display: inline-flex;
+    select {
+        border: none;
+        font-size: 22px !important;
+        font-weight: 600 !important;
+        background: transparent;
+        padding: 0 35px 0 0;
+        option {
+            font-size: 14px;
         }
     }
 }

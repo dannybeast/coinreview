@@ -63,31 +63,31 @@ block content
                 +icon('search')
 
     mixin tr(index,currency, color)
-      tr 
+      tr(data-href="coin.html")
         td #{index}
         td
-          +b.currency-and-heart
-            if currency === 'btc'
-              +b.currency
-                +e.icon 
-                  img(src="assets/images/currency/btc.svg", alt="")
-                +e.P.name Bitcoin <span>BTC</span>
-            else if currency === 'eth'
-              +b.currency
-                +e.icon 
-                  img(src="assets/images/currency/eth.svg", alt="")
-                +e.P.name Etherium <span>ETH</span>
-            else if currency === 'dai'
-              +b.currency
-                +e.icon 
-                  img(src="assets/images/currency/dai.svg", alt="")
-                +e.P.name Dai <span>DAI</span>
-            else if currency === 'tether'
-              +b.currency
-                +e.icon 
-                  img(src="assets/images/currency/tether.svg", alt="")
-                +e.P.name Tether <span>Tether</span>
-            
+          
+          if currency === 'btc'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/btc.svg", alt="")
+              +e.P.name Bitcoin <span>BTC</span>
+          else if currency === 'eth'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/eth.svg", alt="")
+              +e.P.name Etherium <span>ETH</span>
+          else if currency === 'dai'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/dai.svg", alt="")
+              +e.P.name Dai <span>DAI</span>
+          else if currency === 'tether'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/tether.svg", alt="")
+              +e.P.name Tether <span>Tether</span>
+        td.not-clickable 
             if currency === 'btc'
               +b.heart
             else 
@@ -118,7 +118,7 @@ block content
             .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
           else 
             .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
-        td
+        td.not-clickable
           +b.amount-module 
             .decrease.value-button(value='Decrease Value') -
             input.number(type='number' value='0' name="amount")
@@ -163,6 +163,7 @@ block content
                   tr 
                     th # 
                     th Name
+                    th
                     th Price
                     th 24h %
                     th 7d %
@@ -195,8 +196,8 @@ block content
           p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rho
 
 block script
-  script(src="assets/js/vendors.js")
-  script(src="assets/js/app.js")
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)
   script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
   script(src="https://cdn.jsdelivr.net/npm/apexcharts")
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
@@ -204,85 +205,9 @@ block script
     
     $(document).ready( function () {
 
-        // Charts for table
-        document.querySelectorAll('.chart').forEach(function(el){
-            var options = {
-            series: [{
-                name: "Desktops",
-                data: el.dataset.array.split(',')
-            }],
-            chart: {
-              height:90,
-              animations:{
-                enabled: false,
-              },
-              type: 'line',
-              toolbar:{
-                show: false
-              },
-              zoom: {
-                enabled: false
-              }
-            },
-            stroke: {
-                show: true,
-                curve: 'straight',
-                colors: [el.dataset.color],
-                width: 2,  
-            },
-            grid:{
-              show: false,
-              xaxis: {
-                  lines: {
-                      show: false
-                  }
-              },   
-              yaxis: {
-                  lines: {
-                      show: false
-                  }
-              }, 
-              padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-              },  
-            },
-
-            legend: {
-              show: false,
-            },
-            dataLabels: {
-              enabled: false
-            },
-            yaxis: {
-              show: false,
-            },
-            tooltip: {
-              enabled: false
-            },
-            xaxis: {  
-                axisBorder:{
-                  show: false
-              },
-                axisTicks:{
-                  show: false
-              },
-              labels:{
-                show: false
-              }
-            },
-        
-
-          };
-
-          var chart = new ApexCharts(el, options);
-          chart.render();
-        })
         
         // Datatables
-        $('.js-datatables').DataTable({
+        var table = $('.js-datatables').DataTable({
           "searching": false
         });
 
@@ -302,5 +227,88 @@ block script
         })
 
 
-        
+        table.on( 'draw.dt', function () {
+            drawTableCharts();
+        });
+        drawTableCharts();
+
+
+        // Charts for table
+        function drawTableCharts(){
+          document.querySelectorAll('.chart').forEach(function(el){
+              var options = {
+              series: [{
+                  name: "Desktops",
+                  data: el.dataset.array.split(',')
+              }],
+              chart: {
+                height:90,
+                animations:{
+                  enabled: false,
+                },
+                type: 'line',
+                toolbar:{
+                  show: false
+                },
+                zoom: {
+                  enabled: false
+                }
+              },
+              stroke: {
+                  show: true,
+                  curve: 'straight',
+                  colors: [el.dataset.color],
+                  width: 2,  
+              },
+              grid:{
+                show: false,
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },   
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                }, 
+                padding: {
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  left: 0
+                },  
+              },
+
+              legend: {
+                show: false,
+              },
+              dataLabels: {
+                enabled: false
+              },
+              yaxis: {
+                show: false,
+              },
+              tooltip: {
+                enabled: false
+              },
+              xaxis: {  
+                  axisBorder:{
+                    show: false
+                },
+                  axisTicks:{
+                    show: false
+                },
+                labels:{
+                  show: false
+                }
+              },
+          
+
+            };
+
+            var chart = new ApexCharts(el, options);
+            chart.render();
+          })
+        }
     });

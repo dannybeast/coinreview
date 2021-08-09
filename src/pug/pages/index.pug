@@ -121,7 +121,7 @@ block content
                 +e.P.value <span>8,626</span>
 
     mixin tr(index,currency, color)
-      tr 
+      tr(data-href="coin.html")
         td #{index}
         td
           if currency === 'btc'
@@ -171,7 +171,7 @@ block content
             .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
           else 
             .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
-        td
+        td.not-clickable
           +b.amount-module 
             .decrease.value-button(value='Decrease Value') -
             input.number(type='number' value='0' name="amount")
@@ -291,8 +291,8 @@ block content
     
 
 block script
-  script(src="assets/js/vendors.js")
-  script(src="assets/js/app.js")
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)
   script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
   script(src="https://cdn.jsdelivr.net/npm/apexcharts")
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
@@ -300,7 +300,7 @@ block script
     
     $(document).ready( function () {
         // Datatables
-        $('.js-datatables').DataTable({
+        var table = $('.js-datatables').DataTable({
           "searching": false
         });
 
@@ -319,82 +319,89 @@ block script
           $footer.append($wrapper.find('.dataTables_paginate'))
         })
 
+        table.on( 'draw.dt', function () {
+            drawTableCharts();
+        });
+        drawTableCharts();
+
 
         // Charts for table
-        document.querySelectorAll('.chart').forEach(function(el){
-            var options = {
-            series: [{
-                name: "Desktops",
-                data: el.dataset.array.split(',')
-            }],
-            chart: {
-              height:90,
-              animations:{
-                enabled: false,
+        function drawTableCharts(){
+          document.querySelectorAll('.chart').forEach(function(el){
+              var options = {
+              series: [{
+                  name: "Desktops",
+                  data: el.dataset.array.split(',')
+              }],
+              chart: {
+                height:90,
+                animations:{
+                  enabled: false,
+                },
+                type: 'line',
+                toolbar:{
+                  show: false
+                },
+                zoom: {
+                  enabled: false
+                }
               },
-              type: 'line',
-              toolbar:{
-                show: false
+              stroke: {
+                  show: true,
+                  curve: 'straight',
+                  colors: [el.dataset.color],
+                  width: 2,  
               },
-              zoom: {
+              grid:{
+                show: false,
+                xaxis: {
+                    lines: {
+                        show: false
+                    }
+                },   
+                yaxis: {
+                    lines: {
+                        show: false
+                    }
+                }, 
+                padding: {
+                  top: 0,
+                  right: 0,
+                  bottom: 0,
+                  left: 0
+                },  
+              },
+
+              legend: {
+                show: false,
+              },
+              dataLabels: {
                 enabled: false
-              }
-            },
-            stroke: {
-                show: true,
-                curve: 'straight',
-                colors: [el.dataset.color],
-                width: 2,  
-            },
-            grid:{
-              show: false,
-              xaxis: {
-                  lines: {
-                      show: false
-                  }
-              },   
+              },
               yaxis: {
-                  lines: {
-                      show: false
-                  }
-              }, 
-              padding: {
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0
-              },  
-            },
-
-            legend: {
-              show: false,
-            },
-            dataLabels: {
-              enabled: false
-            },
-            yaxis: {
-              show: false,
-            },
-            tooltip: {
-              enabled: false
-            },
-            xaxis: {  
-                axisBorder:{
-                  show: false
+                show: false,
               },
-                axisTicks:{
-                  show: false
+              tooltip: {
+                enabled: false
               },
-              labels:{
-                show: false
-              }
-            },
-        
+              xaxis: {  
+                  axisBorder:{
+                    show: false
+                },
+                  axisTicks:{
+                    show: false
+                },
+                labels:{
+                  show: false
+                }
+              },
+          
 
-          };
+            };
 
-          var chart = new ApexCharts(el, options);
-          chart.render();
-        })
+            var chart = new ApexCharts(el, options);
+            chart.render();
+          })
+        }
     });
     

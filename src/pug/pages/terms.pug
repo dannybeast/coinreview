@@ -1,0 +1,38 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Privacy';
+  - var description = '';
+  - var pageName = 'privacy';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="#") Coins 
+          span / 
+          span Terms
+
+    +b.SECTION
+      .container
+        h1.title Terms
+        +b.typography
+          
+          p A CFTC commissioner says the Commodity Futures Trading Commission should oversee crypto, rather than the Securities and Exchange Commission. CFTC Commissioner Brian Quintenz likened Bitcoin to gold or oil, and said the SEC doesn’t have the authority to regulate it. That came a day after the SEC chairman called all cryptocurrencies securities and asked congress for more power to regulate them. Read more here.
+          
+          h3 NFTs in Space 🚀
+          p ‍Non-fungible tokens made it to the International Space Station twice in recent days. A copy of Debussey’s “Claire de Lune” was beamed there, traveled around the earth, and beamed down on to be minted onto an NFT. Then artist Micah Johnson sent an image of his Black child astronaut Aku up and back, for a charity auction on Notables. Raise your knowledge here.
+          
+          h3 London Hard Fork Takes Gas Out of Ethereum
+          p Ethereum took an important step on the road to the faster and more energy-efficient Ethereum 2.0 as the London hard fork went live today. Among other things, it makes transaction fees much more predictable — and hopefully cheaper — as well as burning the part of those gas fees that went to miners. Get the news here.
+          
+          h3 Bipartisan Push to Cut Bitcoin Miners Tax 📈
+          p Three U.S. Senators — a Democrat and two Republicans — have proposed an amendment that would exempt cryptocurrency miners, wallet makers, and protocol developers from new taxes. The proposal impacts provisions of the Biden administration’s $1 trillion infrastructure bill that seeks to raise $28 billion by taxing crypto. Check it out here.
+          p A CFTC commissioner says the Commodity Futures Trading Commission should oversee crypto, rather than the Securities and Exchange Commission. CFTC Commissioner Brian Quintenz likened Bitcoin to gold or oil, and said the SEC doesn’t have the authority to regulate it. That came a day after the SEC chairman called all cryptocurrencies securities and asked congress for more power to regulate them. Read more here.
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

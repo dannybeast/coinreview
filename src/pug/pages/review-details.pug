@@ -74,7 +74,7 @@ block content
         +b.review-details-bottom 
 
           // prev
-          +b.A(href="#" class="review-item-prev")
+          +b.A(href="review-details.html" class="review-item-prev")
             +e.image
               img(src="assets/images/news/2.png", alt="")
             +e.content
@@ -82,7 +82,7 @@ block content
               +e.P.title Coinreview August 5: Ethereum Hard Forks
 
           // next
-          +b.A(href="#" class="review-item-prev")
+          +b.A(href="review-details.html" class="review-item-prev")
             +e.image
               img(src="assets/images/news/3.png", alt="")
             +e.content
@@ -90,5 +90,5 @@ block content
               +e.P.title Coinreview August 5: Ethereum Hard Forks
 
 block script
-  script(src="assets/js/vendors.js")
-  script(src="assets/js/app.js")
+  script(src="assets/js/vendors.js" defer) 
+  script(src="assets/js/app.js" defer) 
