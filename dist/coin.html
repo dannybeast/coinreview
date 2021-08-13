@@ -138,11 +138,15 @@
               <div class="container">
                 <div class="details-top__row"> 
                   <div class="details-top__col"> 
-                    <div class="currency">
-                      <div class="currency__icon"> <img src="assets/images/currency/eth.svg" alt="">
+                    <div class="details-top__top">
+                      <div class="currency">
+                        <div class="currency__icon"> <img src="assets/images/currency/eth.svg" alt="">
+                        </div>
+                        <p class="currency__name">Etherium <span>ETH</span>
+                        </p>
                       </div>
-                      <p class="currency__name">Etherium <span>ETH</span>
-                      </p>
+                      <div class="favorites"> <a class="favorites__button" data-text-active="In favorites" data-text-inactive="Add to favorites"><span>Add to favorites</span></a>
+                      </div>
                     </div>
                     <div class="currency-price"> 
                       <p class="currency-price__value">$ <span>2,305.49</span>
@@ -363,63 +367,93 @@
                           </div>
                           <div class="details__sidebar">
                             <div class="sidebar-block statistics-block">
-                              <h4 class="sidebar-block__title">ETH Price Statistics
-                              </h4>
-                              <ul class="statistics-list"> 
-                                <li> 
-                                  <p>Ethereum Price	</p>
-                                  <div class="statistics-list__row"><strong>$2,324.09</strong>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Price Change 24h</p>
-                                  <div class="statistics-list__row"><strong>$24.83 </strong>
-                                    <div class="label label_danger">0.3<sup>%</sup>
+                              <div class="sidebar-block__section">
+                                <h4 class="sidebar-block__title">ETH Price Statistics
+                                </h4>
+                                <ul class="statistics-list"> 
+                                  <li> 
+                                    <p>Ethereum Price	</p>
+                                    <div class="statistics-list__row"><strong>$2,324.09</strong>
                                     </div>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>24h Low / 24h High	</p>
-                                  <div class="statistics-list__row"><strong>$2,258.06 / $2,331.49</strong>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Trading Volumen 24h</p>
-                                  <div class="statistics-list__row"><strong>$16,039,566,976.08  </strong>
-                                    <div class="label label_success">1.2<sup>%</sup>
+                                  </li>
+                                  <li> 
+                                    <p>Price Change 24h</p>
+                                    <div class="statistics-list__row"><strong>$24.83 </strong>
+                                      <div class="label label_danger">0.3<sup>%</sup>
+                                      </div>
                                     </div>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Volume / Market Cap	</p>
-                                  <div class="statistics-list__row"><strong>0.05899</strong>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Market Dominance	</p>
-                                  <div class="statistics-list__row"><strong>17,46%</strong>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Market Rank	</p>
-                                  <div class="statistics-list__row"><strong>#2</strong>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Market Cap	</p>
-                                  <div class="statistics-list__row"><strong>$271,916,193,634.42</strong>
-                                    <div class="label label_success">1.2<sup>%</sup>
+                                  </li>
+                                  <li> 
+                                    <p>24h Low / 24h High	</p>
+                                    <div class="statistics-list__row"><strong>$2,258.06 / $2,331.49</strong>
                                     </div>
-                                  </div>
-                                </li>
-                                <li> 
-                                  <p>Fully Diluted Market Cap</p>
-                                  <div class="statistics-list__row"><strong>$271,916,193,634.42 </strong>
-                                    <div class="label label_success">1.2<sup>%</sup>
+                                  </li>
+                                  <li> 
+                                    <p>Trading Volumen 24h</p>
+                                    <div class="statistics-list__row"><strong>$16,039,566,976.08  </strong>
+                                      <div class="label label_success">1.2<sup>%</sup>
+                                      </div>
                                     </div>
-                                  </div>
-                                </li>
-                              </ul>
+                                  </li>
+                                  <li> 
+                                    <p>Volume / Market Cap	</p>
+                                    <div class="statistics-list__row"><strong>0.05899</strong>
+                                    </div>
+                                  </li>
+                                  <li> 
+                                    <p>Market Dominance	</p>
+                                    <div class="statistics-list__row"><strong>17,46%</strong>
+                                    </div>
+                                  </li>
+                                  <li> 
+                                    <p>Market Rank	</p>
+                                    <div class="statistics-list__row"><strong>#2</strong>
+                                    </div>
+                                  </li>
+                                  <li> 
+                                    <p>Market Cap	</p>
+                                    <div class="statistics-list__row"><strong>$271,916,193,634.42</strong>
+                                      <div class="label label_success">1.2<sup>%</sup>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li> 
+                                    <p>Fully Diluted Market Cap</p>
+                                    <div class="statistics-list__row"><strong>$271,916,193,634.42 </strong>
+                                      <div class="label label_success">1.2<sup>%</sup>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="sidebar-block__section">
+                                <ul class="social-list"> 
+                                  <li> 
+                                    <p>Website <a href="#"> <span>Website </span>
+                                        <svg class="svg-icon">
+                                          <use href="assets/icons/sprite.svg#icon-world"></use>
+                                        </svg></a></p>
+                                  </li>
+                                  <li> 
+                                    <p>Twitter <a href="#"> <span>Website </span>
+                                        <svg class="svg-icon">
+                                          <use href="assets/icons/sprite.svg#icon-twitter"></use>
+                                        </svg></a></p>
+                                  </li>
+                                  <li> 
+                                    <p>Telegram <a href="#"> <span>Website </span>
+                                        <svg class="svg-icon">
+                                          <use href="assets/icons/sprite.svg#icon-telegram"></use>
+                                        </svg></a></p>
+                                  </li>
+                                  <li> 
+                                    <p>Discord <a href="#"> <span>Website </span>
+                                        <svg class="svg-icon">
+                                          <use href="assets/icons/sprite.svg#icon-discord"></use>
+                                        </svg></a></p>
+                                  </li>
+                                </ul>
+                              </div>
                             </div>
                           </div>
                         </div>

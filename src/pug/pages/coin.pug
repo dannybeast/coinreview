@@ -113,11 +113,16 @@ block content
             .container
                 +e.row 
                     +e.col 
+                        +e.top
+                            +b.currency
+                                +e.icon 
+                                    img(src="assets/images/currency/eth.svg", alt="")
+                                +e.P.name Etherium <span>ETH</span>
+                            
+                            +b.favorites 
 
-                        +b.currency
-                            +e.icon 
-                                img(src="assets/images/currency/eth.svg", alt="")
-                            +e.P.name Etherium <span>ETH</span>
+                                +e.A().button(data-text-active="In favorites" data-text-inactive="Add to favorites")
+                                    span Add to favorites
 
                         +b.currency-price 
                             +e.P.value $ <span>2,305.49</span>
@@ -243,48 +248,72 @@ block content
                                                     +b.A(class="button _primary _small js-show-more") Read more
                                     +e.sidebar
                                         +b.sidebar-block.statistics-block
-                                            +e.H4.title ETH Price Statistics
-                                            +b.UL.statistics-list 
-                                                +e.LI 
-                                                    p Ethereum Price	
-                                                    +e.row
-                                                        strong $2,324.09
-                                                +e.LI 
-                                                    p Price Change 24h
-                                                    +e.row
-                                                        strong $24.83 
-                                                        +b.label(class="_danger") 0.3<sup>%</sup>
-                                                +e.LI 
-                                                    p 24h Low / 24h High	
-                                                    +e.row
-                                                        strong $2,258.06 / $2,331.49
-                                                +e.LI 
-                                                    p Trading Volumen 24h
-                                                    +e.row
-                                                        strong $16,039,566,976.08  
-                                                        +b.label(class="_success") 1.2<sup>%</sup>
-                                                +e.LI 
-                                                    p Volume / Market Cap	
-                                                    +e.row
-                                                        strong 0.05899
-                                                +e.LI 
-                                                    p Market Dominance	
-                                                    +e.row
-                                                        strong 17,46%
-                                                +e.LI 
-                                                    p Market Rank	
-                                                    +e.row
-                                                        strong #2
-                                                +e.LI 
-                                                    p Market Cap	
-                                                    +e.row
-                                                        strong $271,916,193,634.42
-                                                        +b.label(class="_success") 1.2<sup>%</sup>
-                                                +e.LI 
-                                                    p Fully Diluted Market Cap
-                                                    +e.row
-                                                        strong $271,916,193,634.42 
-                                                        +b.label(class="_success") 1.2<sup>%</sup>
+                                            
+                                            +e.section
+                                                +e.H4.title ETH Price Statistics
+                                                +b.UL.statistics-list 
+                                                    +e.LI 
+                                                        p Ethereum Price	
+                                                        +e.row
+                                                            strong $2,324.09
+                                                    +e.LI 
+                                                        p Price Change 24h
+                                                        +e.row
+                                                            strong $24.83 
+                                                            +b.label(class="_danger") 0.3<sup>%</sup>
+                                                    +e.LI 
+                                                        p 24h Low / 24h High	
+                                                        +e.row
+                                                            strong $2,258.06 / $2,331.49
+                                                    +e.LI 
+                                                        p Trading Volumen 24h
+                                                        +e.row
+                                                            strong $16,039,566,976.08  
+                                                            +b.label(class="_success") 1.2<sup>%</sup>
+                                                    +e.LI 
+                                                        p Volume / Market Cap	
+                                                        +e.row
+                                                            strong 0.05899
+                                                    +e.LI 
+                                                        p Market Dominance	
+                                                        +e.row
+                                                            strong 17,46%
+                                                    +e.LI 
+                                                        p Market Rank	
+                                                        +e.row
+                                                            strong #2
+                                                    +e.LI 
+                                                        p Market Cap	
+                                                        +e.row
+                                                            strong $271,916,193,634.42
+                                                            +b.label(class="_success") 1.2<sup>%</sup>
+                                                    +e.LI 
+                                                        p Fully Diluted Market Cap
+                                                        +e.row
+                                                            strong $271,916,193,634.42 
+                                                            +b.label(class="_success") 1.2<sup>%</sup>
+                                            +e.section
+                                                +b.UL.social-list 
+                                                    +e.LI 
+                                                        p Website 
+                                                            a(href="#") 
+                                                                span Website 
+                                                                +icon('world')
+                                                    +e.LI 
+                                                        p Twitter 
+                                                            a(href="#") 
+                                                                span Website 
+                                                                +icon('twitter')
+                                                    +e.LI 
+                                                        p Telegram 
+                                                            a(href="#") 
+                                                                span Website 
+                                                                +icon('telegram')
+                                                    +e.LI 
+                                                        p Discord 
+                                                            a(href="#") 
+                                                                span Website 
+                                                                +icon('discord')
                     if index === 2 
                         div.js-tab-content
                             +b.table-wrapper
