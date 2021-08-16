@@ -184,14 +184,37 @@
                       <div class="col-4"> 
                         <div class="field"> 
                           <label>Project in presale phase?*</label>
-                          <label class="select"> 
-                            <select name="phase" required>
-                              <option>1</option>
+                          <label class="select">
+                            <select class="js-presale-select" name="phase" required>
+                              <option value="no">No </option>
+                              <option value="yes">Yes</option>
                             </select>
                           </label>
                         </div>
                       </div>
                     </div>
+                    <!-- if presale-->
+                    <div class="presale-block">
+                      <div class="row"> 
+                        <div class="col-6"> 
+                          <div class="field field_date">
+                            <label>Start date and time presale*</label>
+                            <div class="field__wrapper">
+                              <input class="js-datepicker js-start-presale" type="text" name="start_presale" data-timepicker="true">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="field"> 
+                            <label>Link to presale*</label>
+                            <input class="js-link-presale" type="text" name="link_presale">
+                            <p class="field__description">(dxsale.app or unicrypt.network)
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- --->
                     <div class="field"> 
                       <label>Contract Address*</label>
                       <input type="text" name="address" required>

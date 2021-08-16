@@ -60,9 +60,25 @@ block content
               .col-4 
                 +b.field 
                   label Project in presale phase?*
-                  +b.LABEL.select 
-                    select(name="phase" required)
-                      option 1
+                  +b.LABEL.select
+                    select(name="phase" required).js-presale-select
+                      option(value="no") No 
+                      option(value="yes") Yes
+
+            // if presale
+            +b.presale-block
+              .row 
+                .col-6 
+                  +b.field(class="_date")
+                    label Start date and time presale*
+                    +e.wrapper
+                      input(type="text" name="start_presale" data-timepicker="true" class="js-datepicker js-start-presale")
+                .col-6
+                  +b.field 
+                    label Link to presale*
+                    input(type="text" name="link_presale").js-link-presale
+                    +e.P.description (dxsale.app or unicrypt.network)
+            // -
 
             +b.field 
               label Contract Address*

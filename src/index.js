@@ -152,21 +152,29 @@ $(document).ready(function(){
   });
 
 
-  // document
-  //   .querySelectorAll('.faq-row')
-  //   .forEach((el, ind) => {
-    
-  //     el.querySelectorAll('[data-accordion="trigger"]').forEach((element,index)=>{
-      
-  //       const newAccordion = new Accordion(element);
-    
-  //       if (index === 0) {
-  //       newAccordion._toggleContent(element);
-  //       }
-  //     })
-    
-    
-  //   });
+
+  // presale
+  function requiredPresaleFields(val){
+    let link = $('.js-link-presale')
+    let start = $('.js-start-presale')
+
+    link.prop('required', val)
+    start.prop('required', val)
+  }
+
+  $('.js-presale-select').on('change', function(){
+    console.log($(this).val());
+    let val = $(this).val();
+    let $block = $('.presale-block');
+
+    if(val === 'yes'){
+      $block.slideDown();
+      requiredPresaleFields(true)
+    }else{
+      $block.slideUp();
+      requiredPresaleFields(false)
+    }
+  })
 
 
   hideLoader();

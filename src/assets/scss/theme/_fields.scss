@@ -85,6 +85,10 @@ $field-border-radius: 0;
             margin-bottom: 0;
         }
     }
+    &__description {
+        margin-top: 5px;
+        font-size: 12px;
+    }
     &_error {
         label {
             color: $danger-color;
