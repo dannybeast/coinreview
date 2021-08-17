@@ -19,6 +19,7 @@ sup {
     min-height: 100vh;
     overflow: hidden;
     max-width: 100%;
+    min-width: 320px;
     .footer {
         width: 100%;
         padding-left: 115px;
@@ -392,22 +393,19 @@ sup {
     display: flex;
     align-items: center;
     font-size: 13px;
-
     line-height: 1.4;
 
     li {
         margin: 0 20px;
         display: flex;
         align-items: center;
+        white-space: nowrap;
         @include to(1300px) {
             margin: 0 10px;
         }
         strong {
             color: $primary-color;
             font-weight: 500;
-            @include to(1400px) {
-                display: block;
-            }
         }
     }
     &__icon {
@@ -418,6 +416,12 @@ sup {
             height: 11px;
             fill: #000;
         }
+    }
+}
+
+.nowrap-desktop {
+    @include from(992px) {
+        white-space: nowrap;
     }
 }
 
@@ -520,11 +524,7 @@ sup {
         width: 100%;
         max-width: 257px;
         margin-left: 0;
-        margin-right: auto;
 
-        // @include md-block() {
-        //     max-width: 200px;
-        // }
         @include sm-block() {
             margin-left: 5px;
         }
@@ -887,7 +887,6 @@ sup {
     color: #fff;
     border-radius: 15px;
     font-size: 13px;
-    font-weight: 500;
     font-family: $main-font;
     padding: 2px 8px;
     position: relative;
@@ -1809,6 +1808,11 @@ sup {
             }
         }
     }
+    &.hidden-filters {
+        .dataTables_length {
+            display: none;
+        }
+    }
 }
 
 .statistics-list {
@@ -1829,7 +1833,7 @@ sup {
         }
     }
     li {
-        margin-bottom: 30px;
+        margin-bottom: 23px;
         p {
             margin-bottom: 8px;
             &:last-child {
@@ -1886,12 +1890,23 @@ sup {
         @include size(3);
         @include size-notebook(4);
         @include size-xl(12);
+        @include sm-block() {
+            width: 100%;
+            margin: 0;
+        }
     }
     .statistics-block {
         height: 100%;
+        @include sm-block() {
+            border-radius: 0;
+        }
     }
     .tabs__content {
         height: 100%;
+        @include sm-block() {
+            margin-right: -15px;
+            border-radius: 0;
+        }
     }
 }
 
@@ -2427,7 +2442,6 @@ sup {
     }
     .typography {
         margin-bottom: 30px;
-        font-weight: 300;
         &:last-child {
             margin-bottom: 0;
         }
@@ -2435,6 +2449,7 @@ sup {
     .button {
         font-size: 19px;
         padding: 0 35px;
+        height: 54px;
     }
     .field,
     .row {
@@ -2712,15 +2727,60 @@ sup {
 }
 
 .add-currency {
+    @include md-block() {
+        text-align: center;
+    }
     .typography {
         max-width: 520px;
         font-size: 16px;
-        @include xl-block() {
-            font-size: 14px;
-            max-width: 45%;
-        }
         @include md-block() {
-            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include sm-block() {
+            font-size: 14px;
+        }
+    }
+    &__row {
+        @include row-flex();
+    }
+    &__col {
+        @include col();
+        @include size(6);
+        @include size-md(12);
+    }
+    &__media {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        @include md-block() {
+            margin-top: 30px;
+            height: auto;
+        }
+        img {
+            margin: auto 0 auto auto;
+            @include md-block() {
+                margin: auto;
+            }
+        }
+    }
+    .button-register {
+        @include sm-block() {
+            font-size: 16px;
+            width: 100%;
+        }
+        @include xs-block() {
+            font-size: 14px;
+            padding: 0 15px;
+        }
+    }
+    &_padding-lg {
+        padding: 65px 75px;
+        @include xl-block() {
+            padding: 40px 40px;
+        }
+        @include sm-block() {
+            padding: 40px 20px;
         }
     }
 }
@@ -3119,6 +3179,65 @@ sup {
             font-size: 14px;
         }
     }
+}
+
+.contact-module {
+    background: #c5d5f3;
+    border-radius: 6px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: rgba(#000, 0.7);
+    padding-left: 9px;
+    &__icon {
+        width: 19px;
+        height: 19px;
+        overflow: hidden;
+        display: block;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-right: 9px;
+    }
+    &__value {
+        margin: 0 !important;
+        white-space: nowrap;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        strong {
+            margin-right: 3px;
+        }
+    }
+    &__copy-button {
+        margin-left: auto;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: #fff;
+        }
+        &:hover {
+            svg {
+                fill: $primary-color;
+            }
+        }
+    }
+}
+
+.contract-token {
+    max-width: 80px;
+    display: block;
+    overflow: hidden;
+}
+
+.presaled-block {
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
 }
 
 // datepicker
