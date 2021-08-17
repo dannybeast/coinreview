@@ -1,0 +1,27 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Settings';
+  - var description = '';
+  - var pageName = 'settings';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="profile-account.html") Account 
+          span / 
+          span Settings
+
+    +b.SECTION
+      .container
+        +b.H1.title(class="_strong") Settings
+
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

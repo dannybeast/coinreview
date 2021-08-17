@@ -8,13 +8,13 @@
     vertical-align: top;
     line-height: 1;
     font-family: $accent-font;
-    padding: 0 rem(30px);
-    font-weight: 600;
+    padding: 0 rem(35px);
+    font-weight: 700;
     background: $gray-color-light;
     text-decoration: none;
     color: #000;
-    height: 50px;
-    font-size: rem(22px);
+    height: 55px;
+    font-size: rem(19px);
     border-radius: 30px;
     white-space: nowrap;
     position: relative;
@@ -51,6 +51,16 @@
     }
 
     // colors
+    &_gray {
+        color: #000;
+        background-image: linear-gradient(180deg, #cdced2 0%, #dfe1e4 100%);
+        box-shadow: 0px 3px 24px 0px rgba(#dadada, 0.8);
+
+        &:hover {
+            color: #000;
+            background-image: linear-gradient(180deg, #bdbfc5 0%, #d2d5da 100%);
+        }
+    }
 
     &_primary {
         color: #fff;

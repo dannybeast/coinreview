@@ -1,13 +1,57 @@
-+b.SECTION.navigation
-    .container
-        ul
-            li.is-active
-                a(href="account.html") Account
-            li
-                a(href="add-banner.html") Add banner
-            li
-                a(href="exchanges.html") Exchanges
-            li
-                a(href="currencies.html") Curencies
-            li
-                a(href="history.html") History
+if pageType === 'profile'
+    ul.primary
+        li(class=( pageName === "account" ? " is-active" : undefined))
+            a(href="index.html")
+                +icon('004-account')
+                span Account
+
+        li(class=( pageName === "addCoin" ? " is-active" : undefined))
+            a(href="profile-add-coin.html")
+                +icon('coin')
+                span Add coin
+
+        li(class=( pageName === "myCoins" ? " is-active" : undefined))
+            a(href="profile-my-coins.html")
+                +icon('004-account')
+                span My coins
+
+        li(class=( pageName === "promoted" ? " is-active" : undefined))
+            a(href="profile-promoted.html")
+                +icon('upload')
+                span Promoted
+
+        li(class=( pageName === "settings" ? " is-active" : undefined))
+            a(href="profile-settings.html")
+                +icon('004-account')
+                span Settings
+
+        li
+            a(href="index.html")
+                +icon('004-account')
+                span Exit
+ul
+    if pageType != 'profile'
+        li(class=( pageName === "login" ? " is-active" : undefined))
+            a(href="login.html")
+                +icon('004-account')
+                span Account
+        li(class=( pageName === "register" ? " is-active" : undefined))
+            a(href="register.html")
+                +icon('key')
+                span Registration
+    li(class=( pageName === "banner" ? " is-active" : undefined))
+        a(href="add-banner.html")
+            +icon('003-clicking')
+            span Add banner
+    li(class=( pageName === "exchanges" ? " is-active" : undefined))
+        a(href="exchanges.html")
+            +icon('005-atm')
+            span Exchanges
+    li(class=( pageName === "currencies" ? " is-active" : undefined))
+        a(href="currencies.html")
+            +icon('001-wallet')
+            span Currencies
+    li(class=( pageName === "history" ? " is-active" : undefined))
+        a(href="history.html")
+            +icon('006-history')
+            span History

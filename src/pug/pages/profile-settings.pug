@@ -1,0 +1,76 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Settings';
+  - var description = '';
+  - var pageName = 'settings';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="profile-account.html") Account 
+          span / 
+          span Settings
+
+    +b.SECTION
+      .container
+        +b.H1.title(class="_strong") Settings
+
+        +b.block(class="_border-none")
+          +b.typography
+            p We only accept PerfectMoney. Maximum file size maust not exceed 3.5MB. Banners with your referral link are allowed. No non-paying or phishing site banners will be displayed. Send all ad questions to advertising@hyiplogs.com.
+          
+          form
+            +b.field 
+                label Your name:
+                input(type="text" name="name")
+
+            .row 
+              .col-6
+                +b.field 
+                  label Username:
+                  input(type="text" name="username")
+
+              .col-6 
+                +b.field 
+                  label E-mail:
+                  input(type="text" name="email" value="mail@hmail.com" disabled)
+            
+            +b.field 
+                label Telegram support:
+                input(type="text" name="telegram")
+
+      
+            +b.BUTTON.button(class="_primary") Save settings
+
+        +b.H3.title(class="_strong") Change password
+
+        +b.block(class="_border-none")
+          
+          form
+            +b.field 
+                label Old password:
+                input(type="password" name="old_password")
+
+            .row 
+              .col-6
+                +b.field 
+                  label Type new password:
+                  input(type="password" name="new_password")
+
+              .col-6 
+                +b.field 
+                  label Re-Type new password:
+                  input(type="password" name="retype_password")
+
+      
+            +b.BUTTON.button(class="_primary") Save password
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

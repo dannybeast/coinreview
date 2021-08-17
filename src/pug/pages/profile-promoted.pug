@@ -1,0 +1,27 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Promoted';
+  - var description = '';
+  - var pageName = 'promoted';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="profile-account.html") Account 
+          span / 
+          span Promoted
+
+    +b.SECTION
+      .container
+        +b.H1.title(class="_strong") Promoted
+
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

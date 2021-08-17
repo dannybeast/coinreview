@@ -1,0 +1,62 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Add news';
+  - var description = '';
+  - var pageName = 'addNews';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="profile-account.html") Account 
+          span / 
+          span Add news
+
+    +b.SECTION
+      .container
+        +b.H1.title(class="_strong") Add news
+        
+        form
+
+            +b.block(class="_border-none")
+            
+                +b.field 
+                    label News title:
+                    input(type="text" name="title")
+
+                +b.field 
+                    label Description:
+                    input(type="text" name="description")
+                
+                +b.field 
+                    label Add main image:
+                    +b.field-group.field-file
+                        +b.LABEL
+                        input(type="file" value="" name="image")
+                        span
+                        +b.A(class="button _primary _shadow") Upload 
+
+            +b.H3.title(class="_strong") Block 1
+
+            +b.block(class="_border-none")
+            
+                +b.field 
+                    label Block title:
+                    input(type="text" name="block_title")
+
+                +b.field 
+                    label Add content:
+            +b.buttons 
+                +b.A.button(class="_gray") Add a block
+                +b.A.button(class="_gray") Watch preview
+
+            +b.BUTTON.button(class="_primary") Publish news
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

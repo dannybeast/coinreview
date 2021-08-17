@@ -1,0 +1,27 @@
+extends ../layout/main
+
+block variables
+  - var title = 'My coins';
+  - var description = '';
+  - var pageName = 'myCoins';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="profile-account.html") Account 
+          span / 
+          span My coins
+
+    +b.SECTION
+      .container
+        +b.H1.title(class="_strong") My coins
+
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

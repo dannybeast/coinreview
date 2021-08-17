@@ -64,6 +64,14 @@ sup {
             display: none;
         }
         ul {
+            &.primary {
+                background: #1c59b0;
+                .is-active {
+                    a {
+                        background: #143e7b;
+                    }
+                }
+            }
             a {
                 text-align: center;
                 display: block;
@@ -231,6 +239,14 @@ sup {
                 span {
                     width: 100%;
                     display: block;
+                }
+            }
+            &.primary {
+                background: #1c59b0;
+                .is-active {
+                    a {
+                        background: #143e7b;
+                    }
                 }
             }
         }
@@ -2432,6 +2448,10 @@ sup {
     border-radius: 20px;
     border: solid 2px $primary-color;
     padding: 40px 60px;
+    margin-bottom: 40px;
+    &:last-child {
+        margin-bottom: 0;
+    }
     @include sm-block() {
         padding: 40px 30px;
         margin-left: -$fields_sm;
@@ -2463,6 +2483,9 @@ sup {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+    &_border-none {
+        border-color: #fff;
     }
 }
 
@@ -2813,6 +2836,7 @@ sup {
     }
     .button {
         font-size: 16px;
+        height: 40px;
     }
 }
 
@@ -3312,6 +3336,19 @@ sup {
             margin: 0 0 30px 0;
             width: 100%;
         }
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 30px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    & > * {
+        margin: 0 20px 20px 0;
     }
 }
 

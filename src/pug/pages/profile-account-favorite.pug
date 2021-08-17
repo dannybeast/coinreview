@@ -1,0 +1,25 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Account';
+  - var description = '';
+  - var pageName = 'account';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          span Account
+
+    +b.SECTION
+      .container
+        +b.H1.title(class="_strong") Account
+
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

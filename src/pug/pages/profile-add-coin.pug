@@ -1,9 +1,10 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Add a currency';
+  - var title = 'Add coin';
   - var description = '';
-  - var pageName = 'currency';
+  - var pageName = 'addCoin';
+  - var pageType = 'profile';
 
 
 block content
@@ -12,13 +13,13 @@ block content
     +b.SECTION
       .container
         +b.breadcrumbs 
-          a(href="#") Coins 
+          a(href="profile-account.html") Account 
           span / 
-          span Add a currency
+          span Add coin
 
     +b.SECTION
       .container
-        +b.H3.title(class="_strong") Add a currency
+        +b.H3.title(class="_strong") Add coin
 
         +b.add-currency.block
           +b.typography

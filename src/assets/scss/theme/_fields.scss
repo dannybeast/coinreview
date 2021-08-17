@@ -11,7 +11,7 @@ $field-border-radius: 0;
     border-radius: $field-border-radius;
     font-family: $main-font;
     background: #eaf1ff;
-    font-weight: 500;
+    font-weight: 600;
     color: #000;
     border-radius: 4px;
     text-overflow: ellipsis;
@@ -25,6 +25,11 @@ $field-border-radius: 0;
     &:hover,
     &:focus {
         border-color: darken(#e8e8e8, 10%);
+    }
+    &[disabled] {
+        background: #f4f8ff;
+        border-color: #e4eaf7;
+        color: rgba(#000, 0.5);
     }
 }
 @keyframes errorInput {
@@ -49,7 +54,7 @@ $field-border-radius: 0;
         font-family: $accent-font;
         line-height: 1.45;
         margin-bottom: rem(10px);
-        font-weight: 500;
+        font-weight: 700;
     }
     &.disabled {
         input {

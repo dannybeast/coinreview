@@ -32,31 +32,9 @@ html(lang='en')
           div.js-sticky-sidebar
             +e.menu-button
               include ../includes/partials/_hamburger
-            ul
-              li(class=( pageName === "home" ? " is-active" : undefined))
-                a(href="index.html")
-                  +icon('004-account')
-                  span Account
-              li(class=( pageName === "register" ? " is-active" : undefined))
-                a(href="register.html")
-                  +icon('key')
-                  span Registration
-              li(class=( pageName === "banner" ? " is-active" : undefined))
-                a(href="add-banner.html")
-                  +icon('003-clicking')
-                  span Add banner
-              li(class=( pageName === "exchanges" ? " is-active" : undefined))
-                a(href="exchanges.html")
-                  +icon('005-atm')
-                  span Exchanges
-              li(class=( pageName === "currencies" ? " is-active" : undefined))
-                a(href="currencies.html")
-                  +icon('001-wallet')
-                  span Currencies
-              li(class=( pageName === "history" ? " is-active" : undefined))
-                a(href="history.html")
-                  +icon('006-history')
-                  span History
+
+            include ../includes/partials/_nav
+
         +e.content
           include ../includes/_header
           // Begin page
