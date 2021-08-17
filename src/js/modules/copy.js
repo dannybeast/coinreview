@@ -1,4 +1,3 @@
-import Notice from './notifications';
 
 export default function () {
 
@@ -20,7 +19,9 @@ export default function () {
             copyInput.select();
             copyInput.setSelectionRange(0, 9999);
             document.execCommand('copy');
-            Notice.openSuccess(langText);
+
+            window.notifier.success(' ', {labels: {success: langText}})
+
         }
     });
 }

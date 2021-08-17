@@ -2061,6 +2061,9 @@ sup {
             align-items: center;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
+            @include sm-block() {
+                padding: 0 15px;
+            }
             &:hover {
                 color: $primary-color;
             }
@@ -3182,13 +3185,24 @@ sup {
 }
 
 .contact-module {
-    background: #c5d5f3;
-    border-radius: 6px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    color: rgba(#000, 0.7);
-    padding-left: 9px;
+    position: relative;
+    &__content {
+        background: #c5d5f3;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        color: rgba(#000, 0.7);
+        padding-left: 9px;
+        position: relative;
+        z-index: 2;
+        height: 40px;
+    }
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
     &__icon {
         width: 19px;
         height: 19px;
@@ -3234,10 +3248,71 @@ sup {
     overflow: hidden;
 }
 
+.presaled-item {
+    display: flex;
+    align-items: center;
+    @include sm-block() {
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    &__content {
+        overflow: hidden;
+        @include sm-block() {
+            width: 100%;
+        }
+    }
+    &__label {
+        font-size: 13px;
+        color: rgba(#000, 0.5);
+        display: block;
+        margin-bottom: 10px;
+    }
+    &__value {
+        font-size: 24px;
+        line-height: 1.4;
+        overflow: hidden;
+        width: 100%;
+        @include md-block() {
+            font-size: 18px;
+        }
+        @include sm-block() {
+            font-size: 16px;
+        }
+    }
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-right: 22px;
+        @include sm-block() {
+            margin: 0 auto 20px;
+        }
+        svg {
+            width: 50px;
+            height: 50px;
+            fill: #d8e5ff;
+        }
+    }
+}
+
 .presaled-block {
     background: #fff;
     border-radius: 12px;
     display: flex;
+    align-items: center;
+    padding: 70px 45px 40px;
+    @include sm-block() {
+        flex-wrap: wrap;
+        padding: 40px 25px 10px;
+    }
+    & > * {
+        margin: 0 60px 30px 0;
+        @include sm-block() {
+            margin: 0 0 30px 0;
+            width: 100%;
+        }
+    }
 }
 
 // datepicker

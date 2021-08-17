@@ -26,8 +26,13 @@ import { Fancybox } from "@fancyapps/ui";
 import tabs from "./js/modules/tabs";
 import "./js/libs/datepicker";
 import "./js/modules/customSelect";
+import copy from "./js/modules/copy";
+
 
 $(document).ready(function(){
+
+
+  copy()
 
   function initSticky(){
     if (document.querySelector('.js-sticky-sidebar')) {

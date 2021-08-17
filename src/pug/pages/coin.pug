@@ -257,12 +257,15 @@ block content
                                                 +b.UL.statistics-list 
                                                     +e.LI 
                                                         p Contract: 
-                                                        +b.contact-module 
-                                                            +e.icon
-                                                                img(src="assets/images/currency/eth.svg", alt="")
-                                                            +e.P.value <strong>Ethereum</strong> <span class="contract-token">0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48</span>
-                                                            +e.copy-button
-                                                                +icon('copy')
+                                                        +b.contact-module.js-copy
+                                                            +e.content
+                                                                +e.icon
+                                                                    img(src="assets/images/currency/eth.svg", alt="")
+                                                                +e.P.value <strong>Ethereum</strong> <span class="contract-token">0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48</span>
+                                                                
+                                                                +e.copy-button.js-copy-button
+                                                                    +icon('copy')
+                                                            input(type="text" value="0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48").js-copy-input
 
                                                     +e.LI 
                                                         p Ethereum Price	
