@@ -18,111 +18,19 @@ block content
 
     +b.SECTION
       .container
-        +b.H3.title(class="_strong") Add a currency
+        +b.H1.title(class="_strong") Add a currency
 
-        +b.add-currency.block
-          +b.typography
-            h5 Submit new coin to CoinReview
-            p Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. Get 500 votes to be officially listed on CoinReview. Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. 
-          
-          
-          form
-            +b.upload-photo
-              +e.content
-                +b.field
-                  label Upload logo*
-                  +b.field-group.field-file
-                    +b.LABEL
-                      input(type="file" value="" name="file")
-                      span
-                      +b.A(class="button _primary _shadow") Upload 
+        +b.add-currency(class="_padding-lg").block
+          +e.row
+            +e.col
+              +b.typography
+                h2 Submit new coin<br> to <span class="color-primary">CoinReview</span>
+                p Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. Get 500 votes to be officially listed on CoinReview. Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. 
+              +b.A(href="register-admin.html" class="button _primary button-register") You should register as admin at first
+            +e.col
               +e.media
-                +b.your-logo
-                  +e.logo
-                    +e.logo-text Your logo here
-                    img(src="https://dummyimage.com/187x187/4f6aff/4f6aff", alt="")
-                  img(src="assets/images/add.png", alt="")
+                img(src="assets/images/add-currency.png", alt="")
 
-
-            .row 
-              .col-4 
-                +b.field 
-                  label Symbol*
-                  input(type="text" name="symbol" required)
-
-              .col-4 
-                +b.field 
-                  label Network/Chain	
-                  +b.LABEL.select 
-                    select(name="network" required)
-                      option 1
-
-              .col-4 
-                +b.field 
-                  label Project in presale phase?*
-                  +b.LABEL.select
-                    select(name="phase" required).js-presale-select
-                      option(value="no") No 
-                      option(value="yes") Yes
-
-            // if presale
-            +b.presale-block
-              .row 
-                .col-6 
-                  +b.field(class="_date")
-                    label Start date and time presale*
-                    +e.wrapper
-                      input(type="text" name="start_presale" data-timepicker="true" class="js-datepicker js-start-presale")
-                .col-6
-                  +b.field 
-                    label Link to presale*
-                    input(type="text" name="link_presale").js-link-presale
-                    +e.P.description (dxsale.app or unicrypt.network)
-            // -
-
-            +b.field 
-              label Contract Address*
-              input(type="text" name="address" required)
-
-            +b.field 
-              label Description*
-              input(type="text" name="description" required)
-            
-            +b.field 
-              label Custom chart link (optional)
-              input(type="text" name="chart_link")
-            
-            +b.field 
-              label Custom swap link (optional)
-              input(type="text" name="swap_link" required)
-
-            +b.field 
-              label Website link*
-              input(type="text" name="link" required)
-
-            +b.field(class="_date")
-              label Launch Date*
-              +e.wrapper
-                input(type="text" name="launch_date" required class="js-datepicker")
-            
-            +b.field 
-              label Telegram link*
-              input(type="text" name="telegram" required)
-
-            +b.field 
-              label Twitter link
-              input(type="text" name="twitter")
-
-            +b.field 
-              label Discord link
-              input(type="text" name="discord")
-
-            +b.field
-              +b.LABEL.checkbox 
-                  input(type="checkbox" name="agree")
-                  span I agree to the Terms and Conditions*
-      
-            +b.BUTTON.button(class="_primary") Submit coin
 
 block script
   script(src="assets/js/vendors.js" defer)

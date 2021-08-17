@@ -12,23 +12,28 @@ block content
     +b.FORM.auth-form(class="_register")
       +e.row
         +e.content
-          +e.H1.title Register at Coin<span class="color-primary">Review</span>
+          +e.H1.title.nowrap-desktop Register at Coin<span class="color-primary">Review ad admin</span>
           +e.description
             p Create your account at CoinReview to unlock new features.
           +e.buttons
             +b.A(href="login.html" class="button _white") Register with Telegram
-            +b.A(href="register-admin.html" class="button _white") Register as admin
+            +b.A(href="register.html" class="button _white") Register as user
 
           +e.form
             form
+                +b.field
+                    label Coin name
+                    input(type="text" value="" name="coin_name")
 
-                +b.field
-                    label Name
-                    input(type="text" value="" name="name")
-                
-                +b.field
-                    label Email
-                    input(type="text" value="" name="email")
+                .row 
+                  .col-6
+                    +b.field
+                      label Name
+                      input(type="text" value="" name="name")
+                  .col-6
+                    +b.field
+                      label Email
+                      input(type="text" value="" name="email")
 
                 +b.field
                     label Password
@@ -37,7 +42,11 @@ block content
                 +b.field
                     label Confirm Password
                     input(type="password" value="" name="confirm_password")
-                
+
+                +b.field
+                    label Telegram support (optional)
+                    input(type="text" value="" name="telegram")
+
                 +b.field
                     +b.LABEL.checkbox 
                         input(type="checkbox" name="agree")

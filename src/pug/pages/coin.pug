@@ -31,7 +31,11 @@ block content
                         +e.icon 
                             img(src="assets/images/currency/tether.svg", alt="")
                         +e.P.name Tether <span>Tether</span>
-
+            td.not-clickable 
+                if currency === 'btc'
+                    +b.heart
+                else 
+                    +b.heart(class="_is-active")
             td.nowrap
                 p 
                     strong $34,394.55
@@ -183,7 +187,6 @@ block content
                                         a.decrease
                                             +icon('play')
 
-                +e.row 
 
 
         +b.SECTION.counters-section
@@ -250,8 +253,17 @@ block content
                                         +b.sidebar-block.statistics-block
                                             
                                             +e.section
-                                                +e.H4.title ETH Price Statistics
+                                                //-+e.H4.title ETH Price Statistics
                                                 +b.UL.statistics-list 
+                                                    +e.LI 
+                                                        p Contract: 
+                                                        +b.contact-module 
+                                                            +e.icon
+                                                                img(src="assets/images/currency/eth.svg", alt="")
+                                                            +e.P.value <strong>Ethereum</strong> <span class="contract-token">0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48</span>
+                                                            +e.copy-button
+                                                                +icon('copy')
+
                                                     +e.LI 
                                                         p Ethereum Price	
                                                         +e.row
@@ -316,16 +328,17 @@ block content
                                                                 +icon('discord')
                     if index === 2 
                         div.js-tab-content
-                            +b.table-wrapper
+                            +b.table-wrapper.hidden-filters
                                 +e.block(class="_border")
                                     +e.block-content
                                         +b.H3.title Promoted
                                     +e.table
-                                        table.table-hover 
+                                        table.table-hover.js-datatables
                                             thead 
                                                 tr 
                                                     th # 
                                                     th Name
+                                                    th
                                                     th Price
                                                     th 24h %
                                                     th 7d %
@@ -340,15 +353,16 @@ block content
                                                 +tr('3','dai','#d22f49')
                                                 +tr('4','tether','#03b15d')
                                                 +tr('5','btc','#d22f49')
+                                
                     if index === 3
                         div.js-tab-content
-                            +b.table-wrapper
+                            +b.table-wrapper.hidden-filters
                                 +e.block
                                     +e.block-content
                                         +b.H3.title Ethereum Markets
 
                                     +e.table
-                                        table.table-hover 
+                                        table.table-hover.js-datatables 
                                             thead 
                                                 tr 
                                                     th #
@@ -363,6 +377,7 @@ block content
                                                     th Liquidity
                                                     th Liquidity scores
                                             tbody 
+                                                
                                                 +tr2('1')
                                                 +tr2('2')
                                                 +tr2('3')
@@ -418,7 +433,7 @@ block content
                     
                     if index === 5
                         div.js-tab-content
-                            +b.table-wrapper
+                            +b.table-wrapper.hidden-filters
                                 +e.block
                                     +e.block-content
                                         +e.block-row
@@ -427,7 +442,7 @@ block content
                                             +time-labels('time')
 
                                     +e.table
-                                        table 
+                                        table.js-datatables 
                                             thead 
                                                 tr 
                                                     th Date
@@ -476,12 +491,48 @@ block content
                             +news-block()
                             .news-section__bottom
                                 +b.A(href="reviews.html" class="button _primary") Show all news
+                    if index === 7
+                        div.js-tab-content
+                            +b.presaled-block 
+                                +b.presaled-item
+                                    +e.icon 
+                                        +icon('calendar')
+                                    +e.content
+                                        +e.P.label Finish date
+                                        +e.P.value 22.02.2022
+                                +b.presaled-item
+                                    +e.icon 
+                                        +icon('002-click')
+                                    +e.content
+                                        +e.P.label Whitelist link
+                                        +e.A(href="https://support.binance.co.ug/hc/en-us/articles/360018274671" target="_blank").value https://support.binance.co.ug/hc/en-us/articles/360018274671
 
+                    if index === 8
+                        div.js-tab-content
+                            +b.presaled-block 
+                                +b.presaled-item
+                                    +e.icon 
+                                        +icon('calendar')
+                                    +e.content
+                                        +e.P.label Start date
+                                        +e.P.value 22.02.2022
+                                +b.presaled-item
+                                    +e.icon 
+                                        +icon('002-click')
+                                    +e.content
+                                        +e.P.label Presale link
+                                        +e.A(href="https://support.binance.co.ug/hc/en-us/articles/360018274671" target="_blank").value https://support.binance.co.ug/hc/en-us/articles/360018274671
                 +b.tabs.js-tabs
                     +e.UL.nav 
                         +e.LI(class=" js-tab-link")
                             +e.A() 
                                 span Overview
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Whitelist
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Presaled
                         +e.LI(class=" js-tab-link is-promo")
                             +e.A() 
                                 span Promoted
@@ -499,6 +550,8 @@ block content
                                 span News
 
                     +tab(1)
+                    +tab(7)
+                    +tab(8)
                     +tab(2)
                     +tab(3)
                     +tab(4)
@@ -514,86 +567,117 @@ block script
     script(src="https://cdn.jsdelivr.net/npm/apexcharts")
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     script(type="text/javascript").
+        
+        // Charts for table
+        var MyObject = {
+            drawTableCharts: function() {
+            document.querySelectorAll('.chart').forEach(function(el){
+         
+                                var options = {
+                                series: [{
+                                    name: "Desktops",
+                                    data: el.dataset.array.split(',')
+                                }],
+                                chart: {
+                                    height:90,
+                                    animations:{
+                                        enabled: false,
+                                    },
+                                    type: 'line',
+                                    toolbar:{
+                                        show: false
+                                    },
+                                    zoom: {
+                                        enabled: false
+                                    }
+                                },
+                                stroke: {
+                                    show: true,
+                                    curve: 'straight',
+                                    colors: [el.dataset.color],
+                                    width: 2,  
+                                },
+                                grid:{
+                                    show: false,
+                                    xaxis: {
+                                        lines: {
+                                            show: false
+                                        }
+                                    },   
+                                    yaxis: {
+                                        lines: {
+                                            show: false
+                                        }
+                                    }, 
+                                    padding: {
+                                        top: 0,
+                                        right: 0,
+                                        bottom: 0,
+                                        left: 0
+                                    },  
+                                },
+
+                                legend: {
+                                    show: false,
+                                },
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                yaxis: {
+                                    show: false,
+                                },
+                                tooltip: {
+                                    enabled: false
+                                },
+                                xaxis: {  
+                                    axisBorder:{
+                                        show: false
+                                    },
+                                        axisTicks:{
+                                            show: false
+                                    },
+                                    labels:{
+                                        show: false
+                                    }
+                                },
+
+
+                                };
+
+                                var chart = new ApexCharts(el, options);
+                                chart.render();
+                            })
+            },
+        }
 
         $(document).ready( function () {
+            
+            // Datatables
+            var table = $('.js-datatables').DataTable({
+                "searching": false
+            });
 
+            // Styles table
+            $('.js-datatables').each( function(){
+                var $wrapper = $(this).parents('.table-wrapper');
+                // filter
+                var $filter = $wrapper.find('.table-wrapper__filter');
+                $filter.append($wrapper.find('.dataTables_length'))
+                $filter.append($wrapper.find('.dataTables_filter'))
 
-            // Charts for table
-            document.querySelectorAll('.chart').forEach(function(el){
-                var options = {
-                series: [{
-                    name: "Desktops",
-                    data: el.dataset.array.split(',')
-                }],
-                chart: {
-                    height:90,
-                    animations:{
-                        enabled: false,
-                    },
-                    type: 'line',
-                    toolbar:{
-                        show: false
-                    },
-                    zoom: {
-                        enabled: false
-                    }
-                },
-                stroke: {
-                    show: true,
-                    curve: 'straight',
-                    colors: [el.dataset.color],
-                    width: 2,  
-                },
-                grid:{
-                    show: false,
-                    xaxis: {
-                        lines: {
-                            show: false
-                        }
-                    },   
-                    yaxis: {
-                        lines: {
-                            show: false
-                        }
-                    }, 
-                    padding: {
-                        top: 0,
-                        right: 0,
-                        bottom: 0,
-                        left: 0
-                    },  
-                },
-
-                legend: {
-                    show: false,
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                yaxis: {
-                    show: false,
-                },
-                tooltip: {
-                    enabled: false
-                },
-                xaxis: {  
-                    axisBorder:{
-                        show: false
-                    },
-                        axisTicks:{
-                            show: false
-                    },
-                    labels:{
-                        show: false
-                    }
-                },
-
-
-                };
-
-                var chart = new ApexCharts(el, options);
-                chart.render();
+                // pagination
+                $wrapper.append('<div class="table-wrapper__footer"></div>')
+                var $footer = $wrapper.find('.table-wrapper__footer');
+                $footer.append($wrapper.find('.dataTables_info'))
+                $footer.append($wrapper.find('.dataTables_paginate'))
             })
+
+            table.on( 'draw.dt', function () {
+                MyObject.drawTableCharts()
+            });
+           
+            //MyObject.drawTableCharts()
+            
 
             // Chart 
             var options = {

@@ -25,6 +25,13 @@ export default function() {
         tabs_item.find(".js-tab-link").click(function() {
           hideTabs();
           showTab($(this).index());
+          
+          if(MyObject.drawTableCharts ){
+          
+                MyObject.drawTableCharts()
+             
+            }
+
         });
       });
     
