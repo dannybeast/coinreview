@@ -136,9 +136,13 @@ $(document).ready(function(){
   }
 
   $('.field-file input[type=file]').change(function(){
+    
+  
     fieldFile($(this))
-    readFile($(this)[0])
-    $('.your-logo__logo-text').hide()
+    if($(this).parents('.upload-photo').length){
+      readFile($(this)[0])
+      $('.your-logo__logo-text').hide()
+    }
   })
 
 
@@ -162,14 +166,21 @@ $(document).ready(function(){
   // Presale form
   function requiredPresaleFields(val){
     let link = $('.js-link-presale')
-    let start = $('.js-start-presale')
+    let time = $('.js-start-presale')
 
     link.prop('required', val)
-    start.prop('required', val)
+    time.prop('required', val)
+  }
+  function requiredWhitelistFields(val){
+    let link = $('.js-link-whitelist')
+    let time = $('.js-finish-whitelist')
+
+    link.prop('required', val)
+    time.prop('required', val)
   }
 
   $('.js-presale-select').on('change', function(){
-    console.log($(this).val());
+
     let val = $(this).val();
     let $block = $('.presale-block');
 
@@ -181,6 +192,21 @@ $(document).ready(function(){
       requiredPresaleFields(false)
     }
   })
+
+  $('.js-whitelist-select').on('change', function(){
+
+    let val = $(this).val();
+    let $block = $('.whitelist-block');
+
+    if(val === 'yes'){
+      $block.slideDown();
+      requiredWhitelistFields(true)
+    }else{
+      $block.slideUp();
+      requiredWhitelistFields(false)
+    }
+  })
+
 
   // Truncate
   $('.contract-token').each(function(){

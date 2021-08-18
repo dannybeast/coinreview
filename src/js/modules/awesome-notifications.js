@@ -1,4 +1,5 @@
 import AWN from "awesome-notifications"
+
 // Set global options
 let globalOptions =  {
     icons: {enabled: false},
@@ -7,5 +8,6 @@ let globalOptions =  {
         global: 1000,
      }
 }
+
 // Initialize instance of AWN
 window.notifier = new AWN(globalOptions)

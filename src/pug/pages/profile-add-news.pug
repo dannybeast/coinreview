@@ -37,20 +37,25 @@ block content
                     label Add main image:
                     +b.field-group.field-file
                         +b.LABEL
-                        input(type="file" value="" name="image")
-                        span
-                        +b.A(class="button _primary _shadow") Upload 
+                          input(type="file" value="" name="image")
+                          span
+                          +b.A(class="button _primary _shadow") Upload 
 
-            +b.H3.title(class="_strong") Block 1
+            // news block
+            +b.news-edit-block
+              +b.H3.title(class="_strong") Block 1
 
-            +b.block(class="_border-none")
-            
-                +b.field 
-                    label Block title:
-                    input(type="text" name="block_title")
+              +b.block(class="_border-none")
+              
+                  +b.field 
+                      label Block title:
+                      input(type="text" name="block_title")
 
-                +b.field 
-                    label Add content:
+                  +b.field 
+                      label Add content:
+                      textarea#basic-example(name="content")
+            // end news block
+    
             +b.buttons 
                 +b.A.button(class="_gray") Add a block
                 +b.A.button(class="_gray") Watch preview
@@ -60,3 +65,20 @@ block content
 block script
   script(src="assets/js/vendors.js" defer)
   script(src="assets/js/app.js" defer)
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  script(type="text/javascript").
+    tinymce.init({
+      selector: 'textarea#basic-example',
+      height: 300,
+      menubar: true,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table paste code help wordcount'
+      ],
+      toolbar: 'undo redo | formatselect | ' +
+      'bold italic backcolor | alignleft aligncenter ' +
+      'alignright alignjustify | bullist numlist outdent indent | ' +
+      'removeformat | help',
+      content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+    });

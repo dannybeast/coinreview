@@ -234,7 +234,7 @@ block content
                                     +e.content
                                         .tabs__content
                                             .table-wrapper__block-row
-                                                +b.H3.title Ethereum (ETH) Price Chart 
+                                                +b.H1.title Ethereum (ETH) Price Chart 
                                                 +time-labels('price-time-filter')
 
                                             .chart-candlestick
@@ -569,10 +569,11 @@ block script
     script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
     script(src="https://cdn.jsdelivr.net/npm/apexcharts")
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    
     script(type="text/javascript").
         
         // Charts for table
-        var MyObject = {
+        var Charts = {
             drawTableCharts: function() {
             document.querySelectorAll('.chart').forEach(function(el){
          
@@ -676,10 +677,9 @@ block script
             })
 
             table.on( 'draw.dt', function () {
-                MyObject.drawTableCharts()
+                Charts.drawTableCharts()
             });
            
-            //MyObject.drawTableCharts()
             
 
             // Chart 

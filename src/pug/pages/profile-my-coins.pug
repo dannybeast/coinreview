@@ -8,6 +8,61 @@ block variables
 
 
 block content
+  mixin tr(index,currency, color)
+    tr(data-href="coin.html")
+      td #{index}
+      td
+        if currency === 'btc'
+          +b.currency
+            +e.icon 
+              img(src="assets/images/currency/btc.svg", alt="")
+            +e.P.name Bitcoin <span>BTC</span>
+        else if currency === 'eth'
+          +b.currency
+            +e.icon 
+              img(src="assets/images/currency/eth.svg", alt="")
+            +e.P.name Etherium <span>ETH</span>
+        else if currency === 'dai'
+          +b.currency
+            +e.icon 
+              img(src="assets/images/currency/dai.svg", alt="")
+            +e.P.name Dai <span>DAI</span>
+        else if currency === 'tether'
+          +b.currency
+            +e.icon 
+              img(src="assets/images/currency/tether.svg", alt="")
+            +e.P.name Tether <span>Tether</span>
+
+      td.nowrap
+        p 
+          strong $34,394.55
+      td.nowrap
+        if currency === 'eth'
+          p.color-success
+            strong 1.36%
+        else
+          p.color-danger
+            strong 0.23%
+      td.nowrap
+        p.color-success
+          strong 7.86%
+      td.nowrap
+        p $646,879,798,387
+      td.nowrap
+        p $20,512,439,991
+        p.color-gray
+          small 595,070 BTC
+      td.nowrap
+        p 18,766,106 BTC
+      td
+        if currency === 'eth'
+          .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
+        else 
+          .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
+      td.not-clickable
+        +b.amount-module 
+          input.number(type='number' value='12321' name="amount" disabled)
+
   +b.ARTICLE
 
     +b.SECTION
@@ -21,7 +76,150 @@ block content
       .container
         +b.H1.title(class="_strong") My coins
 
+        +b.my-coins
+          // item
+          +b.table-wrapper
+            +e.block
+              +e.table
+                table.table-hover
+                  thead 
+                    tr 
+                      th # 
+                      th Name
+                      th Price
+                      th 24h %
+                      th 7d %
+                      th Market Cap
+                      th Volume(24h)
+                      th Circulating Supply
+                      th Last 7 Days
+                      th Votes
+                  tbody 
+                    +tr('1','btc','#03b15d')
+              +e.buttons
+                +b.A(href="profile-add-coin.html" class="button _primary") Edit coin
+                +b.A(href="profile-news.html" class="button _primary") News
+
+          // item
+          +b.table-wrapper
+            +e.block
+              +e.table
+                table.table-hover
+                  thead 
+                    tr 
+                      th # 
+                      th Name
+                      th Price
+                      th 24h %
+                      th 7d %
+                      th Market Cap
+                      th Volume(24h)
+                      th Circulating Supply
+                      th Last 7 Days
+                      th Votes
+                  tbody 
+                    +tr('1','btc','#03b15d')
+
+              +e.buttons
+                +b.A(href="profile-add-coin.html" class="button _primary") Edit coin
+                +b.A(href="profile-news.html" class="button _primary") News
+
+          +b.banner-coins-small(style="background-image:url(assets/images/banners/coin-small.png)")
+            +e.content
+              +e.H3.title There are no coins. <span class="color-primary">Add now!</span>
+
+            +e.buttons 
+              +b.A(href="#" class="button _primary") Add your coin now
 
 block script
   script(src="assets/js/vendors.js" defer)
   script(src="assets/js/app.js" defer)
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+  script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  script(type="text/javascript").
+
+    $(document).ready( function () {
+
+      drawTableCharts();
+
+
+      // Charts for table
+      function drawTableCharts(){
+        document.querySelectorAll('.chart').forEach(function(el){
+          var options = {
+          series: [{
+            name: "Desktops",
+            data: el.dataset.array.split(',')
+          }],
+          chart: {
+            height:90,
+            animations:{
+              enabled: false,
+            },
+            type: 'line',
+            toolbar:{
+              show: false
+            },
+            zoom: {
+              enabled: false
+            }
+          },
+          stroke: {
+            show: true,
+            curve: 'straight',
+            colors: [el.dataset.color],
+            width: 2,  
+          },
+          grid:{
+            show: false,
+            xaxis: {
+              lines: {
+                show: false
+              }
+            },   
+            yaxis: {
+              lines: {
+                show: false
+              }
+            }, 
+            padding: {
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0
+            },  
+          },
+
+          legend: {
+            show: false,
+          },
+          dataLabels: {
+            enabled: false
+          },
+          yaxis: {
+            show: false,
+          },
+          tooltip: {
+            enabled: false
+          },
+          xaxis: {  
+            axisBorder:{
+              show: false
+            },
+              axisTicks:{
+                show: false
+            },
+            labels:{
+              show: false
+            }
+          },
+
+
+        };
+
+        var chart = new ApexCharts(el, options);
+        chart.render();
+        })
+      }
+    });

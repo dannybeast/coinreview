@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Coin Review - My coins</title>
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+<!-- Loader-->
+<div class="loader"><img src="assets/images/spinner.svg" alt=""></div>
+    <!-- Main layout-->
+    <main class="main-layout" id="app" role="main">
+      <div class="main-layout__row">
+        <div class="main-layout__bar">
+          <div class="js-sticky-sidebar">
+            <div class="main-layout__menu-button">
+<div class="hamburger"><span class="line"></span><span class="line"></span></div>
+            </div>
+            <ul class="primary">
+              <li><a href="index.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-004-account"></use>
+                  </svg><span>Account</span></a></li>
+              <li><a href="profile-add-coin.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-coin"></use>
+                  </svg><span>Add coin</span></a></li>
+              <li class=" is-active"><a href="profile-my-coins.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-004-account"></use>
+                  </svg><span>My coins</span></a></li>
+              <li><a href="profile-promoted.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-upload"></use>
+                  </svg><span>Promoted</span></a></li>
+              <li><a href="profile-settings.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-004-account"></use>
+                  </svg><span>Settings</span></a></li>
+              <li><a href="index.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-004-account"></use>
+                  </svg><span>Exit</span></a></li>
+            </ul>
+            <ul>
+              <li><a href="add-banner.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-003-clicking"></use>
+                  </svg><span>Add banner</span></a></li>
+              <li><a href="exchanges.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-005-atm"></use>
+                  </svg><span>Exchanges</span></a></li>
+              <li><a href="currencies.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-001-wallet"></use>
+                  </svg><span>Currencies</span></a></li>
+              <li><a href="history.html">
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-006-history"></use>
+                  </svg><span>History</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-layout__content">
+          <header class="header">
+            <div class="container">
+              <div class="header__row">
+                <div class="mobile-nav-button">
+<div class="hamburger"><span class="line"></span><span class="line"></span></div>
+                </div><a class="header__logo" href="index.html"><img src="assets/images/logo/logo.svg" alt="Asterium"></a>
+                <ul class="counters">
+                  <li>
+                    <div class="counters__icon">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-user-strong"></use>
+                      </svg>
+                    </div>
+                    <p>User: <strong>Username</strong></p>
+                  </li>
+                  <li>
+                    <div class="counters__icon">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-wallet-strong"></use>
+                      </svg>
+                    </div>
+                    <p>Coins: <strong>ETH, BTC, DOGE, LTC</strong></p>
+                  </li>
+                  <li>
+                    <div class="counters__icon">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-002-coins-stack"></use>
+                      </svg>
+                    </div>
+                    <p>Admin: <strong>UFS, USS</strong></p>
+                  </li>
+                </ul>
+                <div class="header__right">
+                  <div class="search-block"><a class="search-block__button" href="#">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-search"></use>
+                    </svg></a>
+                    <form>
+                      <div class="search-block__field">
+                        <button>
+                          <svg class="svg-icon">
+                            <use href="assets/icons/sprite.svg#icon-search"></use>
+                          </svg>
+                        </button>
+                        <input type="text" name="search"><a class="search-block__close">
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-cross"></use>
+                        </svg></a>
+                      </div>
+                    </form>
+                  </div><a class="button button_primary" href="add-currency.html">Add a currency</a>
+                  <div class="language-module js-dropdown">
+                    <div class="language-module__link"><img src="assets/images/country/united-kingdom.svg" alt=""><span>Eng</span>
+                    </div>
+                    <ul class="language-module__dropdown">
+                      <li><a href="#"> <img src="assets/images/country/poland.svg" alt=""><span>Poland</span></a>
+                      </li>
+                      <li><a href="#"> <img src="assets/images/country/russia.svg" alt=""><span>Russia</span></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <ul class="icons-links"> 
+                    <li><a href="register.html">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-key"></use>
+                      </svg></a>
+                    </li>
+                    <li><a href="login.html">
+                      <svg class="svg-icon">
+                        <use href="assets/icons/sprite.svg#icon-user"></use>
+                      </svg></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+          <!-- Begin page-->
+          <article>
+            <section>
+              <div class="container">
+                <div class="breadcrumbs"> <a href="profile-account.html">Account </a><span>/ </span><span>My coins</span>
+                </div>
+              </div>
+            </section>
+            <section>
+              <div class="container">
+                <h1 class="title title_strong">My coins
+                </h1>
+                <div class="my-coins">
+                  <!-- item-->
+                  <div class="table-wrapper">
+                    <div class="table-wrapper__block">
+                      <div class="table-wrapper__table">
+                        <table class="table-hover">
+                          <thead> 
+                            <tr> 
+                              <th># </th>
+                              <th>Name</th>
+                              <th>Price</th>
+                              <th>24h %</th>
+                              <th>7d %</th>
+                              <th>Market Cap</th>
+                              <th>Volume(24h)</th>
+                              <th>Circulating Supply</th>
+                              <th>Last 7 Days</th>
+                              <th>Votes</th>
+                            </tr>
+                          </thead>
+                          <tbody> 
+                            <tr data-href="coin.html">
+                              <td>1</td>
+                              <td>
+                                <div class="currency">
+                                  <div class="currency__icon"> <img src="assets/images/currency/btc.svg" alt="">
+                                  </div>
+                                  <p class="currency__name">Bitcoin <span>BTC</span>
+                                  </p>
+                                </div>
+                              </td>
+                              <td class="nowrap">
+                                <p> <strong>$34,394.55</strong></p>
+                              </td>
+                              <td class="nowrap">
+                                <p class="color-danger"><strong>0.23%</strong></p>
+                              </td>
+                              <td class="nowrap">
+                                <p class="color-success"><strong>7.86%</strong></p>
+                              </td>
+                              <td class="nowrap">
+                                <p>$646,879,798,387</p>
+                              </td>
+                              <td class="nowrap">
+                                <p>$20,512,439,991</p>
+                                <p class="color-gray"><small>595,070 BTC</small></p>
+                              </td>
+                              <td class="nowrap">
+                                <p>18,766,106 BTC</p>
+                              </td>
+                              <td>
+                                <div class="chart" data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10" data-color="#03b15d"></div>
+                              </td>
+                              <td class="not-clickable">
+                                <div class="amount-module"> 
+                                  <input class="number" type="number" value="12321" name="amount" disabled>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="table-wrapper__buttons"><a class="button button_primary" href="profile-add-coin.html">Edit coin</a><a class="button button_primary" href="profile-news.html">News</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- item-->
+                  <div class="table-wrapper">
+                    <div class="table-wrapper__block">
+                      <div class="table-wrapper__table">
+                        <table class="table-hover">
+                          <thead> 
+                            <tr> 
+                              <th># </th>
+                              <th>Name</th>
+                              <th>Price</th>
+                              <th>24h %</th>
+                              <th>7d %</th>
+                              <th>Market Cap</th>
+                              <th>Volume(24h)</th>
+                              <th>Circulating Supply</th>
+                              <th>Last 7 Days</th>
+                              <th>Votes</th>
+                            </tr>
+                          </thead>
+                          <tbody> 
+                            <tr data-href="coin.html">
+                              <td>1</td>
+                              <td>
+                                <div class="currency">
+                                  <div class="currency__icon"> <img src="assets/images/currency/btc.svg" alt="">
+                                  </div>
+                                  <p class="currency__name">Bitcoin <span>BTC</span>
+                                  </p>
+                                </div>
+                              </td>
+                              <td class="nowrap">
+                                <p> <strong>$34,394.55</strong></p>
+                              </td>
+                              <td class="nowrap">
+                                <p class="color-danger"><strong>0.23%</strong></p>
+                              </td>
+                              <td class="nowrap">
+                                <p class="color-success"><strong>7.86%</strong></p>
+                              </td>
+                              <td class="nowrap">
+                                <p>$646,879,798,387</p>
+                              </td>
+                              <td class="nowrap">
+                                <p>$20,512,439,991</p>
+                                <p class="color-gray"><small>595,070 BTC</small></p>
+                              </td>
+                              <td class="nowrap">
+                                <p>18,766,106 BTC</p>
+                              </td>
+                              <td>
+                                <div class="chart" data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10" data-color="#03b15d"></div>
+                              </td>
+                              <td class="not-clickable">
+                                <div class="amount-module"> 
+                                  <input class="number" type="number" value="12321" name="amount" disabled>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="table-wrapper__buttons"><a class="button button_primary" href="profile-add-coin.html">Edit coin</a><a class="button button_primary" href="profile-news.html">News</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="banner-coins-small" style="background-image:url(assets/images/banners/coin-small.png)">
+                    <div class="banner-coins-small__content">
+                      <h3 class="banner-coins-small__title">There are no coins. <span class="color-primary">Add now!</span>
+                      </h3>
+                    </div>
+                    <div class="banner-coins-small__buttons"> <a class="button button_primary" href="#">Add your coin now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+        </div>
+      </div>
+      <div class="main-layout__row">
+        <!-- End page-->
+        <footer class="footer"> 
+          <div class="container"> 
+            <div class="footer__top"> 
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Account
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Add banner 
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Exchanges 
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">Curencies
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="footer-col-links"> 
+                  <li> 
+                    <h3 class="footer-title">History
+                    </h3>
+                  </li>
+                  <li> <a href="#">Knowledge base</a></li>
+                  <li> <a href="#">Legal Inquiries</a></li>
+                  <li> <a href="#">Status</a></li>
+                  <li> <a href="#">Videos</a></li>
+                  <li> <a href="#">Blog </a></li>
+                </ul>
+              </div>
+              <div class="footer__top-col">
+                <ul class="social"> 
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-004-telegram"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-001-vk"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-003-facebook"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-005-youtube"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-002-twitter"></use>
+                    </svg></a>
+                  </li>
+                  <li><a href="#" target="_blank">
+                    <svg class="svg-icon">
+                      <use href="assets/icons/sprite.svg#icon-006-instagram"></use>
+                    </svg></a>
+                  </li>
+                </ul>
+                <ul class="footer__links"> 
+                  <li><a href="terms.html">Privacy Policy</a>
+                  </li>
+                  <li><a href="terms.html">Terms of Service</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__bottom"> 
+              <div class="footer__bottom-top"><a class="footer__logo" href="index.html"><img src="assets/images/logo/logo-white.svg" alt=""></a>
+                <p class="footer__copyright">Copyright © <span class="js-current-year"></span> CounReview Expert, Inc.<br> Exodus was co-founded by Daniel Castagnoli and JP Richardson.
+                </p>
+              </div>
+              <div class="typography"> 
+                <p>Exodus is a software platform ONLY and does not conduct any independent diligence on or substantive review of any blockchain asset, digital currency, cryptocurrency or associated funds. You are fully and solely responsible for evaluating your investments, for determining whether you will exchange blockchain assets based on your own, and for all your decisions as to whether to exchange blockchain assets with Exodus. In many cases, blockchain assets you exchange on the basis of your research may not increase in value, and may decrease in value. Similarly, blockchain assets you exchange on the basis of your research may increase in value after your exchange. Past performance is not indicative of future results. Any investment in blockchain assets involves the risk of loss of part or all of your investment. The value of the blockchain assets you exchange is subject to market and other investment risks.</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </main>
+    <div class="mobile-menu"> 
+      <div class="mobile-menu__content">
+        <div class="search-block">
+          <form>
+            <input type="text" name="search" placeholder="Search..."><a class="search-block__button" href="#">
+            <svg class="svg-icon">
+              <use href="assets/icons/sprite.svg#icon-search"></use>
+            </svg></a>
+          </form>
+        </div>
+      </div>
+      <nav class="mobile-menu__navigation">
+        <ul class="primary">
+          <li><a href="index.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-004-account"></use>
+              </svg><span>Account</span></a></li>
+          <li><a href="profile-add-coin.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-coin"></use>
+              </svg><span>Add coin</span></a></li>
+          <li class=" is-active"><a href="profile-my-coins.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-004-account"></use>
+              </svg><span>My coins</span></a></li>
+          <li><a href="profile-promoted.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-upload"></use>
+              </svg><span>Promoted</span></a></li>
+          <li><a href="profile-settings.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-004-account"></use>
+              </svg><span>Settings</span></a></li>
+          <li><a href="index.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-004-account"></use>
+              </svg><span>Exit</span></a></li>
+        </ul>
+        <ul>
+          <li><a href="add-banner.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-003-clicking"></use>
+              </svg><span>Add banner</span></a></li>
+          <li><a href="exchanges.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-005-atm"></use>
+              </svg><span>Exchanges</span></a></li>
+          <li><a href="currencies.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-001-wallet"></use>
+              </svg><span>Currencies</span></a></li>
+          <li><a href="history.html">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-006-history"></use>
+              </svg><span>History</span></a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu__content">
+        <ul class="counters">
+          <li>
+            <div class="counters__icon">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-user-strong"></use>
+              </svg>
+            </div>
+            <p>User: <strong>Username</strong></p>
+          </li>
+          <li>
+            <div class="counters__icon">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-wallet-strong"></use>
+              </svg>
+            </div>
+            <p>Coins: <strong>ETH, BTC, DOGE, LTC</strong></p>
+          </li>
+          <li>
+            <div class="counters__icon">
+              <svg class="svg-icon">
+                <use href="assets/icons/sprite.svg#icon-002-coins-stack"></use>
+              </svg>
+            </div>
+            <p>Admin: <strong>UFS, USS</strong></p>
+          </li>
+        </ul><a class="button button_primary" href="add-currency.html">Add a currency</a>
+        <div class="language-module js-dropdown">
+          <div class="language-module__link"><img src="assets/images/country/united-kingdom.svg" alt=""><span>Eng</span>
+          </div>
+          <ul class="language-module__dropdown">
+            <li><a href="#"> <img src="assets/images/country/poland.svg" alt=""><span>Poland</span></a>
+            </li>
+            <li><a href="#"> <img src="assets/images/country/russia.svg" alt=""><span>Russia</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/vendors.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script><script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+      $(document).ready( function () {
+      
+        drawTableCharts();
+      
+      
+        // Charts for table
+        function drawTableCharts(){
+          document.querySelectorAll('.chart').forEach(function(el){
+            var options = {
+            series: [{
+              name: "Desktops",
+              data: el.dataset.array.split(',')
+            }],
+            chart: {
+              height:90,
+              animations:{
+                enabled: false,
+              },
+              type: 'line',
+              toolbar:{
+                show: false
+              },
+              zoom: {
+                enabled: false
+              }
+            },
+            stroke: {
+              show: true,
+              curve: 'straight',
+              colors: [el.dataset.color],
+              width: 2,  
+            },
+            grid:{
+              show: false,
+              xaxis: {
+                lines: {
+                  show: false
+                }
+              },   
+              yaxis: {
+                lines: {
+                  show: false
+                }
+              }, 
+              padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+              },  
+            },
+      
+            legend: {
+              show: false,
+            },
+            dataLabels: {
+              enabled: false
+            },
+            yaxis: {
+              show: false,
+            },
+            tooltip: {
+              enabled: false
+            },
+            xaxis: {  
+              axisBorder:{
+                show: false
+              },
+                axisTicks:{
+                  show: false
+              },
+              labels:{
+                show: false
+              }
+            },
+      
+      
+          };
+      
+          var chart = new ApexCharts(el, options);
+          chart.render();
+          })
+        }
+      });
+    </script>
+  </body>
+</html>

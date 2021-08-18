@@ -11,16 +11,17 @@ $field-border-radius: 0;
     border-radius: $field-border-radius;
     font-family: $main-font;
     background: #eaf1ff;
-    font-weight: 600;
+    //font-weight: 600;
     color: #000;
     border-radius: 4px;
     text-overflow: ellipsis;
-    font-weight: 400;
+    font-weight: 500;
     padding-left: 20px;
     font-size: 16px;
 
     &::placeholder {
-        color: $primary-color;
+        color: rgba(#253390, 0.5);
+        font-weight: 600;
     }
     &:hover,
     &:focus {
@@ -55,6 +56,11 @@ $field-border-radius: 0;
         line-height: 1.45;
         margin-bottom: rem(10px);
         font-weight: 700;
+        white-space: nowrap;
+        i {
+            font-style: italic;
+            font-weight: 400;
+        }
     }
     &.disabled {
         input {
@@ -170,6 +176,40 @@ $field-border-radius: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 pointer-events: none;
+            }
+        }
+    }
+}
+
+.fields-group {
+    display: flex;
+    width: 100%;
+    .field {
+        flex-grow: 1;
+        &:first-child {
+            input,
+            select {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+        &:last-child {
+            margin-left: -1px;
+            input,
+            select {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }
+    }
+    &_symbol {
+        .field {
+            &:last-child {
+                width: 70px;
+                input {
+                    padding-left: 0px;
+                    text-align: center;
+                }
             }
         }
     }

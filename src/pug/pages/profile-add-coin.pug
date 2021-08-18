@@ -23,7 +23,7 @@ block content
 
         +b.add-currency.block
           +b.typography
-            h5 Submit new coin to CoinReview
+            h3 Submit new coin to <span class="color-primary">CoinReview</span>
             p Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. Get 500 votes to be officially listed on CoinReview. Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. 
           
           
@@ -46,23 +46,33 @@ block content
 
 
             .row 
-              .col-4 
-                +b.field 
-                  label Symbol*
-                  input(type="text" name="symbol" required)
+              .col-3 
+                +b.fields-group(class="_symbol")
+                  +b.field 
+                    label Name*
+                    input(type="text" name="name" required)
+                  +b.field
+                    label Symbol*
+                    input(type="text" name="symbol" required placeholder="XYZC")
 
-              .col-4 
+              .col-3
                 +b.field 
                   label Network/Chain	
-                  +b.LABEL.select 
-                    select(name="network" required)
-                      option 1
+                  input(type="text" name="network")
+           
 
-              .col-4 
+              .col-3
                 +b.field 
                   label Project in presale phase?*
                   +b.LABEL.select
                     select(name="phase" required).js-presale-select
+                      option(value="no") No 
+                      option(value="yes") Yes
+              .col-3
+                +b.field 
+                  label Project in Whitelist?*
+                  +b.LABEL.select
+                    select(name="whitelist" required).js-whitelist-select
                       option(value="no") No 
                       option(value="yes") Yes
 
@@ -71,14 +81,27 @@ block content
               .row 
                 .col-6 
                   +b.field(class="_date")
-                    label Start date and time presale*
+                    label Start time
                     +e.wrapper
-                      input(type="text" name="start_presale" data-timepicker="true" class="js-datepicker js-start-presale")
+                      input(type="text" name="start_time" data-timepicker="true" class="js-datepicker js-start-presale")
                 .col-6
                   +b.field 
-                    label Link to presale*
+                    label Presale link <i>(dxsale.app or unicrypt.network)</i>
                     input(type="text" name="link_presale").js-link-presale
-                    +e.P.description (dxsale.app or unicrypt.network)
+            // -
+
+            // if whitelist
+            +b.whitelist-block
+              .row 
+                .col-6 
+                  +b.field(class="_date")
+                    label Finish time
+                    +e.wrapper
+                      input(type="text" name="finish_time" data-timepicker="true" class="js-datepicker js-finish-whitelist")
+                .col-6
+                  +b.field 
+                    label Whitelist link <i>(dxsale.app or unicrypt.network)</i>
+                    input(type="text" name="link_whitelist").js-link-whitelist
             // -
 
             +b.field 
@@ -122,8 +145,8 @@ block content
               +b.LABEL.checkbox 
                   input(type="checkbox" name="agree")
                   span I agree to the Terms and Conditions*
-      
-            +b.BUTTON.button(class="_primary") Submit coin
+            +e.bottom
+              +b.BUTTON.button(class="_primary") Submit coin
 
 block script
   script(src="assets/js/vendors.js" defer)

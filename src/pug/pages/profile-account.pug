@@ -9,17 +9,239 @@ block variables
 
 block content
   +b.ARTICLE
-
+    mixin tr(index,currency, color)
+      tr(data-href="coin.html")
+        td #{index}
+        td
+          if currency === 'btc'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/btc.svg", alt="")
+              +e.P.name Bitcoin <span>BTC</span>
+          else if currency === 'eth'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/eth.svg", alt="")
+              +e.P.name Etherium <span>ETH</span>
+          else if currency === 'dai'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/dai.svg", alt="")
+              +e.P.name Dai <span>DAI</span>
+          else if currency === 'tether'
+            +b.currency
+              +e.icon 
+                img(src="assets/images/currency/tether.svg", alt="")
+              +e.P.name Tether <span>Tether</span>
+       
+        td.nowrap
+          p 
+            strong $34,394.55
+        td.nowrap
+          if currency === 'eth'
+            p.color-success
+              strong 1.36%
+          else
+            p.color-danger
+              strong 0.23%
+        td.nowrap
+          p.color-success
+            strong 7.86%
+        td.nowrap
+          p $646,879,798,387
+        td.nowrap
+          p $20,512,439,991
+          p.color-gray
+            small 595,070 BTC
+        td.nowrap
+          p 18,766,106 BTC
+        td
+          if currency === 'eth'
+            .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
+          else 
+            .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
+        td.not-clickable
+          +b.amount-module 
+            .decrease.value-button(value='Decrease Value') -
+            input.number(type='number' value='0' name="amount")
+            .increase.value-button(value='Increase Value') +
     +b.SECTION
       .container
         +b.breadcrumbs 
           span Account
 
+    mixin news-block()
+      +b.A(href="#" class="news-block")
+        +e.content
+          +e.P.title Crypto Analyst Says Ethereum Following Cardano, Maps Potential Reversal Against Bitcoin
+          +e.P.date about 19 hours ago
+
+          +e.link Read more
+        +e.image
+          img(src="assets/images/news/lg2.png", alt="")
+
     +b.SECTION
       .container
-        +b.H1.title(class="_strong") Account
+        +b.title-wrapper
+          +b.H1.title(class="_strong") Account
+          +b.H2.title(class="_strong") <span class="color-primary">My coins</span>
+        +b.table-wrapper.hidden-filters
+          +e.block(class="_border")
+   
+            +e.table
+              table.table-hover.js-datatables
+                thead 
+                  tr 
+                    th # 
+                    th Name
+                    th Price
+                    th 24h %
+                    th 7d %
+                    th Market Cap
+                    th Volume(24h)
+                    th Circulating Supply
+                    th Last 7 Days
+                    th Votes
+                tbody 
+                  +tr('1','btc','#03b15d')
+                  +tr('2','eth','#03b15d')
+                  +tr('3','dai','#d22f49')
+                  +tr('4','tether','#03b15d')
+                  +tr('5','btc','#d22f49')
+
+    +b.SECTION
+      .container
+        +b.banner-coins(style="background-image:url(assets/images/banners/coin.png)")
+          +e.content
+            +e.H3.title There are no coins. <span class="color-primary">Add now!</span>
+
+          +e.buttons 
+            +b.A(href="#" class="button _primary") 
+              span Add a coin using symbol
+              +icon('heart_icon')
+
+    +b.SECTION.news-and-events
+      .container
+        +b.H3.title(class="_strong") News and events
+        +e.row
+          +news-block()
+          +news-block()
+          +news-block()
 
 
 block script
   script(src="assets/js/vendors.js" defer)
   script(src="assets/js/app.js" defer)
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
+  script(src="https://cdn.jsdelivr.net/npm/apexcharts")
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+  script(type="text/javascript").
+
+
+    // Charts for table
+    var Charts = {
+        drawTableCharts: function() {
+        document.querySelectorAll('.chart').forEach(function(el){
+              var options = {
+              series: [{
+                  name: "Desktops",
+                  data: el.dataset.array.split(',')
+              }],
+              chart: {
+                  height:90,
+                  animations:{
+                      enabled: false,
+                  },
+                  type: 'line',
+                  toolbar:{
+                      show: false
+                  },
+                  zoom: {
+                      enabled: false
+                  }
+              },
+              stroke: {
+                  show: true,
+                  curve: 'straight',
+                  colors: [el.dataset.color],
+                  width: 2,  
+              },
+              grid:{
+                  show: false,
+                  xaxis: {
+                      lines: {
+                          show: false
+                      }
+                  },   
+                  yaxis: {
+                      lines: {
+                          show: false
+                      }
+                  }, 
+                  padding: {
+                      top: 0,
+                      right: 0,
+                      bottom: 0,
+                      left: 0
+                  },  
+              },
+
+              legend: {
+                  show: false,
+              },
+              dataLabels: {
+                  enabled: false
+              },
+              yaxis: {
+                  show: false,
+              },
+              tooltip: {
+                  enabled: false
+              },
+              xaxis: {  
+                  axisBorder:{
+                      show: false
+                  },
+                      axisTicks:{
+                          show: false
+                  },
+                  labels:{
+                      show: false
+                  }
+              },
+
+
+              };
+
+              var chart = new ApexCharts(el, options);
+              chart.render();
+          })
+        },
+    }
+    $(document).ready( function () {
+
+        // Datatables
+        var table = $('.js-datatables').DataTable({
+            "searching": false
+        });
+
+        // Styles table
+        $('.js-datatables').each( function(){
+            var $wrapper = $(this).parents('.table-wrapper');
+            // filter
+            var $filter = $wrapper.find('.table-wrapper__filter');
+            $filter.append($wrapper.find('.dataTables_length'))
+            $filter.append($wrapper.find('.dataTables_filter'))
+
+            // pagination
+            $wrapper.append('<div class="table-wrapper__footer"></div>')
+            var $footer = $wrapper.find('.table-wrapper__footer');
+            $footer.append($wrapper.find('.dataTables_info'))
+            $footer.append($wrapper.find('.dataTables_paginate'))
+        })
+
+        table.on( 'draw.dt', function () {
+            Charts.drawTableCharts()
+        });
+        Charts.drawTableCharts()
+    });

@@ -1,9 +1,9 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Settings';
+  - var title = 'News';
   - var description = '';
-  - var pageName = 'settings';
+  - var pageName = 'news';
   - var pageType = 'profile';
 
 
@@ -15,12 +15,46 @@ block content
         +b.breadcrumbs 
           a(href="profile-account.html") Account 
           span / 
-          span Settings
+          span News
 
     +b.SECTION
       .container
-        +b.H1.title(class="_strong") Settings
+        +b.module-row
+          +b.H1.title(class="_strong") News
+          +b.A(href="profile-add-news.html" class="button _primary _shadow") Add news
 
+        mixin news-block()
+          +b.A(href="#" class="news-block")
+            +e.content
+              +e.P.title Crypto Analyst Says Ethereum Following Cardano, Maps Potential Reversal Against Bitcoin
+              +e.P.date about 19 hours ago
+              +e.description
+                p A top trader is mapping out Ethereum’s path ahead, predicting that the asset will follow in Cardano’s footsteps. In a series of tweets, pseudonymous crypto trader Capo notes that Cardano (ADA) recently retraced against Bitcoin (BTC), indicating that a similar move could be in store for Ethereum
+              +e.link Read more
+            +e.image
+              img(src="assets/images/news/lg.png", alt="")
+        +news-block()
+        +news-block()
+        +news-block()
+        +news-block()
+        +news-block()
+        +news-block()
+        +news-block()
+        +news-block()
+
+        +b.pagination-module 
+          +e.wrap
+            a(href="#" class="is-active") 1
+            a(href="#") 2
+            a(href="#") 3
+            a(href="#") 4
+            a(href="#") 5
+            a(href="#") 6
+            span.dotts ...
+            a(href="#") 100
+            
+        +b.module-row
+          +b.A(href="profile-add-news.html" class="button _primary _shadow") Add news
 
 block script
   script(src="assets/js/vendors.js" defer)

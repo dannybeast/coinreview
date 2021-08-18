@@ -26,9 +26,9 @@ export default function() {
           hideTabs();
           showTab($(this).index());
           
-          if(MyObject.drawTableCharts ){
+          if(Charts.drawTableCharts ){
           
-                MyObject.drawTableCharts()
+            Charts.drawTableCharts()
              
             }
 

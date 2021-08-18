@@ -34,7 +34,7 @@ function increaseValue(el) {
   }
 
   document.querySelectorAll('.amount-module ').forEach((el)=>{
-
+    if(!el.querySelector('.decrease')){ return }
     el.querySelector('.decrease').addEventListener('click',function(){
         decreaseValue(el.querySelector('input'))
     })
