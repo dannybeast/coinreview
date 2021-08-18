@@ -12,7 +12,7 @@ if pageType === 'profile'
 
         li(class=( pageName === "myCoins" ? " is-active" : undefined))
             a(href="profile-my-coins.html")
-                +icon('004-account')
+                +icon('002-coins')
                 span My coins
 
         li(class=( pageName === "promoted" ? " is-active" : undefined))
@@ -22,12 +22,12 @@ if pageType === 'profile'
 
         li(class=( pageName === "settings" ? " is-active" : undefined))
             a(href="profile-settings.html")
-                +icon('004-account')
+                +icon('001-levels')
                 span Settings
 
         li
             a(href="index.html")
-                +icon('004-account')
+                +icon('003-logout')
                 span Exit
 ul
     if pageType != 'profile'
