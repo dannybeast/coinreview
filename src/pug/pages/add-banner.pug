@@ -144,7 +144,7 @@ block content
                             +b.LABEL.radio-button(class="_transparent")
                                 input(type="radio" name="slots" value="2")
                                 span 2
-                        +e.LI
+                        +e.LI(class=" is-disabled")
                             +b.LABEL.radio-button(class="_transparent")
                                 input(type="radio" name="slots" value="3")
                                 span 3
@@ -160,7 +160,7 @@ block content
                             +b.LABEL.radio-button(class="_transparent")
                                 input(type="radio" name="slots" value="6")
                                 span 6
-                        +e.LI
+                        +e.LI(class=" is-disabled")
                             +b.LABEL.radio-button(class="_transparent")
                                 input(type="radio" name="slots" value="7")
                                 span 7
@@ -176,6 +176,9 @@ block content
                             +b.LABEL.radio-button(class="_transparent")
                                 input(type="radio" name="slots" value="10")
                                 span 10
+
+
+                                
                 +b.field 
                     label File 
                     +b.LABEL.file-button

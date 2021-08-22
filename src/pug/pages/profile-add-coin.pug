@@ -46,7 +46,7 @@ block content
 
 
             .row 
-              .col-3 
+              .col-2
                 +b.fields-group(class="_symbol")
                   +b.field 
                     label Name*
@@ -55,24 +55,31 @@ block content
                     label Symbol*
                     input(type="text" name="symbol" required placeholder="XYZC")
 
-              .col-3
+              .col-2
                 +b.field 
                   label Network/Chain	
                   input(type="text" name="network")
            
 
-              .col-3
+              .col-2
                 +b.field 
                   label Project in presale phase?*
                   +b.LABEL.select
                     select(name="phase" required).js-presale-select
                       option(value="no") No 
                       option(value="yes") Yes
-              .col-3
+              .col-2
                 +b.field 
                   label Project in Whitelist?*
                   +b.LABEL.select
                     select(name="whitelist" required).js-whitelist-select
+                      option(value="no") No 
+                      option(value="yes") Yes
+              .col-2
+                +b.field 
+                  label Audit passed?*
+                  +b.LABEL.select
+                    select(name="audit" required).js-audit-select
                       option(value="no") No 
                       option(value="yes") Yes
 
@@ -103,6 +110,14 @@ block content
                     label Whitelist link <i>(dxsale.app or unicrypt.network)</i>
                     input(type="text" name="link_whitelist").js-link-whitelist
             // -
+
+
+              
+            // if audit
+            +b.audit-block
+              +b.field 
+                label Audit passed link <i>(dxsale.app or unicrypt.network)</i>
+                input(type="text" name="link_audit").js-link-audit
 
             +b.field 
               label Contract Address*

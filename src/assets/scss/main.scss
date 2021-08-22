@@ -2584,9 +2584,6 @@ sup {
         @include sm-block() {
             margin-bottom: 15px;
         }
-        &:last-child {
-            margin-bottom: 0;
-        }
     }
     .fields-group {
         @include sm-block() {
@@ -3105,6 +3102,24 @@ sup {
 
 .row {
     @include row-flex();
+    .col {
+        margin: 0 15px;
+        flex-grow: 1;
+    }
+    .col-2 {
+        @include col();
+        @include size(2.4);
+        @include size-notebook(3);
+        flex-grow: 1;
+        @include size-md(6);
+        @include size-sm(12);
+        @include sm-block() {
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
     .col-3 {
         @include col();
         @include size(3);
@@ -3142,7 +3157,8 @@ sup {
 }
 
 .presale-block,
-.whitelist-block {
+.whitelist-block,
+.audit-block {
     display: none;
     margin-bottom: 30px;
     position: relative;

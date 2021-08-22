@@ -178,6 +178,11 @@ $(document).ready(function(){
     link.prop('required', val)
     time.prop('required', val)
   }
+  function requiredAuditFields(val){
+    let link = $('.js-link-audit')
+
+    link.prop('required', val)
+  }
 
   $('.js-presale-select').on('change', function(){
 
@@ -206,7 +211,19 @@ $(document).ready(function(){
       requiredWhitelistFields(false)
     }
   })
+  $('.js-audit-select').on('change', function(){
 
+    let val = $(this).val();
+    let $block = $('.audit-block');
+
+    if(val === 'yes'){
+      $block.slideDown();
+      requiredAuditFields(true)
+    }else{
+      $block.slideUp();
+      requiredAuditFields(false)
+    }
+  })
 
   // Truncate
   $('.contract-token').each(function(){
