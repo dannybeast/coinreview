@@ -186,10 +186,10 @@ $(document).ready(function(){
 
   $('.js-presale-select').on('change', function(){
 
-    let val = $(this).val();
+    let val = parseInt($(this).val());
     let $block = $('.presale-block');
 
-    if(val === 'yes'){
+    if(val === 1){
       $block.slideDown();
       requiredPresaleFields(true)
     }else{
@@ -200,10 +200,10 @@ $(document).ready(function(){
 
   $('.js-whitelist-select').on('change', function(){
 
-    let val = $(this).val();
+    let val = parseInt($(this).val());
     let $block = $('.whitelist-block');
 
-    if(val === 'yes'){
+    if(val === 1){
       $block.slideDown();
       requiredWhitelistFields(true)
     }else{
@@ -213,10 +213,10 @@ $(document).ready(function(){
   })
   $('.js-audit-select').on('change', function(){
 
-    let val = $(this).val();
+    let val = parseInt($(this).val());
     let $block = $('.audit-block');
 
-    if(val === 'yes'){
+    if(val === 1){
       $block.slideDown();
       requiredAuditFields(true)
     }else{

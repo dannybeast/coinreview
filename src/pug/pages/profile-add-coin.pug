@@ -66,22 +66,22 @@ block content
                   label Project in presale phase?*
                   +b.LABEL.select
                     select(name="phase" required).js-presale-select
-                      option(value="no") No 
-                      option(value="yes") Yes
+                      option(value="0") No 
+                      option(value="1") Yes
               .col-2
                 +b.field 
                   label Project in Whitelist?*
                   +b.LABEL.select
                     select(name="whitelist" required).js-whitelist-select
-                      option(value="no") No 
-                      option(value="yes") Yes
+                      option(value="0") No 
+                      option(value="1") Yes
               .col-2
                 +b.field 
                   label Audit passed?*
                   +b.LABEL.select
                     select(name="audit" required).js-audit-select
-                      option(value="no") No 
-                      option(value="yes") Yes
+                      option(value="0") No 
+                      option(value="1") Yes
 
             // if presale
             +b.presale-block
