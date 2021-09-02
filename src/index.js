@@ -241,6 +241,43 @@ $(document).ready(function(){
   })
 
 
+  // convertation
+  
+  
+  $('.convertation').each(function(){
+    let priceInput = $(this).find('[data-price]');
+    let convertedInput = $(this).find('.field:last-child input')
+    let price = priceInput.data('price');
+
+    priceInput.keyup(function(){
+      let val = +$(this).val();
+      convertedInput.val(val*price)
+    })
+
+    convertedInput.keyup(function(){
+      let val = +$(this).val();
+      priceInput.val(val/price)
+    })
+
+    $(this).find('.field:first-child .increase, .field:first-child .decrease').click(function(){
+      let val = +priceInput.val();
+      convertedInput.val(val*price)
+    })
+
+    $(this).find('.field:last-child .increase, .field:last-child .decrease').click(function(){
+      let val = +convertedInput.val();
+      priceInput.val(val/price)
+    })
+
+  })
+
+
+
+
+
+
+
+
   hideLoader();
 })
 

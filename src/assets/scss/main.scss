@@ -2073,9 +2073,14 @@ sup {
     a {
         line-height: 1.5;
     }
+    p {
+        display: flex;
+        align-items: center;
+    }
     a {
         display: inline-flex;
         align-items: center;
+        margin-left: 5px;
     }
     li {
         margin-bottom: 10px;
@@ -2446,6 +2451,10 @@ sup {
     }
     .vote {
         margin-left: auto;
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
         @include md-block() {
             margin-left: 0;
         }
