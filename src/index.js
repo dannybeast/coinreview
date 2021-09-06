@@ -150,12 +150,12 @@ $(document).ready(function(){
     $(this).toggleClass('heart_is-active')
   })
 
-  $('.favorites__button').click(function(){
-    let disableText =  $(this).data('text-inactive');
-    let enabledText = $(this).data('text-active');
-    $(this).toggleClass('is-active');
-    $(this).toggleText(enabledText, disableText);
-  })
+  // $('.favorites__button').click(function(){
+  //   let disableText =  $(this).data('text-inactive');
+  //   let enabledText = $(this).data('text-active');
+  //   $(this).toggleClass('is-active');
+  //   $(this).toggleText(enabledText, disableText);
+  // })
 
   $(".table-hover td:not(.not-clickable)").click(function(e) {
       window.location = $(this).parents('tr').data("href");
