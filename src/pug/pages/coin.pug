@@ -525,6 +525,56 @@ block content
                                     +e.content
                                         +e.P.label Presale link
                                         +e.A(href="https://support.binance.co.ug/hc/en-us/articles/360018274671" target="_blank").value https://support.binance.co.ug/hc/en-us/articles/360018274671
+                    if index === 9
+                        div.js-tab-content
+                            +b.table-wrapper.hidden-filters
+                                +e.block
+                                    +e.block-content
+                                        +e.block-row
+                                            +b.H3.title Swaps
+
+                                    +e.table
+                                        table.js-datatables.table-swap
+                                            thead 
+                                                tr 
+                                                    th ACTION
+                                                    th Total value
+                                                    th Token Amount
+                                                    th Token Amount
+                                                    th Account     
+                                                    th Time
+                                            tbody 
+                                                mixin trs()
+                                                    tr.tr-success 
+                                                        td 
+                                                            strong Swap SEED  or WBNB
+                                                        td 
+                                                            strong $23.32
+                                                        td 
+                                                            strong 0.056 SEED
+                                                        td 
+                                                            strong 0.056 WBNB
+                                                        td 
+                                                            +b.swap-status
+                                                                strong.contract-token 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
+                                                                +icon('diagonal')
+                                                        td 41 minutes ago
+                                                    tr.tr-danger 
+                                                        td 
+                                                            strong Swap SEED  or WBNB
+                                                        td 
+                                                            strong $23.32
+                                                        td 
+                                                            strong 0.056 SEED
+                                                        td 
+                                                            strong 0.056 WBNB
+                                                        td 
+                                                            +b.swap-status
+                                                                strong.contract-token 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
+                                                                +icon('diagonal')
+                                                        td 41 minutes ago
+                                                +trs()
+                                                +trs()
                 +b.tabs.js-tabs
                     +e.UL.nav 
                         +e.LI(class=" js-tab-link")
@@ -551,6 +601,9 @@ block content
                         +e.LI(class=" js-tab-link")
                             +e.A() 
                                 span News
+                        +e.LI(class=" js-tab-link")
+                            +e.A() 
+                                span Swaps
 
                     +tab(1)
                     +tab(7)
@@ -560,7 +613,7 @@ block content
                     +tab(4)
                     +tab(5)
                     +tab(6)
-
+                    +tab(9)
 
 
 block script

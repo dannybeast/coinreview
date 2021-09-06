@@ -217,6 +217,7 @@ $field-border-radius: 0;
 
 .select {
     position: relative;
+    display: block;
     font-weight: 600;
 
     &:after {

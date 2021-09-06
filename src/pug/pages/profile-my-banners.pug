@@ -1,0 +1,110 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Banners';
+  - var description = '';
+  - var pageName = 'mybanners';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+            a(href="profile-account.html") Account 
+            span / 
+            span My banners
+
+    +b.SECTION
+      .container
+        +b.title-wrapper
+          +b.H1.title(class="_strong") My banners
+          +b.H2.title(class="_strong _small") <span class="color-primary">Current banners</span>
+        
+        +b.table-wrapper.hidden-filters
+          +e.block(class="_border")
+            +e.table
+              table.table-hover.js-datatables.table-banners
+                thead 
+                  tr 
+                    th #
+                    th Banner
+                    th Dates
+                    th Views
+                    th Clicks
+                    th CTR
+                    th
+                tbody 
+                  mixin tr()
+                    tr
+                      td.table-id  121
+                      td.table-banner  
+                        +b.banner-place 
+                          +e.image
+                            img(src="https://dummyimage.com/93x42/1c59b0/1c59b0", alt="")
+                          +e.content
+                            +e.H5.title 125x125 Left row
+                            p Place 4
+                      td.table-dates 
+                        +b.dates
+                          p Start <strong>Feb 04 2021, 05:55</strong>
+                          p Finish <strong>Feb 04 2021, 05:55</strong>
+                      td.table-count 118
+                      td.table-count 118
+                      td.table-count 2,8%
+                      td 
+                        +b.td-buttons
+                          +b.A(href="#" class="button _primary _small") Statistics
+                          +b.A(href="#" class="button _primary _small") Link
+                  +tr()
+                  +tr()
+                  +tr()
+                  +tr()
+    +b.SECTION
+      .container
+        +b.title-wrapper
+          +b.H1.title(class="_strong _small") Finished banners
+
+        +b.table-wrapper.hidden-filters
+          +e.block
+            +e.table
+              table.table-hover.js-datatables.table-banners
+                thead 
+                  tr 
+                    th #
+                    th Banner
+                    th Dates
+                    th Views
+                    th Clicks
+                    th CTR
+                    th
+                tbody 
+                  mixin tr2()
+                    tr
+                      td.table-id 121
+                      td.table-banner 
+                        +b.banner-place 
+                          +e.image
+                            img(src="https://dummyimage.com/93x42/1c59b0/1c59b0", alt="")
+                          +e.content
+                            +e.H5.title 125x125 Left row
+                            p Place 4
+                      td.table-dates 
+                        +b.dates
+                          p Start <strong>Feb 04 2021, 05:55</strong>
+                          p Finish <strong>Feb 04 2021, 05:55</strong>
+                      td.table-count 118
+                      td.table-count 118
+                      td.table-count 2,8%
+                      td 
+                        +b.td-buttons
+                          +b.A(href="#" class="button _primary _small") Statistics
+                  +tr2()
+                  +tr2()
+                  +tr2()
+                  +tr2()
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

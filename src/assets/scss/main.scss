@@ -2180,7 +2180,7 @@ sup {
             font-weight: 500;
             font-size: 14px;
             color: #000;
-            padding: 0 30px;
+            padding: 0 20px;
             height: 50px;
             display: flex;
             align-items: center;
@@ -2202,6 +2202,126 @@ sup {
             a {
                 background: #fff;
             }
+        }
+    }
+}
+
+.swap-status {
+    display: flex;
+    align-items: center;
+    .contract-token {
+        max-width: 100px;
+    }
+    strong {
+        flex-shrink: 0;
+    }
+    svg {
+        width: 19px;
+        height: 19px;
+        fill: #ccc;
+        margin-left: 12px;
+    }
+}
+
+.tr-success {
+    td {
+        background: #eff9f3;
+    }
+    .swap-status {
+        svg {
+            fill: #67c68e;
+        }
+    }
+}
+.tr-danger {
+    td {
+        background: #fae3e2;
+    }
+    .swap-status {
+        svg {
+            fill: #c23442;
+        }
+    }
+}
+.table-wrapper__block table.table-swap {
+    border-collapse: separate;
+    border-spacing: 0 0.8em;
+    th,
+    td {
+        &:first-child {
+            padding-left: 30px;
+        }
+        &:last-child {
+            padding-right: 30px;
+        }
+    }
+    td {
+        padding: 10px;
+        white-space: nowrap;
+        height: 38px;
+    }
+}
+.table-wrapper__block table.table-banners {
+    td {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+.td-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .button {
+        margin: 0 15px 0 0;
+    }
+}
+.dates {
+    min-width: 170px;
+    p {
+        margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.table-id {
+    width: 80px;
+}
+.table-count {
+    width: 100px;
+}
+.table-banner {
+    width: 25%;
+    @include md-block() {
+        width: 170px;
+    }
+}
+.table-dates {
+    width: 25%;
+    @include md-block() {
+        width: 170px;
+    }
+}
+
+.banner-place {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    &__image {
+        margin-right: 30px;
+        img {
+            max-width: 93px;
+        }
+    }
+    &__content {
+        min-width: 120px;
+    }
+    &__title {
+        font-weight: 600;
+        margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
@@ -2488,10 +2608,13 @@ sup {
     font-weight: 500;
     line-height: 1.5;
     border-radius: 16px;
-    border: solid 2px #d8e5ff;
+    border: solid 2px #d9dde2;
     padding: 17px 25px 17px 17px;
     .color-gray {
         color: #9f9f9f;
+    }
+    .color-success {
+        color: #000;
     }
     &__icon {
         width: 45px;
@@ -3460,7 +3583,7 @@ sup {
 }
 
 .contract-token {
-    max-width: 80px;
+    max-width: 84px;
     display: block;
     overflow: hidden;
 }

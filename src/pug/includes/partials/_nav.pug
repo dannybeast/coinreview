@@ -20,6 +20,11 @@ if pageType === 'profile'
                 +icon('upload')
                 span Promoted
 
+        li(class=( pageName === "mybanners" ? " is-active" : undefined))
+            a(href="profile-my-banners.html")
+                +icon('banners')
+                span My banners
+
         li(class=( pageName === "settings" ? " is-active" : undefined))
             a(href="profile-settings.html")
                 +icon('001-levels')

@@ -35,7 +35,7 @@
 
 // titles
 .title {
-    font-size: 31px;
+    font-size: 32px;
     line-height: 1.4;
     font-weight: 500;
     @include notebook-block() {
@@ -43,6 +43,15 @@
     }
     @include sm-block() {
         font-size: 28px;
+    }
+    &_small {
+        font-size: 26px;
+        @include notebook-block() {
+            font-size: 22px;
+        }
+        @include sm-block() {
+            font-size: 18px;
+        }
     }
 }
 
