@@ -259,13 +259,17 @@ $(document).ready(function(){
       priceInput.val(val/price)
     })
 
-    $(this).find('.field:first-child .increase, .field:first-child .decrease').click(function(){
+    $(this).find('.field:first-child .increase, .field:first-child .decrease').on('click',function(){
+     
       let val = +priceInput.val();
+      console.log(val);
       convertedInput.val(val*price)
     })
 
-    $(this).find('.field:last-child .increase, .field:last-child .decrease').click(function(){
+    $(this).find('.field:last-child .increase, .field:last-child .decrease').on('click',function(){
+   
       let val = +convertedInput.val();
+      console.log(convertedInput);
       priceInput.val(val/price)
     })
 

@@ -2603,7 +2603,6 @@ sup {
 .insurance {
     display: inline-flex;
     align-items: center;
-
     font-size: 15px;
     font-weight: 500;
     line-height: 1.5;
@@ -2613,13 +2612,36 @@ sup {
     .color-gray {
         color: #9f9f9f;
     }
-    .color-success {
-        color: #000;
-    }
+
     &__icon {
         width: 45px;
         flex-shrink: 0;
         margin-right: 15px;
+        img {
+            &:first-child {
+                display: block;
+            }
+            &:last-child {
+                display: none;
+            }
+        }
+    }
+    &:not(.is-active) {
+        .color-success {
+            color: #000;
+        }
+    }
+    &.is-active {
+        .insurance__icon {
+            img {
+                &:first-child {
+                    display: none;
+                }
+                &:last-child {
+                    display: block;
+                }
+            }
+        }
     }
 }
 
