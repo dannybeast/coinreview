@@ -28,17 +28,17 @@ block content
             td #{index}
             td 
                 if index === '2'
-                    +b.currency
+                    +b.A(href="coin.html" target="_blank").currency
                         +e.icon 
                             img(src="assets/images/currency/snx.svg", alt="")
                         +e.P.name Huobi Global
                 else if index === '4'
-                    +b.currency
+                    +b.A(href="coin.html" target="_blank").currency
                         +e.icon 
                             img(src="assets/images/currency/cpnd.svg", alt="")
                         +e.P.name Huobi Global
                 else 
-                    +b.currency
+                    +b.A(href="coin.html" target="_blank").currency
                         +e.icon 
                             img(src="assets/images/currency/btc.svg", alt="")
                         +e.P.name Binance

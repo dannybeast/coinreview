@@ -13,22 +13,22 @@ block content
       td #{index}
       td
         if currency === 'btc'
-          +b.currency
+          +b.A(href="coin.html" target="_blank").currency
             +e.icon 
               img(src="assets/images/currency/btc.svg", alt="")
             +e.P.name Bitcoin <span>BTC</span>
         else if currency === 'eth'
-          +b.currency
+          +b.A(href="coin.html" target="_blank").currency
             +e.icon 
               img(src="assets/images/currency/eth.svg", alt="")
             +e.P.name Etherium <span>ETH</span>
         else if currency === 'dai'
-          +b.currency
+          +b.A(href="coin.html" target="_blank").currency
             +e.icon 
               img(src="assets/images/currency/dai.svg", alt="")
             +e.P.name Dai <span>DAI</span>
         else if currency === 'tether'
-          +b.currency
+          +b.A(href="coin.html" target="_blank").currency
             +e.icon 
               img(src="assets/images/currency/tether.svg", alt="")
             +e.P.name Tether <span>Tether</span>

@@ -75,6 +75,7 @@
   "emergence.js": "^1.1.2",
   "imask": "^6.0.1",
   "jquery": "^3.4.1",
+  "jquery-ui": "^1.12.1",
   "jquery-validation": "^1.19.1",
   "laravel-echo": "^1.5.2",
   "lazyload": "^2.0.0-rc.2",
