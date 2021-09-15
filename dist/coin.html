@@ -145,7 +145,7 @@
                         <p class="currency__name">Etherium <span>ETH</span>
                         </p>
                       </div>
-                      <div class="favorites"> <a class="favorites__button" data-text-active="In favorites" data-text-inactive="Add to favorites"><span>Add to favorites</span></a>
+                      <div class="favorites"> <a class="favorites__button" data-text-active="In favorites" data-text-inactive="Add to favorites"><span>Add to favorites <span>12</span></span></a>
                       </div>
                     </div>
                     <div class="currency-price"> 
@@ -447,29 +447,25 @@
                               </div>
                               <div class="sidebar-block__section">
                                 <ul class="social-list"> 
-                                  <li> 
-                                    <p>Website <a href="#"> <span>Website </span>
-                                        <svg class="svg-icon">
-                                          <use href="assets/icons/sprite.svg#icon-world"></use>
-                                        </svg></a></p>
+                                  <li> <a href="#"> 
+                                      <svg class="svg-icon">
+                                        <use href="assets/icons/sprite.svg#icon-world"></use>
+                                      </svg><span>website </span></a>
                                   </li>
-                                  <li> 
-                                    <p>Twitter <a href="#"> <span>Website </span>
-                                        <svg class="svg-icon">
-                                          <use href="assets/icons/sprite.svg#icon-twitter"></use>
-                                        </svg></a></p>
+                                  <li> <a href="#"> 
+                                      <svg class="svg-icon">
+                                        <use href="assets/icons/sprite.svg#icon-twitter"></use>
+                                      </svg><span>Twitter </span></a>
                                   </li>
-                                  <li> 
-                                    <p>Telegram <a href="#"> <span>Website </span>
-                                        <svg class="svg-icon">
-                                          <use href="assets/icons/sprite.svg#icon-telegram"></use>
-                                        </svg></a></p>
+                                  <li> <a href="#"> 
+                                      <svg class="svg-icon">
+                                        <use href="assets/icons/sprite.svg#icon-telegram"></use>
+                                      </svg><span>Telegram  </span></a>
                                   </li>
-                                  <li> 
-                                    <p>Discord <a href="#"> <span>Website </span>
-                                        <svg class="svg-icon">
-                                          <use href="assets/icons/sprite.svg#icon-discord"></use>
-                                        </svg></a></p>
+                                  <li> <a href="#"> 
+                                      <svg class="svg-icon">
+                                        <use href="assets/icons/sprite.svg#icon-discord"></use>
+                                      </svg><span>discord.gg </span></a>
                                   </li>
                                 </ul>
                               </div>
@@ -521,7 +517,7 @@
                             </p>
                           </div>
                         </div>
-                        <div class="presaled-item">
+                        <div class="presaled-item presaled-item_link">
                           <div class="presaled-item__icon"> 
                             <svg class="svg-icon">
                               <use href="assets/icons/sprite.svg#icon-002-click"></use>
@@ -530,6 +526,12 @@
                           <div class="presaled-item__content">
                             <p class="presaled-item__label">Presale link
                             </p><a class="presaled-item__value" href="https://support.binance.co.ug/hc/en-us/articles/360018274671" target="_blank">https://support.binance.co.ug/hc/en-us/articles/360018274671</a>
+                          </div>
+                        </div>
+                        <div class="timer-module"> 
+                          <p class="timer-module__title">Time left:
+                          </p>
+                          <div class="timer" data-timer-end="Dec 15, 2021 14:57:55" data-over="Time is over" data-days="Days" data-hours="Hours" data-minutes="Minutes" data-seconds="Sec"> 
                           </div>
                         </div>
                       </div>
@@ -601,8 +603,44 @@
                                 </tr>
                                 <tr data-href="coin.html">
                                   <td>2</td>
-                                  <td><a class="currency" href="coin.html" target="_blank"><span class="currency__icon"> <img src="assets/images/currency/eth.svg" alt=""></span>
+                                  <td> <a class="currency" href="coin.html" target="_blank"><span class="currency__icon"> <img src="assets/images/currency/eth.svg" alt=""></span>
                                     <p class="currency__name">Etherium <span>ETH</span>
+                                    </p></a>
+                                  </td>
+                                  <td class="not-clickable"> 
+                                    <div class="heart heart_is-active">
+                                    </div>
+                                  </td>
+                                  <td></td>
+                                  <td> 
+                                    <p class="timer-module__title color-primary">Presale
+                                    </p>
+                                  </td>
+                                  <td> </td>
+                                  <td colspan="3">
+                                    <div class="timer-module"> 
+                                      <p class="timer-module__title">Time left:
+                                      </p>
+                                      <div class="timer" data-timer-end="Dec 15, 2021 14:57:55" data-over="Time is over" data-days="Days" data-hours="Hours" data-minutes="Minutes" data-seconds="Sec"> 
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td style="display: none"> </td>
+                                  <td style="display: none"> </td>
+                                  <td style="display: none"></td>
+                                  <td></td>
+                                  <td class="not-clickable">
+                                    <div class="amount-module"> 
+                                      <div class="decrease value-button" value="Decrease Value">-</div>
+                                      <input class="number" type="number" value="0" name="amount">
+                                      <div class="increase value-button" value="Increase Value">+</div>
+                                    </div>
+                                  </td>
+                                </tr>
+                                <tr data-href="coin.html">
+                                  <td>3</td>
+                                  <td><a class="currency" href="coin.html" target="_blank"><span class="currency__icon"> <img src="assets/images/currency/dai.svg" alt=""></span>
+                                    <p class="currency__name">Dai <span>DAI</span>
                                     </p></a>
                                   </td>
                                   <td class="not-clickable"> 
@@ -629,47 +667,7 @@
                                     <p>18,766,106 BTC</p>
                                   </td>
                                   <td>
-                                    <div class="chart" data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49" data-color="#03b15d"></div>
-                                  </td>
-                                  <td class="not-clickable">
-                                    <div class="amount-module"> 
-                                      <div class="decrease value-button" value="Decrease Value">-</div>
-                                      <input class="number" type="number" value="0" name="amount">
-                                      <div class="increase value-button" value="Increase Value">+</div>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr data-href="coin.html">
-                                  <td>3</td>
-                                  <td><a class="currency" href="coin.html" target="_blank"><span class="currency__icon"> <img src="assets/images/currency/dai.svg" alt=""></span>
-                                    <p class="currency__name">Dai <span>DAI</span>
-                                    </p></a>
-                                  </td>
-                                  <td class="not-clickable"> 
-                                    <div class="heart heart_is-active">
-                                    </div>
-                                  </td>
-                                  <td class="nowrap">
-                                    <p> <strong>$34,394.55</strong></p>
-                                  </td>
-                                  <td class="nowrap">
-                                    <p class="color-danger"><strong>0.23%</strong></p>
-                                  </td>
-                                  <td class="nowrap">
-                                    <p class="color-success"><strong>7.86%</strong></p>
-                                  </td>
-                                  <td class="nowrap">
-                                    <p>$646,879,798,387</p>
-                                  </td>
-                                  <td class="nowrap">
-                                    <p>$20,512,439,991</p>
-                                    <p class="color-gray"><small>595,070 BTC</small></p>
-                                  </td>
-                                  <td class="nowrap">
-                                    <p>18,766,106 BTC</p>
-                                  </td>
-                                  <td>
-                                    <div class="chart" data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10" data-color="#d22f49"></div>
+                                    <div class="chart" data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49" data-color="#d22f49"></div>
                                   </td>
                                   <td class="not-clickable">
                                     <div class="amount-module"> 

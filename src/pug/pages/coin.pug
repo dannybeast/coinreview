@@ -8,65 +8,102 @@ block variables
 
 block content
     mixin tr(index,currency, color)
-        tr(data-href="coin.html")
-            td #{index}
-            td
-                if currency === 'btc'
-                    +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
-                            img(src="assets/images/currency/btc.svg", alt="")
-                        +e.P.name Bitcoin <span>BTC</span>
-                else if currency === 'eth'
+       
+        if currency === 'eth'
+            tr(data-href="coin.html")
+                td #{index}
+                td 
                     +b.A(href="coin.html" target="_blank").currency
                         +e.icon 
                             img(src="assets/images/currency/eth.svg", alt="")
                         +e.P.name Etherium <span>ETH</span>
-                else if currency === 'dai'
-                    +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
-                            img(src="assets/images/currency/dai.svg", alt="")
-                        +e.P.name Dai <span>DAI</span>
-                else if currency === 'tether'
-                    +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
-                            img(src="assets/images/currency/tether.svg", alt="")
-                        +e.P.name Tether <span>Tether</span>
-            td.not-clickable 
-                if currency === 'btc'
-                    +b.heart
-                else 
-                    +b.heart(class="_is-active")
-            td.nowrap
-                p 
-                    strong $34,394.55
-            td.nowrap
-                if currency === 'eth'
+                td.not-clickable 
+                    if currency === 'btc'
+                        +b.heart
+                    else 
+                        +b.heart(class="_is-active")
+                td
+                td 
+                    +b.P.timer-module__title.color-primary Presale
+                td 
+                td(colspan="3")
+                    +b.timer-module 
+                        +e.P.title Time left:
+                        +b.timer(
+                            data-timer-end="Dec 15, 2021 14:57:55" 
+                            data-over="Time is over" 
+                            data-days="Days"
+                            data-hours="Hours"
+                            data-minutes="Minutes"
+                            data-seconds="Sec"
+                            ) 
+
+
+                td(style="display: none") 
+                td(style="display: none") 
+                td(style="display: none")
+                td
+                td.not-clickable
+                    +b.amount-module 
+                        .decrease.value-button(value='Decrease Value') -
+                        input.number(type='number' value='0' name="amount")
+                        .increase.value-button(value='Increase Value') +
+        else
+            tr(data-href="coin.html")
+                td #{index}
+                td
+                    if currency === 'btc'
+                        +b.A(href="coin.html" target="_blank").currency
+                            +e.icon 
+                                img(src="assets/images/currency/btc.svg", alt="")
+                            +e.P.name Bitcoin <span>BTC</span>
+            
+                    else if currency === 'dai'
+                        +b.A(href="coin.html" target="_blank").currency
+                            +e.icon 
+                                img(src="assets/images/currency/dai.svg", alt="")
+                            +e.P.name Dai <span>DAI</span>
+                    else if currency === 'tether'
+                        +b.A(href="coin.html" target="_blank").currency
+                            +e.icon 
+                                img(src="assets/images/currency/tether.svg", alt="")
+                            +e.P.name Tether <span>Tether</span>
+                td.not-clickable 
+                    if currency === 'btc'
+                        +b.heart
+                    else 
+                        +b.heart(class="_is-active")
+                td.nowrap
+                    p 
+                        strong $34,394.55
+                td.nowrap
+                    if currency === 'dai'
+                        p.color-success
+                            strong 1.36%
+                    else
+                        p.color-danger
+                            strong 0.23%
+                td.nowrap
                     p.color-success
-                        strong 1.36%
-                else
-                    p.color-danger
-                        strong 0.23%
-            td.nowrap
-                p.color-success
-                    strong 7.86%
-            td.nowrap
-                p $646,879,798,387
-            td.nowrap
-                p $20,512,439,991
-                p.color-gray
-                    small 595,070 BTC
-            td.nowrap
-                p 18,766,106 BTC
-            td
-                if currency === 'eth'
-                    .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
-                else 
-                    .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
-            td.not-clickable
-                +b.amount-module 
-                    .decrease.value-button(value='Decrease Value') -
-                    input.number(type='number' value='0' name="amount")
-                    .increase.value-button(value='Increase Value') +
+                        strong 7.86%
+                td.nowrap
+                    p $646,879,798,387
+                td.nowrap
+                    p $20,512,439,991
+                    p.color-gray
+                        small 595,070 BTC
+                td.nowrap
+                    p 18,766,106 BTC
+                td
+                    if currency === 'dai'
+                        .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
+                    else 
+                        .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
+                td.not-clickable
+                    +b.amount-module 
+                        .decrease.value-button(value='Decrease Value') -
+                        input.number(type='number' value='0' name="amount")
+                        .increase.value-button(value='Increase Value') +
 
     mixin tr2(index)
         tr(data-href="coin.html") 
@@ -126,7 +163,7 @@ block content
                             +b.favorites 
 
                                 +e.A().button(data-text-active="In favorites" data-text-inactive="Add to favorites")
-                                    span Add to favorites
+                                    span Add to favorites <span>12</span>
 
                         +b.currency-price 
                             +e.P.value $ <span>2,305.49</span>
@@ -311,25 +348,25 @@ block content
                                             +e.section
                                                 +b.UL.social-list 
                                                     +e.LI 
-                                                        p Website 
-                                                            a(href="#") 
-                                                                span Website 
-                                                                +icon('world')
+                                                        a(href="#") 
+                                                            +icon('world')
+                                                            span website 
+                                                            
                                                     +e.LI 
-                                                        p Twitter 
-                                                            a(href="#") 
-                                                                span Website 
-                                                                +icon('twitter')
+                                                        a(href="#") 
+                                                            +icon('twitter')
+                                                            span Twitter 
+                                                            
                                                     +e.LI 
-                                                        p Telegram 
-                                                            a(href="#") 
-                                                                span Website 
-                                                                +icon('telegram')
+                                                        a(href="#") 
+                                                            +icon('telegram')
+                                                            span Telegram  
+                                                            
                                                     +e.LI 
-                                                        p Discord 
-                                                            a(href="#") 
-                                                                span Website 
-                                                                +icon('discord')
+                                                        a(href="#") 
+                                                            +icon('discord')
+                                                            span discord.gg 
+                                                            
                     if index === 2 
                         div.js-tab-content
                             +b.table-wrapper.hidden-filters
@@ -514,18 +551,31 @@ block content
                     if index === 8
                         div.js-tab-content
                             +b.presaled-block 
+
                                 +b.presaled-item
                                     +e.icon 
                                         +icon('calendar')
                                     +e.content
                                         +e.P.label Start date
                                         +e.P.value 22.02.2022
-                                +b.presaled-item
+                                +b.presaled-item(class="_link")
                                     +e.icon 
                                         +icon('002-click')
                                     +e.content
                                         +e.P.label Presale link
                                         +e.A(href="https://support.binance.co.ug/hc/en-us/articles/360018274671" target="_blank").value https://support.binance.co.ug/hc/en-us/articles/360018274671
+                              
+                                +b.timer-module 
+                                    +e.P.title Time left:
+                                    +b.timer(
+                                        data-timer-end="Dec 15, 2021 14:57:55" 
+                                        data-over="Time is over" 
+                                        data-days="Days"
+                                        data-hours="Hours"
+                                        data-minutes="Minutes"
+                                        data-seconds="Sec"
+                                        ) 
+
                     if index === 9
                         div.js-tab-content
                             +b.table-wrapper.hidden-filters

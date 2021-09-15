@@ -1634,6 +1634,10 @@ sup {
         padding: 30px;
     }
 
+    &__content {
+        flex-grow: 1;
+    }
+
     &:hover {
         color: #000;
         .news-block__link {
@@ -2171,6 +2175,8 @@ sup {
 }
 
 .social-list {
+    display: flex;
+    flex-wrap: wrap;
     p,
     a {
         line-height: 1.5;
@@ -2182,12 +2188,26 @@ sup {
     a {
         display: inline-flex;
         align-items: center;
-        margin-left: 5px;
     }
     li {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        margin-right: 5px;
         &:last-child {
             margin-bottom: 0;
+        }
+        a {
+            background: #f3f6fd;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            color: #000;
+            &:hover {
+                color: $primary-color;
+            }
+            svg {
+                flex-shrink: 0;
+                margin-right: 6px;
+            }
         }
     }
     a {
@@ -2197,7 +2217,6 @@ sup {
         fill: $primary-color;
         width: 17px;
         height: 17px;
-        margin-left: 5px;
         flex-shrink: 0;
     }
 }
@@ -2219,6 +2238,19 @@ sup {
         margin: 5px 15px 5px 0;
         white-space: nowrap;
         transition: all 0.2s ease;
+        span > span {
+            background: #d8e5ff;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 20px;
+            flex-shrink: 0;
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 2px;
+            color: #1f1f1f;
+        }
         &:before {
             content: "";
             display: block;
@@ -2507,8 +2539,8 @@ sup {
             font-size: 18px;
         }
         @include xs-block() {
-            font-size: 16px;
-            height: 28px;
+            font-size: 15px;
+            height: 25px;
             padding-left: 10px;
             padding-right: 10px;
         }
@@ -2518,18 +2550,97 @@ sup {
         }
     }
     &__value {
-        font-size: 44px;
+        font-size: 40px;
         font-weight: 600;
         white-space: nowrap;
         margin-right: 15px;
         @include sm-block() {
-            font-size: 38px;
+            font-size: 30px;
         }
         @include xs-block() {
-            font-size: 28px;
+            font-size: 24px;
         }
         span {
             color: $primary-color;
+        }
+    }
+}
+.timer {
+    display: flex;
+    align-items: center;
+    &__desc {
+        text-align: center;
+        text-transform: uppercase;
+        opacity: 0.6;
+        font-size: 9px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding-top: 2px;
+    }
+    &__col {
+        margin-right: 15px;
+        position: relative;
+        @include sm-block() {
+            margin-right: 8px;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &__over,
+    &__count {
+        border: solid 2px #d2d2d2;
+        border-radius: 15px;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    &__over {
+        padding: 5px 8px;
+        text-align: center;
+        text-transform: uppercase;
+        display: block;
+    }
+    &__count {
+        display: flex;
+
+        span {
+            padding: 5px 8px;
+            width: 27px;
+            text-align: center;
+            display: block;
+            border-right: solid 2px #d2d2d2;
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}
+.timer-module {
+    &__title {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: #9f9f9f;
+        white-space: nowrap;
+        @include sm-block() {
+            font-size: 12px;
+        }
+        &.color-primary {
+            color: $primary-color;
+        }
+    }
+    display: flex;
+    align-items: center;
+    .timer {
+        margin-left: 30px;
+        @include sm-block() {
+            margin-left: 10px;
+        }
+        &:first-child {
+            margin-left: 0;
         }
     }
 }
@@ -2790,7 +2901,7 @@ sup {
 
 .banner-element {
     overflow: hidden;
-    border-radius: 20px;
+    //border-radius: 20px;
     display: block;
     img {
         width: 100%;
@@ -3764,8 +3875,15 @@ sup {
     background: #fff;
     border-radius: 12px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     padding: 70px 45px 40px;
+    .presaled-item_link {
+        width: calc(100% - 320px);
+        @include sm-block() {
+            width: 100%;
+        }
+    }
     @include sm-block() {
         flex-wrap: wrap;
         padding: 40px 25px 10px;
@@ -3775,6 +3893,27 @@ sup {
         @include sm-block() {
             margin: 0 0 30px 0;
             width: 100%;
+        }
+    }
+    .timer-module {
+        width: 100%;
+        @include sm-block() {
+            text-align: center;
+            flex-wrap: wrap;
+            .timer {
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        &__title {
+            @include sm-block() {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+        &:last-child {
+            margin-top: 30px;
         }
     }
 }

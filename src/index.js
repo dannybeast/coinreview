@@ -30,109 +30,113 @@ import copy from "./js/modules/copy";
 
 $(document).ready(function(){
 
-  let $autocompleteInput = $( ".js-search-autocomplete" );
-  let delayTime = 500
-  let autocompleteUrl = 'https://jsonplaceholder.typicode.com/todos'
-  let autocompleteLength = 2
 
-  $autocompleteInput.parent().append(`<div class="search-dropdown"></div>`)
-  $autocompleteInput.on('keyup', delay(function(e) {
-    let val = $(this).val();
-    let that = $(this)
-    let dropdown = that.parents('.search-module__field').find('.search-dropdown')
-      if(val.length >= autocompleteLength){
-        $.ajax( {
-          type: 'POST',
-          url: autocompleteUrl,
-          data: {
-            term: val
-          },
-          beforeSend: function (data) {
-            dropdown.html('')
-            dropdown.append(`<div class="search-item-loader"></div>`)
-          },
-          success: function( data ) {
-            let res = [
-              {
-                id: 43534,
-                currency: 'Bitcoin',
-                link: 'coin.html',
-                code: 'BTC',
-                price: 34.394,
-                price_change: 0.23
-              },
-              {
-                id: 43535,
-                currency: 'Etherium',
-                link: 'coin.html',
-                code: 'ETH',
-                price: 4.394,
-                price_change: -1.23
-              },
-              {
-                id: 43536,
-                currency: 'Dai',
-                link: 'coin.html',
-                code: 'DAI',
-                price: 34.394,
-                price_change: 0.23
-              },
-            ];
-  
-            dropdown.html('')
-  
-            res.forEach(element => {
-              let priceChangeClass = "color-danger"
-              if(element.price_change && element.price_change > 0){
-                priceChangeClass = "color-success"
-                element.price_change = '+' + element.price_change
-              }
-  
-              dropdown.append(`
-  
-              <a href="${element.link}" class="search-item">
-  
-                <div class="search-item__col">
-                  <p class="search-item__id">#${element.id}</p>
-                  <p class="search-item__currency">${element.currency} <span>${element.code}</span></p>
-                </div>
-  
-                <div class="search-item__col">
-                  <p class="search-item__price">$${element.price}</p>
-                  <p class="search-item__price_change ${priceChangeClass}">${element.price_change}%</p>
-                </div>
-  
-              </a>
-              
-              `)
-            });            
-  
-          },
-          error: function(xhr) {
-            window.notifier.alert('Error', {labels: {alert: xhr.status}, durations: {alert:3000}})
-          },
-          complete: function (data) {
-            $('.search-item-loader').remove()
-          }
-        });
-      }else{
-        dropdown.html('')
+  // mob menu
+  function positionMobileMenu(){
+  let mobMenu = $('.mobile-menu');
+  let topBanner = $('.main-layout__top-banner');
+  let header = $('.header');
+  let posTop = header.height();
+  if(topBanner.length){
+    posTop = posTop + topBanner.height();
+  }
+    mobMenu.css('top', posTop)
+  }
+  positionMobileMenu();
+  $(window).resize(function(){
+    positionMobileMenu();
+  })
+  //-
+
+
+   // timer
+   const second = 1000,
+   minute = second * 60,
+   hour = minute * 60,
+   day = hour * 24;
+
+  $('.timer').each(function (i) {
+    let days = $(this).data('days')
+    let hours = $(this).data('hours')
+    let minutes = $(this).data('minutes')
+    let seconds = $(this).data('seconds')
+
+    $(this).append(`
+      <div class="timer__col">
+        <div class="timer__count timer__count_days"></div>
+        <p class="timer__desc">${days}</p>
+      </div>
+      <div class="timer__col">
+        <div class="timer__count timer__count_hours"></div>
+        <p class="timer__desc">${hours}</p>
+      </div>
+      <div class="timer__col">
+        <div class="timer__count timer__count_minutes"></div>
+        <p class="timer__desc">${minutes}</p>
+      </div>
+      <div class="timer__col">
+        <div class="timer__count timer__count_seconds"></div>
+        <p class="timer__desc">${seconds}</p>
+
+      </div>
+
+    `)
+  });
+
+ let timer = setInterval(function (e) {
+ 
+   $('.timer').each(function (i) {
+     var timerValue = $(this).attr('data-timer-end');
+     let over = $(this).data('over')
+
+     let countDown = new Date(timerValue).getTime();
+     let now = new Date().getTime(),
+       distance = countDown - now;
+
+    if(distance > 0){
+      var days = Array.from(String(Math.floor(distance / (day))), Number);
+      var hours = Array.from(String(Math.floor((distance % (day)) / (hour))), Number);
+      var minutes = Array.from(String(Math.floor((distance % (hour)) / (minute))), Number);
+      var seconds = Array.from(String(Math.floor((distance % (minute)) / second)), Number);
+
+      if(days.length < 2){
+        days.splice(0, 0, 0);
+      }
+      if(minutes.length < 2){
+        minutes.splice(0, 0, 0);
+      }
+      if(hours.length < 2){
+        hours.splice(0, 0, 0);
+      }
+      if(seconds.length < 2){
+        seconds.splice(0, 0, 0);
       }
 
-    }, delayTime));
+      $(this).find('.timer__count_days').html('')
+      $(this).find('.timer__count_hours').html('')
+      $(this).find('.timer__count_minutes').html('')
+      $(this).find('.timer__count_seconds').html('')
 
 
-  function delay(callback, ms) {
-    var timer = 0;
-    return function() {
-      var context = this, args = arguments;
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        callback.apply(context, args);
-      }, ms || 0);
-    };
-  }
+      days.forEach((el)=>{
+        $(this).find('.timer__count_days').append(`<span>${el}</span>`);
+      })
+      hours.forEach((el)=>{
+        $(this).find('.timer__count_hours').append(`<span>${el}</span>`);
+      })
+      minutes.forEach((el)=>{
+        $(this).find('.timer__count_minutes').append(`<span>${el}</span>`);
+      })
+      seconds.forEach((el)=>{
+        $(this).find('.timer__count_seconds').append(`<span>${el}</span>`);
+      })
+    }else{
+      $(this).html(`<p class="timer__over">${over}</p>`)
+    }
 
+
+   });
+ }, second)
 
 
   copy()
