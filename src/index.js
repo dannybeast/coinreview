@@ -253,9 +253,9 @@ $(document).ready(function(){
   })
 
 
-  $('.heart').click(function(){
-    $(this).toggleClass('heart_is-active')
-  })
+  // $('.heart').click(function(){
+  //   $(this).toggleClass('heart_is-active')
+  // })
 
   // $('.favorites__button').click(function(){
   //   let disableText =  $(this).data('text-inactive');
