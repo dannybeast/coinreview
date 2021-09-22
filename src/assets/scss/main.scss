@@ -1167,6 +1167,14 @@ sup {
             margin-bottom: 30px;
             margin-right: 0;
         }
+        @include xs-block() {
+            font-size: 30px;
+        }
+    }
+    &__buttons {
+        @include sm-block() {
+            width: 100%;
+        }
     }
     .button {
         font-size: 19px;
@@ -1195,6 +1203,13 @@ sup {
     line-height: 1.65;
     display: flex;
     flex-direction: column;
+    &__description {
+        height: 115px;
+        overflow: hidden;
+        @include sm-block() {
+            height: 91px;
+        }
+    }
     @include sm-block() {
         padding: 30px 30px;
         font-size: 15px;
@@ -1740,6 +1755,7 @@ sup {
         padding-left: 15px;
     }
     table {
+        width: 100% !important;
         th,
         td {
             border: none;
@@ -1907,7 +1923,9 @@ sup {
                 padding-left: 10px;
                 padding-right: 10px;
                 @include notebook-block() {
-                    font-size: 13px;
+                    font-size: 12px;
+                    padding-left: 5px;
+                    padding-right: 5px;
                 }
                 small {
                     font-size: 13px;
@@ -1915,13 +1933,13 @@ sup {
                 }
                 &:first-child {
                     padding-left: 40px;
-                    @include sm-block() {
+                    @include notebook-block() {
                         padding-left: 15px;
                     }
                 }
                 &:last-child {
                     padding-right: 40px;
-                    @include sm-block() {
+                    @include notebook-block() {
                         padding-right: 30px;
                     }
                 }
@@ -4052,3 +4070,228 @@ sup {
 }
 
 //-
+
+.bot-element-row {
+    @include u-row-flex(120px);
+    @include xl-block() {
+        @include u-row-flex(60px);
+    }
+    @include md-block() {
+        @include u-row-flex(30px);
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield; /* Firefox */
+    }
+    &__col {
+        @include u-col(120px);
+        @include u-size(4, 12, 120px);
+        margin-bottom: 40px;
+        @include xl-block() {
+            @include u-col(60px);
+            @include u-size(4, 12, 60px);
+        }
+        @include md-block() {
+            @include u-col(30px);
+            @include u-size(6, 12, 30px);
+        }
+        @include sm-block() {
+            @include u-size(12, 12, 30px);
+        }
+        &.is-disabled {
+            .field {
+                opacity: 0.5;
+                filter: blur(2px);
+                pointer-events: none;
+            }
+        }
+    }
+    .radio {
+        margin-bottom: 20px;
+        font-weight: 500;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.bot-element {
+    margin-bottom: 30px;
+    .field {
+        & > label:not(.select):not(.button):not(.checkbox) {
+            font-weight: 400;
+        }
+        &__wrap {
+            height: 35px;
+            padding-left: 12px;
+            margin-bottom: 0;
+            input,
+            select {
+                height: 100%;
+            }
+        }
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__icon {
+        flex-shrink: 0;
+        width: 25px;
+        height: 25px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-left: 10px;
+        margin-right: auto;
+    }
+    &__title {
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: $primary-color;
+        span {
+            color: #afc3ef;
+        }
+    }
+    &__top {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+        justify-content: space-between;
+        &-left {
+            display: flex;
+            align-items: center;
+            width: calc(100% - 100px);
+        }
+    }
+    &__block {
+        background: #fff;
+        border-radius: 20px;
+        border: 2px solid #0000;
+        padding: 40px 50px;
+        @include sm-block() {
+            padding: 30px;
+        }
+    }
+    .bot-element-row,
+    .bot-element-footer,
+    .bot-element__title,
+    .bot-element__icon {
+        transition: opacity 0.3s ease;
+    }
+
+    &.is-disabled {
+        .bot-element-row,
+        .bot-element-footer {
+            filter: blur(2px);
+        }
+        .bot-element-row,
+        .bot-element-footer,
+        .bot-element__title,
+        .bot-element__icon {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    }
+}
+
+.telegram-bot-banner {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    z-index: 5;
+    background: #00194e;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding-left: 130px;
+    padding-right: 50px;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    box-shadow: 0px 0px 62px 0px rgba(0, 0, 0, 0.28);
+    @include lg-block() {
+        display: none;
+    }
+    p {
+        line-height: 1.3;
+        font-weight: 400;
+    }
+    strong {
+        font-weight: 500;
+    }
+    &:before {
+        content: "";
+        width: 95px;
+        height: 133px;
+        display: block;
+        background: url("../images/robot2.svg") center no-repeat;
+        position: absolute;
+        bottom: 13px;
+        left: 20px;
+    }
+}
+
+.switch-button {
+    cursor: pointer;
+
+    &__wrapper {
+        height: 40px;
+        width: 80px;
+        background: #eaf1ff;
+        border-radius: 30px;
+        display: block;
+        border: 1px solid #cad6f0;
+        position: relative;
+        transition: all 0.2s ease;
+        span {
+            position: absolute;
+            left: 5px;
+            top: 4px;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 3px 24px 0 rgba(70, 122, 234, 0.47);
+            border: solid 1px #c9d5f0;
+            display: block;
+            transition: all 0.2s ease;
+        }
+    }
+    input {
+        display: none;
+        &:checked + span {
+            //background: #fff;
+            span {
+                left: 43px;
+                background-image: linear-gradient(0deg, #467aea, #75a1ff);
+                border-color: $primary-color;
+                box-shadow: 0 3px 24px 0 rgba(70, 122, 234, 0.56);
+            }
+        }
+    }
+}
+
+.ui-slider {
+    background: #afc3ef;
+    height: 3px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.ui-slider-handle {
+    border-style: solid;
+    cursor: pointer !important;
+    border-width: 4px;
+    border-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    background-color: rgb(75, 126, 236);
+    width: 24px !important;
+    height: 24px !important;
+    box-shadow: 0 3px 24px 0 rgba(70, 122, 234, 0.7);
+    top: -10px !important;
+}

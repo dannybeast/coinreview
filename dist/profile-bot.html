@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Coin Review - Add coin</title>
+    <title>Coin Review - Telegram bot</title>
     <meta name="description" content="">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/common.css">
@@ -25,7 +25,7 @@
                   <svg class="svg-icon">
                     <use href="assets/icons/sprite.svg#icon-004-account"></use>
                   </svg><span>Account</span></a></li>
-              <li class=" is-active"><a href="profile-add-coin.html">
+              <li><a href="profile-add-coin.html">
                   <svg class="svg-icon">
                     <use href="assets/icons/sprite.svg#icon-coin"></use>
                   </svg><span>Add coin</span></a></li>
@@ -41,7 +41,7 @@
                   <svg class="svg-icon">
                     <use href="assets/icons/sprite.svg#icon-banners"></use>
                   </svg><span>My banners</span></a></li>
-              <li><a href="profile-bot.html">
+              <li class=" is-active"><a href="profile-bot.html">
                   <svg class="svg-icon">
                     <use href="assets/icons/sprite.svg#icon-robot"></use>
                   </svg><span>Telegram bot</span></a></li>
@@ -156,188 +156,145 @@
           <article>
             <section>
               <div class="container">
-                <div class="breadcrumbs"> <a href="profile-account.html">Account </a><span>/ </span><span>Add coin</span>
+                <div class="breadcrumbs"> <a href="profile-account.html">Account </a><span>/ </span><span>Telegram bot </span>
                 </div>
               </div>
             </section>
             <section>
               <div class="container">
-                <h3 class="title title_strong">Add coin
-                </h3>
-                <div class="add-currency block">
-                  <div class="typography">
-                    <h3>Submit new coin to <span class="color-primary">CoinReview</span></h3>
-                    <p>Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. Get 500 votes to be officially listed on CoinReview. Please fill out this form carefully to add a new coin to CoinReview. After submission, your coin will be visible on the New Listings page. </p>
+                <h1 class="title">Telegram bot 
+                </h1>
+                <!-- item-->
+                <div class="bot-element"> 
+                  <div class="bot-element__top">
+                    <div class="bot-element__top-left">
+                      <h3 class="bot-element__title">Bitcoin <span>BTC</span>
+                      </h3>
+                      <div class="bot-element__icon"><img src="assets/images/currency/btc.svg" alt="">
+                      </div>
+                    </div>
+                    <div class="switch-button">
+                      <input type="checkbox" name="enabled" checked><span class="switch-button__wrapper"> <span></span></span>
+                    </div>
                   </div>
-                  <form>
-                    <div class="upload-photo">
-                      <div class="upload-photo__content">
-                        <div class="field">
-                          <label>Upload logo*</label>
-                          <div class="field-group field-file">
-                            <label>
-                              <input type="file" value="" name="file"><span></span><a class="button button_primary button_shadow">Upload </a>
+                  <div class="bot-element__block">
+                      <form>
+                        <input type="hidden" name="currency" value="btc">
+                        <div class="bot-element-row">
+                          <div class="bot-element-row__col">
+                            <label class="radio">
+                              <input type="radio" name="type" value="time"><span>On time notification</span>
                             </label>
+                            <div class="field js-slider-field" min="1" max="23" step="1">
+                              <label>Every time, hours: </label>
+                              <div class="field__wrap">
+                                <input type="number" name="time" value="6">
+                                <div class="field-after">hours
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="upload-photo__media">
-                        <div class="your-logo">
-                          <div class="your-logo__logo">
-                            <div class="your-logo__logo-text">Your logo here
-                            </div><img src="https://dummyimage.com/187x187/4f6aff/4f6aff" alt="">
-                          </div><img src="assets/images/add.png" alt="">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row"> 
-                      <div class="col-2">
-                        <div class="fields-group fields-group_symbol">
-                          <div class="field"> 
-                            <label>Name*</label>
-                            <input type="text" name="name" required>
-                          </div>
-                          <div class="field">
-                            <label>Symbol*</label>
-                            <input type="text" name="symbol" required placeholder="XYZC">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-2">
-                        <div class="field"> 
-                          <label>Network/Chain	</label>
-                          <input type="text" name="network">
-                        </div>
-                      </div>
-                      <div class="col-2">
-                        <div class="field"> 
-                          <label>Project in presale phase?*</label>
-                          <label class="select">
-                            <select class="js-presale-select" name="phase" required>
-                              <option value="0">No </option>
-                              <option value="1">Yes</option>
-                            </select>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-2">
-                        <div class="field"> 
-                          <label>Project in Whitelist?*</label>
-                          <label class="select">
-                            <select class="js-whitelist-select" name="whitelist" required>
-                              <option value="0">No </option>
-                              <option value="1">Yes</option>
-                            </select>
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-2">
-                        <div class="field"> 
-                          <label>Audit passed?*</label>
-                          <label class="select">
-                            <select class="js-audit-select" name="audit" required>
-                              <option value="0">No </option>
-                              <option value="1">Yes</option>
-                            </select>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- if presale-->
-                    <div class="presale-block">
-                      <div class="row"> 
-                        <div class="col-6"> 
-                          <div class="field field_date">
-                            <label>Start time</label>
-                            <div class="field__wrapper">
-                              <input class="js-datepicker js-start-presale" type="text" name="start_time" data-timepicker="true">
+                          <div class="bot-element-row__col">
+                            <label class="radio"> 
+                              <input type="radio" name="type" value="percent" checked><span>On percent change</span>
+                            </label>
+                            <div class="fields-group">
+                              <div class="field js-slider-field" min="5" max="100" step="1">
+                                <label>From, percent</label>
+                                <div class="field__wrap">
+                                  <input type="number" name="percent" value="20">
+                                  <div class="field-after">%
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-6">
-                          <div class="field"> 
-                            <label>Presale link <i>(dxsale.app or unicrypt.network)</i></label>
-                            <input class="js-link-presale" type="text" name="link_presale">
-                          </div>
+                        <div class="bot-element-footer"> 
+                          <button class="button button_primary">Save changes
+                          </button>
                         </div>
+                      </form>
+                  </div>
+                </div>
+                <!-- item-->
+                <div class="bot-element"> 
+                  <div class="bot-element__top">
+                    <div class="bot-element__top-left">
+                      <h3 class="bot-element__title">Etherium <span>ETH</span>
+                      </h3>
+                      <div class="bot-element__icon"><img src="assets/images/currency/eth.svg" alt="">
                       </div>
                     </div>
-                    <!-- --->
-                    <!-- if whitelist-->
-                    <div class="whitelist-block">
-                      <div class="row"> 
-                        <div class="col-6"> 
-                          <div class="field field_date">
-                            <label>Finish time</label>
-                            <div class="field__wrapper">
-                              <input class="js-datepicker js-finish-whitelist" type="text" name="finish_time" data-timepicker="true">
+                    <div class="switch-button">
+                      <input type="checkbox" name="enabled"><span class="switch-button__wrapper"> <span></span></span>
+                    </div>
+                  </div>
+                  <div class="bot-element__block">
+                      <form>
+                        <input type="hidden" name="currency" value="eth">
+                        <div class="bot-element-row">
+                          <div class="bot-element-row__col">
+                            <label class="radio">
+                              <input type="radio" name="type" value="time"><span>On time notification</span>
+                            </label>
+                            <div class="field js-slider-field" min="1" max="23" step="1">
+                              <label>Every time, hours: </label>
+                              <div class="field__wrap">
+                                <input type="number" name="time" value="6">
+                                <div class="field-after">hours
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bot-element-row__col">
+                            <label class="radio"> 
+                              <input type="radio" name="type" value="percent" checked><span>On percent change</span>
+                            </label>
+                            <div class="fields-group">
+                              <div class="field js-slider-field" min="5" max="100" step="1">
+                                <label>From, percent</label>
+                                <div class="field__wrap">
+                                  <input type="number" name="percent" value="20">
+                                  <div class="field-after">%
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-6">
-                          <div class="field"> 
-                            <label>Whitelist link <i>(dxsale.app or unicrypt.network)</i></label>
-                            <input class="js-link-whitelist" type="text" name="link_whitelist">
-                          </div>
+                        <div class="bot-element-footer"> 
+                          <button class="button button_primary">Save changes
+                          </button>
                         </div>
-                      </div>
-                    </div>
-                    <!-- --->
-                    <!-- if audit-->
-                    <div class="audit-block">
-                      <div class="field"> 
-                        <label>Audit passed link <i>(dxsale.app or unicrypt.network)</i></label>
-                        <input class="js-link-audit" type="text" name="link_audit">
-                      </div>
-                    </div>
-                    <div class="field"> 
-                      <label>Contract Address*</label>
-                      <input type="text" name="address" required>
-                    </div>
-                    <div class="field"> 
-                      <label>Description*</label>
-                      <input type="text" name="description" required>
-                    </div>
-                    <div class="field"> 
-                      <label>Custom chart link (optional)</label>
-                      <input type="text" name="chart_link">
-                    </div>
-                    <div class="field"> 
-                      <label>Custom swap link (optional)</label>
-                      <input type="text" name="swap_link" required>
-                    </div>
-                    <div class="field"> 
-                      <label>Website link*</label>
-                      <input type="text" name="link" required>
-                    </div>
-                    <div class="field field_date">
-                      <label>Launch Date*</label>
-                      <div class="field__wrapper">
-                        <input class="js-datepicker" type="text" name="launch_date" required>
-                      </div>
-                    </div>
-                    <div class="field"> 
-                      <label>Telegram link*</label>
-                      <input type="text" name="telegram" required>
-                    </div>
-                    <div class="field"> 
-                      <label>Twitter link</label>
-                      <input type="text" name="twitter">
-                    </div>
-                    <div class="field"> 
-                      <label>Discord link</label>
-                      <input type="text" name="discord">
-                    </div>
-                    <div class="field">
-                      <label class="checkbox"> 
-                        <input type="checkbox" name="agree"><span>I agree to the Terms and Conditions*</span>
-                      </label>
-                    </div>
-                    <div class="add-currency__bottom">
-                      <button class="button button_primary">Submit coin
-                      </button>
-                    </div>
-                  </form>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Нет монет-->
+            <section>
+              <div class="container">
+                <div class="banner-coins-small" style="background-image:url(assets/images/banners/coin-small.png)">
+                  <div class="banner-coins-small__content">
+                    <h3 class="banner-coins-small__title">There are no coins. <span class="color-primary">Add now!</span>
+                    </h3>
+                  </div>
+                  <div class="banner-coins-small__buttons"> <a class="button button_primary" href="#">Add your coin now</a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!-- Бот не подключен-->
+            <section>
+              <div class="container">
+                <div class="banner-coins-small" style="background-image:url(assets/images/banners/bot.png)">
+                  <div class="banner-coins-small__content">
+                    <h3 class="banner-coins-small__title">Telegram bot <span class="color-primary">is not connected</span>
+                    </h3>
+                  </div>
+                  <div class="banner-coins-small__buttons"> <a class="button button_primary" href="#">Enable the bot</a>
+                  </div>
                 </div>
               </div>
             </section>
@@ -485,7 +442,7 @@
               <svg class="svg-icon">
                 <use href="assets/icons/sprite.svg#icon-004-account"></use>
               </svg><span>Account</span></a></li>
-          <li class=" is-active"><a href="profile-add-coin.html">
+          <li><a href="profile-add-coin.html">
               <svg class="svg-icon">
                 <use href="assets/icons/sprite.svg#icon-coin"></use>
               </svg><span>Add coin</span></a></li>
@@ -501,7 +458,7 @@
               <svg class="svg-icon">
                 <use href="assets/icons/sprite.svg#icon-banners"></use>
               </svg><span>My banners</span></a></li>
-          <li><a href="profile-bot.html">
+          <li class=" is-active"><a href="profile-bot.html">
               <svg class="svg-icon">
                 <use href="assets/icons/sprite.svg#icon-robot"></use>
               </svg><span>Telegram bot</span></a></li>
@@ -577,5 +534,6 @@
     <p> <strong class="color-primary">Telegram bot</strong></p></span></a>
     <script src="assets/js/vendors.js" defer></script>
     <script src="assets/js/app.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   </body>
 </html>

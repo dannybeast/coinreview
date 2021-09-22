@@ -25,6 +25,11 @@ if pageType === 'profile'
                 +icon('banners')
                 span My banners
 
+        li(class=( pageName === "bot" ? " is-active" : undefined))
+            a(href="profile-bot.html")
+                +icon('robot')
+                span Telegram bot
+                
         li(class=( pageName === "settings" ? " is-active" : undefined))
             a(href="profile-settings.html")
                 +icon('001-levels')

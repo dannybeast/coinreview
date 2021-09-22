@@ -27,6 +27,11 @@ import tabs from "./js/modules/tabs";
 import "./js/libs/datepicker";
 import "./js/modules/customSelect";
 import copy from "./js/modules/copy";
+import "./js/libs/datepicker";
+
+import "jquery-ui/ui/widgets/slider";
+import "jquery-ui-touch-punch";
+
 
 $(document).ready(function(){
 
@@ -384,9 +389,95 @@ $(document).ready(function(){
 
 
 
+  $('.switch-button').click(function(){
+    $(this).find('input').prop('checked', !$(this).find('input').prop('checked'))
+  })
+
+  $('.bot-element .switch-button').click(function(){
+    checkActiveBot($(this))
+  })
+  $('.bot-element .switch-button').each(function(){
+    checkActiveBot($(this))
+  })
+
+  function checkActiveBot(el){
+    let disabledClass = 'is-disabled'
+    let par = '.bot-element'
+    let active = el.find('input').prop('checked')
+
+    if(active){
+      el.parents(par).removeClass(disabledClass)
+    }else{
+      el.parents(par).addClass(disabledClass)
+    }
+  }
 
 
 
+
+  $('.js-slider-field').each(function(){
+
+   $(this).append('<div class="js-slider"></div>')
+
+    let slider = $(this).find('.js-slider')
+    let min = +$(this).attr('min')
+    let max = +$(this).attr('max')
+    let step = +$(this).attr('step')
+    let val = +$(this).find('input').val()
+    let that = $(this)
+
+    slider.slider({
+      range: false,
+      min: min,
+      max: max,
+      step:step,
+      value: val,
+      slide: function(event, ui) {
+        that.find('input').val(ui.value);
+      }
+    });
+
+    that.find('input').keyup(function(){
+      val = $(this).val()
+      slider.slider( "option",'value',val);
+    })
+
+  })
+
+
+  $('.bot-element input:radio').change( function(){
+    checkDisabledCol($(this));
+  })  
+  $('.bot-element input:radio').each( function(){
+    checkDisabledColEach($(this));
+  })
+
+
+
+  function checkDisabledCol(el){
+    let col = el.parents('.bot-element-row').find('.bot-element-row__col');
+
+    console.log(col);
+    let input = col.find('.field input')
+    col.addClass('is-disabled');
+    input.attr('disabled', true)
+
+    el.parents('.bot-element-row__col').removeClass('is-disabled')
+    el.parents('.bot-element-row__col').find('.field input').attr('disabled', false)
+  }
+
+
+  
+  function checkDisabledColEach(el){
+
+    if(el.is(':checked')){
+      el.parents('.bot-element-row__col').removeClass('is-disabled')
+      el.parents('.bot-element-row__col').find('.field input').attr('disabled', false)
+    }else{
+      el.parents('.bot-element-row__col').addClass('is-disabled')
+      el.parents('.bot-element-row__col').find('.field input').attr('disabled', true)
+    }
+  }
 
 
   hideLoader();

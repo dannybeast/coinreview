@@ -48,6 +48,7 @@ $field-border-radius: 0;
 }
 .field {
     $parent: &;
+
     & > label:not(.select):not(.button):not(.checkbox) {
         display: flex;
         align-items: center;
@@ -71,6 +72,16 @@ $field-border-radius: 0;
     .answer {
         margin-left: auto;
     }
+
+    .field-after {
+        padding: 0 15px;
+        font-size: 14px;
+        color: #afc3ef;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+    }
+
     input,
     textarea {
         @include inputBase();
@@ -92,6 +103,21 @@ $field-border-radius: 0;
     &__wrapper {
         position: relative;
         margin-bottom: 5px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__wrap {
+        position: relative;
+        margin-bottom: 5px;
+        display: flex;
+        @include inputBase();
+        input,
+        textarea {
+            background: transparent;
+            border: none;
+            padding-left: 0;
+        }
         &:last-child {
             margin-bottom: 0;
         }
@@ -178,6 +204,21 @@ $field-border-radius: 0;
                 pointer-events: none;
             }
         }
+    }
+}
+
+.js-slider-field {
+    position: relative;
+    .field__wrap {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .ui-slider {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin-top: -1px;
     }
 }
 

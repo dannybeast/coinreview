@@ -1,0 +1,111 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Telegram bot';
+  - var description = '';
+  - var pageName = 'bot';
+  - var pageType = 'profile';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        +b.breadcrumbs 
+          a(href="profile-account.html") Account 
+          span / 
+          span Telegram bot 
+
+    +b.SECTION
+      .container
+        +b.H1.title Telegram bot 
+
+
+        mixin bot(currency)
+            form
+                input(type="hidden" name="currency" value=currency)
+                +b.bot-element-row
+                    +e.col
+                        +b.LABEL.radio
+                            input(type="radio" name="type" value="time")
+                            span On time notification
+                        +b.field.js-slider-field(min="1" max="23" step="1")
+                            label Every time, hours: 
+                            +e.wrap
+                                input(type="number" name="time" value="6")
+                                +b.field-after hours
+
+                    +e.col
+                        +b.LABEL.radio 
+                            input(type="radio" name="type" value="percent" checked)
+                            span On percent change
+                        +b.fields-group
+                            +b.field.js-slider-field(min="5" max="100" step="1")
+                                label From, percent
+                                +e.wrap
+                                    input(type="number" name="percent" value="20")
+                                    +b.field-after %
+                            
+
+                +b.bot-element-footer 
+                    +b.BUTTON.button(class="_primary") Save changes
+
+        // item
+        +b.bot-element 
+            +e.top
+                +e.top-left
+                    +e.H3.title Bitcoin <span>BTC</span>
+                    +e.icon
+                        img(src="assets/images/currency/btc.svg", alt="")
+
+                +b.switch-button
+                    input(type="checkbox" name="enabled" checked)
+                    +e.SPAN.wrapper 
+                        span
+            +e.block
+                +bot('btc')
+
+        // item
+        +b.bot-element 
+            +e.top
+                +e.top-left
+                    +e.H3.title Etherium <span>ETH</span>
+                    +e.icon
+                        img(src="assets/images/currency/eth.svg", alt="")
+                
+                +b.switch-button
+                    input(type="checkbox" name="enabled")
+                    +e.SPAN.wrapper 
+                        span
+            +e.block
+                +bot('eth')
+
+
+    // Нет монет
+    +b.SECTION
+      .container
+
+          +b.banner-coins-small(style="background-image:url(assets/images/banners/coin-small.png)")
+            +e.content
+              +e.H3.title There are no coins. <span class="color-primary">Add now!</span>
+
+            +e.buttons 
+              +b.A(href="#" class="button _primary") Add your coin now
+    
+    // Бот не подключен
+    +b.SECTION
+      .container
+
+          +b.banner-coins-small(style="background-image:url(assets/images/banners/bot.png)")
+            +e.content
+              +e.H3.title Telegram bot <span class="color-primary">is not connected</span>
+
+            +e.buttons 
+              +b.A(href="#" class="button _primary") Enable the bot
+
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)
+  script(src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous")
