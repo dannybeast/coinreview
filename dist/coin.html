@@ -318,43 +318,72 @@
                                 <ul class="time-labels"> 
                                   <li>
                                     <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="1" checked><span>1D</span>
+                                      <input type="radio" name="chart-type" value="area" checked><span>
+                                        <svg class="svg-icon">
+                                          <use href="assets/icons/sprite.svg#icon-area"></use>
+                                        </svg></span>
                                     </label>
                                   </li>
                                   <li>
                                     <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="2"><span>7D</span>
-                                    </label>
-                                  </li>
-                                  <li>
-                                    <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="3"><span>1M</span>
-                                    </label>
-                                  </li>
-                                  <li>
-                                    <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="4"><span>3M</span>
-                                    </label>
-                                  </li>
-                                  <li>
-                                    <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="5"><span>1Y</span>
-                                    </label>
-                                  </li>
-                                  <li>
-                                    <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="6"><span>YTD </span>
-                                    </label>
-                                  </li>
-                                  <li>
-                                    <label class="radio-label"> 
-                                      <input type="radio" name="price-time-filter" value="7"><span>ALL</span>
+                                      <input type="radio" name="chart-type" value="candle"><span>
+                                        <svg class="svg-icon">
+                                          <use href="assets/icons/sprite.svg#icon-candle"></use>
+                                        </svg></span>
                                     </label>
                                   </li>
                                 </ul>
                               </div>
                               <div class="chart-candlestick"></div>
                               <div class="chart-bar"></div>
+                              <div class="chart-lightweight"> </div>
+                              <ul class="time-labels"> 
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="1m" checked><span>1m</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="5m"><span>5m</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="10m"><span>10m</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="15m"><span>15m</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="30m"><span>30m</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="1h"><span>1h</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="4h"><span>4h</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="12h"><span>12h</span>
+                                  </label>
+                                </li>
+                                <li>
+                                  <label class="radio-label"> 
+                                    <input type="radio" name="chart-range" value="24h"><span>24h</span>
+                                  </label>
+                                </li>
+                              </ul>
                               <div class="details-text">
                                 <h3 class="title">What Is Ethereum (ETH)?
                                 </h3>
@@ -1515,90 +1544,10 @@
     <script src="assets/js/vendors.js" defer></script>
     <script src="assets/js/app.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script><script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script><script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <script type="text/javascript">
       // Charts for table
-      var Charts = {
-          drawTableCharts: function() {
-          document.querySelectorAll('.chart').forEach(function(el){
-       
-                              var options = {
-                              series: [{
-                                  name: "Desktops",
-                                  data: el.dataset.array.split(',')
-                              }],
-                              chart: {
-                                  height:90,
-                                  animations:{
-                                      enabled: false,
-                                  },
-                                  type: 'line',
-                                  toolbar:{
-                                      show: false
-                                  },
-                                  zoom: {
-                                      enabled: false
-                                  }
-                              },
-                              stroke: {
-                                  show: true,
-                                  curve: 'straight',
-                                  colors: [el.dataset.color],
-                                  width: 2,  
-                              },
-                              grid:{
-                                  show: false,
-                                  xaxis: {
-                                      lines: {
-                                          show: false
-                                      }
-                                  },   
-                                  yaxis: {
-                                      lines: {
-                                          show: false
-                                      }
-                                  }, 
-                                  padding: {
-                                      top: 0,
-                                      right: 0,
-                                      bottom: 0,
-                                      left: 0
-                                  },  
-                              },
-      
-                              legend: {
-                                  show: false,
-                              },
-                              dataLabels: {
-                                  enabled: false
-                              },
-                              yaxis: {
-                                  show: false,
-                              },
-                              tooltip: {
-                                  enabled: false
-                              },
-                              xaxis: {  
-                                  axisBorder:{
-                                      show: false
-                                  },
-                                      axisTicks:{
-                                          show: false
-                                  },
-                                  labels:{
-                                      show: false
-                                  }
-                              },
-      
-      
-                              };
-      
-                              var chart = new ApexCharts(el, options);
-                              chart.render();
-                          })
-          },
-      }
-      
       $(document).ready( function () {
           
           // Datatables
@@ -1625,214 +1574,2219 @@
               Charts.drawTableCharts()
           });
          
+      
+          let selectedType = $('[name="chart-type"]:checked').val();
+      
+          const detailsChart = LightweightCharts.createChart(document.querySelector('.chart-lightweight'), { 
+              height: 450,
+              timeScale: {
+                  timeVisible: true,
+                  secondsVisible: false,
+              }, 
+              
+              });
+          const series = detailsChart.addAreaSeries({	
+              topColor: 'rgba(72, 124, 235, 0.4)',	
+              bottomColor: 'rgba(0, 120, 255, 0.0)',
+              lineColor: 'rgba(72, 124, 235, 1.0)',
+              lineWidth: 2,
+              priceFormat: {
+                  precision: 5,
+              },
+          });
           
       
-          // Chart 
-          var options = {
-              series: [{
-              name: 'Ethereum to USD',
-              data: [10, 41, 35, 51, 49, 62, 69, 70, 40,10, 41, 35, 51, 49, 62, 69, 91, 70,10, 41, 35, 51, 49, 62, 69, 91, 148]
-          }],
-              chart: {
-              type: 'area',
-              stacked: false,
-              height: 280,
-              toolbar:{
-                  show: false
-                  },
-                  zoom: {
-                  enabled: false
-                  }
-          },
-          dataLabels: {
-              enabled: false
-          },
-          markers: {
-              size: 0,
-          },
-          yaxis: {
-              show: false,
-                  },
-                  xaxis: {  
-                      axisBorder:{
-                          show: false
-              },
-                  axisTicks:{
-                      show: false
-              },
-              labels:{
-                  show: false
-              }
-                  },
-          fill: {
-              type: 'gradient',
-              gradient: {
-                  shadeIntensity: 1,
-                  inverseColors: false,
-                  opacityFrom: 0.5,
-                  opacityTo: 0,
-                  stops: [0, 90, 100]
-              },
-          },
-          responsive: [{
-              breakpoint: 768,
-              options: {
-                  chart:{
-                      height: 250
-                  }
-              },
-              }],
+          const candleSeries = detailsChart.addCandlestickSeries();
       
-          };
-      
-          var chart = new ApexCharts(document.querySelector(".chart-module__chart"), options);
-          chart.render();
+          let areaData = []
+          let candleData = []
       
       
-          // Chart candle
-          var seriesData = []
-          var optionsCandle = {
-              series: [{
-              data: seriesData
-              }],
-              chart: {
-                  redrawOnParentResize: false,
-                      redrawOnWindowResize: false,
-                  type: 'candlestick',
-                  height: 360,
-                  id: 'candles',
+          function setData(result){
+              Object.values(result.data).forEach((el)=>{
+                  areaData.push({
+                      time: el.time,
+                      value: +el.price
+                  })
       
-                  toolbar: {
-                      autoSelected: 'pan',
-                      show: false
-                  },
-                  zoom: {
-                      enabled: false
-                  },
-          },
-      
-          plotOptions: {
-              candlestick: {
-                  colors: {
-                      upward: '#00b746',
-                      downward: '#ef403c'
-                  }
-              }
-          },
-      
-          xaxis: {
-              type: 'datetime',
-              labels:{
-                  show: false
-              }
-          },
-      
-              responsive: [{
-                  breakpoint: 768,
-                  options: {
-                      chart:{
-                          height: 250
-                      }
-                  },
-              }],
-          };
-      
-          var chartCandle = new ApexCharts(document.querySelector(".chart-candlestick"), optionsCandle);
-          chartCandle.render();
-      
-      
-      
-          window.setInterval(function() {
-      
-              let min = new Date().getSeconds()*10
-              seriesData.push({
-                  x: new Date(),
-                  y: [6593.99+min, 6598.89+min, 6585+min, 6587.81+min]
+                  candleData.push({ 
+                      time: el.time, 
+                      open: +el.open, 
+                      high: +el.high, 
+                      low: +el.low, 
+                      close: +el.close 
+                  })
+                  
               })
       
-              chartCandle.updateSeries([{
-                  data: seriesData
-              }])
+              console.log(areaData)
       
-          },1000)
+              console.log(candleData)
       
-          //-
+              if(selectedType === 'area'){
+                  series.setData(areaData);
+              }else if(selectedType === 'candle'){
+                 candleSeries.setData(candleData);
+              }
+          }
       
+          setTimeout(() => {
       
-          var optionsBar = {
-              series: [{
-              name: 'volume',
-              data: seriesData
-          }],
-              chart: {
-                  height: 130,
-                  type: 'area',
-                  toolbar: {
-                      autoSelected: 'selection',
-                  },
-              brush: {
-                  enabled: true,
-                  target: 'candles',
-                      autoScaleYaxis: false
-              },
-              selection: {
-                  enabled: true,
-                  xaxis: {
-                      min: new Date('13 Jan 2021').getTime(),
-                      max: new Date('20 Jan 2021').getTime()
-                  },
-                  fill: {
-                      color: '#d8e5ff',
-                      opacity: 0.4
-                  },
-                  stroke: {
-                      color: '#0D47A1',
+              let result = {
+                  "data": {
+               
+                      "1632386460": {
+                          "id": 149499,
+                          "time": 1632386460,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1538626605",
+                          "close": "0.1538626605",
+                          "high": "0.1538626605",
+                          "low": "0.1538626605",
+                          "price": "0.1538626605"
+                      },
+                      "1632386520": {
+                          "id": 149543,
+                          "time": 1632386520,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1534909448",
+                          "close": "0.1534909448",
+                          "high": "0.1534909448",
+                          "low": "0.1534909448",
+                          "price": "0.1534909448"
+                      },
+                      "1632386580": {
+                          "id": 149583,
+                          "time": 1632386580,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1534849370",
+                          "close": "0.1534849370",
+                          "high": "0.1534849370",
+                          "low": "0.1532890612",
+                          "price": "0.1532890612"
+                      },
+                      "1632386640": {
+                          "id": 149680,
+                          "time": 1632386640,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1534967225",
+                          "close": "0.1534967225",
+                          "high": "0.1534967225",
+                          "low": "0.1534967225",
+                          "price": "0.1534967225"
+                      },
+                      "1632386700": {
+                          "id": 149761,
+                          "time": 1632386700,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1535165582",
+                          "close": "0.1535165582",
+                          "high": "0.1535165582",
+                          "low": "0.1535165582",
+                          "price": "0.1535165582"
+                      },
+                      "1632386760": {
+                          "id": 149836,
+                          "time": 1632386760,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1535032841",
+                          "close": "0.1535032841",
+                          "high": "0.1535032841",
+                          "low": "0.1535032841",
+                          "price": "0.1535032841"
+                      },
+                      "1632386820": {
+                          "id": 149904,
+                          "time": 1632386820,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1536591488",
+                          "close": "0.1536591488",
+                          "high": "0.1536591488",
+                          "low": "0.1536591488",
+                          "price": "0.1536591488"
+                      },
+                      "1632386880": {
+                          "id": 149974,
+                          "time": 1632386880,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1536257516",
+                          "close": "0.1536257516",
+                          "high": "0.1536257516",
+                          "low": "0.1536257516",
+                          "price": "0.1536257516"
+                      },
+                      "1632387000": {
+                          "id": 150050,
+                          "time": 1632387000,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1537599496",
+                          "close": "0.1537599496",
+                          "high": "0.1537599496",
+                          "low": "0.1537599496",
+                          "price": "0.1537599496"
+                      },
+                      "1632387060": {
+                          "id": 150132,
+                          "time": 1632387060,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1539528465",
+                          "close": "0.1539528465",
+                          "high": "0.1539528465",
+                          "low": "0.1539528465",
+                          "price": "0.1539528465"
+                      },
+                      "1632387120": {
+                          "id": 150189,
+                          "time": 1632387120,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1538543653",
+                          "close": "0.1538543653",
+                          "high": "0.1538543653",
+                          "low": "0.1538543653",
+                          "price": "0.1538543653"
+                      },
+                      "1632387180": {
+                          "id": 150267,
+                          "time": 1632387180,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1534717787",
+                          "close": "0.1534717787",
+                          "high": "0.1534717787",
+                          "low": "0.1534656996",
+                          "price": "0.1534656996"
+                      },
+                      "1632387240": {
+                          "id": 150393,
+                          "time": 1632387240,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1535068578",
+                          "close": "0.1535068578",
+                          "high": "0.1535068578",
+                          "low": "0.1535068578",
+                          "price": "0.1535068578"
+                      },
+                      "1632387300": {
+                          "id": 150465,
+                          "time": 1632387300,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1534756297",
+                          "close": "0.1534756297",
+                          "high": "0.1534756297",
+                          "low": "0.1534756297",
+                          "price": "0.1534756297"
+                      },
+                      "1632387360": {
+                          "id": 150535,
+                          "time": 1632387360,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1538686830",
+                          "close": "0.1538686830",
+                          "high": "0.1538686830",
+                          "low": "0.1538686830",
+                          "price": "0.1538686830"
+                      },
+                      "1632387420": {
+                          "id": 150597,
+                          "time": 1632387420,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1538842955",
+                          "close": "0.1538842955",
+                          "high": "0.1538842955",
+                          "low": "0.1538718991",
+                          "price": "0.1538718991"
+                      },
+                      "1632387480": {
+                          "id": 150735,
+                          "time": 1632387480,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1538678186",
+                          "close": "0.1538678186",
+                          "high": "0.1538678186",
+                          "low": "0.1538678186",
+                          "price": "0.1538678186"
+                      },
+                      "1632387540": {
+                          "id": 150783,
+                          "time": 1632387540,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1539281704",
+                          "close": "0.1539281704",
+                          "high": "0.1539281704",
+                          "low": "0.1538945787",
+                          "price": "0.1538945787"
+                      },
+                      "1632387600": {
+                          "id": 150957,
+                          "time": 1632387600,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1538668608",
+                          "close": "0.1538668608",
+                          "high": "0.1538668608",
+                          "low": "0.1538058449",
+                          "price": "0.1538058449"
+                      },
+                      "1632387660": {
+                          "id": 151129,
+                          "time": 1632387660,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1537922981",
+                          "close": "0.1537922981",
+                          "high": "0.1537922981",
+                          "low": "0.1537922981",
+                          "price": "0.1537922981"
+                      },
+                      "1632387720": {
+                          "id": 151202,
+                          "time": 1632387720,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1537184311",
+                          "close": "0.1537184311",
+                          "high": "0.1542303435",
+                          "low": "0.1537184311",
+                          "price": "0.1542303435"
+                      },
+                      "1632387780": {
+                          "id": 151313,
+                          "time": 1632387780,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1435348782",
+                          "close": "0.1435348782",
+                          "high": "0.1435348782",
+                          "low": "0.1435348782",
+                          "price": "0.1435348782"
+                      },
+                      "1632387840": {
+                          "id": 151383,
+                          "time": 1632387840,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1437187665",
+                          "close": "0.1437187665",
+                          "high": "0.1465103922",
+                          "low": "0.1437187665",
+                          "price": "0.1465103922"
+                      },
+                      "1632387960": {
+                          "id": 151646,
+                          "time": 1632387960,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484049618",
+                          "close": "0.1484049618",
+                          "high": "0.1484049618",
+                          "low": "0.1484049618",
+                          "price": "0.1484049618"
+                      },
+                      "1632388020": {
+                          "id": 151717,
+                          "time": 1632388020,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1486025737",
+                          "close": "0.1486025737",
+                          "high": "0.1486025737",
+                          "low": "0.1486025737",
+                          "price": "0.1486025737"
+                      },
+                      "1632388080": {
+                          "id": 151798,
+                          "time": 1632388080,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1485750302",
+                          "close": "0.1485750302",
+                          "high": "0.1485750302",
+                          "low": "0.1482253085",
+                          "price": "0.1482253085"
+                      },
+                      "1632388140": {
+                          "id": 151901,
+                          "time": 1632388140,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1470452974",
+                          "close": "0.1470452974",
+                          "high": "0.1479015874",
+                          "low": "0.1470452974",
+                          "price": "0.1479015874"
+                      },
+                      "1632388200": {
+                          "id": 152055,
+                          "time": 1632388200,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1478876323",
+                          "close": "0.1478876323",
+                          "high": "0.1478876323",
+                          "low": "0.1474918162",
+                          "price": "0.1474918162"
+                      },
+                      "1632388260": {
+                          "id": 152170,
+                          "time": 1632388260,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1481564725",
+                          "close": "0.1481564725",
+                          "high": "0.1481564725",
+                          "low": "0.1481564725",
+                          "price": "0.1481564725"
+                      },
+                      "1632388320": {
+                          "id": 152244,
+                          "time": 1632388320,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1473810304",
+                          "close": "0.1473810304",
+                          "high": "0.1473810304",
+                          "low": "0.1473810304",
+                          "price": "0.1473810304"
+                      },
+                      "1632388380": {
+                          "id": 152287,
+                          "time": 1632388380,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1473715403",
+                          "close": "0.1473715403",
+                          "high": "0.1476158088",
+                          "low": "0.1473715403",
+                          "price": "0.1476158088"
+                      },
+                      "1632388440": {
+                          "id": 152445,
+                          "time": 1632388440,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1476443549",
+                          "close": "0.1476443549",
+                          "high": "0.1476443549",
+                          "low": "0.1476443549",
+                          "price": "0.1476443549"
+                      },
+                      "1632388500": {
+                          "id": 152482,
+                          "time": 1632388500,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1476046019",
+                          "close": "0.1476046019",
+                          "high": "0.1476053474",
+                          "low": "0.1476046019",
+                          "price": "0.1476053474"
+                      },
+                      "1632388560": {
+                          "id": 152585,
+                          "time": 1632388560,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1478933938",
+                          "close": "0.1478933938",
+                          "high": "0.1479023436",
+                          "low": "0.1478933938",
+                          "price": "0.1479023436"
+                      },
+                      "1632388620": {
+                          "id": 152653,
+                          "time": 1632388620,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1478548595",
+                          "close": "0.1478548595",
+                          "high": "0.1478548595",
+                          "low": "0.1478548595",
+                          "price": "0.1478548595"
+                      },
+                      "1632388680": {
+                          "id": 152698,
+                          "time": 1632388680,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1478518827",
+                          "close": "0.1478518827",
+                          "high": "0.1478726562",
+                          "low": "0.1478518827",
+                          "price": "0.1478726562"
+                      },
+                      "1632388740": {
+                          "id": 152762,
+                          "time": 1632388740,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1478807675",
+                          "close": "0.1478807675",
+                          "high": "0.1479662678",
+                          "low": "0.1478807675",
+                          "price": "0.1479662678"
+                      },
+                      "1632388800": {
+                          "id": 152857,
+                          "time": 1632388800,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1480627247",
+                          "close": "0.1480627247",
+                          "high": "0.1481094536",
+                          "low": "0.1480627247",
+                          "price": "0.1481094536"
+                      },
+                      "1632388860": {
+                          "id": 152936,
+                          "time": 1632388860,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1432685167",
+                          "close": "0.1432685167",
+                          "high": "0.1432685167",
+                          "low": "0.1432685167",
+                          "price": "0.1432685167"
+                      },
+                      "1632388920": {
+                          "id": 152976,
+                          "time": 1632388920,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1432535650",
+                          "close": "0.1432535650",
+                          "high": "0.1432535650",
+                          "low": "0.1432535650",
+                          "price": "0.1432535650"
+                      },
+                      "1632388980": {
+                          "id": 153008,
+                          "time": 1632388980,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1432103533",
+                          "close": "0.1432103533",
+                          "high": "0.1432103533",
+                          "low": "0.1416841920",
+                          "price": "0.1416841920"
+                      },
+                      "1632389040": {
+                          "id": 153086,
+                          "time": 1632389040,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1416020628",
+                          "close": "0.1416020628",
+                          "high": "0.1416597226",
+                          "low": "0.1416020628",
+                          "price": "0.1416597226"
+                      },
+                      "1632389100": {
+                          "id": 153169,
+                          "time": 1632389100,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1416251381",
+                          "close": "0.1416251381",
+                          "high": "0.1423911787",
+                          "low": "0.1416251381",
+                          "price": "0.1423911787"
+                      },
+                      "1632389160": {
+                          "id": 153251,
+                          "time": 1632389160,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1426929996",
+                          "close": "0.1426929996",
+                          "high": "0.1426929996",
+                          "low": "0.1426929996",
+                          "price": "0.1426929996"
+                      },
+                      "1632389220": {
+                          "id": 153288,
+                          "time": 1632389220,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1428353176",
+                          "close": "0.1428353176",
+                          "high": "0.1428353176",
+                          "low": "0.1428353176",
+                          "price": "0.1428353176"
+                      },
+                      "1632389280": {
+                          "id": 153330,
+                          "time": 1632389280,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1433169256",
+                          "close": "0.1433169256",
+                          "high": "0.1437632407",
+                          "low": "0.1433169256",
+                          "price": "0.1437632407"
+                      },
+                      "1632389340": {
+                          "id": 153394,
+                          "time": 1632389340,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1438520906",
+                          "close": "0.1438520906",
+                          "high": "0.1440459814",
+                          "low": "0.1438520906",
+                          "price": "0.1440459814"
+                      },
+                      "1632389400": {
+                          "id": 153497,
+                          "time": 1632389400,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1440364350",
+                          "close": "0.1440364350",
+                          "high": "0.1440621091",
+                          "low": "0.1440364350",
+                          "price": "0.1440621091"
+                      },
+                      "1632389460": {
+                          "id": 153608,
+                          "time": 1632389460,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1447531370",
+                          "close": "0.1447531370",
+                          "high": "0.1447531370",
+                          "low": "0.1447531370",
+                          "price": "0.1447531370"
+                      },
+                      "1632389520": {
+                          "id": 153649,
+                          "time": 1632389520,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1445848920",
+                          "close": "0.1445848920",
+                          "high": "0.1445848920",
+                          "low": "0.1445848920",
+                          "price": "0.1445848920"
+                      },
+                      "1632389580": {
+                          "id": 153688,
+                          "time": 1632389580,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1467354070",
+                          "close": "0.1467354070",
+                          "high": "0.1467354070",
+                          "low": "0.1467298415",
+                          "price": "0.1467298415"
+                      },
+                      "1632389640": {
+                          "id": 153768,
+                          "time": 1632389640,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1471006981",
+                          "close": "0.1471006981",
+                          "high": "0.1471006981",
+                          "low": "0.1471006981",
+                          "price": "0.1471006981"
+                      },
+                      "1632389700": {
+                          "id": 153801,
+                          "time": 1632389700,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1468771515",
+                          "close": "0.1468771515",
+                          "high": "0.1468771515",
+                          "low": "0.1467137421",
+                          "price": "0.1467137421"
+                      },
+                      "1632389760": {
+                          "id": 153901,
+                          "time": 1632389760,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1469570979",
+                          "close": "0.1469570979",
+                          "high": "0.1469570979",
+                          "low": "0.1469570979",
+                          "price": "0.1469570979"
+                      },
+                      "1632389820": {
+                          "id": 153932,
+                          "time": 1632389820,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1447826347",
+                          "close": "0.1447826347",
+                          "high": "0.1455741968",
+                          "low": "0.1447826347",
+                          "price": "0.1455741968"
+                      },
+                      "1632389880": {
+                          "id": 154012,
+                          "time": 1632389880,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1455649790",
+                          "close": "0.1455649790",
+                          "high": "0.1455649790",
+                          "low": "0.1455649790",
+                          "price": "0.1455649790"
+                      },
+                      "1632389940": {
+                          "id": 154051,
+                          "time": 1632389940,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1454730370",
+                          "close": "0.1454730370",
+                          "high": "0.1454781411",
+                          "low": "0.1454730370",
+                          "price": "0.1454781411"
+                      },
+                      "1632390000": {
+                          "id": 154146,
+                          "time": 1632390000,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1454850863",
+                          "close": "0.1454850863",
+                          "high": "0.1460061980",
+                          "low": "0.1454850863",
+                          "price": "0.1460061980"
+                      },
+                      "1632390060": {
+                          "id": 154225,
+                          "time": 1632390060,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1460023401",
+                          "close": "0.1460023401",
+                          "high": "0.1460023401",
+                          "low": "0.1460023401",
+                          "price": "0.1460023401"
+                      },
+                      "1632390120": {
+                          "id": 154266,
+                          "time": 1632390120,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1460156108",
+                          "close": "0.1460156108",
+                          "high": "0.1460156108",
+                          "low": "0.1460156108",
+                          "price": "0.1460156108"
+                      },
+                      "1632390180": {
+                          "id": 154301,
+                          "time": 1632390180,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1471399416",
+                          "close": "0.1471399416",
+                          "high": "0.1471399416",
+                          "low": "0.1463241293",
+                          "price": "0.1463241293"
+                      },
+                      "1632390240": {
+                          "id": 154385,
+                          "time": 1632390240,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1463738094",
+                          "close": "0.1463738094",
+                          "high": "0.1463738094",
+                          "low": "0.1463738094",
+                          "price": "0.1463738094"
+                      },
+                      "1632390300": {
+                          "id": 154428,
+                          "time": 1632390300,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1463770010",
+                          "close": "0.1463770010",
+                          "high": "0.1463770010",
+                          "low": "0.1463770010",
+                          "price": "0.1463770010"
+                      },
+                      "1632390360": {
+                          "id": 154485,
+                          "time": 1632390360,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1463422377",
+                          "close": "0.1463422377",
+                          "high": "0.1476822698",
+                          "low": "0.1463422377",
+                          "price": "0.1476822698"
+                      },
+                      "1632390420": {
+                          "id": 154563,
+                          "time": 1632390420,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1476832084",
+                          "close": "0.1476832084",
+                          "high": "0.1476832084",
+                          "low": "0.1476832084",
+                          "price": "0.1476832084"
+                      },
+                      "1632390480": {
+                          "id": 154611,
+                          "time": 1632390480,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1467323991",
+                          "close": "0.1467323991",
+                          "high": "0.1473646375",
+                          "low": "0.1467323991",
+                          "price": "0.1473646375"
+                      },
+                      "1632390540": {
+                          "id": 154686,
+                          "time": 1632390540,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1474010082",
+                          "close": "0.1474010082",
+                          "high": "0.1474010082",
+                          "low": "0.1474010082",
+                          "price": "0.1474010082"
+                      },
+                      "1632390600": {
+                          "id": 154722,
+                          "time": 1632390600,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1473886328",
+                          "close": "0.1473886328",
+                          "high": "0.1473886328",
+                          "low": "0.1473825466",
+                          "price": "0.1473825466"
+                      },
+                      "1632390660": {
+                          "id": 154825,
+                          "time": 1632390660,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484875402",
+                          "close": "0.1484875402",
+                          "high": "0.1484875402",
+                          "low": "0.1484875402",
+                          "price": "0.1484875402"
+                      },
+                      "1632390720": {
+                          "id": 154856,
+                          "time": 1632390720,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1481029643",
+                          "close": "0.1481029643",
+                          "high": "0.1489347058",
+                          "low": "0.1481029643",
+                          "price": "0.1489347058"
+                      },
+                      "1632390780": {
+                          "id": 154944,
+                          "time": 1632390780,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1490822462",
+                          "close": "0.1490822462",
+                          "high": "0.1490822462",
+                          "low": "0.1490822462",
+                          "price": "0.1490822462"
+                      },
+                      "1632390840": {
+                          "id": 154983,
+                          "time": 1632390840,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1488872801",
+                          "close": "0.1488872801",
+                          "high": "0.1488872801",
+                          "low": "0.1488872801",
+                          "price": "0.1488872801"
+                      },
+                      "1632390900": {
+                          "id": 155022,
+                          "time": 1632390900,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1489647696",
+                          "close": "0.1489647696",
+                          "high": "0.1489647696",
+                          "low": "0.1489647696",
+                          "price": "0.1489647696"
+                      },
+                      "1632390960": {
+                          "id": 155076,
+                          "time": 1632390960,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1489387620",
+                          "close": "0.1489387620",
+                          "high": "0.1490271810",
+                          "low": "0.1489387620",
+                          "price": "0.1490271810"
+                      },
+                      "1632391020": {
+                          "id": 155143,
+                          "time": 1632391020,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1488161204",
+                          "close": "0.1488161204",
+                          "high": "0.1488161204",
+                          "low": "0.1488161204",
+                          "price": "0.1488161204"
+                      },
+                      "1632391080": {
+                          "id": 155186,
+                          "time": 1632391080,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1485378935",
+                          "close": "0.1485378935",
+                          "high": "0.1495555062",
+                          "low": "0.1485378935",
+                          "price": "0.1495555062"
+                      },
+                      "1632391140": {
+                          "id": 155256,
+                          "time": 1632391140,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1489068522",
+                          "close": "0.1489068522",
+                          "high": "0.1489068522",
+                          "low": "0.1489068522",
+                          "price": "0.1489068522"
+                      },
+                      "1632391200": {
+                          "id": 155336,
+                          "time": 1632391200,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1489644324",
+                          "close": "0.1489644324",
+                          "high": "0.1489707780",
+                          "low": "0.1489644324",
+                          "price": "0.1489707780"
+                      },
+                      "1632391260": {
+                          "id": 155433,
+                          "time": 1632391260,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1489792387",
+                          "close": "0.1489792387",
+                          "high": "0.1489792387",
+                          "low": "0.1489792387",
+                          "price": "0.1489792387"
+                      },
+                      "1632391320": {
+                          "id": 155472,
+                          "time": 1632391320,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1485113249",
+                          "close": "0.1485113249",
+                          "high": "0.1485113249",
+                          "low": "0.1481873409",
+                          "price": "0.1481873409"
+                      },
+                      "1632391380": {
+                          "id": 155525,
+                          "time": 1632391380,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1482518591",
+                          "close": "0.1482518591",
+                          "high": "0.1482518591",
+                          "low": "0.1482504289",
+                          "price": "0.1482504289"
+                      },
+                      "1632391440": {
+                          "id": 155621,
+                          "time": 1632391440,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484168721",
+                          "close": "0.1484168721",
+                          "high": "0.1484168721",
+                          "low": "0.1484168721",
+                          "price": "0.1484168721"
+                      },
+                      "1632391500": {
+                          "id": 155645,
+                          "time": 1632391500,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484251223",
+                          "close": "0.1484251223",
+                          "high": "0.1484251223",
+                          "low": "0.1484251223",
+                          "price": "0.1484251223"
+                      },
+                      "1632391560": {
+                          "id": 155700,
+                          "time": 1632391560,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1485244471",
+                          "close": "0.1485244471",
+                          "high": "0.1485585421",
+                          "low": "0.1485244471",
+                          "price": "0.1485585421"
+                      },
+                      "1632391620": {
+                          "id": 155782,
+                          "time": 1632391620,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1482459052",
+                          "close": "0.1482459052",
+                          "high": "0.1482459052",
+                          "low": "0.1482459052",
+                          "price": "0.1482459052"
+                      },
+                      "1632391680": {
+                          "id": 155826,
+                          "time": 1632391680,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1483671801",
+                          "close": "0.1483671801",
+                          "high": "0.1483671801",
+                          "low": "0.1483671801",
+                          "price": "0.1483671801"
+                      },
+                      "1632391740": {
+                          "id": 155868,
+                          "time": 1632391740,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484068906",
+                          "close": "0.1484068906",
+                          "high": "0.1484068906",
+                          "low": "0.1484029085",
+                          "price": "0.1484029085"
+                      },
+                      "1632391800": {
+                          "id": 155963,
+                          "time": 1632391800,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484015494",
+                          "close": "0.1484015494",
+                          "high": "0.1484015494",
+                          "low": "0.1484015494",
+                          "price": "0.1484015494"
+                      },
+                      "1632391860": {
+                          "id": 156007,
+                          "time": 1632391860,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1484523992",
+                          "close": "0.1484523992",
+                          "high": "0.1484523992",
+                          "low": "0.1483566988",
+                          "price": "0.1483566988"
+                      },
+                      "1632391920": {
+                          "id": 156079,
+                          "time": 1632391920,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1483594501",
+                          "close": "0.1483594501",
+                          "high": "0.1483594501",
+                          "low": "0.1478612981",
+                          "price": "0.1478612981"
+                      },
+                      "1632391980": {
+                          "id": 156156,
+                          "time": 1632391980,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1480067489",
+                          "close": "0.1480067489",
+                          "high": "0.1480067489",
+                          "low": "0.1480067489",
+                          "price": "0.1480067489"
+                      },
+                      "1632392040": {
+                          "id": 156187,
+                          "time": 1632392040,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1479174996",
+                          "close": "0.1479174996",
+                          "high": "0.1479174996",
+                          "low": "0.1477283455",
+                          "price": "0.1477283455"
+                      },
+                      "1632392100": {
+                          "id": 156278,
+                          "time": 1632392100,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1475118509",
+                          "close": "0.1475118509",
+                          "high": "0.1475118509",
+                          "low": "0.1464610653",
+                          "price": "0.1464610653"
+                      },
+                      "1632392160": {
+                          "id": 156358,
+                          "time": 1632392160,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1461266164",
+                          "close": "0.1461266164",
+                          "high": "0.1461266164",
+                          "low": "0.1461266164",
+                          "price": "0.1461266164"
+                      },
+                      "1632392220": {
+                          "id": 156405,
+                          "time": 1632392220,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1461181418",
+                          "close": "0.1461181418",
+                          "high": "0.1461181418",
+                          "low": "0.1461181418",
+                          "price": "0.1461181418"
+                      },
+                      "1632392280": {
+                          "id": 156431,
+                          "time": 1632392280,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1463364467",
+                          "close": "0.1463364467",
+                          "high": "0.1463364467",
+                          "low": "0.1463364467",
+                          "price": "0.1463364467"
+                      },
+                      "1632392340": {
+                          "id": 156475,
+                          "time": 1632392340,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1464377350",
+                          "close": "0.1464377350",
+                          "high": "0.1464413208",
+                          "low": "0.1464377350",
+                          "price": "0.1464413208"
+                      },
+                      "1632392400": {
+                          "id": 156565,
+                          "time": 1632392400,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1462987707",
+                          "close": "0.1462987707",
+                          "high": "0.1462987707",
+                          "low": "0.1462987707",
+                          "price": "0.1462987707"
+                      },
+                      "1632392460": {
+                          "id": 156612,
+                          "time": 1632392460,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1462983375",
+                          "close": "0.1462983375",
+                          "high": "0.1463005657",
+                          "low": "0.1462983375",
+                          "price": "0.1463005657"
+                      },
+                      "1632392520": {
+                          "id": 156691,
+                          "time": 1632392520,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1461754685",
+                          "close": "0.1461754685",
+                          "high": "0.1465821655",
+                          "low": "0.1461754685",
+                          "price": "0.1465821655"
+                      },
+                      "1632392580": {
+                          "id": 156760,
+                          "time": 1632392580,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1464596248",
+                          "close": "0.1464596248",
+                          "high": "0.1464596248",
+                          "low": "0.1464596248",
+                          "price": "0.1464596248"
+                      },
+                      "1632392640": {
+                          "id": 156846,
+                          "time": 1632392640,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1463103082",
+                          "close": "0.1463103082",
+                          "high": "0.1463103082",
+                          "low": "0.1439595335",
+                          "price": "0.1439595335"
+                      },
+                      "1632392700": {
+                          "id": 156983,
+                          "time": 1632392700,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1438627513",
+                          "close": "0.1438627513",
+                          "high": "0.1438627513",
+                          "low": "0.1437979130",
+                          "price": "0.1437979130"
+                      },
+                      "1632392760": {
+                          "id": 157117,
+                          "time": 1632392760,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1431549963",
+                          "close": "0.1431549963",
+                          "high": "0.1431549963",
+                          "low": "0.1431549963",
+                          "price": "0.1431549963"
+                      },
+                      "1632392820": {
+                          "id": 157184,
+                          "time": 1632392820,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1433400083",
+                          "close": "0.1433400083",
+                          "high": "0.1433400083",
+                          "low": "0.1433400083",
+                          "price": "0.1433400083"
+                      },
+                      "1632392880": {
+                          "id": 157246,
+                          "time": 1632392880,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1433024201",
+                          "close": "0.1433024201",
+                          "high": "0.1433024201",
+                          "low": "0.1432662466",
+                          "price": "0.1432662466"
+                      },
+                      "1632392940": {
+                          "id": 208161,
+                          "time": 1632392940,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1432631046",
+                          "close": "0.1432631046",
+                          "high": "0.1430120521",
+                          "low": "0.1430089848",
+                          "price": "0.1430120521"
+                      },
+                      "1632393000": {
+                          "id": 208401,
+                          "time": 1632393000,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1430136154",
+                          "close": "0.1430136154",
+                          "high": "0.1414483282",
+                          "low": "0.1414406536",
+                          "price": "0.1414406536"
+                      },
+                      "1632393060": {
+                          "id": 208687,
+                          "time": 1632393060,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1415931084",
+                          "close": "0.1415931084",
+                          "high": "0.1410764973",
+                          "low": "0.1410319992",
+                          "price": "0.1410764973"
+                      },
+                      "1632393120": {
+                          "id": 208925,
+                          "time": 1632393120,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1412072388",
+                          "close": "0.1412072388",
+                          "high": "0.1418868616",
+                          "low": "0.1418777133",
+                          "price": "0.1418777133"
+                      },
+                      "1632393180": {
+                          "id": 209204,
+                          "time": 1632393180,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1418834474",
+                          "close": "0.1418834474",
+                          "high": "0.1422390655",
+                          "low": "0.1422389733",
+                          "price": "0.1422390655"
+                      },
+                      "1632393240": {
+                          "id": 209433,
+                          "time": 1632393240,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1425357797",
+                          "close": "0.1425357797",
+                          "high": "0.1424333073",
+                          "low": "0.1423634420",
+                          "price": "0.1423634420"
+                      },
+                      "1632393300": {
+                          "id": 209671,
+                          "time": 1632393300,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1428294844",
+                          "close": "0.1428294844",
+                          "high": "0.1413841167",
+                          "low": "0.1413822076",
+                          "price": "0.1413822076"
+                      },
+                      "1632393360": {
+                          "id": 209907,
+                          "time": 1632393360,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1421579603",
+                          "close": "0.1421579603",
+                          "high": "0.1422050399",
+                          "low": "0.1422048685",
+                          "price": "0.1422050399"
+                      },
+                      "1632393420": {
+                          "id": 210140,
+                          "time": 1632393420,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1421946046",
+                          "close": "0.1421946046",
+                          "high": "0.1422778944",
+                          "low": "0.1422657111",
+                          "price": "0.1422778944"
+                      },
+                      "1632393480": {
+                          "id": 210411,
+                          "time": 1632393480,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1422781489",
+                          "close": "0.1422781489",
+                          "high": "0.1415853287",
+                          "low": "0.1415847083",
+                          "price": "0.1415853287"
+                      },
+                      "1632393540": {
+                          "id": 210643,
+                          "time": 1632393540,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1415849261",
+                          "close": "0.1415849261",
+                          "high": "0.1415803844",
+                          "low": "0.1407384721",
+                          "price": "0.1407384721"
+                      },
+                      "1632393600": {
+                          "id": 210888,
+                          "time": 1632393600,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1397216886",
+                          "close": "0.1397216886",
+                          "high": "0.1395806184",
+                          "low": "0.1395791311",
+                          "price": "0.1395806184"
+                      },
+                      "1632393660": {
+                          "id": 211207,
+                          "time": 1632393660,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1395822487",
+                          "close": "0.1395822487",
+                          "high": "0.1402931502",
+                          "low": "0.1397556149",
+                          "price": "0.1397556149"
+                      },
+                      "1632393720": {
+                          "id": 211488,
+                          "time": 1632393720,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1397577985",
+                          "close": "0.1397577985",
+                          "high": "0.1393997698",
+                          "low": "0.1393383725",
+                          "price": "0.1393997698"
+                      },
+                      "1632393780": {
+                          "id": 211784,
+                          "time": 1632393780,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1398295978",
+                          "close": "0.1398295978",
+                          "high": "0.1393628327",
+                          "low": "0.1389051516",
+                          "price": "0.1389051516"
+                      },
+                      "1632393840": {
+                          "id": 212015,
+                          "time": 1632393840,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1386651062",
+                          "close": "0.1386651062",
+                          "high": "0.1412311652",
+                          "low": "0.1398741669",
+                          "price": "0.1398741669"
+                      },
+                      "1632393900": {
+                          "id": 212306,
+                          "time": 1632393900,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1398714570",
+                          "close": "0.1398714570",
+                          "high": "0.1399153377",
+                          "low": "0.1399126234",
+                          "price": "0.1399153377"
+                      },
+                      "1632393960": {
+                          "id": 212627,
+                          "time": 1632393960,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1399084911",
+                          "close": "0.1399084911",
+                          "high": "0.1403937824",
+                          "low": "0.1403905454",
+                          "price": "0.1403937824"
+                      },
+                      "1632394020": {
+                          "id": 212909,
+                          "time": 1632394020,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1403905541",
+                          "close": "0.1403905541",
+                          "high": "0.1406009728",
+                          "low": "0.1405423269",
+                          "price": "0.1406009728"
+                      },
+                      "1632394080": {
+                          "id": 213179,
+                          "time": 1632394080,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1402681878",
+                          "close": "0.1402681878",
+                          "high": "0.1402881037",
+                          "low": "0.1402880793",
+                          "price": "0.1402881037"
+                      },
+                      "1632394140": {
+                          "id": 213399,
+                          "time": 1632394140,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1402922920",
+                          "close": "0.1402922920",
+                          "high": "0.1403972524",
+                          "low": "0.1403470539",
+                          "price": "0.1403972524"
+                      },
+                      "1632394200": {
+                          "id": 213700,
+                          "time": 1632394200,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1403877111",
+                          "close": "0.1403877111",
+                          "high": "0.1408081096",
+                          "low": "0.1408074327",
+                          "price": "0.1408081096"
+                      },
+                      "1632394260": {
+                          "id": 213898,
+                          "time": 1632394260,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1408020861",
+                          "close": "0.1408020861",
+                          "high": "0.1408577501",
+                          "low": "0.1408549102",
+                          "price": "0.1408577501"
+                      },
+                      "1632394320": {
+                          "id": 214144,
+                          "time": 1632394320,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1412696181",
+                          "close": "0.1412696181",
+                          "high": "0.1412907769",
+                          "low": "0.1412865125",
+                          "price": "0.1412907769"
+                      },
+                      "1632394380": {
+                          "id": 214487,
+                          "time": 1632394380,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1412907769",
+                          "close": "0.1412907769",
+                          "high": "0.1413220053",
+                          "low": "0.1413162660",
+                          "price": "0.1413162660"
+                      },
+                      "1632394440": {
+                          "id": 214822,
+                          "time": 1632394440,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1413134905",
+                          "close": "0.1413134905",
+                          "high": "0.1403252122",
+                          "low": "0.1402869715",
+                          "price": "0.1402869715"
+                      },
+                      "1632394500": {
+                          "id": 215209,
+                          "time": 1632394500,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1402860963",
+                          "close": "0.1402860963",
+                          "high": "0.1397555136",
+                          "low": "0.1384887968",
+                          "price": "0.1384887968"
+                      },
+                      "1632394560": {
+                          "id": 215549,
+                          "time": 1632394560,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1384900551",
+                          "close": "0.1384900551",
+                          "high": "0.1396584777",
+                          "low": "0.1392727124",
+                          "price": "0.1396584777"
+                      },
+                      "1632394620": {
+                          "id": 215933,
+                          "time": 1632394620,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1396580370",
+                          "close": "0.1396580370",
+                          "high": "0.1397397783",
+                          "low": "0.1397383422",
+                          "price": "0.1397397783"
+                      },
+                      "1632394680": {
+                          "id": 216288,
+                          "time": 1632394680,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1397367833",
+                          "close": "0.1397367833",
+                          "high": "0.1399040463",
+                          "low": "0.1399037457",
+                          "price": "0.1399037457"
+                      },
+                      "1632394740": {
+                          "id": 216658,
+                          "time": 1632394740,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1399363071",
+                          "close": "0.1399363071",
+                          "high": "0.1401053308",
+                          "low": "0.1399301659",
+                          "price": "0.1401053308"
+                      },
+                      "1632394800": {
+                          "id": 216969,
+                          "time": 1632394800,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1401034368",
+                          "close": "0.1401034368",
+                          "high": "0.1401072122",
+                          "low": "0.1401045790",
+                          "price": "0.1401045790"
+                      },
+                      "1632394860": {
+                          "id": 217348,
+                          "time": 1632394860,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1401038034",
+                          "close": "0.1401038034",
+                          "high": "0.1392025922",
+                          "low": "0.1390501059",
+                          "price": "0.1392025922"
+                      },
+                      "1632394920": {
+                          "id": 217662,
+                          "time": 1632394920,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1392027295",
+                          "close": "0.1392027295",
+                          "high": "0.1392742395",
+                          "low": "0.1391951063",
+                          "price": "0.1392742395"
+                      },
+                      "1632394980": {
+                          "id": 218042,
+                          "time": 1632394980,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1392859202",
+                          "close": "0.1392859202",
+                          "high": "0.1392957640",
+                          "low": "0.1392935937",
+                          "price": "0.1392957640"
+                      },
+                      "1632395040": {
+                          "id": 218388,
+                          "time": 1632395040,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1392948322",
+                          "close": "0.1392948322",
+                          "high": "0.1371800818",
+                          "low": "0.1371795381",
+                          "price": "0.1371800818"
+                      },
+                      "1632395100": {
+                          "id": 218721,
+                          "time": 1632395100,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1371912882",
+                          "close": "0.1371912882",
+                          "high": "0.1373284413",
+                          "low": "0.1373284254",
+                          "price": "0.1373284413"
+                      },
+                      "1632395160": {
+                          "id": 219014,
+                          "time": 1632395160,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1373775627",
+                          "close": "0.1373775627",
+                          "high": "0.1378944732",
+                          "low": "0.1378796627",
+                          "price": "0.1378796627"
+                      },
+                      "1632395220": {
+                          "id": 219333,
+                          "time": 1632395220,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1378663350",
+                          "close": "0.1378663350",
+                          "high": "0.1394195198",
+                          "low": "0.1394164273",
+                          "price": "0.1394195198"
+                      },
+                      "1632395280": {
+                          "id": 219639,
+                          "time": 1632395280,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1394193478",
+                          "close": "0.1394193478",
+                          "high": "0.1393743268",
+                          "low": "0.1393689907",
+                          "price": "0.1393689907"
+                      },
+                      "1632395340": {
+                          "id": 219940,
+                          "time": 1632395340,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1393678127",
+                          "close": "0.1393678127",
+                          "high": "0.1394765849",
+                          "low": "0.1394745934",
+                          "price": "0.1394745934"
+                      },
+                      "1632395400": {
+                          "id": 220162,
+                          "time": 1632395400,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1386340163",
+                          "close": "0.1386340163",
+                          "high": "0.1388949324",
+                          "low": "0.1388940578",
+                          "price": "0.1388949324"
+                      },
+                      "1632395460": {
+                          "id": 220203,
+                          "time": 1632395460,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1388852984",
+                          "close": "0.1388852984",
+                          "high": "0.1393986030",
+                          "low": "0.1393977161",
+                          "price": "0.1393977161"
+                      },
+                      "1632395520": {
+                          "id": 220222,
+                          "time": 1632395520,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1393945798",
+                          "close": "0.1393945798",
+                          "high": "0.1391987527",
+                          "low": "0.1381495623",
+                          "price": "0.1391987527"
+                      },
+                      "1632395580": {
+                          "id": 220233,
+                          "time": 1632395580,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1391999996",
+                          "close": "0.1391999996",
+                          "high": "0.1395560083",
+                          "low": "0.1394350568",
+                          "price": "0.1394350568"
+                      },
+                      "1632395640": {
+                          "id": 220253,
+                          "time": 1632395640,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1394345063",
+                          "close": "0.1394345063",
+                          "high": "0.1388955845",
+                          "low": "0.1379269602",
+                          "price": "0.1379269602"
+                      },
+                      "1632395700": {
+                          "id": 220279,
+                          "time": 1632395700,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1379184077",
+                          "close": "0.1379184077",
+                          "high": "0.1390807140",
+                          "low": "0.1390786865",
+                          "price": "0.1390807140"
+                      },
+                      "1632395760": {
+                          "id": 220313,
+                          "time": 1632395760,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1408569242",
+                          "close": "0.1408569242",
+                          "high": "0.1408690002",
+                          "low": "0.1401098996",
+                          "price": "0.1401098996"
+                      },
+                      "1632395820": {
+                          "id": 220327,
+                          "time": 1632395820,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1401062627",
+                          "close": "0.1401062627",
+                          "high": "0.1401078416",
+                          "low": "0.1401066843",
+                          "price": "0.1401066843"
+                      },
+                      "1632395880": {
+                          "id": 220338,
+                          "time": 1632395880,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1401068603",
+                          "close": "0.1401068603",
+                          "high": "0.1401152065",
+                          "low": "0.1401134238",
+                          "price": "0.1401134238"
+                      },
+                      "1632396660": {
+                          "id": 220381,
+                          "time": 1632396660,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1396355975",
+                          "close": "0.1396355975",
+                          "high": "0.1396355975",
+                          "low": "0.1396263359",
+                          "price": "0.1396263359"
+                      },
+                      "1632396720": {
+                          "id": 220432,
+                          "time": 1632396720,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1396187837",
+                          "close": "0.1396187837",
+                          "high": "0.1396029855",
+                          "low": "0.1396014611",
+                          "price": "0.1396014611"
+                      },
+                      "1632396780": {
+                          "id": 220447,
+                          "time": 1632396780,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1396017334",
+                          "close": "0.1396017334",
+                          "high": "0.1396290672",
+                          "low": "0.1396288656",
+                          "price": "0.1396290672"
+                      },
+                      "1632396840": {
+                          "id": 220458,
+                          "time": 1632396840,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1396277339",
+                          "close": "0.1396277339",
+                          "high": "0.1385988459",
+                          "low": "0.1385968877",
+                          "price": "0.1385968877"
+                      },
+                      "1632396900": {
+                          "id": 220475,
+                          "time": 1632396900,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1388275826",
+                          "close": "0.1388275826",
+                          "high": "0.1388753065",
+                          "low": "0.1388747077",
+                          "price": "0.1388753065"
+                      },
+                      "1632396960": {
+                          "id": 220503,
+                          "time": 1632396960,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1388987426",
+                          "close": "0.1388987426",
+                          "high": "0.1384882194",
+                          "low": "0.1384881603",
+                          "price": "0.1384882194"
+                      },
+                      "1632397020": {
+                          "id": 220518,
+                          "time": 1632397020,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1384853379",
+                          "close": "0.1384853379",
+                          "high": "0.1390944288",
+                          "low": "0.1390925563",
+                          "price": "0.1390925563"
+                      },
+                      "1632397080": {
+                          "id": 220533,
+                          "time": 1632397080,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1390941862",
+                          "close": "0.1390941862",
+                          "high": "0.1389619172",
+                          "low": "0.1389618735",
+                          "price": "0.1389619172"
+                      },
+                      "1632397140": {
+                          "id": 220548,
+                          "time": 1632397140,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1389583065",
+                          "close": "0.1389583065",
+                          "high": "0.1388086783",
+                          "low": "0.1388014955",
+                          "price": "0.1388014955"
+                      },
+                      "1632397200": {
+                          "id": 220567,
+                          "time": 1632397200,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1387245408",
+                          "close": "0.1387245408",
+                          "high": "0.1386924522",
+                          "low": "0.1386922630",
+                          "price": "0.1386924522"
+                      },
+                      "1632397260": {
+                          "id": 220608,
+                          "time": 1632397260,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1389924809",
+                          "close": "0.1389924809",
+                          "high": "0.1385236061",
+                          "low": "0.1385224375",
+                          "price": "0.1385224375"
+                      },
+                      "1632397320": {
+                          "id": 220623,
+                          "time": 1632397320,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1385257993",
+                          "close": "0.1385257993",
+                          "high": "0.1357467232",
+                          "low": "0.1357464823",
+                          "price": "0.1357464823"
+                      },
+                      "1632397380": {
+                          "id": 220638,
+                          "time": 1632397380,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1357470512",
+                          "close": "0.1357470512",
+                          "high": "0.1371182221",
+                          "low": "0.1371173725",
+                          "price": "0.1371182221"
+                      },
+                      "1632397440": {
+                          "id": 220653,
+                          "time": 1632397440,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1367845747",
+                          "close": "0.1367845747",
+                          "high": "0.1363660556",
+                          "low": "0.1363657830",
+                          "price": "0.1363657830"
+                      },
+                      "1632397500": {
+                          "id": 220672,
+                          "time": 1632397500,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1363661402",
+                          "close": "0.1363661402",
+                          "high": "0.1362049204",
+                          "low": "0.1351580173",
+                          "price": "0.1351580173"
+                      },
+                      "1632397560": {
+                          "id": 220717,
+                          "time": 1632397560,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1351552987",
+                          "close": "0.1351552987",
+                          "high": "0.1351742577",
+                          "low": "0.1351736064",
+                          "price": "0.1351736064"
+                      },
+                      "1632397620": {
+                          "id": 220728,
+                          "time": 1632397620,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1353612244",
+                          "close": "0.1353612244",
+                          "high": "0.1358670279",
+                          "low": "0.1358645995",
+                          "price": "0.1358645995"
+                      },
+                      "1632397680": {
+                          "id": 220748,
+                          "time": 1632397680,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1358606482",
+                          "close": "0.1358606482",
+                          "high": "0.1358585695",
+                          "low": "0.1358528853",
+                          "price": "0.1358528853"
+                      },
+                      "1632397740": {
+                          "id": 220758,
+                          "time": 1632397740,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1358548256",
+                          "close": "0.1358548256",
+                          "high": "0.1347136454",
+                          "low": "0.1347121700",
+                          "price": "0.1347136454"
+                      },
+                      "1632397800": {
+                          "id": 220789,
+                          "time": 1632397800,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1349180736",
+                          "close": "0.1349180736",
+                          "high": "0.1341970791",
+                          "low": "0.1340324463",
+                          "price": "0.1340324463"
+                      },
+                      "1632397860": {
+                          "id": 220823,
+                          "time": 1632397860,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1340367391",
+                          "close": "0.1340367391",
+                          "high": "0.1337853857",
+                          "low": "0.1337847083",
+                          "price": "0.1337847083"
+                      },
+                      "1632397920": {
+                          "id": 220833,
+                          "time": 1632397920,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1337848696",
+                          "close": "0.1337848696",
+                          "high": "0.1335818078",
+                          "low": "0.1335811514",
+                          "price": "0.1335818078"
+                      },
+                      "1632397980": {
+                          "id": 220853,
+                          "time": 1632397980,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1335846464",
+                          "close": "0.1335846464",
+                          "high": "0.1337962019",
+                          "low": "0.1337943483",
+                          "price": "0.1337943483"
+                      },
+                      "1632398040": {
+                          "id": 221097,
+                          "time": 1632398040,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1337948032",
+                          "close": "0.1337948032",
+                          "high": "0.1355100813",
+                          "low": "0.1353177147",
+                          "price": "0.1355100813"
+                      },
+                      "1632398100": {
+                          "id": 221664,
+                          "time": 1632398100,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1355139264",
+                          "close": "0.1355139264",
+                          "high": "0.1355504550",
+                          "low": "0.1355241134",
+                          "price": "0.1355504550"
+                      },
+                      "1632398160": {
+                          "id": 222100,
+                          "time": 1632398160,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1355788550",
+                          "close": "0.1355788550",
+                          "high": "0.1356101068",
+                          "low": "0.1355895195",
+                          "price": "0.1356101068"
+                      },
+                      "1632398220": {
+                          "id": 222647,
+                          "time": 1632398220,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1356085615",
+                          "close": "0.1356085615",
+                          "high": "0.1359756467",
+                          "low": "0.1359726041",
+                          "price": "0.1359726041"
+                      },
+                      "1632398280": {
+                          "id": 223077,
+                          "time": 1632398280,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1359568874",
+                          "close": "0.1359568874",
+                          "high": "0.1358037443",
+                          "low": "0.1358033910",
+                          "price": "0.1358037443"
+                      },
+                      "1632398340": {
+                          "id": 223523,
+                          "time": 1632398340,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1358079861",
+                          "close": "0.1358079861",
+                          "high": "0.1377560119",
+                          "low": "0.1377503628",
+                          "price": "0.1377560119"
+                      },
+                      "1632398400": {
+                          "id": 224064,
+                          "time": 1632398400,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1377557812",
+                          "close": "0.1377557812",
+                          "high": "0.1365377424",
+                          "low": "0.1365345771",
+                          "price": "0.1365377424"
+                      },
+                      "1632398460": {
+                          "id": 224597,
+                          "time": 1632398460,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1365321825",
+                          "close": "0.1365321825",
+                          "high": "0.1357010702",
+                          "low": "0.1356957117",
+                          "price": "0.1357010702"
+                      },
+                      "1632398520": {
+                          "id": 225143,
+                          "time": 1632398520,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1358354256",
+                          "close": "0.1358354256",
+                          "high": "0.1366236003",
+                          "low": "0.1366202790",
+                          "price": "0.1366236003"
+                      },
+                      "1632398580": {
+                          "id": 225638,
+                          "time": 1632398580,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1366312163",
+                          "close": "0.1366312163",
+                          "high": 0.13648745760599132,
+                          "low": "0.1363882711",
+                          "price": 0.13648745760599132
+                      },
+                      "1632398640": {
+                          "id": 225928,
+                          "time": 1632398640,
+                          "contract": "0x8d047f4f57a190c96c8b9704b39a1379e999d82b",
+                          "range": "1m",
+                          "open": "0.1364866021",
+                          "close": "0.1364866021",
+                          "high": 0.13650006361736242,
+                          "low": "0.1364982933",
+                          "price": 0.13650006361736242
+                      }
                   }
-              },
-              },
-              dataLabels: {
-                  enabled: false
-              },
-              grid:{
-                  show: false,
-                  xaxis: {
-                      lines: {
-                          show: false
-                      }
-                  },   
-                  yaxis: {
-                      lines: {
-                          show: false
-                      }
-                  }, 
-                  padding: {
-                      top: 0,
-                      right: 0,
-                      bottom: 0,
-                      left: 0
-                  },  
-              },
-              colors:['#cfd6e4'],
-              fill: {
-              type: 'gradient',
-              gradient: {
-                  opacityFrom: 1,
-                  opacityTo: 1,
               }
-              },
-              xaxis: {
-                  type: 'datetime',
-              },
-              yaxis: {
-                  labels: {
-                      show: false
-                  },
+              
+              setData(result)
+      
+              
+          
+          },500)
+      
+          
+          setInterval(()=>{
+      
+              let data = {
+                  "time": Math.floor(Date.now() / 1000),
+                  "range": "1m",
+                  "price": 0.821352097298521,
+                  "open": "0.8215123793",
+                  "close": "0.8215123793",
+                  "high": "0.8213708182",
+                  "low": 0.821352097298521
               }
-          };
       
-          var chartBar = new ApexCharts(document.querySelector(".chart-bar"), optionsBar);
-          chartBar.render();
+              //- areaData.push({
+              //-     time: data.time,
+              //-     value: [+data.price]
+              //- })
       
+              
+      
+      
+              if(selectedType === 'area'){
+                  series.update({
+                      time: data.time,
+                      value: data.price,
+                  });
+              }else if(selectedType === 'candle'){
+                  candleSeries.update({
+                      time: data.time,
+                      open: data.open,
+                      high: data.high,
+                      low: data.low,
+                      close: data.close,
+                  });
+              }
+      
+      
+          },500)
+      
+          
+          $('[name="chart-type"]').on('change', function(){
+              setData(result)
+              detailsChart.removeSeries(series);
+              detailsChart.removeSeries(candleSeries);
+              selectedType = $(this).val()
+              
+          
+      
+      
+          })
+      
+      
+          
       });
     </script>
   </body>

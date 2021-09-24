@@ -107,7 +107,8 @@ $field-border-radius: 0;
             margin-bottom: 0;
         }
     }
-    &__wrap {
+    &__wrap:not(.price-module),
+    &__wrap:not(.amount-module) {
         position: relative;
         margin-bottom: 5px;
         display: flex;

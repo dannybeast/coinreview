@@ -1051,7 +1051,7 @@ sup {
         }
     }
     &__value {
-        font-size: 24px;
+        font-size: 17px;
         white-space: nowrap;
         font-weight: 600;
         color: #3f77f2;
@@ -1560,21 +1560,29 @@ sup {
 }
 
 .radio-label {
+    svg {
+        width: 19px;
+        height: 19px;
+        fill: $primary-color;
+    }
     input {
         display: none;
         &:checked + span {
             background-image: linear-gradient(0deg, #467aea, #75a1ff);
             color: #fff;
             box-shadow: 0 3px 24px 0 rgba(70, 122, 234, 0.47);
+            svg {
+                fill: #fff;
+            }
         }
     }
     span {
         border-radius: 6px;
-        font-size: 14px;
+        font-size: 12px;
         display: block;
-        font-weight: 600;
-        width: 33px;
-        height: 33px;
+        font-weight: 500;
+        width: 35px;
+        height: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1854,6 +1862,8 @@ sup {
             align-items: center;
             justify-content: space-between;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
             @include sm-block() {
                 flex-wrap: wrap;
             }
@@ -1917,7 +1927,7 @@ sup {
         table {
             th,
             td {
-                font-size: 14px;
+                font-size: 13px;
                 vertical-align: middle !important;
                 border-color: #e9ecf3;
                 padding-left: 10px;
@@ -2294,11 +2304,17 @@ sup {
     }
 }
 
-.chart-bar {
+.chart-bar,
+.chart-lightweight,
+.chart-details {
     margin-bottom: 40px;
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+.details-text {
+    margin-top: 40px;
 }
 
 .tabs {
@@ -2706,6 +2722,15 @@ sup {
             span {
                 color: #000;
             }
+        }
+        &__wrap {
+            margin-bottom: 0;
+            height: initial;
+            background: #0000;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            border-bottom: 2px solid #cfddfb;
         }
     }
     &__separator {

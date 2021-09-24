@@ -27,14 +27,18 @@ import tabs from "./js/modules/tabs";
 import "./js/libs/datepicker";
 import "./js/modules/customSelect";
 import copy from "./js/modules/copy";
+
+import websockets from "./js/modules/websockets";
+
 import "./js/libs/datepicker";
 
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
 
+websockets();
 
 $(document).ready(function(){
-
+ 
 
   // mob menu
   function positionMobileMenu(){
