@@ -3,14 +3,14 @@ window.io = require('socket.io-client');
 export default function () {
 
     
-
-    console.log('started websockets js');
+    let broadcaster = $('[data-broadcaster]').data('broadcaster')
+    let host = $('[data-host]').data('host')
 
     if (typeof window.io !== 'undefined') {
 
         window.Echo = new Echo({
-            broadcaster: 'socket.io',
-            host: 'https://sockets.coinreview.cyou:443',
+            broadcaster,
+            host,
 
         });
 
