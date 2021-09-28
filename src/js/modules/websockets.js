@@ -7,7 +7,7 @@ export default function () {
     let host = $('[data-host]').data('host')
 
     if (typeof window.io !== 'undefined') {
-
+        //console.log(broadcaster, host);
         window.Echo = new Echo({
             broadcaster,
             host,

@@ -26,11 +26,11 @@ export default function() {
           hideTabs();
           showTab($(this).index());
           
-          if(Charts.drawTableCharts ){
+          // if(Charts && Charts.drawTableCharts ){
           
-            Charts.drawTableCharts()
+          //   Charts.drawTableCharts()
              
-            }
+          //   }
 
         });
       });
