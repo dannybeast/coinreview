@@ -4327,4 +4327,29 @@ sup {
     font-size: 14px;
     font-weight: 700;
     padding: 5px 5px;
+    position: relative;
+    margin-left: 17px;
+    display: inline-block;
+    &:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        border-radius: 50%;
+        background: inherit;
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        margin-right: 7px;
+        transform: translateY(-50%);
+        animation: rec 1s ease-in-out infinite;
+    }
+}
+@keyframes rec {
+    50% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 1;
+    }
 }
