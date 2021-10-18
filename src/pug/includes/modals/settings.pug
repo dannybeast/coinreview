@@ -1,0 +1,47 @@
+// Settings
+#settings(class="modal-window modal-window_size-md")
+  +b.swap-confirm
+
+    +b.H3.modal-title.modal-padding Settings
+
+    +b.H5.modal-title(class="_normal").modal-padding Transaction Settings
+
+    form
+      .modal-padding
+        
+        +b.tolerance
+          +b.field 
+            label Slipage Tolerance
+
+            .tolerance__row
+
+              +b.LABEL.radio-label
+                input(type="radio" name="tolerance" checked)
+                span 0.1%
+
+              +b.LABEL.radio-label
+                input(type="radio" name="tolerance")
+                span 0.2%
+
+              +b.LABEL.radio-label
+                input(type="radio" name="tolerance")
+                span 0.3%
+
+              input(type="number" name="tolerance" value="0.1")
+
+              .tolerance__after %
+
+        +b.deadline-fields 
+          +b.field 
+            label Transaction deadline
+            input(type="number" name="deadline" placeholder="30")
+
+          +b.field 
+            +b.LABEL.select
+              select(name="type")
+                option(value="1") minutes
+
+        +b.modal-buttons
+          +b.BUTTON(class="button _primary") Save settings
+
+          

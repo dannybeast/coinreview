@@ -1588,7 +1588,9 @@ sup {
         justify-content: center;
         cursor: pointer;
         @include sm-block() {
-            font-size: 12px;
+            font-size: 12px;width: 30px;
+        }  @include xs-block() {
+            width: 25px;
         }
         &:hover {
             color: $primary-color;
@@ -1640,6 +1642,21 @@ sup {
     }
 }
 
+.field{
+    position: relative;
+}
+
+.editor-tiny{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    display:block !important;
+    width:1px;
+    height:1px;
+    opacity:0;
+}
+
 .news-block {
     background: #fff;
     display: flex;
@@ -1674,15 +1691,16 @@ sup {
         flex-shrink: 0;
         width: 283px;
         margin-left: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         @include sm-block() {
             width: 100%;
             order: -1;
             margin-left: 0;
             margin-bottom: 15px;
         }
-        img {
-            width: 100%;
-        }
+       
     }
     &__title {
         font-weight: 600;
@@ -2133,7 +2151,7 @@ sup {
     &__content {
         @include col();
         @include size(9);
-        @include size-notebook(8);
+        @include size-notebook(8.4);
         @include size-xl(12);
         @include xl-block() {
             margin-bottom: 20px;
@@ -2142,7 +2160,7 @@ sup {
     &__sidebar {
         @include col();
         @include size(3);
-        @include size-notebook(4);
+        @include size-notebook(3.6);
         @include size-xl(12);
         @include sm-block() {
             width: 100%;
@@ -2556,28 +2574,53 @@ sup {
     }
 }
 
+.number-arrow{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:after{
+        content:'';
+        width: 12px;
+        height: 12px;
+        background-image: svg-load("../icons/arrow.svg", fill=#fff);
+        background-position: center;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        transform: rotate(-90deg)
+    }
+    &:hover{
+        background: #000;
+    }
+}
+
 .currency-price {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    @include xs-block(){
+        flex-wrap: wrap;
+    }
     &:last-child {
         margin-bottom: 0;
     }
     .label {
-        height: 33px;
+        height: 32px;
         font-size: 20px;
         padding-left: 15px;
         padding-right: 15px;
         border-radius: 20px;
         @include sm-block() {
-            font-size: 18px;
-        }
-        @include xs-block() {
-            font-size: 15px;
-            height: 25px;
+            font-size: 12px;    
+            height: 22px;
             padding-left: 10px;
             padding-right: 10px;
         }
+  
         &:before {
             width: 8px;
             height: 8px;
@@ -2588,14 +2631,50 @@ sup {
         font-weight: 600;
         white-space: nowrap;
         margin-right: 15px;
+        display: flex;
+        align-items: center;
+        &.is-active{
+            font-size: 32px;
+        }
+        .number-arrow{
+            margin-left: 5px;
+        }
         @include sm-block() {
-            font-size: 30px;
+            font-size: 32px;
+            margin-right: 10px;
+            &.is-active{
+                font-size: 22px;
+            }
         }
         @include xs-block() {
-            font-size: 24px;
+    //    margin-bottom: 10px;
+    //    width: 100%;
         }
         span {
             color: $primary-color;
+            position: relative;
+          
+            .value-after{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                background: #f3f6fd;
+                z-index: 3;
+                pointer-events: none;
+                opacity: 0;
+                transform: translateX(-10px);
+                .number-arrow{
+                    transform: scale(-1,1);
+                }
+                &.is-active{
+                    pointer-events: all;
+                    opacity: 1;
+                    transform: none;
+                }
+            }
         }
     }
 }
@@ -3666,7 +3745,7 @@ sup {
         border-radius: 20px;
         overflow: hidden;
         img {
-            width: 100%;
+            //width: 100%;
         }
     }
     &__description {
@@ -4361,4 +4440,256 @@ sup {
     font-size: 13px;
     font-weight: 700;
     border-radius: 5px;
+}
+
+
+
+.label-group {
+    display: flex;
+    align-items: center;
+    margin-left: -5px;
+    margin-right: -5px;
+    &>*{
+        margin: 5px;
+        &.flex-right{
+            margin-left: auto;
+        }
+    }
+    .button{
+        height: 35px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0 20px;
+    }
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.flex-end{
+    justify-content: flex-end;
+}
+
+
+.label-button{
+    background: #ebebef;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 35px;
+    border: solid 1px #ebebef;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 8px;
+    border-radius:10px;
+    white-space: nowrap;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
+    @include notebook-block() {
+        font-size: 12px;
+    }
+    svg{
+        width: 20px;
+        height: 20px;
+        fill:#fff;       
+        @include notebook-block() {
+          width: 17px;height: 17px;
+        }
+    }
+    &_gray-dark{
+        background: #cbcbcc; 
+        border-color:#cbcbcc; 
+        &:hover{
+            background: $primary-color;
+            border-color:$primary-color;
+            color:#fff;
+        }
+    }
+    &_line-primary{
+        background: #fff;
+        border-color:$primary-color;
+        &:hover{
+            background: $primary-color;
+            color:#fff;
+        }
+    }
+}
+
+.field-swap{
+    background: #f3f6fd;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    border-radius: 20px;
+    padding: 0 18px;
+    .currency-dropdown{
+        margin-right: 15px;
+    }
+    input{
+        background: transparent;
+        border-color:transparent;
+        padding-left: 0;
+        text-align: right;
+        font-size: 22px;
+        font-weight: 400;
+        color: rgba(#000, 0.5); 
+        @include notebook-block(){
+            font-size: 18px;
+        } @include sm-block() {
+           font-size: 22px;
+        }
+        &:hover,&:focus{
+            border-color:transparent
+        }
+    }
+}
+
+.currency-dropdown {
+    position: relative;
+   
+    &__button{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 500;
+        position: relative;  @include notebook-block() {
+            font-size: 14px;
+        } @include sm-block() {
+            font-size: 18px;
+        }
+        select{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            opacity: 0;
+            cursor: pointer;
+            option{
+                font-size: 14px;
+            }
+        }
+        &:after{
+            content:'';
+            background-image: svg-load("../icons/001-down-arrow.svg", fill=#929498);
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 12px;
+            height: 7px;
+            display: block;
+            margin-left: 10px;  @include notebook-block() {
+                width: 8px;
+                height: 6px;
+                margin-left: 5px;
+            }
+        }
+        &:hover{
+            color: $primary-color;
+            &:after{
+                content:'';
+                background-image: svg-load("../icons/001-down-arrow.svg", fill=$primary-color);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    &__icon{
+        width: 33px;
+        height: 33px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin-right: 15px;  @include notebook-block() {
+           width: 24px;height: 24px;margin-right: 8px;
+        } @include sm-block() {
+           width: 30px;height: 30px;
+        }
+    }
+
+    &_disabled{
+        pointer-events: none;
+        opacity: 0.6;
+    }
+   
+}
+
+.swap-module{
+    padding: 30px 0;
+    .label-group{
+        margin-bottom: 5px;
+    }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    }
+    &__separator{
+        flex-shrink: 0;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        @include sm-block(){
+            flex-wrap: wrap;width: 100%;height: auto;
+            transform: translateY(8px);
+        }
+        img{
+            width: 20px; @include sm-block(){
+              transform: rotate(90deg)
+            }
+        }
+    }
+    &__row{
+        display: flex;
+        align-items: flex-end;
+        margin-left: -10px;
+        margin-right: -10px; 
+        @include sm-block(){
+            flex-wrap: wrap;
+        }
+        &>*{
+            margin: 0 10px;
+        }
+    }
+
+    .field{
+        flex: 1;
+        @include notebook-block(){
+            width: 200px;
+        } 
+        @include sm-block(){
+            width: 100%;
+            flex:initial;
+            &:last-child{
+                margin-top: -31px;
+            }
+        }
+    }
+    &__button{
+        border-radius: 20px;
+        font-size: 17px;
+        height: 70px;  
+        @include notebook-block() {
+            font-size: 15px;
+            padding-left: 20px;padding-right: 20px;
+        } @include sm-block(){
+     width: 100%;
+     margin-top: 20px;font-size: 18px;height: 60px;
+        }
+    }
 }

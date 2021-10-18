@@ -39,6 +39,11 @@ websockets();
 
 $(document).ready(function(){
  
+  Fancybox.bind(".js-modal", {
+    dragToClose: false,
+    groupAttr: false,
+  });
+
 
   // mob menu
   function positionMobileMenu(){
@@ -357,6 +362,17 @@ $(document).ready(function(){
   })
 
 
+
+  $('.currency-dropdown select').change(function(){
+    let src = $(this).find(':selected').data('icon')
+    let val = $(this).find(':selected').text()
+  
+    $(this).parent().find('img').attr('src', src)
+    $(this).parent().find('.currency-dropdown__value').text(val)
+  })
+
+
+
   // convertation
   
   
@@ -483,6 +499,11 @@ $(document).ready(function(){
     }
   }
 
+
+    $('body').delegate('.number-arrow','click', function(){
+      $('.value-after').toggleClass('is-active')
+      $('.currency-price__value').toggleClass('is-active')
+    })
 
   hideLoader();
 })

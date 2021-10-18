@@ -38,6 +38,14 @@ $checkbox-border-radius: 4px;
   }
   input {
     display: none;
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    display:block !important;
+    width:1px;
+    height:1px;
+    opacity:0;
     &:checked + span {
       &:before {
         background: svg-load("../icons/check-bold.svg", fill=#fff);

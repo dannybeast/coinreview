@@ -457,6 +457,120 @@
     <!-- Telegram bot--><a class="telegram-bot-banner" href="#"> <span class="telegram-bot-banner__content">
     <p>Join our </p>
     <p> <strong class="color-primary">Telegram bot</strong></p></span></a>
+    <!-- Modals-->
+    <!-- Swap confirm-->
+    <div class="modal-window modal-window_size-md" id="swap-confirm">
+      <div class="swap-confirm">
+        <h3 class="modal-title modal-padding">Confirm Swap
+        </h3>
+        <form>
+          <div class="modal-padding">
+            <div class="swap-info"> 
+              <div class="swap-info__col">
+                <p class="swap-info__value"> <span class="swap-info__icon"><img src="assets/images/currency/eth.svg" alt=""></span><span>0,3223212</span>
+                </p>
+                <p class="swap-info__currency">ETH
+                </p>
+              </div>
+              <div class="swap-info__separator">
+                <svg class="svg-icon">
+                  <use href="assets/icons/sprite.svg#icon-arrow-line"></use>
+                </svg>
+              </div>
+              <div class="swap-info__col">
+                <p class="swap-info__value"> <span class="swap-info__icon"><img src="assets/images/currency/eth.svg" alt=""></span><span>0,3223212</span>
+                </p>
+                <p class="swap-info__currency">ETH
+                </p>
+              </div>
+            </div>
+            <div class="swap-confirm__text typography">
+              <p>Output is estimated. You wil receive at least <strong>0.0876875 ETH</strong> or the transaction will be revert</p>
+            </div>
+            <div class="modal-info"> 
+              <ul>
+                <li> 
+                  <p class="modal-info__name">Price
+                  </p>
+                  <p class="modal-info__value">1.832 ETH/USDT
+                  </p>
+                </li>
+                <li> 
+                  <p class="modal-info__name">Minimum recieved
+                  </p>
+                  <p class="modal-info__value">0.3223 ETH
+                  </p>
+                </li>
+                <li> 
+                  <p class="modal-info__name">Price Impact
+                  </p>
+                  <p class="modal-info__value color-success">0.22%
+                  </p>
+                </li>
+                <li> 
+                  <p class="modal-info__name">Liquidity Provider Fee
+                  </p>
+                  <p class="modal-info__value">0.03232323 USDT
+                  </p>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-buttons">
+              <button class="button button_primary">Confirm Swap
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Settings-->
+    <div class="modal-window modal-window_size-md" id="settings">
+      <div class="swap-confirm">
+        <h3 class="modal-title modal-padding">Settings
+        </h3>
+        <h5 class="modal-title modal-title_normal modal-padding">Transaction Settings
+        </h5>
+        <form>
+          <div class="modal-padding">
+            <div class="tolerance">
+              <div class="field"> 
+                <label>Slipage Tolerance</label>
+                <div class="tolerance__row">
+                  <label class="radio-label">
+                    <input type="radio" name="tolerance" checked><span>0.1%</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="tolerance"><span>0.2%</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="tolerance"><span>0.3%</span>
+                  </label>
+                  <input type="number" name="tolerance" value="0.1">
+                  <div class="tolerance__after">%</div>
+                </div>
+              </div>
+            </div>
+            <div class="deadline-fields"> 
+              <div class="field"> 
+                <label>Transaction deadline</label>
+                <input type="number" name="deadline" placeholder="30">
+              </div>
+              <div class="field"> 
+                <label class="select">
+                  <select name="type">
+                    <option value="1">minutes</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="modal-buttons">
+              <button class="button button_primary">Save settings
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src="assets/js/vendors.js" defer></script>
     <script src="assets/js/app.js" defer></script>
   </body>

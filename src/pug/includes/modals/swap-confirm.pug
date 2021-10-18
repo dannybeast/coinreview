@@ -1,0 +1,49 @@
+// Swap confirm
+#swap-confirm(class="modal-window modal-window_size-md")
+  +b.swap-confirm
+
+    +b.H3.modal-title.modal-padding Confirm Swap
+
+
+    form
+      .modal-padding
+        +b.swap-info 
+          +e.col
+            +e.P.value 
+              +e.icon
+                img(src="assets/images/currency/eth.svg", alt="")
+              span 0,3223212
+            +e.P.currency ETH
+          +e.separator
+            +icon('arrow-line')
+          +e.col
+            +e.P.value 
+              +e.icon
+                img(src="assets/images/currency/eth.svg", alt="")
+              span 0,3223212
+            +e.P.currency ETH
+
+
+        +e.text.typography
+          p Output is estimated. You wil receive at least <strong>0.0876875 ETH</strong> or the transaction will be revert
+
+
+        +b.modal-info 
+          +e.UL
+            +e.LI 
+              +e.P.name Price
+              +e.P.value 1.832 ETH/USDT
+            +e.LI 
+              +e.P.name Minimum recieved
+              +e.P.value 0.3223 ETH
+            +e.LI 
+              +e.P.name Price Impact
+              +e.P.value.color-success 0.22%
+            +e.LI 
+              +e.P.name Liquidity Provider Fee
+              +e.P.value 0.03232323 USDT
+
+        +b.modal-buttons
+          +b.BUTTON(class="button _primary") Confirm Swap
+
+          
