@@ -4645,8 +4645,13 @@ sup {
         align-items: center;
         justify-content: center; 
         @include sm-block(){
-            flex-wrap: wrap;width: 100%;height: auto;
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
             transform: translateY(8px);
+            &+div.field{
+                margin-top: -31px;
+            }
         }
         img{
             width: 20px; @include sm-block(){
@@ -4675,9 +4680,9 @@ sup {
         @include sm-block(){
             width: 100%;
             flex:initial;
-            &:last-child{
-                margin-top: -31px;
-            }
+           
+                
+            
         }
     }
     &__button{
