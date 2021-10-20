@@ -27,17 +27,45 @@ import tabs from "./js/modules/tabs";
 import "./js/libs/datepicker";
 import "./js/modules/customSelect";
 import copy from "./js/modules/copy";
-
 import websockets from "./js/modules/websockets";
-
 import "./js/libs/datepicker";
-
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
 
+
+const UNISWAP = require("@uniswap/sdk");
+const {
+  pack,
+  keccak256,
+  sha256
+} = require("@ethersproject/solidity");
+const {
+  getAddress,
+  isAddress,
+  getIcapAddress,
+  getContractAddress,
+  getCreate2Address
+} = require("@ethersproject/address");
+
+//
 websockets();
 
 $(document).ready(function(){
+
+  // libs
+  window.UNISWAP = UNISWAP
+  //
+  window.pack = pack
+  window.keccak256 = keccak256
+  window.sha256 = sha256
+  //
+  window.getAddress = getAddress
+  window.isAddress = isAddress
+  window.getIcapAddress = getIcapAddress
+  window.getContractAddress = getContractAddress
+  window.getCreate2Address = getCreate2Address
+  //
+
  
   Fancybox.bind(".js-modal", {
     dragToClose: false,
