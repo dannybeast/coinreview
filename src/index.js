@@ -31,40 +31,14 @@ import websockets from "./js/modules/websockets";
 import "./js/libs/datepicker";
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
-
-
-const UNISWAP = require("@uniswap/sdk");
-const {
-  pack,
-  keccak256,
-  sha256
-} = require("@ethersproject/solidity");
-const {
-  getAddress,
-  isAddress,
-  getIcapAddress,
-  getContractAddress,
-  getCreate2Address
-} = require("@ethersproject/address");
+import "./js/modules/swap";
 
 //
 websockets();
 
-$(document).ready(function(){
 
-  // libs
-  window.UNISWAP = UNISWAP
-  //
-  window.pack = pack
-  window.keccak256 = keccak256
-  window.sha256 = sha256
-  //
-  window.getAddress = getAddress
-  window.isAddress = isAddress
-  window.getIcapAddress = getIcapAddress
-  window.getContractAddress = getContractAddress
-  window.getCreate2Address = getCreate2Address
-  //
+
+$(document).ready(function(){
 
  
   Fancybox.bind(".js-modal", {
