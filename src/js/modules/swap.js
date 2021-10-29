@@ -18,9 +18,9 @@ const {
 
 
 // libs
-//window.UNISWAP = UNISWAP
+window.UNISWAP = UNISWAP
 window.pancakeswap = pancakeswap
-//window.apeswap = apeswap
+window.apeswap = apeswap
 
 // @ethersproject/solidity
 window.ethersprojectSoliditypack = {}
