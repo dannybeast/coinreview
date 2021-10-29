@@ -25,26 +25,29 @@ import { Fancybox } from "@fancyapps/ui";
 //-import "./js/modules/google-map";
 import tabs from "./js/modules/tabs";
 import "./js/libs/datepicker";
+import "./js/libs/jquery.scrollbar";
 import "./js/modules/customSelect";
+import {truncate} from "./js/modules/helpers";
 import copy from "./js/modules/copy";
 import websockets from "./js/modules/websockets";
-import "./js/libs/datepicker";
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
 import "./js/modules/swap";
+import "./js/modules/swap-select";
 
-//
+
 websockets();
-
-
 
 $(document).ready(function(){
 
- 
+ $('.scrollbar-inner').scrollbar();
+
+
   Fancybox.bind(".js-modal", {
     dragToClose: false,
     groupAttr: false,
   });
+  window.Modal = Fancybox
 
 
   // mob menu
@@ -396,14 +399,13 @@ $(document).ready(function(){
     $(this).find('.field:first-child .increase, .field:first-child .decrease').on('click',function(){
      
       let val = +priceInput.val();
-      console.log(val);
+  
       convertedInput.val(val*price)
     })
 
     $(this).find('.field:last-child .increase, .field:last-child .decrease').on('click',function(){
    
       let val = +convertedInput.val();
-      console.log(convertedInput);
       priceInput.val(val/price)
     })
 
@@ -479,7 +481,6 @@ $(document).ready(function(){
   function checkDisabledCol(el){
     let col = el.parents('.bot-element-row').find('.bot-element-row__col');
 
-    console.log(col);
     let input = col.find('.field input')
     col.addClass('is-disabled');
     input.attr('disabled', true)
@@ -516,40 +517,3 @@ $.fn.extend({
   }
 });
 
-function truncate( str, max, sep ) {
-
-  // Default to 10 characters
-  max = max || 10;
-
-  var len = str.length;
-  if(len > max){
-
-      // Default to elipsis
-      sep = sep || "...";
-
-      var seplen = sep.length;
-
-      // If seperator is larger than character limit,
-      // well then we don't want to just show the seperator,
-      // so just show right hand side of the string.
-      if(seplen > max) {
-          return str.substr(len - max);
-      }
-
-      // Half the difference between max and string length.
-      // Multiply negative because small minus big.
-      // Must account for length of separator too.
-      var n = -0.5 * (max - len - seplen);
-
-      // This gives us the centerline.
-      var center = len/2;
-
-      var front = str.substr(0, center - n);
-      var back = str.substr(len - center + n); // without second arg, will automatically go to end of line.
-
-      return front + sep + back;
-
-  }
-
-  return str;
-}

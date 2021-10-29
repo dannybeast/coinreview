@@ -67,7 +67,32 @@ export default function() {
     },
   });
   
-  
+  var contacts = new Swiper(".js-swiper-contacts", {
+    noSwiping: true,
+    freeMode:true,
+    spaceBetween: 35,  
+    watchSlidesVisibility: true,
+ 
+    breakpoints: {
+      0: {
+        slidesPerView: 1.2,
+        noSwiping: false,
+        spaceBetween: 10,  
+      },
+      767: {
+        slidesPerView: 2.2,
+        spaceBetween: 35,
+        noSwiping: false,
+      },
+      1100: {
+        slidesPerView: 3,
+        freeMode:false,   
+        spaceBetween: 35,
+        noSwiping: true
+      },
+
+    },
+  });
 }
 
 

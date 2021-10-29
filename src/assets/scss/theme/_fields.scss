@@ -32,6 +32,14 @@ $field-border-radius: 0;
         border-color: #e4eaf7;
         color: rgba(#000, 0.5);
     }
+    &.style-border{
+        background: #fff;border-color:#b5b3bd;
+        border-radius: 6px;
+        &:hover,
+        &:focus{
+            border-color:darken(#b5b3bd, 10%);
+        }
+    }
 }
 @keyframes errorInput {
     0% {

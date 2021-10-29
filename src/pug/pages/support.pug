@@ -1,0 +1,72 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Privacy';
+  - var description = '';
+  - var pageName = 'privacy';
+
+
+block content
+  +b.ARTICLE
+
+    +b.SECTION
+      .container
+        //- +b.breadcrumbs 
+        //-   a(href="#") Coins 
+        //-   span / 
+        //-   span Terms
+
+        +b.section-intro
+          +b.H1.title Contact Coin<span class="color-primary">Review</span>
+          +b.H4.subtitle Create your account at CoinReview to unlock new features.
+
+        +b.counters-section
+
+          .swiper-container.swiper-no-swiping.js-swiper-contacts
+            .swiper-wrapper 
+              .swiper-slide 
+                +b.counters-item
+                  +b.contacts-item 
+                    +e.icon 
+                      +icon('telegram-line')
+                    +e.contact 
+                      +e.P.title Telegram
+                      +e.A(href="http://t.me/ru3inu3ruin" target="_blank" class="value") http://t.me/ru3inu3ruin
+              .swiper-slide 
+                +b.counters-item
+                  +b.contacts-item 
+                    +e.icon 
+                      +icon('email')
+                    +e.contact 
+                      +e.P.title Support
+                      +e.A(href="support@coinreview.com" class="value") support@coinreview.com
+              .swiper-slide 
+                +b.counters-item
+                  +b.contacts-item 
+                    +e.icon 
+                      +icon('email')
+                    +e.contact 
+                      +e.P.title Advertisment
+                      +e.A(href="adv@coinreview.com" class="value") adv@coinreview.com
+    +b.SECTION
+      .container
+        +b.block(class="_border-none")
+          +b.H3.title(class="_extra-small") Send Message
+          form
+            // field_error
+            +b.field 
+              label Topic
+              input(type="text" name="topic").style-border
+
+            +b.field 
+              label E-mail*
+              input(type="text" name="email").style-border
+
+            +b.field 
+              label Message*
+              textarea(name="message").js-textarea.style-border
+
+            +b.BUTTON.button(class="_primary _small") Message us
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)

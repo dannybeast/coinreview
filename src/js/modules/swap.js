@@ -1,6 +1,6 @@
-const UNISWAP = require("@uniswap/sdk");
+//const UNISWAP = require("@uniswap/sdk");
 const pancakeswap = require("@pancakeswap/sdk");
-const apeswap = require("apeswap-sdk");
+//const apeswap = require("apeswap-sdk");
 
 const {
   pack,
@@ -18,9 +18,9 @@ const {
 
 
 // libs
-window.UNISWAP = UNISWAP
+//window.UNISWAP = UNISWAP
 window.pancakeswap = pancakeswap
-window.apeswap = apeswap
+//window.apeswap = apeswap
 
 // @ethersproject/solidity
 window.ethersprojectSoliditypack = {}

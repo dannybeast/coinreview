@@ -53,6 +53,15 @@
             font-size: 18px;
         }
     }
+    &_extra-small {
+        font-size: 22px;
+        @include notebook-block() {
+            font-size: 18px;
+        }
+        @include sm-block() {
+            font-size: 16px;
+        }
+    }
 }
 
 .subtitle {

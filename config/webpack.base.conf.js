@@ -9,7 +9,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ImageminPlugin = require('imagemin-webpack-plugin').default
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const { VueLoaderPlugin } = require("vue-loader");
-
+require('babel-polyfill');
 // Main const
 const PATHS = {
   src: path.join(__dirname, "../src"),
@@ -29,9 +29,9 @@ module.exports = {
     paths: PATHS,
   },
   entry: {
-    app: PATHS.src,
+    app: ['babel-polyfill',PATHS.src],
     //-profile: PATHS.src + "/profile.js",
-    common: PATHS.src + "/common.js",
+    common: ['babel-polyfill',PATHS.src + "/common.js"],
     //indexAnimate: PATHS.src + "/indexAnimate.js"
   },
   output: {
