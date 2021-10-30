@@ -67,17 +67,17 @@
 .modal-title{
   text-align: center;
   font-size: rem(22px);
-  line-height: 1.1;
+  line-height: 1.5;
   font-weight: 700;
   margin-bottom: 30px;
   color: #000;   
   border-bottom: 1px solid #f3f6fd;
-  padding-bottom: 30px;
+  padding-bottom: 25px;
   &_normal{
     font-weight: 400;
   }
   &:first-child{
-    padding-top: 30px;
+    padding-top: 25px;
   }
   @include sm-block() {
       font-size: 18px;

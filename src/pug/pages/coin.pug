@@ -447,10 +447,27 @@ block content
                                                         p Started date
                                                         +e.row
                                                             +b.started-date 05.10.2021
+
                                                     +e.LI 
                                                         p Ethereum Price	
                                                         +e.row
                                                             strong $2,324.09
+                                                    
+                                                    +e.LI 
+                                                        +b.remind-top 
+                                                            span Time till trade start 
+                                                            +b.A(href="#remind-me" class="button _primary button-remind js-modal")
+                                                                span Remind me 
+                                                                img(src="assets/images/bell.png", alt="")
+                                                        +b.timer.timer_white(
+                                                            data-timer-end="Dec 15, 2021 14:57:55" 
+                                                            data-over="Time is over" 
+                                                            data-days="Days"
+                                                            data-hours="Hours"
+                                                            data-minutes="Minutes"
+                                                            data-seconds="Sec"
+                                                            ) 
+
                                                     +e.LI 
                                                         p Price Change 24h
                                                         +e.row

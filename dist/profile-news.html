@@ -576,6 +576,55 @@
         </form>
       </div>
     </div>
+    <!-- Bot is not active-->
+    <div class="modal-window modal-window_size-md" id="bot-not-active">
+      <div class="swap-confirm">
+        <h3 class="modal-title modal-padding">Telegram Bot is not active.<br> Activate Bot first. 
+        </h3>
+        <form>
+          <div class="modal-buttons">
+            <button class="button button_primary">Activate bot
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Not auth-->
+    <div class="modal-window modal-window_size-md" id="not-auth">
+      <div class="swap-confirm">
+        <h3 class="modal-title modal-padding">You are not authorisated.<br> Autorise first.
+        </h3>
+        <div class="modal-buttons"><a class="button button_primary" href="login.html">Login now</a>
+        </div>
+      </div>
+    </div>
+    <!-- Remind me-->
+    <div class="modal-window modal-window_size-md" id="remind-me">
+      <div class="swap-confirm">
+        <h3 class="modal-title modal-padding">Remind me in Telegram
+        </h3>
+        <form>
+          <div class="remind-radio-buttons">
+            <label class="radio-label radio-label_size-md">
+              <input type="radio" name="remind" value="1440" checked><span>In 1 day</span>
+            </label>
+            <label class="radio-label radio-label_size-md">
+              <input type="radio" name="remind" value="60"><span>1 hour</span>
+            </label>
+            <label class="radio-label radio-label_size-md">
+              <input type="radio" name="remind" value="30"><span>30 minutes</span>
+            </label>
+            <label class="radio-label radio-label_size-md">
+              <input type="radio" name="remind" value="10"><span>10 minutes</span>
+            </label>
+          </div>
+          <div class="modal-buttons">
+            <button class="button button_primary">Set reminder
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <script src="assets/js/vendors.js" defer></script>
     <script src="assets/js/app.js" defer></script>
   </body>

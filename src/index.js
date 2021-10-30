@@ -33,6 +33,7 @@ import websockets from "./js/modules/websockets";
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
 import "./js/modules/swap";
+//import "./js/modules/timer";
 import "./js/modules/swap-select";
 
 
@@ -100,6 +101,10 @@ $(document).ready(function(){
       </div>
 
     `)
+
+    setTimeout(()=>{
+      $(this).addClass('is-loaded')
+    },1000)
   });
 
  let timer = setInterval(function (e) {

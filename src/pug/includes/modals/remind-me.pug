@@ -1,0 +1,31 @@
+// Remind me
+#remind-me(class="modal-window modal-window_size-md")
+  +b.swap-confirm
+
+    +b.H3.modal-title.modal-padding Remind me in Telegram
+
+
+    form
+
+      +b.remind-radio-buttons
+
+        +b.LABEL.radio-label(class="_size-md")
+          input(type="radio" name="remind" value="1440" checked)
+          span In 1 day
+
+        +b.LABEL.radio-label(class="_size-md")
+          input(type="radio" name="remind" value="60")
+          span 1 hour
+
+        +b.LABEL.radio-label(class="_size-md")
+          input(type="radio" name="remind" value="30")
+          span 30 minutes
+
+        +b.LABEL.radio-label(class="_size-md")
+          input(type="radio" name="remind" value="10")
+          span 10 minutes
+
+      +b.modal-buttons
+        +b.BUTTON(class="button _primary") Set reminder
+
+        
