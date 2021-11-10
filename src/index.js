@@ -384,8 +384,9 @@ $(document).ready(function () {
     let src = $(this).find(':selected').data('icon')
     let val = $(this).find(':selected').text()
 
-    $(this).parent().find('img').attr('src', src)
-    $(this).parent().find('.currency-dropdown__value').text(val)
+
+    $(this).parents('.currency-dropdown').find('img').attr('src', src)
+    $(this).parents('.currency-dropdown').find('.currency-dropdown__value').text(val)
   })
 
 
