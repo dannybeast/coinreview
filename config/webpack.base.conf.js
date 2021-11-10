@@ -14,8 +14,11 @@ require('babel-polyfill');
 const PATHS = {
   src: path.join(__dirname, "../src"),
   dist: path.join(__dirname, "../dist"),
+  react : path.join(__dirname, "../node_modules/react"),
   assets: "assets/",
 };
+
+console.log(PATHS)
 
 // const PAGES_DIR = PATHS.src
 const PAGES_DIR = `${PATHS.src}/pug/pages/`;
@@ -27,6 +30,7 @@ module.exports = {
   // BASE config
   externals: {
     paths: PATHS,
+    // react: 'react'
   },
   entry: {
     app: ['babel-polyfill',PATHS.src],
@@ -185,6 +189,7 @@ module.exports = {
     alias: {
       "~": PATHS.src,
       vue$: "vue/dist/vue.js",
+      react: PATHS.react,
     },
     
   },
