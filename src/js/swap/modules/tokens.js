@@ -8,7 +8,7 @@ export async function getTokenData(data, accountData)
         ChainId.MAINNET,
         data.contract,
         data.decimals,
-        data.code,
+        data.symbol,
     );
 
     const contract = getTokenContract(token.address, signer);

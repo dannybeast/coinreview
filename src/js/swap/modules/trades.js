@@ -10,6 +10,7 @@ export async function getTradeData(firstTokenData, secondTokenData, accountData,
     let trade = null;
     let priceImpactWithoutFeePercent = 0;
     let realizedLPFeeAmount = 0;
+    let amountOutMin = 0;
 
     if (firstTokenData.amount > 0 || secondTokenData.amount > 0) {
         if (firstTokenData.amount > 0)
@@ -26,11 +27,15 @@ export async function getTradeData(firstTokenData, secondTokenData, accountData,
         }
 
         price = trade.executionPrice.toSignificant(18);
+        secondTokenData.amount = secondTokenData.amount*price;
         const priceImpact = getPriceImpact(trade);
         priceImpactWithoutFeePercent = priceImpact.priceImpactWithoutFeePercent;
         realizedLPFeeAmount = priceImpact.realizedLPFeeAmount
-        return {trade,priceImpactWithoutFeePercent, realizedLPFeeAmount, price, firstTokenData, secondTokenData}
+        const slippageTolerance = new Percent(JSBI.BigInt(tolerance), JSBI.BigInt(10000));
+        amountOutMin = trade.minimumAmountOut(slippageTolerance).raw
+
     }
+    return {trade,priceImpactWithoutFeePercent, realizedLPFeeAmount, price,amountOutMin ,firstTokenData, secondTokenData}
 }
 function getPriceImpact(trade)
 {

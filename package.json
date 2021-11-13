@@ -69,13 +69,10 @@
   "ws": "^8.2.2"
  },
  "dependencies": {
-  "@ethersproject/address": "^5.5.0",
-  "@ethersproject/contracts": "^5.5.0",
-  "@ethersproject/providers": "^5.5.0",
-  "@ethersproject/solidity": "^5.5.0",
   "@fancyapps/ui": "^4.0.0-alpha.4",
   "@pancakeswap/sdk": "^2.4.0",
   "@uniswap/sdk": "^3.0.3",
+  "@uniswap/v2-periphery": "^1.1.0-beta.0",
   "@walletconnect/web3-provider": "^1.6.6",
   "@web3-react/core": "^6.1.9",
   "apexcharts": "3.19.3",
@@ -87,6 +84,7 @@
   "datatables": "^1.10.18",
   "dotenv": "^8.2.0",
   "emergence.js": "^1.1.2",
+  "ethers": "^5.5.1",
   "imask": "^6.0.1",
   "jquery": "^3.4.1",
   "jquery-ui": "^1.12.1",

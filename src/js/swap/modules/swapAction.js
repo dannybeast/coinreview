@@ -18,9 +18,7 @@ export async function useSwap(
     const allowedSlippage = new Percent(JSBI.BigInt(tolerance), JSBI.BigInt(10000));
 
     const gasPrice = parseUnits('5', 'gwei').toString();
-
-    const swapCalls = useSwapCallArguments(trade, allowedSlippage, accountData, deadline)
-
+    const swapCalls = useSwapCallArguments(trade, allowedSlippage, accountData, deadline);
     console.log(swapCalls);
 
     const estimatedCalls = await Promise.all(
@@ -116,7 +114,6 @@ function useSwapCallArguments(
     const contract = getFactoryContract(signer)
     let swapMethods = []
 
-    console.log(trade);
     swapMethods.push(
         Router.swapCallParameters(trade, {
             feeOnTransfer: false,

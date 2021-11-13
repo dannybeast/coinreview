@@ -5,7 +5,7 @@ const {JSBI} = require("@pancakeswap/sdk");
 const {WETH, ChainId} = require("@pancakeswap/sdk");
 export const getAllowance = async (firstTokenData, accountData) => {
 
-    let allowance = 10 * 18;
+    let allowance = 100*10**18;
     if (firstTokenData.token.address !== WETH[ChainId.MAINNET].address) {
         const {signer, account} = accountData;
         const contract = getTokenContract(firstTokenData.token.address, signer);

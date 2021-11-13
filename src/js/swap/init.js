@@ -15,13 +15,15 @@ export async function getSwapData(w3provider,firstToken, secondToken, tolerance 
     const secondTokenData = await getTokenData(secondToken, accountData);
     const tradeData = await getTradeData(firstTokenData, secondTokenData, accountData, tolerance );
     const allowance = await getAllowance(firstTokenData, accountData);
-    return {accountData, tradeData, allowance}
+    return {accountData, tradeData, allowance, tolerance, time}
 }
 
 window.web3Modal = getWeb3Modal;
 window.getSwapData = getSwapData;
 window.startApprove = startApprove;
 window.startSwap = startSwap;
+
+
 
 
 

@@ -1,4 +1,5 @@
 const ethers = require('ethers');
+import { abi as IUniswapV2Router02ABI } from './IUniswapV2Router02.json'
 export const PANCAKE_ROUTER = "0x10ED43C718714eb63d5aA57B78B54704E256024E";
 export function getTokenContract(address, signer)
 {
@@ -18,12 +19,6 @@ export function getPairContract(address, signer)
 
 export function getFactoryContract(signer)
 {
-    return new ethers.Contract(PANCAKE_ROUTER, [
-        'function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts)',
-        'function swapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)',
-        'function swapExactTokensForTokens(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)',
-        'function swapExactTokensForETHSupportingFeeOnTransferTokens(uint256 amountIn, uint256 amountOutMin, address[] path, address to, uint256 deadline)',
-        'function swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256 amountIn, uint256 amountOutMin, address[] path, address to, uint256 deadline)'
-    ], signer)
+    return new ethers.Contract(PANCAKE_ROUTER, IUniswapV2Router02ABI, signer)
 }
 

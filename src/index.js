@@ -522,6 +522,46 @@ $(document).ready(function () {
   })
 
   hideLoader();
+
+  const wcOptions = {
+    rpc: {
+      56: 'https://bsc-dataseed.binance.org/'
+    },
+    network: 'binance',
+  };
+
+
+
+  // const init = async () => {
+  //   const w3provider = await window.web3Modal(wcOptions);
+  //   const setData = async () => {
+  //     let tolerance = 5 * 100;
+  //     let time = 30;
+  //     let first = {"logo" : "https://coinreview.s3.eu-central-1.amazonaws.com/logos/6ca0f7d9452626c05aaa5581f29766c8.png", "contract" : "0x631b92596bc7f5c4537f1a7cd4caef2db0d3000d", "symbol" : "MSN", "decimals" : 18, "amount" : 0.1};
+  //     let second = {"logo":"/coins/bnb.png","symbol":"BNB","contract":"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c","decimals":18, "amount" : 0}
+  //
+  //     const swapData = await window.getSwapData(w3provider,first, second, tolerance, time);
+  //     return swapData;
+  //   }
+  //
+  //   let swapData = await setData();
+  //
+  //   await window.startSwap(swapData.tradeData.trade, swapData.tolerance, swapData.time, swapData.accountData).then(async (tx) => {
+  //     // window.notifier.success(' ', {
+  //     //   labels: {success: 'Transaction approved :' + tx.transactionHash},
+  //     //   durations: {success: 10000}
+  //     // });
+  //     // window.Modal.close();
+  //     swapData = await setData();
+  //   }).catch(err => {
+  //         console.error(err)
+  //         // window.notifier.alert(' ', {labels: {alert: err.message}, durations: {alert: 10000}});
+  //         // window.Modal.close();
+  //       }
+  //   );
+  //
+  // }
+  // init();
 })
 
 $.fn.extend({
@@ -529,3 +569,6 @@ $.fn.extend({
     return this.text(this.text() == b ? a : b);
   }
 });
+
+
+
