@@ -1,4 +1,4 @@
-import {getAccount, getAccountConnect} from "./modules/account";
+import {getWeb3Modal, getAccountConnect} from "./modules/account";
 import {getTokenData} from "./modules/tokens";
 import {getAllowance, setApprove} from "./modules/allowance";
 import {useSwap} from "./modules/swapAction";
