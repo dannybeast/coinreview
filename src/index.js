@@ -36,7 +36,7 @@ import copy from "./js/modules/copy";
 import websockets from "./js/modules/websockets";
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
-import "./js/modules/swap";
+import "./js/swap/init";
 //import "./js/modules/timer";
 import "./js/modules/swap-select";
 
