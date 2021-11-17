@@ -1,5 +1,5 @@
 const {Pair, TokenAmount, Trade, Percent, JSBI, currencyEquals} = require("@pancakeswap/sdk");
-const {mainnetTokens} = require("./tokens");
+const {mainnetTokens, tryParseAmount, useCurrency} = require("./tokens");
 const {getPairContract} = require("./contracts");
 
 
@@ -123,10 +123,16 @@ async function getBestTrade(firstTokenData, secondTokenData,tolerance, signer)
                 return memo
             }, {}),
     )
+    const currencyIn = await useCurrency(firstTokenData.token);
+    // console.log(currencyIn);
+    const currencyOut = await useCurrency(secondTokenData.token);
+    // console.log(currencyOut);
+    const currencyAmountIn = tryParseAmount(firstTokenData.amount, currencyIn);
+    // console.log(currencyAmountIn);
 
     let bestTradeSoFar = null
     for (let i = 1; i <= 3; i++) {
-        const currentTrade = Trade.bestTradeExactIn(allowedPairs,new TokenAmount(TokenFirst,firstTokenData.amount*10**TokenFirst.decimals), TokenSecond,  { maxHops: i, maxNumResults: 1 })[0] ?? null;
+        const currentTrade = Trade.bestTradeExactIn(allowedPairs,currencyAmountIn, currencyOut,  { maxHops: i, maxNumResults: 1 })[0] ?? null;
         if (isTradeBetter(bestTradeSoFar, currentTrade,
             new Percent(JSBI.BigInt(50), JSBI.BigInt(10000))
         )) {

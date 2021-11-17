@@ -1,18 +1,57 @@
-const {Token, ChainId, WETH} = require('@pancakeswap/sdk');
+const {Token, ChainId, WETH, ETHER, TokenAmount, CurrencyAmount, JSBI} = require('@pancakeswap/sdk');
 const {getTokenContract} = require('./contracts')
+
+
+export async function useCurrency(token)
+{
+    const isBNB = token.address.toLowerCase()===WETH[ChainId.MAINNET].address.toLowerCase();
+    return isBNB ? ETHER : token
+}
+
+export function tryParseAmount(value, currency) {
+    if (!value || !currency) {
+        return undefined
+    }
+    const amount = value*10**currency.decimals;
+    try {
+
+        const typedValueParsed = value*10**currency.decimals;
+
+        if (typedValueParsed !== '0') {
+            return currency instanceof Token
+                ? new TokenAmount(currency, JSBI.BigInt(typedValueParsed))
+                : CurrencyAmount.ether(JSBI.BigInt(typedValueParsed))
+        }
+    } catch (error) {
+        // should fail if the user specifies too many decimal places of precision (or maybe exceed max uint?)
+        console.error(`Failed to parse input amount: "${amount}"`, error)
+    }
+    // necessary for all paths to return a value
+    return undefined
+}
 
 export async function getTokenData(data, accountData)
 {
     const {provider, account, signer} = accountData;
-    const token = new Token(
+    const isBNB = data.contract.toLowerCase()===WETH[ChainId.MAINNET].address.toLowerCase();
+
+    const token = !isBNB ? new Token(
         ChainId.MAINNET,
         data.contract,
         data.decimals,
         data.symbol,
-    );
+    ) : WETH[ChainId.MAINNET];
+    //console.log(data.contract.toLowerCase()!==WETH[ChainId.MAINNET].address.toLowerCase())
 
-    const contract = getTokenContract(token.address, signer);
-    const balance = token.address !== WETH[ChainId.MAINNET].address ? await contract.balanceOf(account) : await provider.getBalance(account);
+    let balance = await provider.getBalance(account);
+
+    if (!isBNB)
+    {
+        const contract = getTokenContract(token.address, signer);
+        balance = await contract.balanceOf(account);
+    }
+
+
     return {token, balance, amount : data.amount, logo:data.logo}
 }
 

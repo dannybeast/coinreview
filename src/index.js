@@ -530,8 +530,8 @@ $(document).ready(function () {
     network: 'binance',
   };
 
-
-
+  //
+  //
   // const init = async () => {
   //   const w3provider = await window.web3Modal(wcOptions);
   //   const setData = async () => {
