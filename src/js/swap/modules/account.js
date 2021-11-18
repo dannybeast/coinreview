@@ -16,30 +16,6 @@ import Web3Modal from "web3modal";
 // }
 
 
-export async function getWeb3Modal(options)
-{
-    const providerOptions = {
-        walletconnect: {
-            package: WalletConnectProvider,
-            options: options
-        }
-    };
-
-    const web3Modal = new Web3Modal({
-        cacheProvider: true, // optional
-        providerOptions // required
-    });
-
-    console.log("Opening a dialog", web3Modal);
-    try {
-        return  await web3Modal.connect();
-    } catch(e) {
-        console.log("Could not get a wallet connection", e);
-        return;
-    }
-
-
-}
 
 
 export async function getAccountConnect(w3provider) {

@@ -1,4 +1,6 @@
 // SVG
+import WalletConnectProvider from "@walletconnect/web3-provider";
+
 var __svg__ = {
   path: "./assets/icons/**/*.svg",
   name: "assets/icons/sprite.svg",
@@ -39,6 +41,7 @@ import "jquery-ui-touch-punch";
 import "./js/swap/init";
 //import "./js/modules/timer";
 import "./js/modules/swap-select";
+import Web3Modal from "web3modal";
 
 
 
@@ -523,17 +526,38 @@ $(document).ready(function () {
 
   hideLoader();
 
-  const wcOptions = {
-    rpc: {
-      56: 'https://bsc-dataseed.binance.org/'
-    },
-    network: 'binance',
-  };
+  // const wcOptions = {
+  //   rpc: {
+  //     56: 'https://bsc-dataseed.binance.org/'
+  //   },
+  //   network: 'binance',
+  // };
+  //
+  // //
+  // //
+  // // const init = async () => {
+  //
+  // const providerOptions = {
+  //   walletconnect: {
+  //     package: window.WalletConnectProvider,
+  //     options: wcOptions
+  //   }
+  // };
+  //
+  // const web3Modal = new window.Web3Modal({
+  //   cacheProvider: true, // optional
+  //   providerOptions // required
+  // });
+  //
+  // console.log("Opening a dialog", web3Modal);
+  // try {
+  //   const  w3provider =  web3Modal.connect();
+  // } catch(e) {
+  //   console.log("Could not get a wallet connection", e);
+  //   return;
+  // }
 
   //
-  //
-  // const init = async () => {
-  //   const w3provider = await window.web3Modal(wcOptions);
   //   const setData = async () => {
   //     let tolerance = 5 * 100;
   //     let time = 30;

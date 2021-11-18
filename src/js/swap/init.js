@@ -2,6 +2,9 @@ import {getWeb3Modal, getAccountConnect} from "./modules/account";
 import {getTokenData} from "./modules/tokens";
 import {getAllowance, setApprove} from "./modules/allowance";
 import {useSwap} from "./modules/swapAction";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3Modal from "web3modal";
+
 const {getTradeData} = require('./modules/trades');
 
 
@@ -18,9 +21,9 @@ export async function getSwapData(accountData,firstToken, secondToken, tolerance
 }
 
 
-
+window.WalletConnectProvider = WalletConnectProvider;
 window.getAccountConnect = getAccountConnect;
-window.web3Modal = getWeb3Modal;
+window.Web3Modal = Web3Modal;
 window.getSwapData = getSwapData;
 window.startApprove = startApprove;
 window.startSwap = startSwap;
