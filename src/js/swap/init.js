@@ -8,9 +8,8 @@ const {getTradeData} = require('./modules/trades');
 
 export const startSwap = useSwap;
 export const startApprove = setApprove;
-export async function getSwapData(w3provider,firstToken, secondToken, tolerance = 500, time = 30)
+export async function getSwapData(accountData,firstToken, secondToken, tolerance = 500, time = 30)
 {
-    const accountData = await getAccountConnect(w3provider);
     const firstTokenData = await getTokenData(firstToken, accountData);
     const secondTokenData = await getTokenData(secondToken, accountData);
     const tradeData = await getTradeData(firstTokenData, secondTokenData, accountData, tolerance );
@@ -18,6 +17,9 @@ export async function getSwapData(w3provider,firstToken, secondToken, tolerance 
     return {accountData, tradeData, allowance, tolerance, time}
 }
 
+
+
+window.getAccountConnect = getAccountConnect;
 window.web3Modal = getWeb3Modal;
 window.getSwapData = getSwapData;
 window.startApprove = startApprove;
