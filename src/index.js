@@ -32,7 +32,8 @@ import "./js/libs/datepicker";
 import "./js/libs/jquery.scrollbar";
 import "./js/modules/customSelect";
 import {
-  truncate
+  truncate,
+  convertDateToUTC
 } from "./js/modules/helpers";
 import copy from "./js/modules/copy";
 import websockets from "./js/modules/websockets";
@@ -120,9 +121,9 @@ $(document).ready(function () {
     $('.timer').each(function (i) {
       var timerValue = $(this).attr('data-timer-end');
       let over = $(this).data('over')
-
-      let countDown = new Date(timerValue).getTime();
-      let now = new Date().getTime(),
+      timerValue = convertDateToUTC(new Date(timerValue))
+      let countDown = timerValue.getTime();
+      let now = convertDateToUTC(new Date()).getTime(),
         distance = countDown - now;
 
       if (distance > 0) {
@@ -593,6 +594,3 @@ $.fn.extend({
     return this.text(this.text() == b ? a : b);
   }
 });
-
-
-
