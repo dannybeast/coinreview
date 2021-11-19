@@ -17,7 +17,7 @@ export async function useSwap(
 
     const allowedSlippage = new Percent(JSBI.BigInt(tolerance), JSBI.BigInt(10000));
 
-    const gasPrice = parseUnits('5', 'gwei').toString();
+    const gasPrice = parseUnits('7', 'gwei').toString();
     const swapCalls = useSwapCallArguments(trade, allowedSlippage, accountData, deadline);
     console.log(swapCalls);
 
