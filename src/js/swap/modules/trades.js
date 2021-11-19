@@ -47,7 +47,7 @@ function getPriceImpact(trade)
     const priceImpactWithoutFeeFraction = trade && realizedLPFee ? trade.priceImpact.subtract(realizedLPFee) : undefined
     // the x*y=k impact
     const priceImpactWithoutFeePercent = priceImpactWithoutFeeFraction
-        ? new Percent(priceImpactWithoutFeeFraction?.numerator, priceImpactWithoutFeeFraction?.denominator)
+        ? new Percent(priceImpactWithoutFeeFraction.numerator, priceImpactWithoutFeeFraction.denominator)
         : undefined
     // the amount ofthe input that accrues to LPs
     let realizedLPFeeAmount =

@@ -45,7 +45,7 @@ export async function useSwap(
                             return { call, error: new Error('Unexpected issue with estimating the gas. Please try again.') }
                         })
                         .catch((callError) => {
-                            const reason = callError.reason || callError.data?.message || callError.message
+                            const reason = callError.reason || callError.data.message || callError.message
                             const errorMessage = `The transaction cannot succeed due to error: ${
                                 reason ?? 'Unknown error, check the logs'
                             }.`
