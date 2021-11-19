@@ -1,4 +1,4 @@
-const {Pair, TokenAmount, Trade, Percent, JSBI, currencyEquals} = require("@pancakeswap/sdk");
+const {Pair, TokenAmount, Trade, Percent, JSBI, currencyEquals, CurrencyAmount} = require("@pancakeswap/sdk");
 const {mainnetTokens, tryParseAmount, useCurrency} = require("./tokens");
 const {getPairContract} = require("./contracts");
 

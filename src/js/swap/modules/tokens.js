@@ -35,12 +35,12 @@ export async function getTokenData(data, accountData)
     const {provider, account, signer} = accountData;
     const isBNB = data.contract.toLowerCase()===WETH[ChainId.MAINNET].address.toLowerCase();
 
-    const token = !isBNB ? new Token(
+    const token = new Token(
         ChainId.MAINNET,
         data.contract,
         data.decimals,
         data.symbol,
-    ) : WETH[ChainId.MAINNET];
+    );
     //console.log(data.contract.toLowerCase()!==WETH[ChainId.MAINNET].address.toLowerCase())
 
     let balance = await provider.getBalance(account);
