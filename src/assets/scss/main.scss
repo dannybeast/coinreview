@@ -2421,6 +2421,76 @@ sup {
     }
 }
 
+.switch-button {
+    cursor: pointer;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center
+}
+
+.switch-button__wrapper {
+    height: 40px;
+    width: 80px;
+    background: #eaf1ff;
+    border-radius: 30px;
+    border: 1px solid #cad6f0;
+    position: relative
+}
+
+.switch-button__wrapper,
+.switch-button__wrapper span {
+    display: block;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease
+}
+
+.switch-button__wrapper span {
+    position: absolute;
+    left: 5px;
+    top: 4px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 3px 24px 0 rgba(70, 122, 234, .47);
+    border: 1px solid #c9d5f0
+}
+
+.switch-button__name {
+    margin-left: 8px
+}
+
+.table-wrapper__block-row .switch-button input:checked+span span {
+    left: 28px
+}
+
+.table-wrapper__block-row .switch-button {
+    margin-left: auto;
+    margin-right: 15px
+}
+
+@media screen and (max-width:767px) {
+    .table-wrapper__block-row .switch-button {
+        margin-left: 0
+    }
+}
+
+.table-wrapper__block-row .switch-button__name {
+    font-size: 14px
+}
+
+.table-wrapper__block-row .switch-button__wrapper {
+    height: 33px;
+    width: 62px
+}
+
+.table-wrapper__block-row .switch-button__wrapper span {
+    top: 2px;
+    width: 27px;
+    height: 27px
+}
+
 .statistics-list {
     .label {
         font-size: 11px;
@@ -2436,6 +2506,7 @@ sup {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        line-height: 1.5;
 
         strong {
             display: inline;
@@ -2542,7 +2613,7 @@ sup {
     .typography {
         font-size: 13px;
 
-        height: 70px;
+        height: 350px;
         overflow: hidden;
         position: relative;
         padding: 0 0 15px 0;
@@ -5797,4 +5868,58 @@ sup {
 
 .web3modal-modal-lightbox {
     z-index: 9999 !important;
+}
+
+
+.connect-wallet__row {
+    line-height: 40px;
+    height: 40px;
+}
+
+.connect-wallet {
+    color: #000
+}
+
+.connect-wallet svg {
+    width: 16px;
+    height: 16px;
+    fill: #a2b6e0
+}
+
+.wallet_connect {
+    text-decoration: none;
+}
+
+.connect-wallet__row {
+    border: 2px solid #487ceb;
+    line-height: 35px;
+    padding: 0 15px;
+    border-radius: 40px;
+    font-size: 13px;
+    background: #fff;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center
+}
+
+.connect-wallet .contract-token {
+    margin: 0 10px;
+    font-weight: 500
+}
+
+.connect-wallet__logout {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.connect-wallet__logout svg {
+    fill: #c23442
 }
