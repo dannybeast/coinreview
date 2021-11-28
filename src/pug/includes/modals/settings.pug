@@ -31,6 +31,28 @@
 
               .tolerance__after %
 
+        +b.tolerance
+          +b.field 
+            label Default Transaction Speed (GWEI)
+
+            .tolerance__row
+
+              +b.LABEL.radio-label
+                input(type="radio" name="speed" checked)
+                span Standart (5)
+
+              +b.LABEL.radio-label
+                input(type="radio" name="speed")
+                span Fast (6)
+
+              +b.LABEL.radio-label
+                input(type="radio" name="speed")
+                span Instant (7)
+              
+              +b.LABEL.radio-label
+                input(type="radio" name="speed")
+                span Turbo (10)
+
         +b.deadline-fields 
           +b.field 
             label Transaction deadline

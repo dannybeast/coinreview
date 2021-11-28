@@ -1,0 +1,27 @@
+extends ../layout/auth
+
+block variables
+  - var title = 'Add a currency';
+  - var description = '';
+  - var pageName = 'currency';
+
+
+block content
+  +b.ARTICLE
+
+
+    +b.SECTION.not-found
+      .container
+        +e.row 
+          +e.content 
+            +e.content-inner
+              +e.H1.title Sorry, this page <span class="color-primary">not found</span>
+              +e.description 
+                p Create your account at CoinReview to unlock new features.
+              +b.A( href="index.html" class="button _primary _shadow") Go to home page
+          +e.media 
+            img(src="assets/images/404.png", alt="")
+
+block script
+  script(src="assets/js/vendors.js" defer)
+  script(src="assets/js/app.js" defer)
