@@ -10,6 +10,7 @@ export async function useSwap(
     tolerance,
     time,
     accountData,
+    speed = '7'
 ) {
     const {account} = accountData;
 
@@ -17,7 +18,7 @@ export async function useSwap(
 
     const allowedSlippage = new Percent(JSBI.BigInt(tolerance), JSBI.BigInt(10000));
 
-    const gasPrice = parseUnits('7', 'gwei').toString();
+    const gasPrice = parseUnits(speed, 'gwei').toString();
     const swapCalls = useSwapCallArguments(trade, allowedSlippage, accountData, deadline);
     console.log(swapCalls);
 
