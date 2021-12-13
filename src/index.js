@@ -121,10 +121,12 @@ $(document).ready(function () {
     $('.timer').each(function (i) {
       var timerValue = $(this).attr('data-timer-end');
       let over = $(this).data('over')
+
       timerValue = convertDateToUTC(new Date(timerValue))
       let countDown = timerValue.getTime();
-      let now = convertDateToUTC(new Date()).getTime(),
-        distance = countDown - now;
+      let newDate = new Date()
+      let now = convertDateToUTC(newDate).getTime()
+      let distance = countDown - now - newDate.getTimezoneOffset() * 60000;
 
       if (distance > 0) {
         var days = Array.from(String(Math.floor(distance / (day))), Number);

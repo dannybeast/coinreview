@@ -38,5 +38,6 @@ export function truncate(str, max, sep) {
 
 
 export function convertDateToUTC(date) {
-  return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+return new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+
 }
