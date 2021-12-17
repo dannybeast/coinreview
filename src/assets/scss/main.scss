@@ -1703,7 +1703,9 @@ sup {
     color: #000;
     text-decoration: none;
 
-    &__name {
+    &__name {    max-width: 325px;
+      overflow: hidden;
+      text-overflow: ellipsis;
         span {
             color: #9f9f9f;
         }
@@ -1856,7 +1858,6 @@ sup {
 
 .time-labels {
     display: flex;
-    flex-wrap: wrap;
 
     li {
         margin: 0 0 0 5px;
@@ -2613,9 +2614,9 @@ sup {
     }
 
     .typography {
-        font-size: 13px;
+        font-size: 15px;
 
-        height: 350px;
+        max-height: 350px;
         overflow: hidden;
         position: relative;
         padding: 0 0 15px 0;
@@ -3315,7 +3316,9 @@ sup {
             border-color: $primary-color;
         }
     }
-
+    .field>label:not(.select):not(.button):not(.checkbox){
+      white-space: normal !important;
+    }
     .field {
         margin-top: auto;
 
