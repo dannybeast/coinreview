@@ -12,6 +12,7 @@ export async function useSwap(
     accountData,
     speed = '7'
 ) {
+
     const {account} = accountData;
 
     const deadline = Math.floor(Date.now() / 1000) + 60 * time;
@@ -67,7 +68,6 @@ export async function useSwap(
         throw new Error('Unexpected error. Please contact support: none of the calls threw an error')
     }
 
-    console.log(successfulEstimation);
 
     const {
         call: {
@@ -134,7 +134,7 @@ function useSwapCallArguments(
         )
     }
 
-    return swapMethods.map((parameters) => ({parameters, contract}))
+    return swapMethods.map((parameters) => ({parameters, contract}));
 }
 
 // add 10%
