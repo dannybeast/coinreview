@@ -94,7 +94,7 @@ export async function useSwap(
         })
         .catch((error) => {
             // if the user rejected the tx, pass this along
-            if (error?.code === 4001) {
+            if (error!==null&&error.code === 4001) {
                 throw 'Transaction rejected.'
             } else {
                 // otherwise, the error was unexpected and we need to convey that
