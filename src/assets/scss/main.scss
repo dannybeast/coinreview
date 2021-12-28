@@ -2643,6 +2643,7 @@ sup {
 
         .typography {
             height: auto;
+            max-height: unset;
 
             &:after {
                 opacity: 0;
@@ -5559,6 +5560,26 @@ sup {
 
 .swap-module {
     padding: 30px 0;
+
+    &_auth {
+        position: relative;
+    }
+
+    &__auth {
+        &-button {
+            position: absolute;
+            top: 30px;
+            right: -5px;
+            bottom: 25px;
+            left: -5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, .6);
+            z-index: 1;
+        }
+    }
 
     .label-group {
         margin-bottom: 5px;

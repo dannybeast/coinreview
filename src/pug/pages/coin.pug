@@ -9,43 +9,43 @@ block variables
 block content
     //.live LIVE
     mixin tr(index,currency, color)
-       
+
         if currency === 'eth'
             tr(data-href="coin.html")
                 td #{index}
-                td 
+                td
                     +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
+                        +e.icon
                             img(src="assets/images/currency/eth.svg", alt="")
                         +e.P.name Etherium <span>ETH</span>
-                td.not-clickable 
+                td.not-clickable
                     if currency === 'btc'
                         +b.heart
-                    else 
+                    else
                         +b.heart(class="_is-active")
                 td
-                td 
+                td
                     +b.P.timer-module__title.color-primary Presale
-                td 
+                td
                 td(colspan="3")
-                    +b.timer-module 
+                    +b.timer-module
                         +e.P.title Time left:
                         +b.timer(
-                            data-timer-end="December 18, 2021, 20:00:00" 
-                            data-over="Time is over" 
+                            data-timer-end="December 18, 2021, 20:00:00"
+                            data-over="Time is over"
                             data-days="Days"
                             data-hours="Hours"
                             data-minutes="Minutes"
                             data-seconds="Sec"
-                            ) 
+                            )
 
 
-                td(style="display: none") 
-                td(style="display: none") 
+                td(style="display: none")
+                td(style="display: none")
                 td(style="display: none")
                 td
                 td.not-clickable
-                    +b.amount-module 
+                    +b.amount-module
                         .decrease.value-button(value='Decrease Value') -
                         input.number(type='number' value='0' name="amount")
                         .increase.value-button(value='Increase Value') +
@@ -55,27 +55,27 @@ block content
                 td
                     if currency === 'btc'
                         +b.A(href="coin.html" target="_blank").currency
-                            +e.icon 
+                            +e.icon
                                 img(src="assets/images/currency/btc.svg", alt="")
                             +e.P.name Bitcoin <span>BTC</span>
-            
+
                     else if currency === 'dai'
                         +b.A(href="coin.html" target="_blank").currency
-                            +e.icon 
+                            +e.icon
                                 img(src="assets/images/currency/dai.svg", alt="")
                             +e.P.name Dai <span>DAI</span>
                     else if currency === 'tether'
                         +b.A(href="coin.html" target="_blank").currency
-                            +e.icon 
+                            +e.icon
                                 img(src="assets/images/currency/tether.svg", alt="")
                             +e.P.name Tether <span>Tether</span>
-                td.not-clickable 
+                td.not-clickable
                     if currency === 'btc'
                         +b.heart
-                    else 
+                    else
                         +b.heart(class="_is-active")
                 td.nowrap
-                    p 
+                    p
                         strong $34,394.55
                 td.nowrap
                     if currency === 'dai'
@@ -98,36 +98,36 @@ block content
                 td
                     if currency === 'dai'
                         .chart(data-array="10,41,35,51,49,62,69,91,148,10,41,35,51,49", data-color=color)
-                    else 
+                    else
                         .chart(data-array="50,62,79,91,148,41,35,51,49,62,69,91,148,10", data-color=color)
                 td.not-clickable
-                    +b.amount-module 
+                    +b.amount-module
                         .decrease.value-button(value='Decrease Value') -
                         input.number(type='number' value='0' name="amount")
                         .increase.value-button(value='Increase Value') +
 
     mixin tr2(index)
-        tr(data-href="coin.html") 
+        tr(data-href="coin.html")
             td #{index}
-            td 
+            td
                 if index === '2'
                     +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
+                        +e.icon
                             img(src="assets/images/currency/snx.svg", alt="")
                         +e.P.name Huobi Global
                 else if index === '4'
                     +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
+                        +e.icon
                             img(src="assets/images/currency/cpnd.svg", alt="")
                         +e.P.name Huobi Global
-                else 
+                else
                     +b.A(href="coin.html" target="_blank").currency
-                        +e.icon 
+                        +e.icon
                             img(src="assets/images/currency/btc.svg", alt="")
                         +e.P.name Binance
-            td 
+            td
                 strong ETH/USD
-            td 
+            td
                 strong $2,332.00
             td $6,391,773.09
             td $646,879,798,387
@@ -136,7 +136,7 @@ block content
             td
                 if index === '2'
                     +b.status-label(class="_danger") Low
-                else 
+                else
                     +b.status-label(class="_success") Hight
             td 867
             td Recently
@@ -146,40 +146,40 @@ block content
 
         +b.SECTION
             .container
-                +b.breadcrumbs 
-                    a(href="#") Coins 
-                    span / 
+                +b.breadcrumbs
+                    a(href="#") Coins
+                    span /
                     span Etherium
 
         +b.SECTION.details-top
             .container
-                +e.row 
-                    +e.col 
+                +e.row
+                    +e.col
                         +e.top
                             +b.currency
-                                +e.icon 
+                                +e.icon
                                     img(src="assets/images/currency/eth.svg", alt="")
                                 +e.P.name Etherium <span>ETH</span>
-                            
-                            +b.favorites 
+
+                            +b.favorites
 
                                 +e.A().button(data-text-active="In favorites" data-text-inactive="Add to favorites")
                                     span Add to favorites <span>12</span>
 
-                        +b.currency-price 
+                        +b.currency-price
                             +e.P.value $ <span class="js-price-value"><i>19.9237</i></span>
                             +b.label(class="_success") 1.2<sup>%</sup>
 
-                        +b.currency-course 
+                        +b.currency-course
                             p 0.05776913 BTC
                             +b.label(class="_success") 0.6%
 
-                        +b.indicator 
+                        +b.indicator
                             +e.top
                                 p Low: <strong>$2,258.06</strong>
                                 p Hight: <strong>$2,258.06</strong>
                             +e.bar-wrapper
-                                +e.bar 
+                                +e.bar
                                     span(style="width:30%")
                                 +b.LABEL.select(class="_small")
                                     select
@@ -187,42 +187,42 @@ block content
 
                     +e.col
                         +b.insurance
-                            +e.icon 
+                            +e.icon
                                 img(src="assets/images/insurance.svg", alt="")
                                 img(src="assets/images/insurance-success.svg", alt="")
-                            +e.content 
+                            +e.content
                                 p <span class="color-gray">Etherium</span>
                                 p <span class="color-success">audited</span> coin
 
                     +e.col
 
-                        +b.vote 
+                        +b.vote
                             +e.P.label Vote for <strong>ETC</strong>
-                            +b.amount-module 
+                            +b.amount-module
                                 .decrease.value-button(value='Decrease Value') -
                                 input.number(type='number' value='12321' name="amount")
                                 .increase.value-button(value='Increase Value') +
 
-                        +b.convertation 
-                            +b.field 
+                        +b.convertation
+                            +b.field
                                 label ETH <span>Etherium</span>
                                 +e.wrap.amount-module
                                     input(type="number" value="1" data-price="1.365590712" data-step="0.01" name="eth").color-primary
-                                    +e.arrows 
+                                    +e.arrows
                                         a.increase
-                                            +icon('play') 
+                                            +icon('play')
                                         a.decrease
-                                            +icon('play') 
-                            +e.separator 
+                                            +icon('play')
+                            +e.separator
                                 +icon('arrows')
-                            +b.field 
+                            +b.field
                                 label USD <span>United States Dollar</span>
 
                                 +e.wrap.amount-module
                                     input(type="number" value="1.365590712" data-step="0.01" name="usd")
-                                    +e.arrows 
+                                    +e.arrows
                                         a.increase
-                                            +icon('play') 
+                                            +icon('play')
                                         a.decrease
                                             +icon('play')
 
@@ -232,29 +232,29 @@ block content
             .container
 
                 .swiper-container.swiper-no-swiping.js-swiper-counters
-                    .swiper-wrapper 
-                        .swiper-slide 
+                    .swiper-wrapper
+                        .swiper-slide
                             +b.counters-item
                                 +e.top
                                     p Market Cap
                                     +b.label(class="_success") 1.2<sup>%</sup>
-                                +e.P.value 
+                                +e.P.value
                                     span $ 269,117,217,260
-                        .swiper-slide 
+                        .swiper-slide
                             +b.counters-item
                                 +e.top
                                     p Fully Diluted Market Cap
                                     +b.label(class="_danger") 0.3<sup>%</sup>
-                                +e.P.value 
+                                +e.P.value
                                     span $ 269,117,217,260
-                        .swiper-slide 
+                        .swiper-slide
                             +b.counters-item
                                 +e.top
-                                    p 24 Hour Trading Vol 
+                                    p 24 Hour Trading Vol
                                     +b.label(class="_danger") 0.3<sup>%</sup>
                                 +e.P.value
                                     span $ 15,767,547,708
-                        .swiper-slide 
+                        .swiper-slide
                             +b.counters-item
                                 +e.top
                                     p Total Supply
@@ -273,69 +273,69 @@ block content
                                     +e.content
                                         .tabs__content
                                             .table-wrapper__block-row
-                                                +b.H1.title Ethereum (ETH) Price Chart 
-                                                +b.UL.time-labels 
+                                                +b.H1.title Ethereum (ETH) Price Chart
+                                                +b.UL.time-labels
                                                     +e.LI
-                                                        +b.LABEL.radio-label 
+                                                        +b.LABEL.radio-label
                                                             input(type="radio" name="chart-type" value="area" checked)
                                                             span
                                                                 +icon('area')
                                                     +e.LI
-                                                        +b.LABEL.radio-label 
+                                                        +b.LABEL.radio-label
                                                             input(type="radio" name="chart-type" value="candle")
                                                             span
                                                                 +icon('candle')
-                                             
-                                           
+
+
 
                                             .chart-candlestick
                                             .chart-bar
 
 
-                                            .chart-lightweight 
+                                            .chart-lightweight
 
-                                            +b.UL.time-labels 
+                                            +b.UL.time-labels
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="1m" checked)
                                                         span 1m
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="5m" )
                                                         span 5m
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="10m" )
                                                         span 10m
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="15m" )
                                                         span 15m
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="30m" )
                                                         span 30m
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="1h" )
                                                         span 1h
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="4h")
                                                         span 4h
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="12h")
                                                         span 12h
                                                 +e.LI
-                                                    +b.LABEL.radio-label 
+                                                    +b.LABEL.radio-label
                                                         input(type="radio" name="chart-range" value="24h")
                                                         span 24h
 
 
                                             //- .js-chartCandle
                                             //- .js-chart
-                                            
+
                                             //- div.
                                             //-     <!-- TradingView Widget BEGIN -->
                                             //-     <div class="tradingview-widget-container">
@@ -362,30 +362,33 @@ block content
                                             //-     </script>
                                             //-     </div>
                                             //-     <!-- TradingView Widget END -->
-                                            
 
-                                            +b.swap-module 
+
+                                            +b.swap-module(class="_auth")
+
+                                                +e.auth-button
+                                                    button.button.button_primary Need login
 
                                                 form
                                                     +e.row
-                                                        +b.field 
+                                                        +b.field
 
-                                                            +b.label-group 
+                                                            +b.label-group
 
-                                                                +b.label-button.grow 
+                                                                +b.label-button.grow
                                                                     strong 0.1212 ETH
 
                                                                 +b.label-button.grow
                                                                     span.contract-token 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
-                                                                
+
                                                                 //+b.A(href="#" class="button _primary") Connect
 
                                                                 +b.A(href="#settings" class="label-button _gray-dark js-modal")
                                                                     +icon('settings')
-                                                                
+
                                                                 +b.label-button(class="_line-primary flex-right") MAX
 
-                                                            +b.field-swap 
+                                                            +b.field-swap
                                                                 // (class="_disabled")
                                                                 +b.currency-dropdown
                                                                     +e.LABEL.button
@@ -396,19 +399,19 @@ block content
                                                                             option(value="eth" data-icon="assets/images/currency/eth.svg") ETH
                                                                             option(value="btc" data-icon="assets/images/currency/btc.svg") BTC
                                                                             option(value="snx" data-icon="assets/images/currency/snx.svg") SNX
-                                                                
+
                                                                 input(type="number" name="from" value="0.3223212" step="0.001")
-                                                        
+
                                                         +e.separator
                                                             img(src="assets/icons/swap.svg", alt="")
-                                                        
-                                                        +b.field 
+
+                                                        +b.field
 
                                                             +b.label-group
                                                                 +b.label-button(class="_line-primary flex-right") MAX
 
-                                                            +b.field-swap 
-                                                                +b.currency-dropdown 
+                                                            +b.field-swap
+                                                                +b.currency-dropdown
                                                                     // (href="#swap-select").js-modal
                                                                     +e.LABEL.button
                                                                         +e.icon
@@ -418,13 +421,13 @@ block content
                                                                             option(value="eth" data-icon="assets/images/currency/eth.svg") ETH
                                                                             option(value="btc" data-icon="assets/images/currency/btc.svg") BTC
                                                                             option(value="snx" data-icon="assets/images/currency/snx.svg") SNX
-                                                                        
+
                                                                 input(type="number" name="to" value="0.3223212" step="0.001")
 
                                                         +b.BUTTON(href="#swap-confirm" class="button _primary swap-module__button js-modal") Unlock wallet
 
 
-                                            
+
                                             +b.details-text
                                                 +b.H3.title What Is Ethereum (ETH)?
                                                 +b.typography
@@ -436,106 +439,106 @@ block content
                                                     +b.A(class="button _primary _small js-show-more") Read more
                                     +e.sidebar
                                         +b.sidebar-block.statistics-block
-                                            
+
                                             +e.section
                                                 //-+e.H4.title ETH Price Statistics
-                                                +b.UL.statistics-list 
-                                                    +e.LI 
-                                                        p Contract: 
+                                                +b.UL.statistics-list
+                                                    +e.LI
+                                                        p Contract:
                                                         +b.contact-module.js-copy
                                                             +e.content
                                                                 +e.icon
                                                                     img(src="https://assets.coingecko.com/coins/images/4713/small/matic-token-icon.png?1624446912", alt="")
                                                                 +e.P.value <strong>Ethereum</strong> <span class="contract-token">0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48</span>
-                                                                
+
                                                                 +e.copy-button.js-copy-button
                                                                     +icon('copy')
                                                             input(type="text" value="0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48").js-copy-input
 
-                                                    +e.LI 
+                                                    +e.LI
                                                         p Started date
                                                         +e.row
                                                             +b.started-date 05.10.2021
 
-                                                    +e.LI 
-                                                        p Ethereum Price	
+                                                    +e.LI
+                                                        p Ethereum Price
                                                         +e.row
                                                             strong $2,324.09
-                                                    
-                                                    +e.LI 
-                                                        +b.remind-top 
-                                                            span Time till trade start 
+
+                                                    +e.LI
+                                                        +b.remind-top
+                                                            span Time till trade start
                                                             +b.A(href="#remind-me" class="button _primary button-remind js-modal")
-                                                                span Remind me 
+                                                                span Remind me
                                                                 img(src="assets/images/bell.png", alt="")
                                                         +b.timer.timer_white(
-                                                            data-timer-end="December 22, 2021, 10:00:00" 
-                                                            data-over="Time is over" 
+                                                            data-timer-end="December 22, 2021, 10:00:00"
+                                                            data-over="Time is over"
                                                             data-days="Days"
                                                             data-hours="Hours"
                                                             data-minutes="Minutes"
                                                             data-seconds="Sec"
-                                                            ) 
+                                                            )
 
-                                                    +e.LI 
+                                                    +e.LI
                                                         p Price Change 24h
                                                         +e.row
-                                                            strong $24.83 
+                                                            strong $24.83
                                                             +b.label(class="_danger") 0.3<sup>%</sup>
-                                                    +e.LI 
-                                                        p 24h Low / 24h High	
+                                                    +e.LI
+                                                        p 24h Low / 24h High
                                                         +e.row
                                                             strong $2,258.06 / $2,331.49
-                                                    +e.LI 
+                                                    +e.LI
                                                         p Trading Volumen 24h
                                                         +e.row
-                                                            strong $16,039,566,976.08  
+                                                            strong $16,039,566,976.08
                                                             +b.label(class="_success") 1.2<sup>%</sup>
-                                                    +e.LI 
-                                                        p Volume / Market Cap	
+                                                    +e.LI
+                                                        p Volume / Market Cap
                                                         +e.row
                                                             strong 0.05899
-                                                    +e.LI 
-                                                        p Market Dominance	
+                                                    +e.LI
+                                                        p Market Dominance
                                                         +e.row
                                                             strong 17,46%
-                                                    +e.LI 
-                                                        p Market Rank	
+                                                    +e.LI
+                                                        p Market Rank
                                                         +e.row
                                                             strong #2
-                                                    +e.LI 
-                                                        p Market Cap	
+                                                    +e.LI
+                                                        p Market Cap
                                                         +e.row
                                                             strong $271,916,193,634.42
                                                             +b.label(class="_success") 1.2<sup>%</sup>
-                                                    +e.LI 
+                                                    +e.LI
                                                         p Fully Diluted Market Cap
                                                         +e.row
-                                                            strong $271,916,193,634.42 
+                                                            strong $271,916,193,634.42
                                                             +b.label(class="_success") 1.2<sup>%</sup>
                                             +e.section
-                                                +b.UL.social-list 
-                                                    +e.LI 
-                                                        a(href="#") 
+                                                +b.UL.social-list
+                                                    +e.LI
+                                                        a(href="#" rel="nofollow")
                                                             +icon('world')
-                                                            span website 
-                                                            
-                                                    +e.LI 
-                                                        a(href="#") 
+                                                            span website
+
+                                                    +e.LI
+                                                        a(href="#")
                                                             +icon('twitter')
-                                                            span Twitter 
-                                                            
-                                                    +e.LI 
-                                                        a(href="#") 
+                                                            span Twitter
+
+                                                    +e.LI
+                                                        a(href="#")
                                                             +icon('telegram')
-                                                            span Telegram  
-                                                            
-                                                    +e.LI 
-                                                        a(href="#") 
+                                                            span Telegram
+
+                                                    +e.LI
+                                                        a(href="#")
                                                             +icon('discord')
-                                                            span discord.gg 
-                                                            
-                    if index === 2 
+                                                            span discord.gg
+
+                    if index === 2
                         div.js-tab-content
                             +b.table-wrapper.hidden-filters
                                 +e.block(class="_border")
@@ -543,9 +546,9 @@ block content
                                         +b.H3.title Promoted
                                     +e.table
                                         table.table-hover.js-datatables
-                                            thead 
-                                                tr 
-                                                    th # 
+                                            thead
+                                                tr
+                                                    th #
                                                     th Name
                                                     th
                                                     th Price
@@ -556,13 +559,13 @@ block content
                                                     th Circulating Supply
                                                     th Last 7 Days
                                                     th Votes
-                                            tbody 
+                                            tbody
                                                 +tr('1','btc','#03b15d')
                                                 +tr('2','eth','#03b15d')
                                                 +tr('3','dai','#d22f49')
                                                 +tr('4','tether','#03b15d')
                                                 +tr('5','btc','#d22f49')
-                                
+
                     if index === 3
                         div.js-tab-content
                             +b.table-wrapper.hidden-filters
@@ -571,22 +574,22 @@ block content
                                         +b.H3.title Ethereum Markets
 
                                     +e.table
-                                        table.table-hover.js-datatables 
-                                            thead 
-                                                tr 
+                                        table.table-hover.js-datatables
+                                            thead
+                                                tr
                                                     th #
                                                     th Name
                                                     th Pairs
                                                     th Price
-                                                    th +2% Depth 
+                                                    th +2% Depth
                                                     th -2% Depth
                                                     th Volume
                                                     th Volume %
                                                     th Confidence
                                                     th Liquidity
                                                     th Liquidity scores
-                                            tbody 
-                                                
+                                            tbody
+
                                                 +tr2('1')
                                                 +tr2('2')
                                                 +tr2('3')
@@ -611,35 +614,35 @@ block content
                                         +e.table
                                             .table-bordered
                                                 table
-                                                    thead 
-                                                        tr 
+                                                    thead
+                                                        tr
                                                             th 1h
                                                             th 24h
                                                             th 7d
                                                             th 14d
                                                             th 30d
                                                             th 1y
-                                                    tbody 
-                                                        tr 
-                                                            td 
-                                                                p.color-success 
+                                                    tbody
+                                                        tr
+                                                            td
+                                                                p.color-success
                                                                     strong 0.3%
-                                                            td 
-                                                                p.color-success 
+                                                            td
+                                                                p.color-success
                                                                     strong 1.8%
-                                                            td 
-                                                                p.color-success 
+                                                            td
+                                                                p.color-success
                                                                     strong 16.1%
-                                                            td 
-                                                                p.color-success 
+                                                            td
+                                                                p.color-success
                                                                     strong 16.4%
-                                                            td 
-                                                                p.color-success 
+                                                            td
+                                                                p.color-success
                                                                     strong 11.4%
-                                                            td 
-                                                                p.color-success 
+                                                            td
+                                                                p.color-success
                                                                     strong 635.2%
-                    
+
                     if index === 5
                         div.js-tab-content
                             +b.table-wrapper.hidden-filters
@@ -651,22 +654,22 @@ block content
                                             +time-labels('time')
 
                                     +e.table
-                                        table.js-datatables 
-                                            thead 
-                                                tr 
+                                        table.js-datatables
+                                            thead
+                                                tr
                                                     th Date
                                                     th Market Cap
                                                     th Volume
                                                     th Open
                                                     th Close
-                                            tbody 
+                                            tbody
                                                 mixin tr-history()
-                                                    tr 
+                                                    tr
                                                         td.nowrap 2021-07-29
-                                                        td 
+                                                        td
                                                             p
                                                                 strong $268,838,784,856
-                                                        td 
+                                                        td
                                                             p
                                                                 strong $23,171,592,870
                                                         td $2,299.69
@@ -702,15 +705,15 @@ block content
                                 +b.A(href="reviews.html" class="button _primary") Show all news
                     if index === 7
                         div.js-tab-content
-                            +b.presaled-block 
+                            +b.presaled-block
                                 +b.presaled-item
-                                    +e.icon 
+                                    +e.icon
                                         +icon('calendar')
                                     +e.content
                                         +e.P.label Finish date
                                         +e.P.value 22.02.2022
                                 +b.presaled-item
-                                    +e.icon 
+                                    +e.icon
                                         +icon('002-click')
                                     +e.content
                                         +e.P.label Whitelist link
@@ -718,31 +721,31 @@ block content
 
                     if index === 8
                         div.js-tab-content
-                            +b.presaled-block 
+                            +b.presaled-block
 
                                 +b.presaled-item
-                                    +e.icon 
+                                    +e.icon
                                         +icon('calendar')
                                     +e.content
                                         +e.P.label Start date
                                         +e.P.value 22.02.2022
                                 +b.presaled-item(class="_link")
-                                    +e.icon 
+                                    +e.icon
                                         +icon('002-click')
                                     +e.content
                                         +e.P.label Presale link
                                         +e.A(href="https://support.binance.co.ug/hc/en-us/articles/360018274671" target="_blank").value https://support.binance.co.ug/hc/en-us/articles/360018274671
-                              
-                                +b.timer-module 
+
+                                +b.timer-module
                                     +e.P.title Time left:
                                     +b.timer(
-                                        data-timer-end="December 22, 2021, 20:00:00" 
-                                        data-over="Time is over" 
+                                        data-timer-end="December 22, 2021, 20:00:00"
+                                        data-over="Time is over"
                                         data-days="Days"
                                         data-hours="Hours"
                                         data-minutes="Minutes"
                                         data-seconds="Sec"
-                                        ) 
+                                        )
 
                     if index === 9
                         div.js-tab-content
@@ -754,40 +757,40 @@ block content
 
                                     +e.table
                                         table.js-datatables.table-swap
-                                            thead 
-                                                tr 
+                                            thead
+                                                tr
                                                     th ACTION
                                                     th Total value
                                                     th Token Amount
                                                     th Token Amount
-                                                    th Account     
+                                                    th Account
                                                     th Time
-                                            tbody 
+                                            tbody
                                                 mixin trs()
-                                                    tr.tr-success 
-                                                        td 
+                                                    tr.tr-success
+                                                        td
                                                             strong Swap SEED  or WBNB
-                                                        td 
+                                                        td
                                                             strong $23.32
-                                                        td 
+                                                        td
                                                             strong 0.056 SEED
-                                                        td 
+                                                        td
                                                             strong 0.056 WBNB
-                                                        td 
+                                                        td
                                                             +b.swap-status
                                                                 strong.contract-token 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
                                                                 +icon('diagonal')
                                                         td 41 minutes ago
-                                                    tr.tr-danger 
-                                                        td 
+                                                    tr.tr-danger
+                                                        td
                                                             strong Swap SEED  or WBNB
-                                                        td 
+                                                        td
                                                             strong $23.32
-                                                        td 
+                                                        td
                                                             strong 0.056 SEED
-                                                        td 
+                                                        td
                                                             strong 0.056 WBNB
-                                                        td 
+                                                        td
                                                             +b.swap-status
                                                                 strong.contract-token 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48
                                                                 +icon('diagonal')
@@ -795,33 +798,33 @@ block content
                                                 +trs()
                                                 +trs()
                 +b.tabs.js-tabs
-                    +e.UL.nav 
+                    +e.UL.nav
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Overview
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Whitelist
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Presaled
                         +e.LI(class=" js-tab-link is-promo")
-                            +e.A() 
+                            +e.A()
                                 span Promoted
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Markets
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Chart
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Historical Data
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span News
                         +e.LI(class=" js-tab-link")
-                            +e.A() 
+                            +e.A()
                                 span Swaps
 
                     +tab(1)
@@ -842,12 +845,12 @@ block script
     script(src="https://cdn.jsdelivr.net/npm/apexcharts")
     <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    
+
     script(type="text/javascript").
 
         // Charts for table
         $(document).ready( function () {
-            
+
             // Datatables
             var table = $('.js-datatables').DataTable({
                 "searching": false
@@ -871,31 +874,31 @@ block script
             table.on( 'draw.dt', function () {
                 Charts.drawTableCharts()
             });
-           
+
 
             let selectedType = $('[name="chart-type"]:checked').val();
 
-            const detailsChart = LightweightCharts.createChart(document.querySelector('.chart-lightweight'), { 
+            const detailsChart = LightweightCharts.createChart(document.querySelector('.chart-lightweight'), {
                 height: 450,
                 timeScale: {
                     timeVisible: true,
                     secondsVisible: false,
-                }, 
-       
-              
+                },
+
+
                 });
-            const series = detailsChart.addAreaSeries({	
-                topColor: 'rgba(72, 124, 235, 0.4)',	
+            const series = detailsChart.addAreaSeries({
+                topColor: 'rgba(72, 124, 235, 0.4)',
                 bottomColor: 'rgba(0, 120, 255, 0.0)',
                 lineColor: 'rgba(72, 124, 235, 1.0)',
                 lineWidth: 2,
                 priceFormat: {
-                    
+
                    precision: 16,
                    minMove: 0.0000000000000001,
                 },
             });
-            
+
 
             const candleSeries = detailsChart.addCandlestickSeries();
 
@@ -910,14 +913,14 @@ block script
                         value: +el.price
                     })
 
-                    candleData.push({ 
-                        time: el.time, 
-                        open: +el.open, 
-                        high: +el.high, 
-                        low: +el.low, 
-                        close: +el.close 
+                    candleData.push({
+                        time: el.time,
+                        open: +el.open,
+                        high: +el.high,
+                        low: +el.low,
+                        close: +el.close
                     })
-                    
+
                 })
 
 
@@ -4589,14 +4592,14 @@ block script
                         }
                     }
                 }
-                
+
                 setData(result)
 
-                
-            
+
+
             },500)
 
-            
+
             //- setInterval(()=>{
 
             //-     let data = {
@@ -4614,7 +4617,7 @@ block script
             //-     //-     value: [+data.price]
             //-     //- })
 
-                
+
 
 
             //-     if(selectedType === 'area'){
@@ -4635,19 +4638,19 @@ block script
 
             //- },500)
 
-            
+
             $('[name="chart-type"]').on('change', function(){
                 setData(result)
                 detailsChart.removeSeries(series);
                 detailsChart.removeSeries(candleSeries);
                 selectedType = $(this).val()
-                
-            
+
+
 
 
             })
 
 
-            
+
         });
 
