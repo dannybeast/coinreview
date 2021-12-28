@@ -375,12 +375,12 @@ $(document).ready(function () {
   })
 
   // Tables length < 2 = hide paginate
-  $('.dataTables_paginate').each(function () {
-    let lengthPages = $(this).find('span > .paginate_button').length
-    if (lengthPages <= 1) {
-      $(this).parents('.table-wrapper__footer').hide()
-    }
-  })
+  // $('.dataTables_paginate').each(function () {
+  //   let lengthPages = $(this).find('span > .paginate_button').length
+  //   if (lengthPages <= 1) {
+  //     $(this).parents('.table-wrapper__footer').hide()
+  //   }
+  // })
 
 
 

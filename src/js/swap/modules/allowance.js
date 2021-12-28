@@ -1,13 +1,13 @@
 import {getTokenContract, PANCAKE_ROUTER} from "./contracts";
-const {JSBI} = require("@pancakeswap/sdk");
-
-
-const {WETH, ChainId} = require("@pancakeswap/sdk");
+const {WETH, ChainId, JSBI} = require("@pancakeswap/sdk");
 export const getAllowance = async (firstTokenData, accountData) => {
+
+
 
     let allowance = 100*10**18;
     if (firstTokenData.token.address !== WETH[ChainId.MAINNET].address) {
-        const {signer, account} = accountData;
+        const {signer, account, chainId} = accountData;
+        if (chainId!==ChainId.MAINNET) throw 'Wrong network';
         const contract = getTokenContract(firstTokenData.token.address, signer);
         allowance = await contract.allowance(account, PANCAKE_ROUTER);
         allowance = allowance.toString()
