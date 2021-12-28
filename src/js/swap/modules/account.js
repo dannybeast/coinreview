@@ -28,11 +28,6 @@ export async function getAccountConnect(w3provider) {
     const network = await provider.getNetwork();
     const chainId = network.chainId;
 
-    if (chainId!==56)
-    {
-        throw 'Wrong network';
-    }
-
     const accounts = await provider.listAccounts();
     const account = accounts[0];
     const signer = provider.getSigner();
@@ -40,7 +35,7 @@ export async function getAccountConnect(w3provider) {
 
 
 
-    return {provider, account, signer};
+    return {provider, account, signer, chainId};
 }
 
 

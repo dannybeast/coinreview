@@ -1,11 +1,14 @@
-const {Pair, TokenAmount, Trade, Percent, JSBI, currencyEquals, CurrencyAmount} = require("@pancakeswap/sdk");
+const {Pair, TokenAmount, Trade, Percent, JSBI, currencyEquals, CurrencyAmount, ChainId} = require("@pancakeswap/sdk");
 const {mainnetTokens, tryParseAmount, useCurrency} = require("./tokens");
 const {getPairContract} = require("./contracts");
 
 
 export async function getTradeData(firstTokenData, secondTokenData, accountData, tolerance = 500) {
 
-    const {signer} = accountData;
+    const {signer, chainId} = accountData;
+
+    if (chainId!==ChainId.MAINNET) throw 'Wrong network';
+
     let price = 0;
     let trade = null;
     let priceImpactWithoutFeePercent = 0;

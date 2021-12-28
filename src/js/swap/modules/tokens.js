@@ -32,7 +32,10 @@ export function tryParseAmount(value, currency) {
 
 export async function getTokenData(data, accountData)
 {
-    const {provider, account, signer} = accountData;
+    const {provider, account, signer, chainId} = accountData;
+
+    if (chainId!==ChainId.MAINNET) throw 'Wrong network';
+
     const isBNB = data.contract.toLowerCase()===WETH[ChainId.MAINNET].address.toLowerCase();
 
     const token = new Token(
