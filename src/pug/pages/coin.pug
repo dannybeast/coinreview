@@ -174,6 +174,18 @@ block content
                             p 0.05776913 BTC
                             +b.label(class="_success") 0.6%
 
+                        +b.balance
+                            +e.wallet-icon
+                                img(src="assets/images/wallet-1-icon.png", alt="")
+                                img(src="assets/images/wallet-2-icon.png", alt="")
+                            +e.P.text Your ballance
+                            +e.BUTTON.btn Connect wallet
+                        +b.balance
+                            +e.wallet-icon
+                                img(src="assets/images/wallet-1-icon.png", alt="")
+                            +e.P.text Your ballance 2,999,231.311
+                                span 411.23 usd
+
                         +b.indicator
                             +e.top
                                 p Low: <strong>$2,258.06</strong>
@@ -437,6 +449,24 @@ block content
                                                     p Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014 and officially launched the blockchain on July 30, 2015
                                                 +e.bottom
                                                     +b.A(class="button _primary _small js-show-more") Read more
+                                            +b.transactions-history
+                                                +e.title Transactions history
+                                                +e.list
+                                                    -for(var i = 0; i < 8; i++)
+                                                        +b.item.transactions-history__item
+                                                            +e.time 22/12/21 15:26:33
+                                                            +e.amount 0.0001 <span>usdt</span>
+                                                            +e.wallets
+                                                                +e.wallet._from
+                                                                    img(src="assets/images/currency/eth.svg", alt="")
+                                                                    p 0x3...3gh
+                                                                +e.wallet._to
+                                                                    img(src="assets/images/currency/eth.svg", alt="")
+                                                                    p 0x3...3gh
+                                                            if(i % 2 === 0)
+                                                                +e.status._done
+                                                            else
+                                                                +e.status._faild
                                     +e.sidebar
                                         +b.sidebar-block.statistics-block
 
