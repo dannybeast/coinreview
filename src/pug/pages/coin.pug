@@ -183,7 +183,8 @@ block content
                         +b.balance
                             +e.wallet-icon
                                 img(src="assets/images/wallet-1-icon.png", alt="")
-                            +e.P.text Your ballance 2,999,231.311
+                            +e.P.text 
+                                span Your ballance 2,999,231.311
                                 span 411.23 usd
 
                         +b.indicator
@@ -198,13 +199,20 @@ block content
                                         option(value="1") 24h
 
                     +e.col
-                        +b.insurance
+                        +b.insurance.is-active
                             +e.icon
                                 img(src="assets/images/insurance.svg", alt="")
                                 img(src="assets/images/insurance-success.svg", alt="")
                             +e.content
                                 p <span class="color-gray">Etherium</span>
                                 p <span class="color-success">audited</span> coin
+                        
+                        +b.insurance.is-active
+                            +e.icon
+                                img(src="assets/images/white-paper.svg", alt="")
+                            +e.content
+                                p <span class="color-gray">Lighting</span>
+                                p <span>WhitePaper</span>
 
                     +e.col
 
@@ -475,12 +483,24 @@ block content
 
 
                                             +b.details-text
-                                                +b.H3.title What Is Ethereum (ETH)?
+                                                .note-editable
+                                                  .typography
+                                                    h3 XFLOKI INU token price online
+                                                    p For today, the rate of XFLOKI INU is 0.000000024700000000$. The changes for 24 hours are - 1.65%. Coin Contract - 0x1182e3a6cc16351f70190f82545c6728a948f105.
+                                                
+                                             
                                                 +b.typography
-                                                    p Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether. ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of decentralized smart contracts.
-                                                    p Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014 and officially launched the blockchain on July 30, 2015
-                                                    p Ethereum is a decentralized open-source blockchain system that features its own cryptocurrency, Ether. ETH works as a platform for numerous other cryptocurrencies, as well as for the execution of decentralized smart contracts.
-                                                    p Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014 and officially launched the blockchain on July 30, 2015
+                                                    h3 Where to buy the Floki Inu (BSC)?
+                                                    p
+                                                      | The coin Floki Inu (BSC) can be bought directly on our website or on the PancakeSwap Gate.io, MEXC.
+                                                    h3 Floki Inu (BSC) what is it? (information from the official website)
+                                                    p
+                                                      | FLOKI is the people&rsquo;s cryptocurrency, and this fact is reinforced by the three pillars that indicate what FLOKI stands for: FLOKI&rsquo;s meme culture is strong. Our community loves and lives for the memes, and we strongly believe that the only way to truly take cryptocurrency mainstream and ensure mainstream adoption is by leveraging the power of memes. Memes appeal to everybody: to poor and rich, to small and great, and to young and old alike. This is why the people&rsquo;s cryptocurrency is a meme at heart. While FLOKI has strong meme culture, our utility roadmap gives us very strong fundamentals.
+                                                    p
+                                                      | The NFT economy is strong and will only become more vibrant. We also look forward to a world where people can easily purchase physical goods with cryptocurrency. FlokiPlaces aims to fill this gap by making it easy for people to trade NFTs and physical goods while paying with cryptocurrency -- with the FLOKI token as the core payment option.
+                                                    p
+                                                      | FLOKI is working to help create a world where pretty much everyone is exposed to cryptocurrency and the blockchain in some form. To achieve this, we believe educating people about blockchain technology is mission practical. Floki Inuversity will be the premier cryptocurrency education platform. It&rsquo;s focus is to educate the mainstream audience FLOKI appeals to and get them more familiar with cryptocurrency and blockchain technology.
+
                                                 +e.bottom
                                                     +b.A(class="button _primary _small js-show-more") Read more
                                             
