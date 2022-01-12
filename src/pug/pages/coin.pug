@@ -379,7 +379,7 @@ block content
                                             +b.swap-module(class="_auth")
 
                                                 +e.auth-button
-                                                    button.button.button_primary Need login
+                                                    a(href="#").button.button_primary Need login
 
                                                 form
                                                     +e.row
@@ -439,6 +439,24 @@ block content
                                                         +b.BUTTON(href="#swap-confirm" class="button _primary swap-module__button js-modal") Unlock wallet
 
 
+                                            +b.transactions-history
+                                              +e.title Transactions history
+                                              +e.list
+                                                  -for(var i = 0; i < 8; i++)
+                                                      +b.item.transactions-history__item
+                                                          +e.time 22/12/21 15:26:33
+                                                          +e.amount 0.0001 <span>usdt</span>
+                                                          +e.wallets
+                                                              +e.wallet._from
+                                                                  img(src="assets/images/currency/eth.svg", alt="")
+                                                                  p 0x3...3gh
+                                                              +e.wallet._to
+                                                                  img(src="assets/images/currency/eth.svg", alt="")
+                                                                  p 0x3...3gh
+                                                          if(i % 2 === 0)
+                                                              +e.status._done
+                                                          else
+                                                              +e.status._faild
 
                                             +b.details-text
                                                 +b.H3.title What Is Ethereum (ETH)?
@@ -449,24 +467,7 @@ block content
                                                     p Ethereum was first described in a 2013 whitepaper by Vitalik Buterin. Buterin, along with other co-founders, secured funding for the project in an online public crowd sale in the summer of 2014 and officially launched the blockchain on July 30, 2015
                                                 +e.bottom
                                                     +b.A(class="button _primary _small js-show-more") Read more
-                                            +b.transactions-history
-                                                +e.title Transactions history
-                                                +e.list
-                                                    -for(var i = 0; i < 8; i++)
-                                                        +b.item.transactions-history__item
-                                                            +e.time 22/12/21 15:26:33
-                                                            +e.amount 0.0001 <span>usdt</span>
-                                                            +e.wallets
-                                                                +e.wallet._from
-                                                                    img(src="assets/images/currency/eth.svg", alt="")
-                                                                    p 0x3...3gh
-                                                                +e.wallet._to
-                                                                    img(src="assets/images/currency/eth.svg", alt="")
-                                                                    p 0x3...3gh
-                                                            if(i % 2 === 0)
-                                                                +e.status._done
-                                                            else
-                                                                +e.status._faild
+                                            
                                     +e.sidebar
                                         +b.sidebar-block.statistics-block
 

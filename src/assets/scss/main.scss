@@ -5194,7 +5194,7 @@ sup {
     position: fixed;
     bottom: 0;
     right: 30px;
-    z-index: 5;
+    z-index: 7;
     background: #00194e;
     color: #fff;
     font-size: 24px;
@@ -5563,6 +5563,9 @@ sup {
 
     &_auth {
         position: relative;
+        .swap-module__auth-button{
+          display: flex;
+        }
     }
 
     &__auth {
@@ -5572,11 +5575,11 @@ sup {
             right: -5px;
             bottom: 25px;
             left: -5px;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             border-radius: 10px;
-            background-color: rgba(0, 0, 0, .6);
+            background-color: rgba(216 ,229, 255 , .88);
             z-index: 1;
         }
     }
