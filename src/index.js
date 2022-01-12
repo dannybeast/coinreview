@@ -278,7 +278,7 @@ $(document).ready(function () {
   // Truncate
   $('.contract-token').each(function () {
     let val = $(this).text();
-    let valTruncate = truncate(val, 12, "...")
+    let valTruncate = truncate(val, 10, "...")
     $(this).text(valTruncate);
   })
 

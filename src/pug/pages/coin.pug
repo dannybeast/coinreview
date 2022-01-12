@@ -440,23 +440,39 @@ block content
 
 
                                             +b.transactions-history
-                                              +e.title Transactions history
-                                              +e.list
-                                                  -for(var i = 0; i < 8; i++)
+                                              +e.H3.title Transactions history
+
+                                              +e.row
+                                                  +e.list
+                                                    each val in [1, 2, 3, 4]
                                                       +b.item.transactions-history__item
                                                           +e.time 22/12/21 15:26:33
                                                           +e.amount 0.0001 <span>usdt</span>
                                                           +e.wallets
                                                               +e.wallet._from
-                                                                  img(src="assets/images/currency/eth.svg", alt="")
-                                                                  p 0x3...3gh
+                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
                                                               +e.wallet._to
-                                                                  img(src="assets/images/currency/eth.svg", alt="")
-                                                                  p 0x3...3gh
-                                                          if(i % 2 === 0)
-                                                              +e.status._done
-                                                          else
-                                                              +e.status._faild
+                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                            
+                                                          +e.status._done
+                                             
+                                                  +e.list
+                                                    each val in [1, 2, 3, 4]
+                                                      +b.item.transactions-history__item
+                                                          +e.time 22/12/21 15:26:33
+                                                          +e.amount 0.0001 <span>usdt</span>
+                                                          +e.wallets
+                                                              +e.wallet._from
+                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                              +e.wallet._to
+                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                            
+                                                          +e.status._faild
+
 
                                             +b.details-text
                                                 +b.H3.title What Is Ethereum (ETH)?
