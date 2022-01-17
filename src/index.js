@@ -41,7 +41,7 @@ import "jquery-ui-touch-punch";
 import "./js/swap/init";
 import "./js/modules/timer";
 //import "./js/modules/timer";
-import "./js/modules/swap-select";
+//import "./js/modules/swap-select";
 import Web3Modal from "web3modal";
 
 websockets();
@@ -495,6 +495,48 @@ $(document).ready(function () {
   //
   // }
   // init();
+
+
+
+
+// banners positions
+  
+$('[name="place_id"]').each(function(){
+  let id = $(this).val();
+
+  switch(id){
+    case '1':
+    $(this).parents('.selected-banner').addClass('.js-top-banner-position')
+    case '2':
+    $(this).parents('.selected-banner').addClass('.js-main-top-banner-position')
+    case '3':
+    $(this).parents('.selected-banner').addClass('.js-main-bottom-banner-position')
+  }
+})
+
+
+
+  // top-banner
+  let $topBanner = $('.js-top-banner-position');
+  let $topBannerClone = $topBanner.clone(true)
+  $topBanner.remove();
+  $('.main-layout').prepend($topBannerClone)
+
+  // main-top-banner
+  let $mainTopBanner = $('.js-main-top-banner-position');
+  let $mainTopBannerClone = $mainTopBanner.clone(true)
+  $mainTopBanner.remove();
+  $('.select-banner-list').after($mainTopBannerClone)
+
+
+  // main-bottom-banner
+  let $mainBottomBanner = $('.js-main-bottom-banner-position');
+  let $mainBottomBannerClone = $mainBottomBanner.clone(true)
+  $mainBottomBanner.remove();
+  $('.add-banner-section').after('<section class="banner-section"><div class="container"></div></section>')
+  $('.add-banner-section+section.banner-section .container').append($mainBottomBannerClone)
+//-
+
 })
 
 $.fn.extend({
