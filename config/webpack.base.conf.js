@@ -34,7 +34,8 @@ module.exports = {
   },
   entry: {
     app: ['babel-polyfill',PATHS.src],
-    //-profile: PATHS.src + "/profile.js",
+    profile: PATHS.src + "/profile.js",
+    websockets: PATHS.src + "/websockets.js",
     common: ['babel-polyfill',PATHS.src + "/common.js"],
     //indexAnimate: PATHS.src + "/indexAnimate.js"
   },

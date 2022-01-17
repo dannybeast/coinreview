@@ -1,5 +1,5 @@
 // SVG
-import WalletConnectProvider from "@walletconnect/web3-provider";
+//import WalletConnectProvider from "@walletconnect/web3-provider";
 
 var __svg__ = {
   path: "./assets/icons/**/*.svg",
@@ -35,16 +35,11 @@ import {
   truncate
 } from "./js/modules/helpers";
 import copy from "./js/modules/copy";
-import websockets from "./js/modules/websockets";
 import "jquery-ui/ui/widgets/slider";
 import "jquery-ui-touch-punch";
-import "./js/swap/init";
 import "./js/modules/timer";
 //import "./js/modules/timer";
-//import "./js/modules/swap-select";
-import Web3Modal from "web3modal";
 
-websockets();
 
 $(document).ready(function () {
 

@@ -2864,20 +2864,6 @@ sup {
     }
 }
 
-.chart-lightweight{
-  position: relative;
-  &:after{
-    content: "";
-    width: 151px;
-    height: 23px;
-    position: absolute;
-    bottom: 33px;
-    left: 0px;
-    background: url(../images/logo/logo.svg) center no-repeat;
-    z-index: 1;
-    opacity: 0.5;
-  }
-}
 
 .details-text {
     margin-top: 40px;
@@ -6024,7 +6010,10 @@ sup {
 }
 
 .connect-wallet {
-    color: #000
+    color: #000;
+    a{
+      text-decoration: none;
+    }
 }
 
 .connect-wallet svg {
