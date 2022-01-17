@@ -66,6 +66,7 @@ $(document).ready(function () {
     let posTop = header.height();
     if (topBanner.length) {
       posTop = posTop + topBanner.height();
+      
     }
     mobMenu.css('top', posTop)
   }
@@ -119,6 +120,7 @@ $(document).ready(function () {
   });
 
   $('.mobile-nav-button').click(function () {
+    positionMobileMenu()
     $('.mobile-menu').toggleClass('open')
     $('body').toggleClass('overflow')
     $(this).find('.hamburger').toggleClass('is-active')
@@ -542,10 +544,13 @@ $('[name="place_id"]').each(function(){
 
 
   // top-banner
+  if($('#create_banner').length){
   let $topBanner = $('.js-top-banner-position');
   let $topBannerClone = $topBanner.clone(true)
   $topBanner.remove();
-  $('.main-layout').prepend($topBannerClone)
+  $('.main-layout').prepend('<div class="main-layout__top-banner banner-position"></div>')
+  $('.main-layout__top-banner.banner-position').append($topBannerClone)
+
 
   // main-top-banner
   let $mainTopBanner = $('.js-main-top-banner-position');
@@ -583,7 +588,7 @@ $('[name="place_id"]').each(function(){
   $('#create_banner').each(function() {
     $(this).replaceWith("<div>"+$(this).html()+"</div>")
   });
-
+  }
   
  
 
