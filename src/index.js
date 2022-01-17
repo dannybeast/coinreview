@@ -234,6 +234,12 @@ $(document).ready(function () {
     link.prop('required', val)
   }
 
+  function requiredWhitepapperFields(val) {
+    let link = $('.js-link-whitepapper')
+
+    link.prop('required', val)
+  }
+
   $('.js-presale-select').on('change', function () {
 
     let val = parseInt($(this).val());
@@ -274,6 +280,22 @@ $(document).ready(function () {
       requiredAuditFields(false)
     }
   })
+
+  $('.js-whitepapper-select').on('change', function () {
+
+    let val = parseInt($(this).val());
+    let $block = $('.whitepapper-block');
+
+    if (val === 1) {
+      $block.slideDown();
+      requiredWhitepapperFields(true)
+    } else {
+      $block.slideUp();
+      requiredWhitepapperFields(false)
+    }
+  })
+
+
 
   // Truncate
   $('.contract-token').each(function () {
