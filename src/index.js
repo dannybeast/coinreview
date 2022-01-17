@@ -560,7 +560,35 @@ $('[name="place_id"]').each(function(){
   $mainBottomBanner.remove();
   $('.add-banner-section').after('<section class="banner-section"><div class="container"></div></section>')
   $('.add-banner-section+section.banner-section .container').append($mainBottomBannerClone)
-//-
+
+
+
+
+  $('.main-layout').wrap("<form class='add-banner-form'></form>")
+
+    var destination =  $('.add-banner-form').eq(0);
+    var source =$('#create_banner')[0];
+
+
+  console.log(destination, source);
+
+    for (let i = 0; i < source.attributes.length; i++)
+    {
+        var a = source.attributes[i];
+       if(a.name != 'id'){
+        destination.attr(a.name, a.value);
+       }
+    }
+
+  $('#create_banner').each(function() {
+    $(this).replaceWith("<div>"+$(this).html()+"</div>")
+  });
+
+  
+ 
+
+
+  //-
 
 })
 
@@ -569,3 +597,4 @@ $.fn.extend({
     return this.text(this.text() == b ? a : b);
   }
 });
+
