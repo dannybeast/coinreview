@@ -528,11 +528,14 @@ $('[name="place_id"]').each(function(){
 
   switch(id){
     case '1':
-    $(this).parents('.selected-banner').addClass('.js-top-banner-position')
+    $(this).parents('.selected-banner').addClass('js-top-banner-position')
+    break;
     case '2':
-    $(this).parents('.selected-banner').addClass('.js-main-top-banner-position')
+    $(this).parents('.selected-banner').addClass('js-main-top-banner-position')
+    break;
     case '3':
-    $(this).parents('.selected-banner').addClass('.js-main-bottom-banner-position')
+    $(this).parents('.selected-banner').addClass('js-main-bottom-banner-position')
+    break;
   }
 })
 
