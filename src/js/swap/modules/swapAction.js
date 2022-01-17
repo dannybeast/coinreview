@@ -83,14 +83,7 @@ export async function useSwap(
         ...(value && !isZero(value) ? {value, from: account} : {from: account}),
     })
         .then((response) => {
-            // const inputSymbol = trade.inputAmount.currency.symbol
-            // const outputSymbol = trade.outputAmount.currency.symbol
-            // const inputAmount = trade.inputAmount.toSignificant(3)
-            // const outputAmount = trade.outputAmount.toSignificant(3)
-
-
-
-            return response.hash
+            return response
         })
         .catch((error) => {
             // if the user rejected the tx, pass this along
