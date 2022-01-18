@@ -19,8 +19,7 @@ export const setApprove = async (firstTokenData, accountData) => {
     const {signer} = accountData;
     const contract = getTokenContract(firstTokenData.token.address, signer);
     try {
-        await contract.approve(PANCAKE_ROUTER, JSBI.BigInt(21000000 * 10 ** firstTokenData.token.decimals).toString());
-        return true;
+        return await contract.approve(PANCAKE_ROUTER, JSBI.BigInt(21000000 * 10 ** firstTokenData.token.decimals).toString());
     } catch (err) {
         throw err;
     }
