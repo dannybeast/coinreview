@@ -6261,50 +6261,206 @@ sup {
                 }
             }
 
-            &__status {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 24px;
-                height: 24px;
-                border-radius: 5px;
-                color: #ffffff;
-                flex-shrink: 0;
-                @include to(500px){
-                 margin-top: 5px;
-                 }
-                &_done {
-                    background: linear-gradient(0deg, #03b15d, #00e395);
-                    box-shadow: 0px 3px 24px rgba(#00e293, 0.47);
-                  
-                    &:after {
-                      content: "";
-                      background-image: svg-load("../icons/check.svg", fill=#fff);
-                      background-size: contain;
-                      background-repeat: no-repeat;
-                      width: 12px;
-                      height: 9px;
-                      display: block;
-                    }
-                }
-
-                &_faild {
-                    background: linear-gradient(0deg, #c23442, #ef403c);
-                    box-shadow: 0px 3px 24px rgba(#f98a95, 0.47);
-
-                    &:after {
-                      content: "";
-                      background-image: svg-load("../icons/cross-line.svg", fill=#fff);
-                      background-size: contain;
-                      background-repeat: no-repeat;
-                      width: 10px;
-                      height: 10px;
-                      display: block;
-                    }
-                }
-            }
+          
         }
     }
+}
+
+.amount-price{
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  span{
+    color:#85868a;
+  }
+}
+
+.swap-transactions-info{
+  display: flex;
+
+  .contract-token{
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+
+  &__value{
+    color: #6190f6;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  &__icon{
+    flex-shrink: 0;
+    &:first-child{
+      margin-right: 10px;
+    }
+  
+    img{
+      width: 25px;
+    }
+  }
+  &__col{
+    display: flex;
+    &:last-child{
+      .swap-transactions-info__icon{
+        order:2;margin-left: 10px;margin-right: 0;
+      }
+    }
+  }
+
+  &__separator{
+    flex-shrink: 0;
+    position: relative;
+    margin: 0 10px;
+    &:after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
+      background: {
+          image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjQuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDgyLjQgNjAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDgyLjQgMTQyLjU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojNEQ3RkVEO30KCS5zdDF7ZmlsbDojQ0FDQUNDO30KPC9zdHlsZT4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTgwLjgsMjcuMUw1NS4yLDEuNmMtMi4yLTIuMi01LjgtMi4yLTguMSwwYy0yLjIsMi4yLTIuMiw1LjgsMCw4LjFsMTUuOCwxNS43SDUuN2MtMy4xLDAtNS43LDIuNi01LjcsNS43CglzMi42LDUuNyw1LjcsNS43aDU3LjFMNDUuNyw1My42Yy0yLjIsMi4yLTIuMiw1LjksMCw4LjFjMS4xLDEuMSwyLjUsMS43LDQsMS43YzAsMCwwLDAsMC4xLDBjMS41LDAsMy0wLjYsNC0xLjdsMjYuOS0yNi41CglDODIuOSwzMy4xLDgyLjksMjkuNSw4MC44LDI3LjF6Ii8+Cjwvc3ZnPgo=");
+          position: center;
+          repeat: no-repeat;
+          size: 12px;
+          color: #f0f4fd;
+      }
+      border-radius: 50%;
+      margin-left: 10px;
+  }
+  }
+}
+
+.form-block{
+  background: #f3f6fd;
+  padding: 15px 30px;
+  border: 1px solid #cad6f0;
+  border-radius: 12px;
+  &__title{
+    font-size: 21px;
+  }
+}
+
+.hash-module {
+  display: flex;
+  align-items: center;
+  position: relative;
+  span{
+    position: relative;z-index: 2;
+  }
+  input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  &__copy-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    cursor: pointer;   position: relative;z-index: 2;
+    svg{
+      width: 18px;
+      height: 16px;
+      fill:#6190f6;
+    }
+  }
+}
+
+.time-module{
+  font-size: 12px;
+  color: rgba(#000, 0.5)
+}
+ .transactions-history 
+ .table-wrapper{
+  .dataTables_length{
+    display: none;
+  }
+  .status-icon{
+    margin: 0 auto;
+  }
+  .dataTables_wrapper{
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  table{
+    min-width: 760px;
+    td,th{
+      padding-left: 10px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-right: 10px;
+      border-bottom: 1px solid #ebeced;
+      &:first-child{
+        padding-left: 0;
+      }
+      &:last-child{
+        padding-right: 0;
+      }
+    }
+    th{
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(#000, 0.5);
+  
+      text-align: left;
+      padding-top: 0;
+      padding-bottom: 12px;
+      &.text-center{
+        text-align: center;
+      }
+    }
+    td{
+      vertical-align: middle;
+    }
+  }
+}
+
+.status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  color: #ffffff;
+  flex-shrink: 0;
+  @include to(500px){
+   margin-top: 5px;
+   }
+  &_done {
+      background: linear-gradient(0deg, #03b15d, #00e395);
+      box-shadow: 0px 3px 24px rgba(#00e293, 0.47);
+    
+      &:after {
+        content: "";
+        background-image: svg-load("../icons/check.svg", fill=#fff);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 12px;
+        height: 9px;
+        display: block;
+      }
+  }
+
+  &_faild {
+      background: linear-gradient(0deg, #c23442, #ef403c);
+      box-shadow: 0px 3px 24px rgba(#f98a95, 0.47);
+
+      &:after {
+        content: "";
+        background-image: svg-load("../icons/cross-line.svg", fill=#fff);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 10px;
+        height: 10px;
+        display: block;
+      }
+  }
 }
 
 .balance {
@@ -6331,14 +6487,14 @@ sup {
     &__text {
         font-size: 20px;line-height: 1.1;
         font-weight: 500;
-        margin-right: 15px;
+        margin-right: 8px;
      
          @include sm-block(){
           width: calc(100% - 80px);  
           font-size: 17px;
         }
         span:first-child{
-          margin-right: 10px;
+          margin-right: 5px;
         }
         span:last-child {
             text-transform: uppercase;

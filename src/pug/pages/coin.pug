@@ -449,37 +449,87 @@ block content
 
                                             +b.transactions-history
                                               +e.H3.title Transactions history
+                                              
+                                              .table-wrapper
+                                                +e.TABLE.table.js-datatables(data-page-length="5")
+                                                  thead
+                                                    tr
+                                                      th Time 
+                                                      th Swap
+                                                      th Total value
+                                                      th Transaction Hash
+                                                      th Gas price
+                                                      th.text-center Status
+                                                  tbody
+                                                    each val in [1, 2, 3, 4,5,6,7,8,9,10]
+                                                      tr
+                                                        td 
+                                                          .time-module 22/12/21 15:26:33
+                                                        td
+                                                          +b.swap-transactions-info
+                                                            +e.col
+                                                              +e.icon
+                                                                img(src="assets/images/currency/eth.svg", alt="")
+                                                              +e.content
+                                                                p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                                +e.P.value 0,0001 USDT
 
-                                              +e.row
-                                                  +e.list
-                                                    each val in [1, 2, 3, 4]
-                                                      +b.item.transactions-history__item
-                                                          +e.time 22/12/21 15:26:33
-                                                          +e.amount 0.0001 <span>usdt</span>
-                                                          +e.wallets
-                                                              +e.wallet._from
-                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
-                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
-                                                              +e.wallet._to
-                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
-                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                            +e.separator
+
+                                                            +e.col
+                                                              +e.icon
+                                                                img(src="assets/images/currency/eth.svg", alt="")
+                                                              +e.content
+                                                                p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                                +e.P.value 0,0001 USDT
+                                                        td 
+                                                          .amount-price 0,0001 <span>USDT</span>
+                                                        td 
+                                                          .hash-module.js-copy
+                                                            span 23kjbr4h2bh324bh
                                                             
-                                                          +e.status._done
+                                                            .hash-module__copy-button.js-copy-button
+                                                              +icon('copy')
+                                                            input(type="text" value="23kjbr4h2bh324bh").js-copy-input
+                                                        td 
+                                                          .amount-price 0,0001 <span>USDT</span>
+                                                        td
+                                                          if val != 3
+                                                            .status-icon.status-icon_done
+                                                          else
+                                                            .status-icon.status-icon_faild
+
+
+                                              //- +e.row
+                                              //-     +e.list
+                                              //-       each val in [1, 2, 3, 4]
+                                              //-         +b.item.transactions-history__item
+                                              //-             +e.time 22/12/21 15:26:33
+                                              //-             +e.amount 0.0001 <span>usdt</span>
+                                              //-             +e.wallets
+                                              //-                 +e.wallet._from
+                                              //-                     +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                              //-                     p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                              //-                 +e.wallet._to
+                                              //-                     +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                              //-                     p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                                            
+                                              //-             +e.status._done
                                              
-                                                  +e.list
-                                                    each val in [1, 2, 3, 4]
-                                                      +b.item.transactions-history__item
-                                                          +e.time 22/12/21 15:26:33
-                                                          +e.amount 0.0001 <span>usdt</span>
-                                                          +e.wallets
-                                                              +e.wallet._from
-                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
-                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
-                                                              +e.wallet._to
-                                                                  +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
-                                                                  p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                              //-     +e.list
+                                              //-       each val in [1, 2, 3, 4]
+                                              //-         +b.item.transactions-history__item
+                                              //-             +e.time 22/12/21 15:26:33
+                                              //-             +e.amount 0.0001 <span>usdt</span>
+                                              //-             +e.wallets
+                                              //-                 +e.wallet._from
+                                              //-                     +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                              //-                     p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
+                                              //-                 +e.wallet._to
+                                              //-                     +e.IMG.icon(src="assets/images/currency/eth.svg", alt="")
+                                              //-                     p.contract-token 0xa6eb480xa6eb480xa6eb480xa6eb480xa6eb48
                                                             
-                                                          +e.status._faild
+                                              //-             +e.status._faild
 
 
                                             +b.details-text

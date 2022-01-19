@@ -295,10 +295,19 @@ $(document).ready(function () {
 
 
   // Truncate
-  $('.contract-token').each(function () {
-    let val = $(this).text();
-    let valTruncate = truncate(val, 10, "...")
-    $(this).text(valTruncate);
+  function truncateText(){
+    $('.contract-token').each(function () {
+      let val = $(this).text();
+      let valTruncate = truncate(val, 10, "...")
+      $(this).text(valTruncate);
+    })
+  }
+ truncateText()
+
+
+  $('.paginate_button').click(function(){
+    truncateText()
+    copy()
   })
 
   // Tables length < 2 = hide paginate
