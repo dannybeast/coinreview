@@ -6332,13 +6332,20 @@ sup {
   }
 }
 
+.block .upload-photo__content .button:not(.button_small){
+  height: 41px;
+}
+
 .form-block{
   background: #f3f6fd;
   padding: 15px 30px;
   border: 1px solid #cad6f0;
   border-radius: 12px;
   &__title{
-    font-size: 21px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #5082ee;
   }
 }
 
@@ -6348,6 +6355,7 @@ sup {
   position: relative;
   span{
     position: relative;z-index: 2;
+    text-transform: uppercase;font-weight: 500;
   }
   input{
     position: absolute;
@@ -6360,7 +6368,7 @@ sup {
     align-items: center;
     justify-content: center;
     margin-left: 5px;
-    cursor: pointer;   position: relative;z-index: 2;
+    cursor: pointer;   position: relative;z-index: 2;margin-top: -2px;
     svg{
       width: 18px;
       height: 16px;
@@ -6384,8 +6392,10 @@ sup {
   .dataTables_wrapper{
     overflow-x: auto;
     overflow-y: hidden;
-    padding-left: 15px;
+    @include md-block(){
+      padding-left: 15px;
     padding-right: 15px;
+    }
   }
   table{
     min-width: 760px;

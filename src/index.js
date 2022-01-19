@@ -19,6 +19,7 @@ import hideLoader from "./js/modules/loader";
 //-import Accordion from "./js/modules/accordion";
 //-import inputmasks from "./js/modules/inputmasks";
 import sliders from "./js/modules/sliders";
+import datatables from "./js/modules/datatables";
 
 import "./js/modules/inputNumber";
 import "./js/modules/awesome-notifications";
@@ -45,6 +46,7 @@ $(document).ready(function () {
 
   $('.scrollbar-inner').scrollbar();
 
+  datatables();
 
   Fancybox.bind(".js-modal", {
     dragToClose: false,
@@ -305,10 +307,13 @@ $(document).ready(function () {
  truncateText()
 
 
-  $('.paginate_button').click(function(){
-    truncateText()
-    copy()
-  })
+ $('.paginate_button').on('click', function () {
+
+  truncateText()
+  copy()
+})
+
+
 
   // Tables length < 2 = hide paginate
   // $('.dataTables_paginate').each(function () {

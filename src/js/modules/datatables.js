@@ -1,49 +1,26 @@
 import "datatables";
 export default function() {
  // Datatables
- $(".js-datatables").each(function() {
-  let pageLength = +$(this).data("page-length");
-  let ordering = $(this).attr("ordering") ? true : false;
+ var table = $('.js-datatables-front').DataTable({
+  "searching": false
+});
 
-  let table = $(this).DataTable({
-   searching: false,
-   ordering: ordering,
-   pageLength: pageLength,
-   responsive: true,
-  });
-  //Обернуть в span, чтобы кнопки сортировки были расположены красиво
-  $(this)
-   .find("th")
-   .each(function() {
-    $(this).wrapInner("<span></span>");
-   });
-  //Обернуть чтобы был скролл в мобильном
-  $(this).wrap('<div class="table-wrapper"></div>');
+// Styles table
+$('.js-datatables-front').each( function(){
+  var $wrapper = $(this).parents('.table-wrapper');
+  // filter
+  var $filter = $wrapper.find('.table-wrapper__filter');
+  $filter.append($wrapper.find('.dataTables_length'))
+  $filter.append($wrapper.find('.dataTables_filter'))
 
-  $(this).on("draw.dt", function() {
-   if (document.querySelector(".js-sticky-sidebar")) {
-    window.sidebar[0].updateSticky();
-   }
-  });
+  // pagination
+  $wrapper.append('<div class="table-wrapper__footer"></div>')
+  var $footer = $wrapper.find('.table-wrapper__footer');
+  $footer.append($wrapper.find('.dataTables_info'))
+  $footer.append($wrapper.find('.dataTables_paginate'))
+})
 
-  function orderDetailsInfo(d) {
-   return `<div class="table-row-description typography">${d}</div>`;
-  }
 
-  $(".js-datatables tbody").on("click", "td.details-control", function() {
-   //-console.log(table);
-   var tr = $(this).closest("tr");
-   var row = table.row(tr);
 
-   let data = $(this).find('.table-row-description-content').html();
-    //-console.log(data);
-   if (row.child.isShown()) {
-    row.child.hide();
-    tr.removeClass("shown");
-   } else {
-    row.child(orderDetailsInfo(data)).show();
-    tr.addClass("shown");
-   }
-  });
- });
+
 }
