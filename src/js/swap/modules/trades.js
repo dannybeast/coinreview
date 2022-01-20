@@ -15,18 +15,20 @@ export async function getTradeData(firstTokenData, secondTokenData, accountData,
     let realizedLPFeeAmount = 0;
     let amountOutMin = 0;
 
+    const minTolerance = tolerance==='auto' ? 10 : tolerance;
+
     if (firstTokenData.amount > 0 || secondTokenData.amount > 0) {
         if (firstTokenData.amount > 0)
         {
-            trade = await getBestTrade(firstTokenData, secondTokenData, tolerance, signer);
+            trade = await getBestTrade(firstTokenData, secondTokenData, minTolerance, signer);
 
         }
         else
         {
-            const tradeAbort = await getBestTrade(secondTokenData, firstTokenData, tolerance, signer);
+            const tradeAbort = await getBestTrade(secondTokenData, firstTokenData, minTolerance, signer);
             const priceAbort = tradeAbort.executionPrice.toSignificant(18);
             firstTokenData.amount = secondTokenData.amount*priceAbort;
-            trade = await getBestTrade(firstTokenData, secondTokenData, tolerance, signer);
+            trade = await getBestTrade(firstTokenData, secondTokenData, minTolerance, signer);
         }
 
         price = trade.executionPrice.toSignificant(18);
@@ -34,7 +36,8 @@ export async function getTradeData(firstTokenData, secondTokenData, accountData,
         const priceImpact = getPriceImpact(trade);
         priceImpactWithoutFeePercent = priceImpact.priceImpactWithoutFeePercent;
         realizedLPFeeAmount = priceImpact.realizedLPFeeAmount
-        const slippageTolerance = new Percent(JSBI.BigInt(tolerance), JSBI.BigInt(10000));
+
+        const slippageTolerance = new Percent(JSBI.BigInt(minTolerance), JSBI.BigInt(10000));
         amountOutMin = trade.minimumAmountOut(slippageTolerance).raw
 
     }

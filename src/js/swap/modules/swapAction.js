@@ -10,14 +10,23 @@ export async function useSwap(
     tolerance,
     time,
     accountData,
-    speed = '7'
+    speed = '7',
+    slipIncrease = 0
 ) {
 
     const {account} = accountData;
 
     const deadline = Math.floor(Date.now() / 1000) + 60 * time;
 
-    const allowedSlippage = new Percent(JSBI.BigInt(tolerance), JSBI.BigInt(10000));
+    const minSlip = 10+slipIncrease;
+    const maxSlip = 10000;
+    //console.log('tolerance-sended '+tolerance);
+
+    let slipAmount = tolerance==='auto' ? minSlip : tolerance;
+
+    //console.log('tolerance '+slipAmount);
+
+    let allowedSlippage =  new Percent(JSBI.BigInt(slipAmount), JSBI.BigInt(maxSlip));
 
     const gasPrice = parseUnits(speed, 'gwei').toString();
     const swapCalls = useSwapCallArguments(trade, allowedSlippage, accountData, deadline);
@@ -47,6 +56,7 @@ export async function useSwap(
                             return { call, error: new Error('Unexpected issue with estimating the gas. Please try again.') }
                         })
                         .catch((callError) => {
+                            console.log(callError);
                             const reason = callError.reason || callError.data.message || callError.message
                             const errorMessage = `The transaction cannot succeed due to error: ${
                                 reason ?? 'Unknown error, check the logs'
@@ -63,8 +73,19 @@ export async function useSwap(
     )
 
     if (!successfulEstimation) {
+
+
         const errorCalls = estimatedCalls.filter((call) => 'error' in call)
-        if (errorCalls.length > 0) throw errorCalls[errorCalls.length - 1].error
+        if (errorCalls.length > 0)
+        {
+
+            if (tolerance==='auto'&&minSlip<maxSlip)
+            {
+                return await useSwap(trade, tolerance, time, accountData, speed, minSlip);
+            }
+            throw errorCalls[errorCalls.length - 1].error
+
+        }
         throw new Error('Unexpected error. Please contact support: none of the calls threw an error')
     }
 
