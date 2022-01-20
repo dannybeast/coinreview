@@ -6,29 +6,69 @@ import {parseUnits} from './utils'
 const {Percent, JSBI, Router, TradeType} = require("@pancakeswap/sdk");
 
 export async function useSwap(
-    trade,
-    tolerance,
-    time,
+    successfulEstimation,
     accountData,
     speed = '7',
-    slipIncrease = 0
+) {
+    const {account} = accountData;
+    const gasPrice = parseUnits(speed, 'gwei').toString();
+
+    const {
+        call: {
+            contract,
+            parameters: {methodName, args, value},
+        },
+        gasEstimate,
+    } = successfulEstimation;
+
+    return  contract[methodName](...args, {
+        gasLimit: calculateGasMargin(gasEstimate),
+        gasPrice,
+        ...(value && !isZero(value) ? {value, from: account} : {from: account}),
+    })
+        .then((response) => {
+            return response;
+        })
+        .catch((error) => {
+            // if the user rejected the tx, pass this along
+            if (error!==null&&error.code === 4001) {
+                throw 'Transaction rejected.'
+            } else {
+                // otherwise, the error was unexpected and we need to convey that
+                console.error(`Swap failed`, error, methodName, args, value)
+                throw `Swap failed: ${error.message}`
+            }
+        })
+
+}
+
+
+export async function getEstimation(
+    trade,
+    accountData,
+    tolerance,
+    time,
+    speed = '7',
+    is_auto  = false,
+    slipIncrease =0
 ) {
 
-    const {account} = accountData;
 
     const deadline = Math.floor(Date.now() / 1000) + 60 * time;
 
     const minSlip = 10+slipIncrease;
+    const increase = slipIncrease>0 ? minSlip : 50;
     const maxSlip = 10000;
     //console.log('tolerance-sended '+tolerance);
 
-    let slipAmount = tolerance==='auto' ? minSlip : tolerance;
+    let slipAmount = is_auto===true ? minSlip : tolerance;
 
     //console.log('tolerance '+slipAmount);
 
     let allowedSlippage =  new Percent(JSBI.BigInt(slipAmount), JSBI.BigInt(maxSlip));
 
-    const gasPrice = parseUnits(speed, 'gwei').toString();
+    console.log(trade, allowedSlippage, accountData, deadline);
+
     const swapCalls = useSwapCallArguments(trade, allowedSlippage, accountData, deadline);
     console.log(swapCalls);
 
@@ -79,9 +119,9 @@ export async function useSwap(
         if (errorCalls.length > 0)
         {
 
-            if (tolerance==='auto'&&minSlip<maxSlip)
+            if (is_auto===true&&minSlip<maxSlip)
             {
-                return await useSwap(trade, tolerance, time, accountData, speed, minSlip);
+                return await getEstimation(trade,accountData ,tolerance, time, speed,is_auto, increase);
             }
             throw errorCalls[errorCalls.length - 1].error
 
@@ -90,32 +130,9 @@ export async function useSwap(
     }
 
 
-    const {
-        call: {
-            contract,
-            parameters: {methodName, args, value},
-        },
-        gasEstimate,
-    } = successfulEstimation
+    return {successfulEstimation, minSlip}
 
-    return contract[methodName](...args, {
-        gasLimit: calculateGasMargin(gasEstimate),
-        gasPrice,
-        ...(value && !isZero(value) ? {value, from: account} : {from: account}),
-    })
-        .then((response) => {
-            return response
-        })
-        .catch((error) => {
-            // if the user rejected the tx, pass this along
-            if (error!==null&&error.code === 4001) {
-                throw 'Transaction rejected.'
-            } else {
-                // otherwise, the error was unexpected and we need to convey that
-                console.error(`Swap failed`, error, methodName, args, value)
-                throw `Swap failed: ${error.message}`
-            }
-        })
+
 }
 
 

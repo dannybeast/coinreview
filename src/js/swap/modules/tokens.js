@@ -12,10 +12,10 @@ export function tryParseAmount(value, currency) {
     if (!value || !currency) {
         return undefined
     }
-    const amount = value*10**currency.decimals;
+    const amount = parseInt(value*10**currency.decimals);
     try {
 
-        const typedValueParsed = value*10**currency.decimals;
+        const typedValueParsed = parseInt(value*10**currency.decimals);
 
         if (typedValueParsed !== '0') {
             return currency instanceof Token

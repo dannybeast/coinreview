@@ -3,7 +3,7 @@ const {mainnetTokens, tryParseAmount, useCurrency} = require("./tokens");
 const {getPairContract} = require("./contracts");
 
 
-export async function getTradeData(firstTokenData, secondTokenData, accountData, tolerance = 500) {
+export async function getTradeData(firstTokenData, secondTokenData, accountData, tolerance = 500, is_auto=false) {
 
     const {signer, chainId} = accountData;
 
@@ -15,7 +15,7 @@ export async function getTradeData(firstTokenData, secondTokenData, accountData,
     let realizedLPFeeAmount = 0;
     let amountOutMin = 0;
 
-    const minTolerance = tolerance==='auto' ? 10 : tolerance;
+    const minTolerance = is_auto===true ? 10 : tolerance;
 
     if (firstTokenData.amount > 0 || secondTokenData.amount > 0) {
         if (firstTokenData.amount > 0)
