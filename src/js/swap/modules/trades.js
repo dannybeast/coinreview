@@ -133,12 +133,11 @@ async function getBestTrade(firstTokenData, secondTokenData,tolerance, signer)
     // console.log(currencyIn);
     const currencyOut = await useCurrency(secondTokenData.token);
     // console.log(currencyOut);
-    const currencyAmountIn = tryParseAmount(firstTokenData.amount, currencyIn);
-    // console.log(currencyAmountIn);
+    const currencyAmountIn = tryParseAmount(firstTokenData.amount.toString(), currencyIn);
 
     let bestTradeSoFar = null
     for (let i = 1; i <= 3; i++) {
-        const currentTrade = Trade.bestTradeExactIn(allowedPairs,currencyAmountIn, currencyOut,  { maxHops: i, maxNumResults: 1 })[0] ?? null;
+        let currentTrade = Trade.bestTradeExactIn(allowedPairs,currencyAmountIn, currencyOut,  { maxHops: i, maxNumResults: 1 })[0] ?? null;
         if (isTradeBetter(bestTradeSoFar, currentTrade,
             new Percent(JSBI.BigInt(50), JSBI.BigInt(10000))
         )) {
