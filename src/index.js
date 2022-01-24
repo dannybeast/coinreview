@@ -77,6 +77,7 @@ $(document).ready(function () {
   // timer
   window.setTimer();
 
+  window.copy = copy;
 
   copy()
 
