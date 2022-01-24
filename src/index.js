@@ -298,13 +298,14 @@ $(document).ready(function () {
 
 
   // Truncate
-  function truncateText(){
+  const truncateText = () =>{
     $('.contract-token').each(function () {
       let val = $(this).text();
       let valTruncate = truncate(val, 10, "...")
       $(this).text(valTruncate);
     })
   }
+  window.truncateText = truncateText;
  truncateText()
 
 
