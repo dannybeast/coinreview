@@ -57,3 +57,6 @@ async function setTokens(){
 }
 
 setTokens()
+
+
+window.truncate = truncate

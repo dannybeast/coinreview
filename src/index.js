@@ -42,6 +42,18 @@ import "./js/modules/timer";
 //import "./js/modules/timer";
 
 
+
+
+  // Truncate
+const truncateText = () =>{
+  $('.contract-token').each(function () {
+    let val = $(this).text();
+    let valTruncate = truncate(val, 10, "...")
+    $(this).text(valTruncate);
+  })
+}
+window.truncateText = truncateText;
+
 $(document).ready(function () {
 
   $('.scrollbar-inner').scrollbar();
@@ -297,15 +309,7 @@ $(document).ready(function () {
 
 
 
-  // Truncate
-  const truncateText = () =>{
-    $('.contract-token').each(function () {
-      let val = $(this).text();
-      let valTruncate = truncate(val, 10, "...")
-      $(this).text(valTruncate);
-    })
-  }
-  window.truncateText = truncateText;
+
  truncateText()
 
 

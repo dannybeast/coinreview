@@ -6143,8 +6143,12 @@ sup {
 }
 
 .transactions-history {
-    margin-top: 25px;
 
+  .table-wrapper{
+    th{
+      white-space: nowrap;
+    }
+  }
   &__row{
     display: flex;
     justify-content: space-between;
@@ -6175,6 +6179,7 @@ sup {
     }
     .contract-token{
       white-space:nowrap;
+      width: 68px;
     }
     &__item {
         display: flex;
@@ -6274,6 +6279,9 @@ sup {
   span{
     color:#85868a;
   }
+  &_small{
+    font-size: 0.8em;
+  }
 }
 
 .swap-transactions-info{
@@ -6288,10 +6296,14 @@ sup {
     color: #6190f6;
     font-size: 10px;
     font-weight: 600;
+    white-space: nowrap;
   }
 
   &__icon{
     flex-shrink: 0;
+    width: 25px;height: 25px;
+    overflow: hidden;
+    border-radius: 50%;
     &:first-child{
       margin-right: 10px;
     }
@@ -6302,6 +6314,7 @@ sup {
   }
   &__col{
     display: flex;
+    width: 115px;
     &:last-child{
       .swap-transactions-info__icon{
         order:2;margin-left: 10px;margin-right: 0;
