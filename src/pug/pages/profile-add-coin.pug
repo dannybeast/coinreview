@@ -44,7 +44,25 @@ block content
                     img(src="https://dummyimage.com/187x187/4f6aff/4f6aff", alt="")
                   img(src="assets/images/add.png", alt="")
 
-
+            .row 
+              .col-6
+                +b.field 
+                  label Multiselect styled
+                  +b.LABEL
+                    select(name="multiselect" placeholder="Choose select" multiple).js-select
+                      option(value="1") 1
+                      option(value="2") Text
+                      option(value="3") Listings page
+                      option(value="4") 4
+              .col-6
+                +b.field 
+                  label Select styled
+                  +b.LABEL
+                    select(name="selectStyled" placeholder="Choose select").js-select
+                      option(value="1") 1
+                      option(value="2") 2
+                      option(value="3") 3
+                      option(value="4") 4
             .row 
               .col-2
                 +b.fields-group(class="_symbol")
